@@ -1,0 +1,213 @@
+{
+  "release": "CLUSE-Test-EvoEval-Fixed-Clusters-High-Effort-Correctness-Fairness-Pass",
+  "dataset": "EvoEval semantic 500 (pre-built; no build step included in this release)",
+  "cluster_lifecycle": "single initial partition reused across layers",
+  "stopping_criterion": "shared plateau-based stopping (default: stop after 1 consecutive zero-new-kill attempt), applied identically to Layer 1/2/3 and the iterative baseline",
+  "output_tiering": "report/ (curated) + raw/ (full diagnostic trace); raw/llm_responses/ gated by VERBOSE_ARTIFACTS (default off)",
+  "openai_reasoning_effort": "high",
+  "project_output_token_ceiling": null,
+  "notebook": "notebooks/cluse_evoeval_kaggle.ipynb",
+  "validated_tests": 13,
+  "files": [
+    {
+      "path": "CHANGES.md",
+      "bytes": 7224,
+      "sha256": "e5f7af1216665ed01d297ea8e6cac23cb0285f8784676c72b0de0dd6359d56ed"
+    },
+    {
+      "path": "KAGGLE_QUICKSTART.md",
+      "bytes": 6750,
+      "sha256": "fe766ff235db1a8165784f10095fb8a08d2c4566c7c95223e95fc7aefe44a1da"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6388,
+      "sha256": "05ecb97baf34321c1bd65178b5e55927575dc180abee8d1f6c81b97384802f4a"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 6983,
+      "sha256": "d17d0e9a0109b379fc03c9a50458aaaf8ab89eded06e3dd618d12d451616a131"
+    },
+    {
+      "path": "data/EVOEVAL_DATASET.md",
+      "bytes": 2451,
+      "sha256": "e6dc955953f2e8d418a82119b1673607f321c0c6d4e225f69cb3b5f9251285d1"
+    },
+    {
+      "path": "notebooks/cluse_evoeval_kaggle.ipynb",
+      "bytes": 20627,
+      "sha256": "d7df612ef5084de072d8fbe6f25634eb8e44dda65ca58288322823bf59e97ff1"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 264,
+      "sha256": "9933cd2846e50d2956b7a721636d8d0ca9f50eca1d35199d76b20fa2d72c3b24"
+    },
+    {
+      "path": "run_pipeline.py",
+      "bytes": 15205,
+      "sha256": "5b8312c87ea758650c8634c2bc78f2f139a66d231186c9ec65f801f9bbab1ac6"
+    },
+    {
+      "path": "scripts/kaggle_run.py",
+      "bytes": 6670,
+      "sha256": "b0f0df7d7fd17f12c1df043d81bed209c9789dd7d7a0a49a06727f47df93e596"
+    },
+    {
+      "path": "scripts/merge_shards.py",
+      "bytes": 8724,
+      "sha256": "fa334d3b9ffe521ee1f501c02621cf84336a2fed24dd02177772bb6998a92cb5"
+    },
+    {
+      "path": "scripts/package_results.py",
+      "bytes": 560,
+      "sha256": "a285d185a04e11c127226a552057d9ef9fa7398bf09584bf0b1607c60d2779b2"
+    },
+    {
+      "path": "scripts/run_10pct_then_full.sh",
+      "bytes": 1679,
+      "sha256": "56e7b9e5744e8278d5401c875dbc164b5aeefa08bac8cf59728fe76510687275"
+    },
+    {
+      "path": "src/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/baselines/__init__.py",
+      "bytes": 53,
+      "sha256": "3d30b41af689d216fbc3a4b461934167501a18743ff3a4c98c775ca45e0e1433"
+    },
+    {
+      "path": "src/baselines/iterative_mutant_baseline.py",
+      "bytes": 16632,
+      "sha256": "d2656de7e9ce799123add450503dcc3f1ef909a34989be5ecdf1e62d6b4a917b"
+    },
+    {
+      "path": "src/clustering/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/clustering/cluster_mutants.py",
+      "bytes": 5398,
+      "sha256": "d8d8b8bf1a8df35499b3ab96e3495c751676edd37750d9f9379c527b50824412"
+    },
+    {
+      "path": "src/clustering/representative_selector.py",
+      "bytes": 5378,
+      "sha256": "7d99fc24353f2d289c371048c27d0d97ec9c0e541e365c7730fa200b86a5e7bf"
+    },
+    {
+      "path": "src/evaluation/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/evaluation/benchmark_comparator.py",
+      "bytes": 5838,
+      "sha256": "1f86fe832c269871c07368155cb72228ebff9d1df6384eb0892c19180eeabe2e"
+    },
+    {
+      "path": "src/evaluation/statistical_analysis.py",
+      "bytes": 49162,
+      "sha256": "449e494b0c053709c1868e4d22e504885cc366857f70ea075b2678f64e5fe091"
+    },
+    {
+      "path": "src/layers/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/layers/common.py",
+      "bytes": 17081,
+      "sha256": "407022f61d0daa647bee44ee3b7116c1cbe561eaac5a0c8ca89b1d21d0515873"
+    },
+    {
+      "path": "src/layers/layer1_generator.py",
+      "bytes": 15426,
+      "sha256": "10bab45a115e1ca2190e717c4dc8a7d10b5f682a09404679476da08808ce68bd"
+    },
+    {
+      "path": "src/layers/layer2_refiner.py",
+      "bytes": 15371,
+      "sha256": "e9c18d22e02efcfea0a8b686b6e0a8565370cf6ec623cd17af8eb3094f6d6356"
+    },
+    {
+      "path": "src/layers/layer3_frontier.py",
+      "bytes": 14660,
+      "sha256": "80202ad38cbc40d774e6f391220962c52c5b29c1731522fe223862e162f2fa00"
+    },
+    {
+      "path": "src/llm/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/llm/llm_client.py",
+      "bytes": 25338,
+      "sha256": "5e1c2ecc5f2f2f62fb85fb5b1e16e840159fb110e7c81fdcde9eeb5a40a7afdb"
+    },
+    {
+      "path": "src/llm/prompt_builder.py",
+      "bytes": 47908,
+      "sha256": "76f40e11cdfe3ed8973cbcb16a86e1943c82ac630bf56965ae83ad5e53bd8006"
+    },
+    {
+      "path": "src/mutation/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/mutation/mutation_engine.py",
+      "bytes": 30992,
+      "sha256": "9f679e5a4e69e6e11acd15cc70c11bf78719bf61d6058c0bc128c9a70a120b4e"
+    },
+    {
+      "path": "src/pipeline.py",
+      "bytes": 38922,
+      "sha256": "75163d9a21ad18ac56c8bfe51bd65b8ffe760dea6dc6b8d5193143042153baf4"
+    },
+    {
+      "path": "src/utils/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/utils/config.py",
+      "bytes": 15289,
+      "sha256": "241a656abcd75f1ce02b14c0a6ed4810a0fb7339b1d53a2778e7b2958cbbde38"
+    },
+    {
+      "path": "src/utils/dataset_loader.py",
+      "bytes": 20701,
+      "sha256": "ec95ad490a4c0d818a871416e04e62c348364162bdec9239231f11872bd4d945"
+    },
+    {
+      "path": "src/utils/humaneval_loader.py",
+      "bytes": 503,
+      "sha256": "ab632a561ccb9f8070f0a7015986c5eb62207d7ed0b9fe07e4e8349b4c36f130"
+    },
+    {
+      "path": "src/utils/logger.py",
+      "bytes": 2151,
+      "sha256": "37d80035d8e3de2ca3e53c962f7791d6873c67da8d0dc4d0cb037b86ddaf4a43"
+    },
+    {
+      "path": "src/utils/metrics.py",
+      "bytes": 15055,
+      "sha256": "e392eebc043cde85cbea1456b7469b9e500f0e14b29ade424b44703b8456adb7"
+    },
+    {
+      "path": "src/utils/probes.py",
+      "bytes": 9816,
+      "sha256": "206723562262facafd525ed431618aa266ff846950ef983ee0cbf54fb278519f"
+    },
+    {
+      "path": "tests/test_refactor.py",
+      "bytes": 13882,
+      "sha256": "a4935bd0631ba769ac8e74ed86946f3bdec321927d7a5f1bcb2209a7358eb2d0"
+    }
+  ]
+}
