@@ -162,8 +162,7 @@ def _compact_handoff_block(handoff: Optional[Dict], max_attempts_shown: int = 3,
         )
 
     attempts = handoff.get("attempts", [])
-    shown = [a for a in attempts if a.get("status") in (
-        "PRODUCTIVE", "VALID_ZERO_KILL", "REJECTED")][-max_attempts_shown:]
+    shown = [a for a in attempts if a.get("status") in ("PRODUCTIVE", "VALID_ZERO_KILL", "REJECTED")][-max_attempts_shown:]
     for a in shown:
         calls = _fmt_call_list(a.get("candidate_calls", []))
         lines.append(
@@ -174,8 +173,7 @@ def _compact_handoff_block(handoff: Optional[Dict], max_attempts_shown: int = 3,
     surviving_count = handoff.get("surviving_count", 0)
     op_counts = handoff.get("surviving_operator_counts", {})
     op_str = ", ".join(f"{op}:{n}" for op, n in op_counts.items()) or "none"
-    lines.append(
-        f"{surviving_count} mutant(s) still surviving overall ({op_str}).")
+    lines.append(f"{surviving_count} mutant(s) still surviving overall ({op_str}).")
 
     sample = handoff.get("survivor_sample", [])[:max_sample_shown]
     if sample:
@@ -423,10 +421,8 @@ def _target_dossier(
             original_source, mutant)
         payload["original_code"] = original_code
         payload["mutated_code"] = mutated_code
-    payload["probe_evidence"] = _probe_evidence(
-        mutant, probe_exprs, probe_outcomes)
-    payload["equivalence_status"] = getattr(
-        mutant, "equivalence_status", "UNKNOWN")
+    payload["probe_evidence"] = _probe_evidence(mutant, probe_exprs, probe_outcomes)
+    payload["equivalence_status"] = getattr(mutant, "equivalence_status", "UNKNOWN")
     reason = getattr(mutant, "equivalence_reason", "")
     if reason or not compact:
         payload["equivalence_reason"] = reason
@@ -600,6 +596,78 @@ def _probe_oracles(
 # ---------------------------------------------------------------------------
 # Layer 1: local lightweight generation
 # ---------------------------------------------------------------------------
+#
+# Layer 1 runs on the smallest, free-tier model in the pipeline (a
+# 1.5B-3B local model). The full <role>/<rules>/<reasoning_steps>/
+# <good_example>/<bad_example> scaffold used by Layer 2/3 does not suit it:
+# a model this size loses rule compliance past ~5-6 items, does not reliably
+# generalize from synthetic worked examples, and has weak long-range
+# attention, so evidence placed early in a long prompt gets under-weighted
+# relative to whatever sits closest to where generation starts. This build
+# function therefore uses a deliberately compact, closed-form template
+# instead of the shared rule/example scaffold above:
+#
+#   * One rule category, numbered <=4, instead of a long rule list.
+#   * No worked good/bad examples -- the VERIFIED PAIRS block below *is*
+#     the example, and it is real task-specific ground truth rather than a
+#     synthetic analogy the model has to generalize from.
+#   * Oracle values are rendered as plain `expr -> value` lines, not JSON --
+#     cheaper to parse and easier for a small model to copy verbatim.
+#   * The oracle block sits last, immediately before the output cue, to
+#     exploit recency: what's closest to generation start gets the most
+#     attention from a small model.
+#   * The model may assert ONLY on inputs that already have a verified
+#     oracle value -- it is never asked to derive or guess an expected
+#     output from the specification. That whole failure surface
+#     (miscomputing what the canonical implementation "should" return) is
+#     removed by construction, not merely ruled against; whatever mistakes
+#     still slip through are expected to be caught downstream by the
+#     harness's own oracle-reconciliation check rather than prevented here
+#     by asking a 1.5B-3B model to reason its way to precision.
+
+def _render_verified_pairs(
+    probe_exprs: Sequence[str],
+    probe_outcomes: Optional[Sequence[Sequence[str]]],
+) -> str:
+    """Compact ``expr -> value`` lines for every probe with a known
+    canonical value. A probe with no recorded value is omitted entirely --
+    it would otherwise be a line the model has nothing legitimate to assert
+    against, and the whole point of this template is that every assertion
+    traces back to a line actually present here.
+    """
+    lines: List[str] = []
+    for index, expr in enumerate(probe_exprs):
+        if not probe_outcomes or index >= len(probe_outcomes):
+            continue
+        outcome = list(probe_outcomes[index])
+        if len(outcome) > 1 and outcome[1] not in (None, ""):
+            lines.append(f"{expr} -> {outcome[1]}")
+    return "\n".join(lines) if lines else "(no verified pairs available for this batch)"
+
+
+def _render_mutant_diffs(targets: Sequence[Mutant], original_source: str) -> str:
+    """One numbered ``original -> mutated`` line per target. Multi-statement
+    mutations keep their full removed/added text as one list entry (via
+    ``_changed_statement_pair``) rather than being reduced to a single
+    line -- just rendered less densely than a unified diff, to match the
+    compact template's format.
+    """
+    lines: List[str] = []
+    for index, mutant in enumerate(targets, start=1):
+        original_code, mutated_code = _changed_statement_pair(
+            original_source, mutant)
+        original_code = original_code or "(n/a)"
+        mutated_code = mutated_code or "(n/a)"
+        lines.append(f"[{index}] {original_code} -> {mutated_code}")
+    return "\n".join(lines)
+
+
+_LAYER1_COMPACT_RULES = """RULES:
+1. Only use inputs listed above in VERIFIED PAIRS -- never invent an expected value.
+2. Copy each expected value character-for-character (case, spacing, punctuation) from the pair above.
+3. One assert per verified pair you use. No other assertions.
+4. No comments, no prints, no markdown fences -- output only the function."""
+
 
 def build_layer1_batch_prompt(
     *,
@@ -614,122 +682,48 @@ def build_layer1_batch_prompt(
     feedback: Optional[Dict] = None,
     task_metadata: Optional[Dict] = None,
 ) -> str:
-    task_header = _task_header(
-        prompt_text=prompt_text, entry_point=entry_point, task_metadata=task_metadata)
+    """Build the compact Layer 1 prompt.
+
+    ``prompt_text``, ``cluster_contexts``, and ``task_metadata`` are kept as
+    parameters for call-site compatibility with the rest of the pipeline
+    (Layer 2/3 and the baseline still use them) but are deliberately not
+    rendered here: since this template restricts Layer 1 to asserting only
+    against already-verified oracle values, the natural-language spec and
+    cluster bookkeeping are not needed for the model to do its narrower job.
+    See the section comment above for the full rationale.
+    """
     full_source = compact_source(source_code, entry_point)
-    dossiers = _dossiers(targets, source_code, probe_exprs,
-                         cluster_contexts, probe_outcomes)
-    probe_oracle_json = _probe_oracles(probe_exprs, probe_outcomes)
-    feedback_json = json.dumps(
-        feedback or {"status": "INITIAL_ATTEMPT"}, indent=2)
+    verified_pairs = _render_verified_pairs(probe_exprs, probe_outcomes)
+    mutant_diffs = _render_mutant_diffs(targets, source_code)
 
-    rules = _render_rules(_BASE_RULES + [
-        "Prefer testing several compatible targets in one function, but only "
-        "when you are equally confident about every target you include. Do "
-        "not add a low-confidence target just to increase coverage -- a "
-        "wrong assumption on one target can invalidate the entire function "
-        "against the canonical-pass requirement below.",
-        "The complete function must pass when `candidate` is the canonical "
-        "implementation. This is non-negotiable regardless of how many "
-        "targets you include.",
-    ] + _SHARED_TAIL_RULES + [
-        "Do not repeat an input/assertion combination explicitly marked as "
-        "already attempted and failed in <attempt_context>. Correct the "
-        "specific failure instead of reproducing it.",
-        _OUTPUT_FORMAT_RULE,
-    ])
+    previous_attempt_line = ""
+    if feedback and feedback.get("status") not in (None, "INITIAL_ATTEMPT"):
+        # Kept to one compact line rather than a JSON dump -- enough for a
+        # retry to know what not to repeat without spending the token
+        # budget this template is built to avoid.
+        summary = feedback.get("summary") or feedback.get(
+            "reason") or json.dumps(feedback, separators=(",", ":"))
+        previous_attempt_line = (
+            f"\nPREVIOUS ATTEMPT #{attempt - 1} (do not repeat this): {summary}\n"
+        )
 
-    return f"""<role>
-You are a mutation-guided unit-test generator in
-Claus-Test. you are most capable, llm to gererate the most efficient test case. Return
-exactly one Python test function.
-</role>
+    return f"""TASK: Write one Python function `def check(candidate):` that tests `candidate`.
+{previous_attempt_line}
+SIGNATURE: {entry_point}
 
-<objective>
-Write a test that:
-1. Passes on the canonical implementation.
-2. Kills as many of the currently surviving mutant representatives below as
-   you can, using real evidence rather than assumption.
-</objective>
-
-<task_information>
-{task_header}
-</task_information>
-
-<canonical_implementation>
-```python
+SOURCE:
 {full_source}
-```
-</canonical_implementation>
 
-<canonical_probe_oracles>
-These are trusted, verified outputs of the canonical implementation. Treat
-every value here as ground truth. Do not contradict them.
+VERIFIED INPUT->OUTPUT PAIRS (copy these values EXACTLY, do not retype from memory):
+{verified_pairs}
 
-{probe_oracle_json}
-</canonical_probe_oracles>
+MUTANT DIFFS TO DISTINGUISH (pick ONE input per diff that changes behavior):
+{mutant_diffs}
 
-<attempt_context>
-Attempt number: {attempt}
-Previous-attempt feedback:
-{feedback_json}
-</attempt_context>
+{_LAYER1_COMPACT_RULES}
 
-<targets>
-The initial cluster partition is fixed and reused across every layer. Each
-record below is either the original cluster representative or the most
-informative surviving member of that same cluster.
-
-{dossiers}
-</targets>
-
-<rules>
-{rules}
-</rules>
-
-<reasoning_steps>
-Work through these silently before writing any code. Do not show this
-reasoning in your output -- only the final function.
-1. For each target, read `original_code` vs `mutated_code` and state to
-   yourself, precisely, what single input property would make the two diverge.
-2. Check whether a `<canonical_probe_oracles>` entry already covers an input
-   with that property. If yes, reuse its value as ground truth.
-3. If no oracle covers it, derive the expected canonical output only from the
-   specification's stated behavior -- never invent one.
-4. Decide, per target, whether you are confident enough to include it. Drop
-   targets you are not confident about rather than guessing.
-5. Draft assertions and check each one individually: does this assertion's
-   truth value depend on candidate's actual return? If not, discard or
-   rewrite it.
-6. Re-read the full function once against every rule in <rules> before
-   finalizing.
-</reasoning_steps>
-
-<good_example>
-# Target: mutated a boundary check from `n < 0` to `n <= 0`.
-# Spec says the function should treat 0 as valid, non-negative input.
-def check(candidate):
-    assert candidate(0) == expected_result_for_zero  # value taken from a probe oracle or spec
-    assert candidate(-1) == expected_result_for_negative_input
-</good_example>
-<why_good>
-Both assertions depend on candidate's actual return value, and 0 is exactly
-the boundary the mutation altered -- it distinguishes canonical from mutant.
-</why_good>
-
-<bad_example>
-def check(candidate):
-    result = candidate(5)
-    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous
-    assert 1 == 1  # does not depend on candidate at all -- vacuous
-</bad_example>
-<why_bad>
-Neither assertion can ever fail against a mutant that returns any integer at
-all, let alone the mutants targeted here. This test would be accepted by a
-harness that only checks for uncaught exceptions, but it exercises nothing.
-</why_bad>
-
-{_OUTPUT_CONTRACT_BLOCK}"""
+OUTPUT (nothing else):
+def check(candidate):"""
 
 
 # ---------------------------------------------------------------------------
@@ -767,9 +761,7 @@ def build_layer2_batch_prompt(
     ])
 
     return f"""<role>
-you are most capable, most expensive
-stage, reserved for mutants two cheaper layers could not resolve. Return
-exactly one Python test function. previous requests already ran and failed to
+Layer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to
 kill the targets below -- same fixed initial clusters, live members only.
 Return exactly one additional Python test function.
 </role>
@@ -854,7 +846,7 @@ def build_layer3_batch_prompt(
     ])
 
     return f"""<role>
-you are most capable, most expensive
+Layer 3 (final escalation) in Claus-Test -- most capable, most expensive
 stage, reserved for mutants two cheaper layers could not resolve. Return
 exactly one Python test function.
 </role>
@@ -1017,7 +1009,9 @@ def build_iterative_baseline_prompt(
     ])
 
     return f"""<role>
-You are the iterative full-mutant baseline generator. You return exactly one additional Python
+You are the iterative full-mutant baseline generator. No clustering or
+representative compression is used -- every currently surviving mutant is
+presented to you independently. You return exactly one additional Python
 test function.
 </role>
 

@@ -247,6 +247,111 @@ def build_failure_context(
     }
 
 
+def _oracle_value_map(
+    probe_exprs: Sequence[str],
+    probe_outcomes: Optional[Sequence[Sequence[str]]],
+) -> Dict[str, ast.AST]:
+    """Map ``repr(call_args_tuple) -> AST literal node`` for every probe whose
+    canonical outcome was a clean, verified ``VALUE`` (never an error or
+    timeout, which cannot be encoded as an ``==`` literal)."""
+    mapping: Dict[str, ast.AST] = {}
+    if not probe_exprs or not probe_outcomes:
+        return mapping
+    for expr, outcome in zip(probe_exprs, probe_outcomes):
+        outcome = list(outcome or [])
+        if len(outcome) < 2 or outcome[0] != "VALUE" or not outcome[1]:
+            continue
+        match = re.match(r"^\s*candidate\((.*)\)\s*$", expr.strip(), re.S)
+        if not match:
+            continue
+        try:
+            args_key = repr(ast.literal_eval(f"({match.group(1)},)"))
+            oracle_node = ast.parse(str(outcome[1]), mode="eval").body
+        except Exception:
+            continue
+        mapping[args_key] = oracle_node
+    return mapping
+
+
+def _call_args_key(call: ast.Call) -> Optional[str]:
+    if not isinstance(call.func, ast.Name) or call.func.id != "candidate" or call.keywords:
+        return None
+    try:
+        return repr(ast.literal_eval(ast.Expression(body=ast.Tuple(elts=list(call.args), ctx=ast.Load()))))
+    except Exception:
+        return None
+
+
+def reconcile_literal_oracle_assertions(
+    test_code: str,
+    probe_exprs: Sequence[str],
+    probe_outcomes: Optional[Sequence[Sequence[str]]],
+) -> str:
+    """Rewrite ``assert candidate(<args>) == <literal>`` (either operand
+    order, and through a simple local ``result = candidate(<args>)``
+    assignment) so the literal side exactly matches the verified canonical
+    output, whenever ``<args>`` matches a ``<canonical_probe_oracles>`` entry.
+
+    Small/cheap models are prone to hallucinating a *plausible-looking* but
+    wrong literal (wrong case, punctuation, or wording) even when the exact
+    correct value was handed to them verbatim in the oracle block -- this is
+    the dominant real-world rejection cause for Layer 1's local model, not a
+    bug in the sanity-check gate itself. Rather than relying only on prompt
+    instructions to stop that, this removes the need for the model to
+    reproduce the literal by hand for any input we already have verified
+    ground truth for. It never invents a value: only literals whose call
+    arguments exactly match a probe actually executed against the canonical
+    implementation are substituted, and only in place of another literal
+    (never a variable or expression), so this can only fix a wrong constant,
+    never change the test's logic or which inputs it exercises.
+    """
+    oracle_map = _oracle_value_map(probe_exprs, probe_outcomes)
+    if not oracle_map or not test_code.strip():
+        return test_code
+    try:
+        tree = ast.parse(test_code)
+    except SyntaxError:
+        return test_code
+
+    changed = False
+    for func in tree.body:
+        if not (isinstance(func, (ast.FunctionDef, ast.AsyncFunctionDef)) and func.name == "check"):
+            continue
+        local_calls: Dict[str, str] = {}
+        for stmt in ast.walk(func):
+            if isinstance(stmt, ast.Assign) and isinstance(stmt.value, ast.Call) and len(stmt.targets) == 1 and isinstance(stmt.targets[0], ast.Name):
+                key = _call_args_key(stmt.value)
+                if key is not None:
+                    local_calls[stmt.targets[0].id] = key
+            if not (isinstance(stmt, ast.Assert) and isinstance(stmt.test, ast.Compare)
+                    and len(stmt.test.ops) == 1 and isinstance(stmt.test.ops[0], ast.Eq)):
+                continue
+            left, right = stmt.test.left, stmt.test.comparators[0]
+            for call_side, literal_side, call_is_left in ((left, right, True), (right, left, False)):
+                key = None
+                if isinstance(call_side, ast.Call):
+                    key = _call_args_key(call_side)
+                elif isinstance(call_side, ast.Name) and call_side.id in local_calls:
+                    key = local_calls[call_side.id]
+                if key is None or key not in oracle_map:
+                    continue
+                if not isinstance(literal_side, (ast.Constant, ast.List, ast.Tuple, ast.Dict, ast.Set, ast.UnaryOp)):
+                    continue
+                if call_is_left:
+                    stmt.test.comparators[0] = oracle_map[key]
+                else:
+                    stmt.test.left = oracle_map[key]
+                changed = True
+                break
+
+    if not changed:
+        return test_code
+    try:
+        return ast.unparse(tree)
+    except Exception:
+        return test_code
+
+
 def evaluate_single_generated_test(
     test_code: str,
     correct_source: str,

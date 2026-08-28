@@ -18,6 +18,7 @@ from src.layers.common import (
     extract_check_function,
     flatten_stacks,
     mutant_copies,
+    reconcile_literal_oracle_assertions,
     summarize_generated_test,
     validation_failure_category,
 )
@@ -73,7 +74,8 @@ class Layer1Generator:
         evaluation_time = 0.0
         representatives = flatten_stacks(stacks)
 
-        prior_eval = run_suite_against_mutants(prior_tests, mutant_copies(all_mutants), self.entry_point) if prior_tests else []
+        prior_eval = run_suite_against_mutants(prior_tests, mutant_copies(
+            all_mutants), self.entry_point) if prior_tests else []
         prior_killed_ids = {m.mutant_id for m in prior_eval if m.is_killed}
         cumulative_killed_ids = set(prior_killed_ids)
         new_tests: List[str] = []
@@ -83,26 +85,31 @@ class Layer1Generator:
         prompt_chars = response_chars = 0
         estimated_cost = 0.0
         accepted_calls = productive_calls = invalid_calls = zero_kill_calls = 0
-        feedback: Dict = {"note": "Generate one joint test for all representative clusters."}
+        feedback: Dict = {
+            "note": "Generate one joint test for all representative clusters."}
 
         max_attempts = max(1, config.LAYER1_MAX_REFINEMENT)
-        plateau = PlateauTracker(patience=config.LAYER1_PLATEAU_PATIENCE, enabled=config.LAYER1_STOP_ON_PLATEAU)
+        plateau = PlateauTracker(
+            patience=config.LAYER1_PLATEAU_PATIENCE, enabled=config.LAYER1_STOP_ON_PLATEAU)
         stop_reason = "budget_exhausted"
         last_target_ids: List[str] = []
         for attempt in range(1, max_attempts + 1):
-            active = [m for m in all_mutants if m.mutant_id not in cumulative_killed_ids]
+            active = [
+                m for m in all_mutants if m.mutant_id not in cumulative_killed_ids]
             if not active:
                 stop_reason = "zero_survivors"
                 break
             if config.SKIP_LAYER_WHEN_ALL_PROBABLE_EQUIVALENT and all_probable_equivalent(active):
                 stop_reason = "all_remaining_probable_equivalent"
-                log.debug("[Layer 1] %s: skipping remaining attempts, all %d survivors flagged PROBABLE_EQUIVALENT", self.problem_id, len(active))
+                log.debug("[Layer 1] %s: skipping remaining attempts, all %d survivors flagged PROBABLE_EQUIVALENT",
+                          self.problem_id, len(active))
                 break
             targets = choose_dynamic_targets(stacks, active)
             if not targets:
                 targets = sorted(
                     active,
-                    key=lambda m: (float(m.information_score or 0.0), float(m.centrality or 0.0)),
+                    key=lambda m: (float(m.information_score or 0.0),
+                                   float(m.centrality or 0.0)),
                     reverse=True,
                 )[: min(config.MAX_CLUSTERS, len(active))]
             last_target_ids = [m.mutant_id for m in targets]
@@ -134,7 +141,8 @@ class Layer1Generator:
             )
             prompt_chars += len(prompt)
             if config.LOG_FULL_LLM_IO and config.should_trace_problem(self.problem_id):
-                log.info("[Layer 1 Batch Prompt] %s | attempt=%d | targets=%d\n%s", self.problem_id, attempt, len(targets), prompt)
+                log.info("[Layer 1 Batch Prompt] %s | attempt=%d | targets=%d\n%s",
+                         self.problem_id, attempt, len(targets), prompt)
 
             try:
                 t0 = time.time()
@@ -159,9 +167,21 @@ class Layer1Generator:
                 estimated_cost += response.estimated_cost_usd
 
                 if config.LOG_FULL_LLM_IO and config.should_trace_problem(self.problem_id):
-                    log.info("[Layer 1 Batch Response] %s | attempt=%d | model=%s\n%s", self.problem_id, attempt, response.model, response.text)
+                    log.info("[Layer 1 Batch Response] %s | attempt=%d | model=%s\n%s",
+                             self.problem_id, attempt, response.model, response.text)
 
                 test_code = extract_check_function(response.text)
+                # Layer-1-only fix: the local model frequently hallucinates the
+                # exact literal it should be copying from <canonical_probe_oracles>
+                # (wrong case/punctuation/spacing) even though the verified value
+                # was handed to it verbatim in the prompt. Rather than relying on
+                # prompt compliance alone, silently correct any assertion whose
+                # `candidate(...)` input exactly matches an already-verified probe
+                # -- this never invents a value, it only fixes a wrong constant for
+                # an input we already know the true canonical answer to. Layer 2,
+                # Layer 3, and the baseline are intentionally left untouched.
+                test_code = reconcile_literal_oracle_assertions(
+                    test_code, self.probe_exprs, self.probe_outcomes)
                 call_record.extracted_test = test_code
                 response_summary = summarize_generated_test(test_code)
                 t0 = time.time()
@@ -176,7 +196,8 @@ class Layer1Generator:
                 new_killed_ids = set(killed_ids) - cumulative_killed_ids
                 target_ids = {m.mutant_id for m in targets}
                 target_kills = len(new_killed_ids & target_ids)
-                passed_original = ok or err.startswith("valid but unproductive")
+                passed_original = ok or err.startswith(
+                    "valid but unproductive")
 
                 call_record.passed_on_original = passed_original
                 call_record.killed_mutants = killed_once
@@ -201,7 +222,8 @@ class Layer1Generator:
                     call_record.error = err
 
                 call_record.cumulative_kills = len(cumulative_killed_ids)
-                call_record.cumulative_score = len(cumulative_killed_ids) / len(all_mutants) if all_mutants else 0.0
+                call_record.cumulative_score = len(
+                    cumulative_killed_ids) / len(all_mutants) if all_mutants else 0.0
                 attempt_row = {
                     "attempt": attempt,
                     "target_count": len(targets),
@@ -227,7 +249,8 @@ class Layer1Generator:
                 call_record.error = f"{type(exc).__name__}: {exc!r}"
                 call_record.validation_reason = call_record.error
                 call_record.cumulative_kills = len(cumulative_killed_ids)
-                call_record.cumulative_score = len(cumulative_killed_ids) / len(all_mutants) if all_mutants else 0.0
+                call_record.cumulative_score = len(
+                    cumulative_killed_ids) / len(all_mutants) if all_mutants else 0.0
                 attempt_history.append({
                     "attempt": attempt,
                     "target_count": len(targets),
@@ -241,8 +264,10 @@ class Layer1Generator:
                     "assertions": [],
                     "tokens": 0,
                 })
-                feedback = {"previous_error": call_record.error, "instruction": "Return only a valid check(candidate) function."}
-                log.exception("[Layer 1] batched LLM call failed for %s attempt %d", self.problem_id, attempt)
+                feedback = {"previous_error": call_record.error,
+                            "instruction": "Return only a valid check(candidate) function."}
+                log.exception(
+                    "[Layer 1] batched LLM call failed for %s attempt %d", self.problem_id, attempt)
             finally:
                 if tracker:
                     tracker.record_llm_call(call_record)
@@ -258,7 +283,8 @@ class Layer1Generator:
                     break
 
         cumulative_tests = prior_tests + new_tests
-        evaluated = apply_cumulative_kills(all_mutants, cumulative_killed_ids, "Layer1:generated")
+        evaluated = apply_cumulative_kills(
+            all_mutants, cumulative_killed_ids, "Layer1:generated")
         killed = [m for m in evaluated if m.is_killed]
         surviving = [m for m in evaluated if not m.is_killed]
         new_kills = len(cumulative_killed_ids - prior_killed_ids)
@@ -287,7 +313,8 @@ class Layer1Generator:
             generation_time_sec=round(generation_time, 4),
             evaluation_time_sec=round(evaluation_time, 4),
             total_time_sec=round(time.time() - layer_start, 4),
-            cluster_kill_consistency=compute_cluster_kill_consistency(evaluated, representatives),
+            cluster_kill_consistency=compute_cluster_kill_consistency(
+                evaluated, representatives),
             llm_calls=len(attempt_history),
             accepted_calls=accepted_calls,
             productive_calls=productive_calls,
