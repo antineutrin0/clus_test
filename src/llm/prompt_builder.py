@@ -597,6 +597,77 @@ def _probe_oracles(
 # Layer 1: local lightweight generation
 # ---------------------------------------------------------------------------
 
+_LAYER1_SCORED_RULES: List[str] = [
+    "[SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] "
+    "If <seed_test> is non-empty, your output MUST begin with every line of "
+    "<seed_test> reproduced verbatim, character-for-character, in the same "
+    "order. Do not delete, reorder, reword, renumber, or 're-derive' a seed "
+    "line -- not even if you believe a different value is more correct. The "
+    "seed lines are already proven correct against the canonical "
+    "implementation; you are not able to verify that independently, so any "
+    "seed line you change is a wrong change by definition.",
+    "[SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` "
+    "statements after the reproduced seed lines. Never edit, wrap, or remove "
+    "a seed line to make room for a new one -- appending is the only "
+    "permitted operation on the seed.",
+    "[SCORE 90] Every new `assert` you add must depend on the actual return "
+    "value of a `candidate(...)` call you make inside this same function. An "
+    "assertion that would hold no matter what `candidate` returns (e.g. "
+    "`assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure "
+    "even if it never raises.",
+    "[SCORE 90] Never guess or reconstruct an expected value from memory. "
+    "Every expected value in a new assertion must be either copied "
+    "character-for-character from a `<canonical_probe_oracles>` entry, or be "
+    "a value you can derive with certainty from the specification's stated "
+    "semantics. If you cannot ground a value either way, do not write that "
+    "assertion -- pick a different input you can ground instead.",
+    "[SCORE 80] For each target whose `probe_evidence` shows no divergence "
+    "yet, derive one new input by comparing `original_code` and "
+    "`mutated_code` in its dossier: pick the smallest concrete input where "
+    "the two expressions evaluate differently. Only include the target if "
+    "you can also ground the canonical expected output for that input per "
+    "the rule above.",
+    "[SCORE 70] Prefer several compatible targets in one function, but only "
+    "when you are equally confident about every one you include. Do not add "
+    "a low-confidence target just to raise coverage -- one wrong assumption "
+    "invalidates every assertion after the seed.",
+    "[SCORE 60] Do not repeat an input/assertion combination already marked "
+    "as attempted and failed in <attempt_context>. Correct the specific "
+    "failure instead of reproducing it.",
+]
+
+_LAYER1_OUTPUT_FORMAT_RULE = (
+    "[SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: "
+    "the reproduced <seed_test> lines followed by your new lines, nothing "
+    "else. No Markdown fences, no prose, no comments explaining your "
+    "reasoning, no `print`, no trailing `return`, no truncation."
+)
+
+
+def _layer1_seed_block(seed_test: str) -> str:
+    seed_test = (seed_test or "").strip()
+    if not seed_test:
+        return (
+            "<seed_test>\n"
+            "(none available -- no canonical probe produced a usable VALUE "
+            "for this problem.) Write the complete function yourself, "
+            "following every rule below exactly as if it were rule 1 and 2.\n"
+            "</seed_test>\n"
+        )
+    return f"""<seed_test>
+This is a guaranteed-correct partial test, built mechanically from already-
+verified <canonical_probe_oracles> entries -- no model produced these lines,
+so they are not in question. You MUST reproduce every line below verbatim as
+the start of your output, then append your own new assertions after it. Do
+not modify anything inside this block.
+
+```python
+{seed_test}
+```
+</seed_test>
+"""
+
+
 def build_layer1_batch_prompt(
     *,
     targets: Sequence[Mutant],
@@ -609,6 +680,7 @@ def build_layer1_batch_prompt(
     attempt: int,
     feedback: Optional[Dict] = None,
     task_metadata: Optional[Dict] = None,
+    seed_test: str = "",
 ) -> str:
     task_header = _task_header(
         prompt_text=prompt_text, entry_point=entry_point, task_metadata=task_metadata)
@@ -618,22 +690,10 @@ def build_layer1_batch_prompt(
     probe_oracle_json = _probe_oracles(probe_exprs, probe_outcomes)
     feedback_json = json.dumps(
         feedback or {"status": "INITIAL_ATTEMPT"}, indent=2)
+    seed_block = _layer1_seed_block(seed_test)
 
-    rules = _render_rules(_BASE_RULES + [
-        "Prefer testing several compatible targets in one function, but only "
-        "when you are equally confident about every target you include. Do "
-        "not add a low-confidence target just to increase coverage -- a "
-        "wrong assumption on one target can invalidate the entire function "
-        "against the canonical-pass requirement below.",
-        "The complete function must pass when `candidate` is the canonical "
-        "implementation. This is non-negotiable regardless of how many "
-        "targets you include.",
-    ] + _SHARED_TAIL_RULES + [
-        "Do not repeat an input/assertion combination explicitly marked as "
-        "already attempted and failed in <attempt_context>. Correct the "
-        "specific failure instead of reproducing it.",
-        _OUTPUT_FORMAT_RULE,
-    ])
+    rules = _render_rules(
+        _LAYER1_SCORED_RULES + [_LAYER1_OUTPUT_FORMAT_RULE])
 
     return f"""<role>
 You are Layer 1, the first-stage mutation-guided unit-test generator in
@@ -642,10 +702,16 @@ return exactly one Python test function.
 </role>
 
 <objective>
-Write a test that:
-1. Passes on the canonical implementation.
-2. Kills as many of the currently surviving mutant representatives below as
+Extend the guaranteed-correct <seed_test> below with new assertions that:
+1. Still pass on the canonical implementation (the seed lines already do; any
+   new line you add must too).
+2. Kill as many of the currently surviving mutant representatives below as
    you can, using real evidence rather than assumption.
+A response that reproduces the seed but adds nothing useful is accepted but
+wastes this attempt; a response that alters the seed or invents an ungrounded
+value is rejected outright regardless of anything else it gets right. Rules
+below are tagged with a priority score -- rules scored 100 are mechanically
+checked and override every other consideration.
 </objective>
 
 <task_information>
@@ -664,6 +730,8 @@ every value here as ground truth. Do not contradict them.
 
 {probe_oracle_json}
 </canonical_probe_oracles>
+
+{seed_block}
 
 <attempt_context>
 Attempt number: {attempt}
@@ -686,51 +754,57 @@ informative surviving member of that same cluster.
 <reasoning_steps>
 Work through these silently before writing any code. Do not show this
 reasoning in your output -- only the final function.
-1. For each target, read `original_code` vs `mutated_code` and state to
+1. Copy <seed_test> verbatim as your starting point (or start fresh only if
+   it says "none available").
+2. For each target, read `original_code` vs `mutated_code` and state to
    yourself, precisely, what single input property would make the two diverge.
-2. Check whether a `<canonical_probe_oracles>` entry already covers an input
-   with that property. If yes, reuse its value as ground truth.
-3. If no oracle covers it, derive the expected canonical output only from the
+3. Check whether a `<canonical_probe_oracles>` entry already covers an input
+   with that property. If yes, reuse its value as ground truth, copied
+   verbatim.
+4. If no oracle covers it, derive the expected canonical output only from the
    specification's stated behavior -- never invent one.
-4. Decide, per target, whether you are confident enough to include it. Drop
+5. Decide, per target, whether you are confident enough to include it. Drop
    targets you are not confident about rather than guessing.
-5. Draft assertions and check each one individually: does this assertion's
-   truth value depend on candidate's actual return? If not, discard or
-   rewrite it.
-6. Re-read the full function once against every rule in <rules> before
-   finalizing.
+6. Draft each new assertion and check it individually: does its truth value
+   depend on candidate's actual return? If not, discard or rewrite it.
+7. Re-read the full function once against every rule in <rules>, seed lines
+   first and unmodified, before finalizing.
 </reasoning_steps>
 
 <good_example>
-# Suppose <canonical_probe_oracles> contains this exact entry:
-#   {{"probe": "candidate([])", "canonical_status": "VALUE", "canonical_value": "'Shangri-La not found'"}}
+# <seed_test> contained:
+#   assert candidate([]) == 'Shangri-La not found'
 # Target: mutated a boundary check from `n < 0` to `n <= 0`.
 # Spec says the function should treat 0 as valid, non-negative input.
 def check(candidate):
-    assert candidate([]) == 'Shangri-La not found'  # copied verbatim, char-for-char, from canonical_value above -- not retyped from memory
-    assert candidate(0) == expected_result_for_zero  # take this value from a probe oracle entry or the spec, never invent it
-    assert candidate(-1) == expected_result_for_negative_input
+    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified
+    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented
+    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard
 </good_example>
 <why_good>
-Every assertion depends on candidate's actual return value, 0 is exactly the
-boundary the mutation altered, and the string literal was copied character-
-for-character from `<canonical_probe_oracles>` -- including exact case,
-punctuation, and spacing -- rather than reconstructed from memory. Retyping
-a value from memory instead of copying it is how a technically-reasonable
-test still gets rejected: even one wrong character makes the whole function
-fail against the canonical implementation.
+The seed line is untouched. Every new assertion depends on candidate's
+actual return value, 0 is exactly the boundary the mutation altered, and
+every literal was either copied from the seed or grounded the same way the
+seed's was -- never reconstructed from memory. Retyping a value from memory
+instead of copying it is how a technically-reasonable test still gets
+rejected: even one wrong character fails the whole function against the
+canonical implementation.
 </why_good>
 
 <bad_example>
 def check(candidate):
+    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural
     result = candidate(5)
     assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous
     assert 1 == 1  # does not depend on candidate at all -- vacuous
 </bad_example>
 <why_bad>
-Neither assertion can ever fail against a mutant that returns any integer at
-all, let alone the mutants targeted here. This test would be accepted by a
-harness that only checks for uncaught exceptions, but it exercises nothing.
+The first line silently altered a seed assertion -- a SCORE 100 violation on
+its own, rejected regardless of anything else in the function. The last two
+assertions are vacuous: neither can ever fail against a mutant that returns
+any integer at all. This test would be accepted by a harness that only
+checks for uncaught exceptions, but it exercises nothing and breaks the one
+guarantee the seed was providing.
 </why_bad>
 
 {_OUTPUT_CONTRACT_BLOCK}"""

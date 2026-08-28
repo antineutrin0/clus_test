@@ -12,6 +12,8 @@ from src.layers.common import (
     all_probable_equivalent,
     apply_cumulative_kills,
     build_cluster_contexts,
+    build_layer1_progressive_test,
+    build_layer1_seed_test,
     choose_dynamic_targets,
     compute_cluster_kill_consistency,
     evaluate_single_generated_test,
@@ -74,6 +76,14 @@ class Layer1Generator:
         evaluation_time = 0.0
         representatives = flatten_stacks(stacks)
 
+        # Rule-based, guaranteed-to-pass floor built directly from already-
+        # verified <canonical_probe_oracles> VALUE entries -- no LLM call
+        # involved, so it cannot be "rejected". The model is instructed to
+        # extend it, never rewrite it; see build_layer1_progressive_test for
+        # how untrusted LLM additions get filtered back to safety.
+        seed_test = build_layer1_seed_test(
+            self.probe_exprs, self.probe_outcomes)
+
         prior_eval = run_suite_against_mutants(prior_tests, mutant_copies(
             all_mutants), self.entry_point) if prior_tests else []
         prior_killed_ids = {m.mutant_id for m in prior_eval if m.is_killed}
@@ -125,6 +135,7 @@ class Layer1Generator:
                 attempt=attempt,
                 feedback=feedback,
                 task_metadata=self.task_metadata,
+                seed_test=seed_test,
             )
             call_record = LLMCallRecord(
                 problem_id=self.problem_id,
@@ -182,6 +193,20 @@ class Layer1Generator:
                 # Layer 3, and the baseline are intentionally left untouched.
                 test_code = reconcile_literal_oracle_assertions(
                     test_code, self.probe_exprs, self.probe_outcomes)
+
+                # Never hand the raw LLM extraction straight to the
+                # canonical/mutant harness. Instead merge it onto the
+                # guaranteed-passing seed: the seed's own asserts are kept
+                # verbatim, and each additional statement the model proposed
+                # is kept only if it independently passes the canonical
+                # implementation. This is what makes the "rejected" outcome
+                # (syntax error, vacuous test, wrong literal, etc.) structurally
+                # unreachable whenever the seed itself is non-empty, without
+                # ever silently discarding a good LLM contribution just
+                # because one other line in the same response was bad.
+                test_code, kept_extra = build_layer1_progressive_test(
+                    seed_test, test_code, self.source_code, self.entry_point)
+
                 call_record.extracted_test = test_code
                 response_summary = summarize_generated_test(test_code)
                 t0 = time.time()
@@ -236,6 +261,8 @@ class Layer1Generator:
                     "candidate_calls": response_summary.get("candidate_calls", []),
                     "assertions": response_summary.get("assertions", []),
                     "tokens": response.total_tokens,
+                    "seed_used": bool(seed_test.strip()),
+                    "llm_lines_kept": kept_extra,
                 }
                 attempt_history.append(attempt_row)
                 feedback = {

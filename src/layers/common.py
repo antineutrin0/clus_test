@@ -22,7 +22,8 @@ def extract_check_function(text: str) -> str:
     """
     cleaned = re.sub(r"```(?:python)?\s*", "", text or "", flags=re.IGNORECASE)
     cleaned = re.sub(r"```", "", cleaned).strip()
-    match = re.search(r"(?m)^\s*def\s+check\s*\(\s*candidate\s*\)\s*:", cleaned)
+    match = re.search(
+        r"(?m)^\s*def\s+check\s*\(\s*candidate\s*\)\s*:", cleaned)
     if not match:
         return ""
     candidate_text = cleaned[match.start():].lstrip()
@@ -111,7 +112,8 @@ def validate_check_contract(test_code: str) -> Tuple[bool, str, Dict[str, int]]:
     except SyntaxError as exc:
         return False, f"syntax error: {exc}", {"candidate_calls": 0, "asserts": 0}
 
-    checks = [node for node in tree.body if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "check"]
+    checks = [node for node in tree.body if isinstance(
+        node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "check"]
     if len(checks) != 1:
         return False, f"expected exactly one top-level check function, found {len(checks)}", {"candidate_calls": 0, "asserts": 0}
     check = checks[0]
@@ -148,6 +150,157 @@ def validate_check_contract(test_code: str) -> Tuple[bool, str, Dict[str, int]]:
     return True, "", details
 
 
+def build_layer1_seed_test(
+    probe_exprs: Sequence[str],
+    probe_outcomes: Optional[Sequence[Sequence[str]]],
+    max_asserts: int = 6,
+) -> str:
+    """Build a rule-based, guaranteed-to-pass ``check(candidate)`` seed directly
+    from already-verified ``<canonical_probe_oracles>`` ``VALUE`` entries.
+
+    No LLM is involved in producing this text, so it cannot be "rejected" the
+    way a generated test can: every line is ``assert candidate(<args>) ==
+    <verified literal>`` for an ``<args>``/literal pair whose canonical output
+    was already executed and confirmed upstream. This is the anchor that
+    Layer 1's prompt asks the model to extend rather than replace -- it is
+    what turns "guaranteed to run" into a property of the pipeline instead of
+    a property we merely hope the model's output has.
+
+    On its own the seed is usually *not* productive (the surviving mutants by
+    definition already agree with canonical on every existing probe -- that's
+    why they survived), so this is a floor, not a solution: the LLM's
+    additional, mutant-aware assertions are still what's expected to do the
+    actual killing.
+    """
+    if not probe_exprs:
+        return ""
+    lines: List[str] = []
+    for index, expr in enumerate(probe_exprs):
+        if len(lines) >= max_asserts:
+            break
+        outcome = list(probe_outcomes[index]) if probe_outcomes and index < len(probe_outcomes) else []
+        if len(outcome) < 2 or outcome[0] != "VALUE" or not outcome[1]:
+            continue
+        expr = expr.strip()
+        match = re.match(r"^\s*candidate\((.*)\)\s*$", expr, re.S)
+        if not match:
+            continue
+        try:
+            ast.literal_eval(f"({match.group(1)},)")
+            ast.parse(str(outcome[1]), mode="eval")
+        except Exception:
+            continue
+        # Reuse the exact literal text captured from the verified probe --
+        # never retype/reformat it, which is the exact hallucination failure
+        # mode this seed exists to eliminate.
+        lines.append(f"    assert {expr} == {outcome[1]}")
+    if not lines:
+        return ""
+    return "def check(candidate):\n" + "\n".join(lines)
+
+
+def build_layer1_progressive_test(
+    seed_code: str,
+    llm_code: str,
+    correct_source: str,
+    entry_point: str,
+) -> Tuple[str, int]:
+    """Merge a guaranteed-passing seed test with an LLM's proposed additions.
+
+    The seed's own statements are never modified, reordered, or dropped.
+    Statements the LLM proposes beyond the seed are treated as untrusted
+    candidates: they are validated against the canonical implementation
+    (never the mutants -- this is a correctness filter, not a kill filter)
+    and only the ones that actually pass are kept, first by trying the whole
+    batch together, then -- if that fails -- by adding them one at a time and
+    keeping only the additions that don't break canonical execution. This
+    means the returned test can only ever be as good as the seed or better;
+    it can never regress to something that fails on canonical, and it can
+    never come back completely empty when the seed itself is non-empty.
+
+    Returns ``(final_code, kept_extra_statement_count)``. ``final_code`` is
+    ``""`` only when both ``seed_code`` and every LLM statement are unusable.
+    """
+    seed_code = (seed_code or "").strip()
+    llm_code = (llm_code or "").strip()
+    base = seed_code if seed_code else "def check(candidate):\n    pass"
+
+    try:
+        seed_tree = ast.parse(base)
+    except SyntaxError:
+        return (seed_code, 0)
+    seed_fn = next(
+        (n for n in seed_tree.body if isinstance(
+            n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == "check"),
+        None,
+    )
+    if seed_fn is None:
+        return (seed_code, 0)
+
+    if not llm_code:
+        return (seed_code, 0)
+    try:
+        llm_tree = ast.parse(llm_code)
+    except SyntaxError:
+        return (seed_code, 0)
+    llm_fn = next(
+        (n for n in llm_tree.body if isinstance(
+            n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == "check"),
+        None,
+    )
+    if llm_fn is None:
+        return (seed_code, 0)
+
+    seed_dump = {ast.dump(stmt) for stmt in seed_fn.body}
+    extra_stmts = [
+        stmt for stmt in llm_fn.body
+        if not isinstance(stmt, ast.Pass) and ast.dump(stmt) not in seed_dump
+    ]
+    if not extra_stmts:
+        return (seed_code, 0)
+
+    def _render(extra: List[ast.stmt]) -> Optional[str]:
+        body = list(seed_fn.body) + extra
+        if not body:
+            body = [ast.Pass()]
+        fn = ast.FunctionDef(
+            name="check",
+            args=seed_fn.args,
+            body=body,
+            decorator_list=[],
+            returns=None,
+        )
+        ast.fix_missing_locations(fn)
+        try:
+            return ast.unparse(ast.Module(body=[fn], type_ignores=[]))
+        except Exception:
+            return None
+
+    def _passes_canonical(code: str) -> bool:
+        try:
+            sanity = verify_no_false_positives(
+                [code], correct_source, entry_point)
+        except Exception:
+            return False
+        return bool(sanity.get("all_passed"))
+
+    full_code = _render(extra_stmts)
+    if full_code and _passes_canonical(full_code):
+        return (full_code, len(extra_stmts))
+
+    kept: List[ast.stmt] = []
+    for stmt in extra_stmts:
+        trial = kept + [stmt]
+        trial_code = _render(trial)
+        if trial_code and _passes_canonical(trial_code):
+            kept = trial
+
+    if not kept:
+        return (seed_code, 0)
+    final_code = _render(kept)
+    return (final_code or seed_code, len(kept))
+
+
 def mutant_copies(mutants: Sequence[Mutant]) -> List[Mutant]:
     return [Mutant.from_dict(m.to_dict()) for m in mutants]
 
@@ -166,7 +319,8 @@ def choose_dynamic_targets(stacks: Sequence[RepresentativeStack], active_mutants
 
     targets: List[Mutant] = []
     for stack in stacks:
-        live_rep = next((active_by_id.get(rep.mutant_id) for rep in stack.representatives if rep.mutant_id in active_by_id), None)
+        live_rep = next((active_by_id.get(rep.mutant_id)
+                        for rep in stack.representatives if rep.mutant_id in active_by_id), None)
         if live_rep is not None:
             targets.append(live_rep)
             continue
@@ -229,11 +383,13 @@ def build_failure_context(
     prior_test_count: int,
     survivor_summary_limit: int = 10,
 ) -> Dict:
-    same_cluster = [m for m in evaluated_mutants if m.cluster_id == mutant.cluster_id]
+    same_cluster = [
+        m for m in evaluated_mutants if m.cluster_id == mutant.cluster_id]
     survived = [m for m in same_cluster if not m.is_killed]
     ranked = sorted(
         survived,
-        key=lambda m: (float(m.information_score or 0.0), float(m.centrality or 0.0)),
+        key=lambda m: (float(m.information_score or 0.0),
+                       float(m.centrality or 0.0)),
         reverse=True,
     )[: max(0, survivor_summary_limit)]
     return {
@@ -369,11 +525,13 @@ def evaluate_single_generated_test(
     if not contract_ok:
         return False, 0, len(all_mutants), contract_error, []
 
-    sanity = verify_no_false_positives([test_code], correct_source, entry_point)
+    sanity = verify_no_false_positives(
+        [test_code], correct_source, entry_point)
     if not sanity["all_passed"]:
         return False, 0, len(all_mutants), "; ".join(sanity["failures"][:2]), []
 
-    evaluated = run_suite_against_mutants([test_code], mutant_copies(all_mutants), entry_point)
+    evaluated = run_suite_against_mutants(
+        [test_code], mutant_copies(all_mutants), entry_point)
     killed_ids = [m.mutant_id for m in evaluated if m.is_killed]
     killed = len(killed_ids)
     if require_kill and killed == 0:
@@ -509,5 +667,6 @@ def compute_cluster_kill_consistency(evaluated_mutants: Sequence[Mutant], target
         if not members:
             continue
         rep_status = status_by_id[rep.mutant_id]
-        scores.append(sum(1 for m in members if m.is_killed == rep_status) / len(members))
+        scores.append(sum(1 for m in members if m.is_killed ==
+                      rep_status) / len(members))
     return round(sum(scores) / len(scores), 4) if scores else 0.0
