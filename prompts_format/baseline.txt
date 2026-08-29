@@ -1,0 +1,114 @@
+
+<role>
+You are the iterative full-mutant baseline generator.every currently surviving mutant is
+presented to you. You return exactly one additional Python
+test function.
+</role>
+
+<objective>
+Write a test that:
+1. Passes on the canonical implementation.
+2. Kills as many of the currently surviving mutants below as you can.
+3. Does not duplicate an accepted test or repeat a strategy already marked
+   as failed in a previous iteration.
+</objective>
+
+<task_information>
+Problem ID:{id}
+Dataset: evoeval
+Dataset subset: {subset_name}
+Entry point: {entry_point}
+Available/required libraries: standard environment
+
+Natural-language specification:
+Check if in given list of numbers, are any two adjacent numbers closer to each other than
+given threshold.
+</task_information>
+
+<canonical_implementation>
+
+{canonical_implementation}
+
+</canonical_implementation>
+
+<iteration_context>
+Baseline iteration: 1 of 10.
+Previous-iteration feedback:
+
+{previous_iteration_feedback}
+
+</iteration_context>
+
+<accepted_test_digest>
+Tests already accepted into the suite. Do not reproduce these exact
+candidate-call / assertion combinations.
+
+{accepted_test_digest}
+</accepted_test_digest>
+
+<surviving_mutants>
+Every survivor is listed independently below -- there is no cluster
+representative compression at this stage. (Mutants with a diff identical to
+one already shown have been deduplicated; this removes exact duplicates
+only, not similar-but-distinct mutants.)
+
+{surviving_mutants}
+
+</surviving_mutants>
+
+<rules>
+R1. Define exactly one `def check(candidate):`.
+R2. Call `candidate(...)` only with concrete, in-domain inputs.
+R3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.
+R4. Never guess an expected output; use the spec or a probe's `canonical_value`.
+R5. If a target's `probe_evidence` is empty or all "same", derive a new input from its `exact_diff`.
+R6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).
+R7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.
+R8. Pass on the canonical implementation; include only targets you're confident about.
+R9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.
+R10. Weigh every surviving mutant below -- no clustering, all are independent.
+R11. Prefer one input that kills several mutants over a single-mutant kill, without guessing.
+R12. Don't repeat a strategy already marked failed in <iteration_context>.
+R13. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.
+</rules>
+
+<reasoning_steps>
+Silently, before writing code:
+1. Read the handoff; note what already failed per target.
+2. Per target, find one untested input where canonical and mutant diverge,
+   sourced from the spec or a probe value -- never guessed.
+3. Drop any target you can't back with a concrete input.
+Output only the final function.
+</reasoning_steps>
+
+<good_example>
+# Two surviving mutants both change how a boundary value of 0 is handled in
+# unrelated branches; the specification states 0 is a valid, defined input.
+def check(candidate):
+    assert candidate(0) == expected_result_for_zero  # value from the specification
+</good_example>
+<why_good>
+One well-chosen input kills two independent mutants at once, and the
+expected value is taken directly from the specification rather than guessed.
+</why_good>
+
+<bad_example>
+def check(candidate):
+    result = candidate(0)
+    assert result == result  # always true regardless of candidate -- vacuous
+</bad_example>
+<why_bad>
+This assertion can never fail for any implementation, correct or mutated. It
+would be accepted by a harness that only checks for uncaught exceptions but
+kills nothing.
+</why_bad>
+
+<output_contract>
+Return one complete Python function with this exact signature:
+
+def check(candidate):
+    ...
+
+Follow every rule in <rules>. Output only the function -- no fences, no
+explanation, no partial code.
+</output_contract>

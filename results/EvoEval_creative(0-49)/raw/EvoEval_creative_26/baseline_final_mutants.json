@@ -1,0 +1,650 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_26:m000:CONSTANT_CHANGE:aca9e44815",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(1, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m001:CONSTANT_CHANGE:fba5b71ba6",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 2), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m002:CONSTANT_CHANGE:aa85bfddec",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (1, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m003:CONSTANT_CHANGE:da6182403b",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -2), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m004:CONSTANT_CHANGE:4d3828a08e",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (2, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m005:CONSTANT_CHANGE:4c1224bd76",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 1), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m006:CONSTANT_CHANGE:e0299423e9",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-2, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m007:CONSTANT_CHANGE:e9ccd73b2e",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 20,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 1)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m008:NEGATE_CONDITION:ae0a58926c",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "NEGATE_CONDITION",
+    "description": "while <cond> -> while not (<cond>)",
+    "line_number": 25,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while not queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "While",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m009:CONSTANT_CHANGE:5ba3ef19c4",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 26,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(-1)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m010:COMPARISON_FLIP:8e6957ce06",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 27,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) != end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m011:RETURN_VALUE_CHANGE:0681d02b74",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 28,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return False\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m012:MEMBERSHIP_FLIP:1c754ad5f6",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 29,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) not in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m013:ARITHMETIC_FLIP:39bcaca728",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 34,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y - dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m014:BOOLEAN_FLIP:23b5791323",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "BOOLEAN_FLIP",
+    "description": "And -> Or",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) or 0 <= ny < len(maze[0]) or maze[nx][ny] == 0:\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m015:BOUNDARY_SHIFT:3a51a97342",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "LtE -> Lt",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 < nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m016:BOUNDARY_SHIFT:663db14aa4",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx <= len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m017:CONSTANT_CHANGE:c942b5593f",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if -1 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m018:BOUNDARY_SHIFT:7ed376f425",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "LtE -> Lt",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 < ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m019:BOUNDARY_SHIFT:af01955def",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny <= len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m020:CONSTANT_CHANGE:bf49178b72",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and -1 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m021:INDEX_BOUNDARY:8740d64b2e",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[-1]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m023:CONSTANT_CHANGE:f5d6eb2c5f",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 35,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 1):\n                queue.append(((nx, ny), path + [direction_name]))\n    return []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_26:m024:ARITHMETIC_FLIP:9f94406874",
+    "problem_id": "EvoEval_creative/26",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 36,
+    "mutated_source": "def pathfinder(maze, start, end):\n    \"\"\"\n    pathfinder is a function that takes a 2D list (maze), a tuple (start) and a tuple (end).\n    The function should return a list of directions (\"up\", \"down\", \"left\", \"right\") that leads from start to end.\n    The maze is represented as a 2D list where 0 represents an open path and 1 represents a wall.\n    The start and end are represented as tuples where the first element is the row index and the second element is the column index.\n    If the path does not exist, the function should return an empty list.\n    If the start and end are the same, the function should return an empty list.\n    \n    Examples:\n    >>> pathfinder([[0, 0, 0], [1, 1, 0], [1, 1, 0]], (0, 0), (2, 2))\n    ['right', 'right', 'down', 'down']\n    >>> pathfinder([[0, 1, 0], [0, 1, 0], [0, 1, 0]], (0, 0), (0, 2))\n    []\n    >>> pathfinder([[0, 0, 0]], (0, 0), (0, 0))\n    []\n    >>> pathfinder([[0, 0, 0], [0, 1, 0], [0, 0, 0]], (0, 0), (2, 0))\n    ['down', 'down']\n    \"\"\"\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    direction_names = ['right', 'left', 'down', 'up']\n    queue = [(start, [])]\n    visited = set()\n    while queue:\n        (x, y), path = queue.pop(0)\n        if (x, y) == end:\n            return path\n        if (x, y) in visited:\n            continue\n        visited.add((x, y))\n        for direction, direction_name in zip(directions, direction_names):\n            dx, dy = direction\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and (maze[nx][ny] == 0):\n                queue.append(((nx, ny), path - [direction_name]))\n    return []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

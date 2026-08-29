@@ -1,0 +1,2 @@
+n_tasks,mean_score_delta,score_delta_ci95_low,score_delta_ci95_high,mutant_weighted_score_delta,wins,ties,losses,n_non_ties,p_value,cohen_dz,cohen_dz_undefined_zero_variance,rank_biserial,parent_clustered_n,parent_clustered_mean_delta,parent_clustered_ci95_low,parent_clustered_ci95_high
+50,0.015067,-0.008133,0.0559,0.021176,1,46,3,4,0.625,0.109829,False,-0.2,50,0.015067,-0.008133,0.0559

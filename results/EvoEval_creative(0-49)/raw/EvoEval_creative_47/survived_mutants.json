@@ -1,0 +1,25 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_47:m006:RETURN_VALUE_CHANGE:a42f6508fb",
+    "problem_id": "EvoEval_creative/47",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 19,
+    "mutated_source": "def recipe_ingredients(recipe, available):\n    \"\"\"Checks if a particular recipe can be cooked with the available ingredients.\n\n    Args:\n        recipe (dict): A dictionary where the keys are the ingredient names and the values are the quantities.\n        available (dict): A dictionary where the keys are the ingredient names and the values are the quantities.\n\n    Returns:\n        bool: True if all ingredients needed for the recipe are available, False otherwise.\n\n    Examples:\n        assert recipe_ingredients({'flour': 200, 'sugar': 100, 'eggs': 2}, {'flour': 500, 'sugar': 100, 'eggs': 2}) == True\n        assert recipe_ingredients({'flour': 200, 'sugar': 100, 'eggs': 2}, {'flour': 100, 'sugar': 50, 'eggs': 1}) == False\n        assert recipe_ingredients({'flour': 200, 'sugar': 100, 'milk': 100}, {'flour': 500, 'sugar': 100, 'eggs': 2}) == False\n        assert recipe_ingredients({}, {'flour': 500, 'sugar': 100, 'eggs': 2}) == True\n    \"\"\"\n    for ingredient, quantity in recipe.items():\n        if ingredient not in available or available[ingredient] < quantity:\n            return False\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

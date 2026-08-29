@@ -1,0 +1,1035 @@
+{
+  "problem_id": "EvoEval_creative/35",
+  "metadata": {
+    "entry_point": "validate_email_structure",
+    "mutant_count": 21,
+    "probe_count": 6,
+    "probe_exprs": [
+      "candidate(\"myemail@\")",
+      "candidate(\"myemail@domain\")",
+      "candidate(\"myemail@domain.com\")",
+      "candidate(\"myemail.domain.com\")",
+      "candidate(\"myemail@domain@domain.com\")",
+      "candidate(\"\")"
+    ],
+    "canonical_probe_outcomes": [
+      [
+        "VALUE",
+        "False"
+      ],
+      [
+        "VALUE",
+        "False"
+      ],
+      [
+        "VALUE",
+        "True"
+      ],
+      [
+        "VALUE",
+        "False"
+      ],
+      [
+        "VALUE",
+        "False"
+      ],
+      [
+        "VALUE",
+        "False"
+      ]
+    ],
+    "official_killed_count": 17,
+    "max_layers": 3,
+    "max_mutants": 25,
+    "max_probes": 6,
+    "run_name": "default",
+    "dataset_name": "evoeval",
+    "dataset_metadata": {
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/35",
+      "parent_task_id": "HumanEval/35",
+      "has_instruction_prompt": false,
+      "has_code_prompt": false,
+      "has_doc_struct": false,
+      "libraries": []
+    },
+    "llm_configuration": {
+      "layer1": {
+        "provider": "hf",
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct"
+      },
+      "layer2": {
+        "provider": "openai",
+        "model": "gpt-5-mini"
+      },
+      "layer3": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      },
+      "baseline": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      }
+    },
+    "layer0_removed": true,
+    "gem_removed": true,
+    "dmsg_removed": true,
+    "representative_strategy": "UBIG-RS",
+    "generation_mode": "batched_representatives",
+    "cluster_lifecycle": "single_initial_partition_reused_across_layers",
+    "reclustering_disabled": true,
+    "layer1_max_calls_per_problem": 3,
+    "layer2_max_calls_per_problem": 10,
+    "strict_productive_validation": true,
+    "static_equivalent_count": 0,
+    "layer1_clusters": [
+      {
+        "cluster_id": 0,
+        "representative_ids": [
+          "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 7,
+        "cluster_size": 8,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 1,
+        "representative_ids": [
+          "EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 5,
+        "cluster_size": 6,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 2,
+        "representative_ids": [
+          "EvoEval_creative_35:m005:COMPARISON_FLIP:85a26ccfc7"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 2,
+        "cluster_size": 3,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 3,
+        "representative_ids": [
+          "EvoEval_creative_35:m001:BOOLEAN_FLIP:bc133af749"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 2,
+        "cluster_size": 3,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 4,
+        "representative_ids": [
+          "EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 0,
+        "cluster_size": 1,
+        "strategy": "UBIG-RS"
+      }
+    ],
+    "layer1_iterations": 3,
+    "layer1_handoff": {
+      "source_layer": "Layer1",
+      "attempt_count": 3,
+      "productive_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 5,
+          "target_kills": 3,
+          "new_kills": 13,
+          "cumulative_kills": 13,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ],
+          "tokens": 3841,
+          "seed_used": true,
+          "llm_lines_kept": 1
+        },
+        {
+          "attempt": 2,
+          "target_count": 3,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 13,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ],
+          "tokens": 3158,
+          "seed_used": true,
+          "llm_lines_kept": 0
+        },
+        {
+          "attempt": 3,
+          "target_count": 3,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 13,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ],
+          "tokens": 3172,
+          "seed_used": true,
+          "llm_lines_kept": 0
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 8,
+      "surviving_original_cluster_ids": [
+        0,
+        1,
+        4
+      ],
+      "surviving_operator_counts": {
+        "ARITHMETIC_FLIP": 1,
+        "CONSTANT_CHANGE": 4,
+        "INDEX_BOUNDARY": 2,
+        "RETURN_VALUE_CHANGE": 1
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "dd674f2792",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "budget_exhausted"
+    },
+    "layer2_clusters": [
+      {
+        "cluster_id": 0,
+        "original_cluster_size": 8,
+        "surviving_cluster_size": 6,
+        "original_representative_ids": [
+          "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776"
+        ],
+        "live_original_representative_ids": [
+          "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776"
+        ],
+        "live_member_ids": [
+          "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776",
+          "EvoEval_creative_35:m006:INDEX_BOUNDARY:0e37958684",
+          "EvoEval_creative_35:m007:INDEX_BOUNDARY:b7f70f5641",
+          "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e",
+          "EvoEval_creative_35:m014:CONSTANT_CHANGE:5bee359204",
+          "EvoEval_creative_35:m015:CONSTANT_CHANGE:654221f76f"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      },
+      {
+        "cluster_id": 1,
+        "original_cluster_size": 6,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba"
+        ],
+        "live_original_representative_ids": [],
+        "live_member_ids": [
+          "EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      },
+      {
+        "cluster_id": 4,
+        "original_cluster_size": 1,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1"
+        ],
+        "live_original_representative_ids": [
+          "EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1"
+        ],
+        "live_member_ids": [
+          "EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      }
+    ],
+    "layer2_iterations": 2,
+    "layer2_handoff": {
+      "source_layer": "Layer2",
+      "attempt_count": 2,
+      "productive_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 3,
+          "target_kills": 2,
+          "new_kills": 4,
+          "cumulative_kills": 17,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('x@.')",
+            "candidate('ab.@c')"
+          ],
+          "assertions": [
+            "candidate('x@.') is True",
+            "candidate('ab.@c') is False"
+          ],
+          "tokens": 4570
+        },
+        {
+          "attempt": 2,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 17,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('a@b.c')"
+          ],
+          "assertions": [
+            "candidate('a@b.c') is True"
+          ],
+          "tokens": 3414
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 4,
+      "surviving_original_cluster_ids": [
+        0,
+        1
+      ],
+      "surviving_operator_counts": {
+        "CONSTANT_CHANGE": 2,
+        "INDEX_BOUNDARY": 1,
+        "RETURN_VALUE_CHANGE": 1
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "dd674f2792",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ]
+        },
+        {
+          "sha1": "68c0c7dd6d",
+          "candidate_calls": [
+            "candidate('x@.')",
+            "candidate('ab.@c')"
+          ],
+          "assertions": [
+            "candidate('x@.') is True",
+            "candidate('ab.@c') is False"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "plateau: 1 consecutive attempt(s) with zero new kills",
+      "previous_layer_summary": {
+        "source_layer": "Layer1",
+        "attempt_count": 3,
+        "surviving_count_before_layer2": 8
+      }
+    },
+    "layer3_clusters": [
+      {
+        "cluster_id": 0,
+        "original_cluster_size": 8,
+        "surviving_cluster_size": 3,
+        "original_representative_ids": [
+          "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776"
+        ],
+        "live_original_representative_ids": [],
+        "live_member_ids": [
+          "EvoEval_creative_35:m007:INDEX_BOUNDARY:b7f70f5641",
+          "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e",
+          "EvoEval_creative_35:m015:CONSTANT_CHANGE:654221f76f"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      },
+      {
+        "cluster_id": 1,
+        "original_cluster_size": 6,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba"
+        ],
+        "live_original_representative_ids": [],
+        "live_member_ids": [
+          "EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      }
+    ],
+    "layer3_iterations": 2,
+    "layer3_handoff": {
+      "source_layer": "Layer3",
+      "attempt_count": 2,
+      "productive_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 1,
+          "cumulative_kills": 18,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('@a.b')",
+            "candidate('a.b@c')",
+            "candidate('a@@b.c')",
+            "candidate('a@.b')",
+            "candidate('a@b.')",
+            "candidate('a@b..c')"
+          ],
+          "assertions": [
+            "candidate('@a.b') is False",
+            "candidate('a.b@c') is False",
+            "candidate('a@@b.c') is False",
+            "candidate('a@.b') is True",
+            "candidate('a@b.') is True",
+            "candidate('a@b..c') is True"
+          ],
+          "tokens": 4126
+        },
+        {
+          "attempt": 2,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 18,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('name@domain.co')",
+            "candidate('name@domain')",
+            "candidate('name@@domain.co')"
+          ],
+          "assertions": [
+            "candidate('name@domain.co') is True",
+            "candidate('name@domain') is False",
+            "candidate('name@@domain.co') is False"
+          ],
+          "tokens": 4989
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 3,
+      "surviving_original_cluster_ids": [
+        0,
+        1
+      ],
+      "surviving_operator_counts": {
+        "CONSTANT_CHANGE": 2,
+        "RETURN_VALUE_CHANGE": 1
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "dd674f2792",
+          "candidate_calls": [
+            "candidate('myemail@')",
+            "candidate('myemail@domain')",
+            "candidate('myemail@domain.com')",
+            "candidate('myemail.domain.com')",
+            "candidate('myemail@domain@domain.com')",
+            "candidate('')"
+          ],
+          "assertions": [
+            "candidate('myemail@') == False",
+            "candidate('myemail@domain') == False",
+            "candidate('myemail@domain.com') == True",
+            "candidate('myemail.domain.com') == False",
+            "candidate('myemail@domain@domain.com') == False",
+            "candidate('') == False"
+          ]
+        },
+        {
+          "sha1": "68c0c7dd6d",
+          "candidate_calls": [
+            "candidate('x@.')",
+            "candidate('ab.@c')"
+          ],
+          "assertions": [
+            "candidate('x@.') is True",
+            "candidate('ab.@c') is False"
+          ]
+        },
+        {
+          "sha1": "fe9afc7738",
+          "candidate_calls": [
+            "candidate('@a.b')",
+            "candidate('a.b@c')",
+            "candidate('a@@b.c')",
+            "candidate('a@.b')",
+            "candidate('a@b.')",
+            "candidate('a@b..c')"
+          ],
+          "assertions": [
+            "candidate('@a.b') is False",
+            "candidate('a.b@c') is False",
+            "candidate('a@@b.c') is False",
+            "candidate('a@.b') is True",
+            "candidate('a@b.') is True",
+            "candidate('a@b..c') is True"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "plateau: 1 consecutive attempt(s) with zero new kills"
+    },
+    "baseline_comparison": {
+      "problem_id": "EvoEval_creative/35",
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/35",
+      "parent_task_id": "HumanEval/35",
+      "total_mutants": 21,
+      "proposed_killed": 18,
+      "baseline_killed": 18,
+      "official_killed": 17,
+      "proposed_score": 0.857143,
+      "baseline_score": 0.857143,
+      "official_score": 0.8095,
+      "equivalent_mutants": 0,
+      "proposed_equivalent_adjusted_score": 0.8571,
+      "baseline_equivalent_adjusted_score": 0.8571,
+      "official_equivalent_adjusted_score": 0.8095,
+      "score_delta_proposed_minus_baseline": 0.0,
+      "proposed_total_tokens": 27270,
+      "baseline_total_tokens": 23915,
+      "proposed_llm_calls": 7,
+      "baseline_llm_calls": 3,
+      "proposed_paid_tokens": 17099,
+      "baseline_paid_tokens": 23915,
+      "token_delta_proposed_minus_baseline": 3355,
+      "proposed_estimated_cost_usd": 0.09635075,
+      "baseline_estimated_cost_usd": 0.1783775,
+      "proposed_paid_cost_usd": 0.09635075,
+      "baseline_paid_cost_usd": 0.1783775,
+      "proposed_runtime_sec": 192.4686,
+      "baseline_runtime_sec": 145.992,
+      "proposed_generated_tests": 3,
+      "baseline_generated_tests": 1,
+      "proposed_kill_agreement_accuracy": 0.9524,
+      "baseline_kill_agreement_accuracy": 0.9524,
+      "layer1_num_clusters": 5,
+      "layer1_representatives": 5,
+      "cluster_compression_ratio": 4.2,
+      "final_layer_used": 3,
+      "layer1_killed_mutants": 13,
+      "layer1_new_kills": 13,
+      "layer2_new_kills": 4,
+      "layer3_new_kills": 1,
+      "layer2_used": true,
+      "layer3_used": true,
+      "layer1_iterations": 3,
+      "baseline_iterations": 3,
+      "baseline_first_final_score_iteration": 1,
+      "baseline_tokens_at_first_final_score": 13511,
+      "baseline_first_plateau_iteration": 3,
+      "baseline_tokens_at_plateau": 23915,
+      "baseline_score_at_matched_proposed_tokens": 0.857143,
+      "baseline_score_at_matched_proposed_paid_tokens": 0.857143,
+      "proposed_providers": "hf,openai",
+      "proposed_models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini,gpt-5.2",
+      "baseline_providers": "openai",
+      "baseline_models": "gpt-5.2"
+    }
+  },
+  "timing": {
+    "mutant_generation_sec": 0.1078,
+    "probe_generation_sec": 0.0004,
+    "behavior_signature_sec": 11.2304,
+    "clustering_sec": 0.0124,
+    "representative_selection_sec": 0.0124,
+    "total_problem_sec": 353.287
+  },
+  "layers": [
+    {
+      "layer": "Layer1",
+      "problem_id": "EvoEval_creative/35",
+      "total_mutants": 21,
+      "killed_mutants": 13,
+      "surviving_mutants": 8,
+      "mutation_score": 0.619048,
+      "new_kills": 13,
+      "test_count": 1,
+      "cumulative_tests": 1,
+      "prompt_tokens": 9682,
+      "completion_tokens": 489,
+      "thoughts_tokens": 0,
+      "total_tokens": 10171,
+      "estimated_cost_usd": 0.0,
+      "generation_time_sec": 54.7249,
+      "evaluation_time_sec": 3.3446,
+      "total_time_sec": 58.3406,
+      "cost_per_killed_mutant": 0.0,
+      "cost_per_new_kill": 0.0,
+      "time_per_killed_mutant": 4.4877,
+      "time_per_new_kill": 4.4877,
+      "tokens_per_new_kill": 782.3846,
+      "cluster_kill_consistency": 0.9167,
+      "llm_calls": 3,
+      "accepted_calls": 1,
+      "productive_calls": 1,
+      "invalid_calls": 0,
+      "zero_kill_calls": 2,
+      "target_count": 5,
+      "prompt_chars": 39556,
+      "response_chars": 2019,
+      "notes": "batched_representatives=5 max_attempts=3 actual_calls=3 accepted_tests=1 stop_reason=budget_exhausted"
+    },
+    {
+      "layer": "Layer2",
+      "problem_id": "EvoEval_creative/35",
+      "total_mutants": 21,
+      "killed_mutants": 17,
+      "surviving_mutants": 4,
+      "mutation_score": 0.809524,
+      "new_kills": 4,
+      "test_count": 1,
+      "cumulative_tests": 2,
+      "prompt_tokens": 3530,
+      "completion_tokens": 102,
+      "thoughts_tokens": 4352,
+      "total_tokens": 7984,
+      "estimated_cost_usd": 0.0097905,
+      "generation_time_sec": 51.5963,
+      "evaluation_time_sec": 1.1774,
+      "total_time_sec": 52.7812,
+      "cost_per_killed_mutant": 0.00057591,
+      "cost_per_new_kill": 0.00244763,
+      "time_per_killed_mutant": 3.1048,
+      "time_per_new_kill": 13.1953,
+      "tokens_per_new_kill": 1996.0,
+      "cluster_kill_consistency": 0.8917,
+      "llm_calls": 2,
+      "accepted_calls": 1,
+      "productive_calls": 1,
+      "invalid_calls": 0,
+      "zero_kill_calls": 1,
+      "target_count": 5,
+      "prompt_chars": 13513,
+      "response_chars": 155,
+      "notes": "batched_survivor_representatives=5 max_attempts=10 actual_calls=2 accepted_tests=1 stop_reason=plateau: 1 consecutive attempt(s) with zero new kills"
+    },
+    {
+      "layer": "Layer3",
+      "problem_id": "EvoEval_creative/35",
+      "total_mutants": 21,
+      "killed_mutants": 18,
+      "surviving_mutants": 3,
+      "mutation_score": 0.857143,
+      "new_kills": 1,
+      "test_count": 1,
+      "cumulative_tests": 3,
+      "prompt_tokens": 3351,
+      "completion_tokens": 123,
+      "thoughts_tokens": 5641,
+      "total_tokens": 9115,
+      "estimated_cost_usd": 0.08656025,
+      "generation_time_sec": 80.5786,
+      "evaluation_time_sec": 0.7571,
+      "total_time_sec": 81.3468,
+      "cost_per_killed_mutant": 0.0048089,
+      "cost_per_new_kill": 0.08656025,
+      "time_per_killed_mutant": 4.5193,
+      "time_per_new_kill": 81.3468,
+      "tokens_per_new_kill": 9115.0,
+      "cluster_kill_consistency": 0.9167,
+      "llm_calls": 2,
+      "accepted_calls": 1,
+      "productive_calls": 1,
+      "invalid_calls": 0,
+      "zero_kill_calls": 1,
+      "target_count": 5,
+      "prompt_chars": 12972,
+      "response_chars": 413,
+      "notes": "batched_hard_representatives=5 actual_calls=2 stop_reason=plateau: 1 consecutive attempt(s) with zero new kills"
+    }
+  ],
+  "llm_calls": [
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776,EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba,EvoEval_creative_35:m005:COMPARISON_FLIP:85a26ccfc7,EvoEval_creative_35:m001:BOOLEAN_FLIP:bc133af749,EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1",
+      "provider": "hf",
+      "prompt_tokens": 3752,
+      "completion_tokens": 89,
+      "thoughts_tokens": 0,
+      "total_tokens": 3841,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 12.0299,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"myemail@\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"True\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"myemail@\") == False\n    assert candidate(\"myemail@domain\") == False\n    assert candidate(\"myemail@domain.com\") == True\n    assert candidate(\"myemail.domain.com\") == False\n    assert candidate(\"myemail@domain@domain.com\") == False\n    assert candidate(\"\") == False\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 1\nPrevious-attempt feedback:\n{\n  \"note\": \"Generate one joint test for all representative clusters.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 2\",\n    \"original_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\",\n    \"mutated_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-2] != '@'):\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba\",\n    \"operator\": \"NEGATE_CONDITION\",\n    \"change_description\": \"if <cond> -> if not (<cond>)\",\n    \"original_code\": \"if '.' in after_at:\",\n    \"mutated_code\": \"if not '.' in after_at:\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"myemail@\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"True\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m005:COMPARISON_FLIP:85a26ccfc7\",\n    \"operator\": \"COMPARISON_FLIP\",\n    \"change_description\": \"NotEq -> Eq\",\n    \"original_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\",\n    \"mutated_code\": \"if email.count('@') == 1 and email[0] == '@' and (email[-1] != '@'):\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"myemail@\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"True\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m001:BOOLEAN_FLIP:bc133af749\",\n    \"operator\": \"BOOLEAN_FLIP\",\n    \"change_description\": \"And -> Or\",\n    \"original_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\",\n    \"mutated_code\": \"if email.count('@') == 1 or email[0] != '@' or email[-1] != '@':\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"myemail@\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"True\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"False\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"after_at = email[at_index + 1:]\",\n    \"mutated_code\": \"after_at = email[at_index - 1:]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n\n    def validate_email_structure(email: str) -> bool:\n        if email.count('@') != 1 or email[1:-1].count('.') == 0:\n            return False\n        return True\n    check_candidate(validate_email_structure)\n",
+      "extracted_test": "def check(candidate):\n    assert candidate('myemail@') == False\n    assert candidate('myemail@domain') == False\n    assert candidate('myemail@domain.com') == True\n    assert candidate('myemail.domain.com') == False\n    assert candidate('myemail@domain@domain.com') == False\n    assert candidate('') == False\n\n    def validate_email_structure(email: str) -> bool:\n        if email.count('@') != 1 or email[1:-1].count('.') == 0:\n            return False\n        return True",
+      "passed_on_original": true,
+      "killed_mutants": 13,
+      "surviving_mutants": 8,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 5,
+      "target_kills": 3,
+      "new_kills": 13,
+      "cumulative_kills": 13,
+      "cumulative_score": 0.6190476190476191,
+      "prompt_chars": 15171,
+      "response_chars": 233,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7,EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1",
+      "provider": "hf",
+      "prompt_tokens": 2958,
+      "completion_tokens": 200,
+      "thoughts_tokens": 0,
+      "total_tokens": 3158,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 21.4029,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"myemail@\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"True\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"myemail@\") == False\n    assert candidate(\"myemail@domain\") == False\n    assert candidate(\"myemail@domain.com\") == True\n    assert candidate(\"myemail.domain.com\") == False\n    assert candidate(\"myemail@domain@domain.com\") == False\n    assert candidate(\"\") == False\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 2\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 5,\n    \"target_kills\": 3,\n    \"new_kills\": 13,\n    \"cumulative_kills\": 13,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ],\n    \"tokens\": 3841,\n    \"seed_used\": true,\n    \"llm_lines_kept\": 1\n  },\n  \"remaining_mutants\": 8,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 2\",\n    \"original_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\",\n    \"mutated_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-2] != '@'):\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"original_code\": \"\",\n    \"mutated_code\": \"\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"after_at = email[at_index + 1:]\",\n    \"mutated_code\": \"after_at = email[at_index - 1:]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "```python\ndef check_candidate(candidate):\n    assert candidate(\"\") == True\n    assert check_candidate(\"myemail@domaincom\") == False\n    def helper(email):\n        if email.count(\"@\") == 1 and email.startswith(\"@\") and email.endswith(\"@\"):\n            return False\n        elif email.count(\".\") > 0:\n            return True\n        else:\n            return False\n    assert helper(\"myemail@domain.\") == True\n    assert helper(\"a@b.c\") == True\n    def another_helper(email):\n        if email.find(\"@\") == -1:\n            return False\n        else:\n            parts = email.split(\"@\")\n            if len(parts) != 2:\n                return False\n            domain_part = parts[1].split(\".\")\n            if len(domain_part) < 2:\n                return True\n            else:\n                return False\n    assert another_helper(\"myemail@domain..com\") == True\n    print(\"All tests passed!\")\n```",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"myemail@\") == False\n    assert candidate(\"myemail@domain\") == False\n    assert candidate(\"myemail@domain.com\") == True\n    assert candidate(\"myemail.domain.com\") == False\n    assert candidate(\"myemail@domain@domain.com\") == False\n    assert candidate(\"\") == False",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 8,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 2,
+      "target_count": 3,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 13,
+      "cumulative_score": 0.6190476190476191,
+      "prompt_chars": 12160,
+      "response_chars": 893,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7,EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1",
+      "provider": "hf",
+      "prompt_tokens": 2972,
+      "completion_tokens": 200,
+      "thoughts_tokens": 0,
+      "total_tokens": 3172,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 21.292,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"myemail@\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"True\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail.domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"myemail@domain@domain.com\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"False\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"myemail@\") == False\n    assert candidate(\"myemail@domain\") == False\n    assert candidate(\"myemail@domain.com\") == True\n    assert candidate(\"myemail.domain.com\") == False\n    assert candidate(\"myemail@domain@domain.com\") == False\n    assert candidate(\"\") == False\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 3\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 2,\n    \"target_count\": 3,\n    \"target_kills\": 0,\n    \"new_kills\": 0,\n    \"cumulative_kills\": 13,\n    \"status\": \"VALID_ZERO_KILL\",\n    \"failure_category\": \"VALID_ZERO_KILL\",\n    \"error\": \"valid but unproductive: killed zero active mutants\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ],\n    \"tokens\": 3158,\n    \"seed_used\": true,\n    \"llm_lines_kept\": 0\n  },\n  \"remaining_mutants\": 8,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 2\",\n    \"original_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\",\n    \"mutated_code\": \"if email.count('@') == 1 and email[0] != '@' and (email[-2] != '@'):\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"original_code\": \"\",\n    \"mutated_code\": \"\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"after_at = email[at_index + 1:]\",\n    \"mutated_code\": \"after_at = email[at_index - 1:]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "```python\ndef check_candidate(candidate):\n    assert candidate(\"\") == True\n    assert check_candidate(\"myemail@domaincom\") == False\n    def helper(email):\n        if email.count(\"@\") == 1 and email.startswith(\"@\") and email.endswith(\"@\"):\n            return False\n        elif email.count(\".\") > 0:\n            return True\n        else:\n            return False\n    assert helper(\"myemail@domain.\") == True\n    assert helper(\"a@b.c\") == True\n    def another_helper(email):\n        if email.find(\"@\") == -1:\n            return False\n        else:\n            parts = email.split(\"@\")\n            if len(parts) != 2:\n                return False\n            domain_part = parts[1].split(\".\")\n            if len(domain_part) < 2:\n                return True\n            else:\n                return False\n    assert another_helper(\"myemail@domain..com\") == True\n    print(\"All tests passed!\")\n```",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"myemail@\") == False\n    assert candidate(\"myemail@domain\") == False\n    assert candidate(\"myemail@domain.com\") == True\n    assert candidate(\"myemail.domain.com\") == False\n    assert candidate(\"myemail@domain@domain.com\") == False\n    assert candidate(\"\") == False",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 8,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 3,
+      "target_count": 3,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 13,
+      "cumulative_score": 0.6190476190476191,
+      "prompt_chars": 12225,
+      "response_chars": 893,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7,EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1",
+      "provider": "openai",
+      "prompt_tokens": 1776,
+      "completion_tokens": 42,
+      "thoughts_tokens": 2752,
+      "total_tokens": 4570,
+      "estimated_cost_usd": 0.006032,
+      "latency_sec": 33.5576,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +13 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:4, INDEX_BOUNDARY:2, RETURN_VALUE_CHANGE:1).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"dd674f2792\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 1. Feedback: {\n  \"note\": \"Use the compressed Layer 1 handoff and target all survivor clusters jointly.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 2\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776\\n@@ -14,7 +14,7 @@\\n     >>> validate_email_structure(\\\"myemail@domain@domain.com\\\")\\n     False\\n     \\\"\\\"\\\"\\n-    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\\n+    if email.count('@') == 1 and email[0] != '@' and (email[-2] != '@'):\\n         at_index = email.index('@')\\n         after_at = email[at_index + 1:]\\n         if '.' in after_at:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"exact_diff\": \"return <expr> -> return False\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1\\n@@ -16,7 +16,7 @@\\n     \\\"\\\"\\\"\\n     if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\\n         at_index = email.index('@')\\n-        after_at = email[at_index + 1:]\\n+        after_at = email[at_index - 1:]\\n         if '.' in after_at:\\n             return True\\n     return False\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    assert candidate('x@.') is True\n    assert candidate('ab.@c') is False",
+      "extracted_test": "def check(candidate):\n    assert candidate('x@.') is True\n    assert candidate('ab.@c') is False",
+      "passed_on_original": true,
+      "killed_mutants": 4,
+      "surviving_mutants": 4,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 3,
+      "target_kills": 2,
+      "new_kills": 4,
+      "cumulative_kills": 17,
+      "cumulative_score": 0.8095238095238095,
+      "prompt_chars": 6805,
+      "response_chars": 96,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7",
+      "provider": "openai",
+      "prompt_tokens": 1754,
+      "completion_tokens": 60,
+      "thoughts_tokens": 1600,
+      "total_tokens": 3414,
+      "estimated_cost_usd": 0.0037585,
+      "latency_sec": 17.9565,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +13 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('myemail@'); candidate('myemail@domain'); candidate('myemail@domain.com')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:4, INDEX_BOUNDARY:2, RETURN_VALUE_CHANGE:1).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"dd674f2792\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ]\n  },\n  {\n    \"sha1\": \"68c0c7dd6d\",\n    \"candidate_calls\": [\n      \"candidate('x@.')\",\n      \"candidate('ab.@c')\"\n    ],\n    \"assertions\": [\n      \"candidate('x@.') is True\",\n      \"candidate('ab.@c') is False\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 2. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 3,\n    \"target_kills\": 2,\n    \"new_kills\": 4,\n    \"cumulative_kills\": 17,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('x@.')\",\n      \"candidate('ab.@c')\"\n    ],\n    \"assertions\": [\n      \"candidate('x@.') is True\",\n      \"candidate('ab.@c') is False\"\n    ],\n    \"tokens\": 4570\n  },\n  \"remaining_mutants\": 4,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 0\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\\n@@ -14,7 +14,7 @@\\n     >>> validate_email_structure(\\\"myemail@domain@domain.com\\\")\\n     False\\n     \\\"\\\"\\\"\\n-    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\\n+    if email.count('@') == 1 and email[0] != '@' and (email[-0] != '@'):\\n         at_index = email.index('@')\\n         after_at = email[at_index + 1:]\\n         if '.' in after_at:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"exact_diff\": \"return <expr> -> return False\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    assert candidate('a@b.c') is True",
+      "extracted_test": "def check(candidate):\n    assert candidate('a@b.c') is True",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 4,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 2,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 17,
+      "cumulative_score": 0.8095238095238095,
+      "prompt_chars": 6708,
+      "response_chars": 59,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer3",
+      "model": "gpt-5.2",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7",
+      "provider": "openai",
+      "prompt_tokens": 1595,
+      "completion_tokens": 79,
+      "thoughts_tokens": 2452,
+      "total_tokens": 4126,
+      "estimated_cost_usd": 0.03822525,
+      "latency_sec": 34.9931,
+      "prompt": "<role>\nLayer 3 (final escalation) in Claus-Test -- most capable, most expensive\nstage, reserved for mutants two cheaper layers could not resolve. Return\nexactly one Python test function.\n</role>\n\n<objective>\nFor each target: either find a concrete input where canonical and mutant\nprovably diverge and kill it, or decide it is very likely equivalent and\nomit it. A function killing fewer targets correctly beats one with a single\nguessed assertion -- a wrong guess forfeits the whole function's credit.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<pipeline_handoff>\n2 attempt(s) so far, 1 productive, stopped: plateau: 1 consecutive attempt(s) with zero new kills.\n- attempt 1 [PRODUCTIVE, +4 new kills]: candidate('x@.'); candidate('ab.@c')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('a@b.c')\n4 mutant(s) still surviving overall (CONSTANT_CHANGE:2, INDEX_BOUNDARY:1, RETURN_VALUE_CHANGE:1).\nBefore this: Layer1 ran 3 attempt(s), 8 survivor(s) handed forward.\n</pipeline_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"dd674f2792\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ]\n  },\n  {\n    \"sha1\": \"68c0c7dd6d\",\n    \"candidate_calls\": [\n      \"candidate('x@.')\",\n      \"candidate('ab.@c')\"\n    ],\n    \"assertions\": [\n      \"candidate('x@.') is True\",\n      \"candidate('ab.@c') is False\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<targets>\nHardest survivors -- two cheaper layers already failed. `equivalence_status`\nis a strong prior, not a guarantee: confirm or challenge it against the diff\nand probe evidence rather than accepting or dismissing it blindly.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 0\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\\n@@ -14,7 +14,7 @@\\n     >>> validate_email_structure(\\\"myemail@domain@domain.com\\\")\\n     False\\n     \\\"\\\"\\\"\\n-    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\\n+    if email.count('@') == 1 and email[0] != '@' and (email[-0] != '@'):\\n         at_index = email.index('@')\\n         after_at = email[at_index + 1:]\\n         if '.' in after_at:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"exact_diff\": \"return <expr> -> return False\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <pipeline_handoff>; your input must differ from every prior attempt shown there.\nR11. Weigh `equivalence_status`/`equivalence_reason` against `exact_diff`; omit a target rather than guess.\nR12. Accept non-value kill signals too: an exception, a timeout, or divergence under a seeded `random.seed` or a mock.\nR13. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    assert candidate(\"@a.b\") is False\n    assert candidate(\"a.b@c\") is False\n    assert candidate(\"a@@b.c\") is False\n    assert candidate(\"a@.b\") is True\n    assert candidate(\"a@b.\") is True\n    assert candidate(\"a@b..c\") is True",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"@a.b\") is False\n    assert candidate(\"a.b@c\") is False\n    assert candidate(\"a@@b.c\") is False\n    assert candidate(\"a@.b\") is True\n    assert candidate(\"a@b.\") is True\n    assert candidate(\"a@b..c\") is True",
+      "passed_on_original": true,
+      "killed_mutants": 1,
+      "surviving_mutants": 3,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 1,
+      "cumulative_kills": 18,
+      "cumulative_score": 0.8571428571428571,
+      "prompt_chars": 6248,
+      "response_chars": 251,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/35",
+      "layer": "Layer3",
+      "model": "gpt-5.2",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e,EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7",
+      "provider": "openai",
+      "prompt_tokens": 1756,
+      "completion_tokens": 44,
+      "thoughts_tokens": 3189,
+      "total_tokens": 4989,
+      "estimated_cost_usd": 0.048335,
+      "latency_sec": 45.5032,
+      "prompt": "<role>\nLayer 3 (final escalation) in Claus-Test -- most capable, most expensive\nstage, reserved for mutants two cheaper layers could not resolve. Return\nexactly one Python test function.\n</role>\n\n<objective>\nFor each target: either find a concrete input where canonical and mutant\nprovably diverge and kill it, or decide it is very likely equivalent and\nomit it. A function killing fewer targets correctly beats one with a single\nguessed assertion -- a wrong guess forfeits the whole function's credit.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/35\nDataset: evoeval\nDataset subset: creative\nEntry point: validate_email_structure\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nemail is a string.\nreturn True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \nand there is at least one \".\" character after the \"@\" character).\n\n>>> validate_email_structure(\"myemail@\")\nFalse\n>>> validate_email_structure(\"myemail@domain\")\nFalse\n>>> validate_email_structure(\"myemail@domain.com\")\nTrue\n>>> validate_email_structure(\"myemail.domain.com\")\nFalse\n>>> validate_email_structure(\"myemail@domain@domain.com\")\nFalse\n</task_information>\n\n<canonical_implementation>\n```python\ndef validate_email_structure(email: str):\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False\n```\n</canonical_implementation>\n\n<pipeline_handoff>\n2 attempt(s) so far, 1 productive, stopped: plateau: 1 consecutive attempt(s) with zero new kills.\n- attempt 1 [PRODUCTIVE, +4 new kills]: candidate('x@.'); candidate('ab.@c')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('a@b.c')\n4 mutant(s) still surviving overall (CONSTANT_CHANGE:2, INDEX_BOUNDARY:1, RETURN_VALUE_CHANGE:1).\nBefore this: Layer1 ran 3 attempt(s), 8 survivor(s) handed forward.\n</pipeline_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"dd674f2792\",\n    \"candidate_calls\": [\n      \"candidate('myemail@')\",\n      \"candidate('myemail@domain')\",\n      \"candidate('myemail@domain.com')\",\n      \"candidate('myemail.domain.com')\",\n      \"candidate('myemail@domain@domain.com')\",\n      \"candidate('')\"\n    ],\n    \"assertions\": [\n      \"candidate('myemail@') == False\",\n      \"candidate('myemail@domain') == False\",\n      \"candidate('myemail@domain.com') == True\",\n      \"candidate('myemail.domain.com') == False\",\n      \"candidate('myemail@domain@domain.com') == False\",\n      \"candidate('') == False\"\n    ]\n  },\n  {\n    \"sha1\": \"68c0c7dd6d\",\n    \"candidate_calls\": [\n      \"candidate('x@.')\",\n      \"candidate('ab.@c')\"\n    ],\n    \"assertions\": [\n      \"candidate('x@.') is True\",\n      \"candidate('ab.@c') is False\"\n    ]\n  },\n  {\n    \"sha1\": \"fe9afc7738\",\n    \"candidate_calls\": [\n      \"candidate('@a.b')\",\n      \"candidate('a.b@c')\",\n      \"candidate('a@@b.c')\",\n      \"candidate('a@.b')\",\n      \"candidate('a@b.')\",\n      \"candidate('a@b..c')\"\n    ],\n    \"assertions\": [\n      \"candidate('@a.b') is False\",\n      \"candidate('a.b@c') is False\",\n      \"candidate('a@@b.c') is False\",\n      \"candidate('a@.b') is True\",\n      \"candidate('a@b.') is True\",\n      \"candidate('a@b..c') is True\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<targets>\nHardest survivors -- two cheaper layers already failed. `equivalence_status`\nis a strong prior, not a guarantee: confirm or challenge it against the diff\nand probe evidence rather than accepting or dismissing it blindly.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 0\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e\\n@@ -14,7 +14,7 @@\\n     >>> validate_email_structure(\\\"myemail@domain@domain.com\\\")\\n     False\\n     \\\"\\\"\\\"\\n-    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\\n+    if email.count('@') == 1 and email[0] != '@' and (email[-0] != '@'):\\n         at_index = email.index('@')\\n         after_at = email[at_index + 1:]\\n         if '.' in after_at:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return False\",\n    \"exact_diff\": \"return <expr> -> return False\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <pipeline_handoff>; your input must differ from every prior attempt shown there.\nR11. Weigh `equivalence_status`/`equivalence_reason` against `exact_diff`; omit a target rather than guess.\nR12. Accept non-value kill signals too: an exception, a timeout, or divergence under a seeded `random.seed` or a mock.\nR13. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    assert candidate(\"name@domain.co\") is True\n    assert candidate(\"name@domain\") is False\n    assert candidate(\"name@@domain.co\") is False",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"name@domain.co\") is True\n    assert candidate(\"name@domain\") is False\n    assert candidate(\"name@@domain.co\") is False",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 3,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 2,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 18,
+      "cumulative_score": 0.8571428571428571,
+      "prompt_chars": 6724,
+      "response_chars": 162,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    }
+  ],
+  "benchmark": {
+    "problem_id": "EvoEval_creative/35",
+    "cluse_mutation_score": 0.8571,
+    "official_mutation_score": 0.8095,
+    "cluse_killed": 18,
+    "official_killed": 17,
+    "total_mutants": 21,
+    "kill_agreement_accuracy": 0.9524,
+    "kill_precision": 0.9444,
+    "kill_recall": 1.0,
+    "kill_f1": 0.9714,
+    "cluse_wins": true,
+    "sanity_check_passed": true,
+    "sanity_check_notes": "Generated tests were validated on the canonical solution before acceptance",
+    "equivalent_mutants": 0,
+    "adjusted_total_mutants": 21,
+    "cluse_equivalent_adjusted_score": 0.8571,
+    "official_equivalent_adjusted_score": 0.8095
+  },
+  "paid_api_cost_usd": 0.09635075,
+  "paid_api_tokens": 17099,
+  "summary": {
+    "problem_id": "EvoEval_creative/35",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/35",
+    "parent_task_id": "HumanEval/35",
+    "final_score": 0.857143,
+    "total_mutants": 21,
+    "killed_mutants": 18,
+    "surviving_mutants": 3,
+    "total_tokens": 27270,
+    "paid_api_tokens": 17099,
+    "prompt_tokens": 16563,
+    "completion_tokens": 714,
+    "thoughts_tokens": 9993,
+    "estimated_cost_usd": 0.09635075,
+    "paid_api_cost_usd": 0.09635075,
+    "layer1_tokens": 10171,
+    "layer1_cost_usd": 0.0,
+    "layer1_calls": 3,
+    "layer2_tokens": 7984,
+    "layer2_cost_usd": 0.0097905,
+    "layer2_calls": 2,
+    "layer3_tokens": 9115,
+    "layer3_cost_usd": 0.08656025,
+    "layer3_calls": 2,
+    "generated_tests": 3,
+    "llm_calls": 7,
+    "productive_calls": 3,
+    "invalid_calls": 0,
+    "zero_kill_calls": 4,
+    "prompt_chars": 66041,
+    "response_chars": 2587,
+    "runtime_sec": 353.287,
+    "providers": "hf,openai",
+    "models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini,gpt-5.2",
+    "official_score": 0.8095,
+    "official_killed": 17,
+    "equivalent_mutants": 0,
+    "equivalent_adjusted_score": 0.8571,
+    "official_equivalent_adjusted_score": 0.8095,
+    "kill_agreement_accuracy": 0.9524,
+    "kill_precision": 0.9444,
+    "kill_recall": 1.0,
+    "kill_f1": 0.9714,
+    "sanity_passed": true
+  }
+}

@@ -1,0 +1,719 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_33:m000:NEGATE_CONDITION:6c3e9a5027",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 27,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if not n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m001:COMPARISON_FLIP:fba7d01655",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "COMPARISON_FLIP",
+    "description": "Lt -> Gt",
+    "line_number": 27,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n > 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.22226357460021973,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m002:BOUNDARY_SHIFT:55997263a2",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 27,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n <= 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m003:CONSTANT_CHANGE:9050c22050",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 27,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 1:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.13392966985702515,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m004:RETURN_VALUE_CHANGE:c38c87ca97",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 28,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return None\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.46282488107681274,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m005:RETURN_VALUE_CHANGE:d29b7a6e14",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 28,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return False\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3635043501853943,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m006:CONSTANT_CHANGE:4291060b40",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 28,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 1\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m007:NEGATE_CONDITION:82315e376e",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 29,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if not n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.2251482605934143,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m008:COMPARISON_FLIP:d025bbf3ba",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 29,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n != 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.347633421421051,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m009:CONSTANT_CHANGE:71d8aad816",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 29,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 1:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.18318867683410645,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m010:RETURN_VALUE_CHANGE:6516d9eadc",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 30,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return None\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4880737066268921,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m011:RETURN_VALUE_CHANGE:9a48eb8c11",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 30,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return False\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.49034935235977173,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m012:CONSTANT_CHANGE:3c30c2a28c",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 30,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 2\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.12469482421875,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m013:NEGATE_CONDITION:f44a0687f9",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 31,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if not memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m014:COMPARISON_FLIP:fee46338a6",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "COMPARISON_FLIP",
+    "description": "NotEq -> Eq",
+    "line_number": 31,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] == -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.29245829582214355,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m015:CONSTANT_CHANGE:6e12c26519",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 31,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -2:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.2588881850242615,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m016:RETURN_VALUE_CHANGE:632259c1f8",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 32,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return None\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.500389039516449,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m017:RETURN_VALUE_CHANGE:e3f4dc1317",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 32,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return False\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.5048472881317139,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m018:ARITHMETIC_FLIP:efefa9e0e7",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Sub -> Add",
+    "line_number": 33,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n + stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 1.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m019:RETURN_VALUE_CHANGE:8478bba332",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 34,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return False\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.42318928241729736,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m020:CONSTANT_CHANGE:2af98b0c55",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 36,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-2 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.23315489292144775,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m021:CONSTANT_CHANGE:2248c8ec61",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 36,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-0 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.2409679889678955,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m022:CONSTANT_CHANGE:17517337d2",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 36,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 2)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m023:CONSTANT_CHANGE:8f575b0a48",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 36,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 0)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.07669365406036377,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m024:RETURN_VALUE_CHANGE:c5a26a3480",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 37,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2720906734466553,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

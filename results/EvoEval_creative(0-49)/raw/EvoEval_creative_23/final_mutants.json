@@ -1,0 +1,714 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_23:m000:CONSTANT_CHANGE:49a461dead",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 25,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 1\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.12066549062728882,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m001:CONSTANT_CHANGE:54cd829f84",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 25,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = -1\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0919724702835083,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m002:CONSTANT_CHANGE:9462771557",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 26,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 0\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.3067704439163208,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m003:NEGATE_CONDITION:a74855d250",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "NEGATE_CONDITION",
+    "description": "while <cond> -> while not (<cond>)",
+    "line_number": 28,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while not count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "While",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.05354142189025879,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m004:BOUNDARY_SHIFT:f1006f89af",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 28,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count <= n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "While",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m005:CONSTANT_CHANGE:b0ff526760",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 29,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 0\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.18075132369995117,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m006:NEGATE_CONDITION:4b1de7b2ed",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if not all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.13101321458816528,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m007:ARITHMETIC_FLIP:2c0f55099a",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num * i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.06400430202484131,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m008:CONSTANT_CHANGE:80d73e97a5",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 1 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.1830812692642212,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m009:ARGUMENT_SWAP:b0d0697773",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(int(num ** 0.5) + 1, 2))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m010:RANGE_BOUNDARY:f41bf7b0d4",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 2 -> 1",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(1, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cluster_id": 1,
+    "centrality": 0.20247429609298706,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m011:CONSTANT_CHANGE:eed29e2a64",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 3",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(3, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.3781578540802002,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m012:CONSTANT_CHANGE:63890d1848",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 0",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(0, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m013:ARITHMETIC_FLIP:a5ee904be0",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) - 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.07620036602020264,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m014:CONSTANT_CHANGE:62f02d3fec",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0.5 -> 1.5",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 1.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cluster_id": 1,
+    "centrality": 0.19480788707733154,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m015:CONSTANT_CHANGE:dd20460b27",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 2))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.39624470472335815,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m016:CONSTANT_CHANGE:c15d7a9acf",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 30,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 0))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.38229453563690186,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m017:CONSTANT_CHANGE:eb7b4f5a54",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 31,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 0\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cluster_id": 1,
+    "centrality": 0.1775045394897461,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m018:RETURN_VALUE_CHANGE:dcc6a101fc",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 33,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return None\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m019:CONSTANT_CHANGE:58000bbc40",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 27",
+    "line_number": 35,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(27)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.12212949991226196,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m020:CONSTANT_CHANGE:cd5bafd83b",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 0",
+    "line_number": 35,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(0)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.3702823519706726,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m021:NEGATE_CONDITION:609bc42bf8",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 39,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if not char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m022:CONSTANT_CHANGE:ea7f284842",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 97 -> 98",
+    "line_number": 40,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 98])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.3116655945777893,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m023:CONSTANT_CHANGE:6897850427",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 97 -> 96",
+    "line_number": 40,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 96])\n        else:\n            result += char\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.33238404989242554,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_23:m024:RETURN_VALUE_CHANGE:49e63433a2",
+    "problem_id": "EvoEval_creative/23",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 43,
+    "mutated_source": "def prime_cipher(s: str):\n    \"\"\"\n    Given a string s, write a function that performs the following operations:\n    - Replace each letter in the string s with the k-th prime number, where a is the 1st prime number, b is the 2nd prime number, z is the 26th prime number.\n    - If the character in the string is not a lowercase letter a-z, leave it unchanged.\n    - Return the new string.\n\n    Notes:\n    - The 1st prime number is 2, the 2nd is 3, the 3rd is 5, and so on.\n    - The function should be case sensitive. Only lowercase letters should be replaced with prime numbers.\n\n    Examples:\n    >>> prime_cipher(\"hello\")\n    '1911373747'\n    >>> prime_cipher(\"world\")\n    '834761377'\n    >>> prime_cipher(\"Python!\")\n    'P9771194743!'\n    >>> prime_cipher(\"12345\")\n    '12345'\n    >>> prime_cipher(\"abc\")\n    '235'\n    \"\"\"\n\n    def get_n_primes(n):\n        count = 0\n        num = 1\n        primes = []\n        while count < n:\n            num += 1\n            if all((num % i != 0 for i in range(2, int(num ** 0.5) + 1))):\n                count += 1\n                primes.append(num)\n        return primes\n    n_primes = get_n_primes(26)\n    result = ''\n    for char in s:\n        if char.islower():\n            result += str(n_primes[ord(char) - 97])\n        else:\n            result += char\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

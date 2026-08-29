@@ -1,0 +1,106 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_12:m000:COMPARISON_FLIP:592775e5a0",
+    "problem_id": "EvoEval_creative/12",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef teleporter_energy_signature(flux_values: List[int]) -> int:\n    \"\"\"\n    In the year 7082, teleporters are the primary mode of transportation across cities. Teleporter do\n    not function without a unique energy signature. This unique energy signature is formed by\n    performing certain operations over list of flux values recorded daily.\n\n    Given a list of flux values (integers always >= 0), your task is to determine the unique energy signature \n    by using the following steps:\n    - Find the element with maximum occurrence. If there are multiple, select the smallest one.\n    - Find the sum of all elements in the array.\n    - Multiply the sum of all elements with the most occurred number.\n\n    Return the result.\n\n    >>> teleporter_energy_signature([1, 2, 3, 2, 1, 2, 5, 1, 6])\n    23\n\n    Explanation: The number 2 and 1 appear thrice in the list, but 1 is smaller. \n    The sum of all elements in the array is 23. So, 23 * 1 = 23\n    \"\"\"\n    from collections import Counter\n    counter = Counter(flux_values)\n    max_occurrence_num = min((k for k, v in counter.items() if v != max(counter.values())))\n    sum_of_elements = sum(flux_values)\n    return sum_of_elements * max_occurrence_num",
+    "ast_node_type": "Compare",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_12:m001:RETURN_VALUE_CHANGE:aa9c03d544",
+    "problem_id": "EvoEval_creative/12",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 30,
+    "mutated_source": "from typing import List\n\ndef teleporter_energy_signature(flux_values: List[int]) -> int:\n    \"\"\"\n    In the year 7082, teleporters are the primary mode of transportation across cities. Teleporter do\n    not function without a unique energy signature. This unique energy signature is formed by\n    performing certain operations over list of flux values recorded daily.\n\n    Given a list of flux values (integers always >= 0), your task is to determine the unique energy signature \n    by using the following steps:\n    - Find the element with maximum occurrence. If there are multiple, select the smallest one.\n    - Find the sum of all elements in the array.\n    - Multiply the sum of all elements with the most occurred number.\n\n    Return the result.\n\n    >>> teleporter_energy_signature([1, 2, 3, 2, 1, 2, 5, 1, 6])\n    23\n\n    Explanation: The number 2 and 1 appear thrice in the list, but 1 is smaller. \n    The sum of all elements in the array is 23. So, 23 * 1 = 23\n    \"\"\"\n    from collections import Counter\n    counter = Counter(flux_values)\n    max_occurrence_num = min((k for k, v in counter.items() if v == max(counter.values())))\n    sum_of_elements = sum(flux_values)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_12:m002:RETURN_VALUE_CHANGE:56bbea3ced",
+    "problem_id": "EvoEval_creative/12",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 30,
+    "mutated_source": "from typing import List\n\ndef teleporter_energy_signature(flux_values: List[int]) -> int:\n    \"\"\"\n    In the year 7082, teleporters are the primary mode of transportation across cities. Teleporter do\n    not function without a unique energy signature. This unique energy signature is formed by\n    performing certain operations over list of flux values recorded daily.\n\n    Given a list of flux values (integers always >= 0), your task is to determine the unique energy signature \n    by using the following steps:\n    - Find the element with maximum occurrence. If there are multiple, select the smallest one.\n    - Find the sum of all elements in the array.\n    - Multiply the sum of all elements with the most occurred number.\n\n    Return the result.\n\n    >>> teleporter_energy_signature([1, 2, 3, 2, 1, 2, 5, 1, 6])\n    23\n\n    Explanation: The number 2 and 1 appear thrice in the list, but 1 is smaller. \n    The sum of all elements in the array is 23. So, 23 * 1 = 23\n    \"\"\"\n    from collections import Counter\n    counter = Counter(flux_values)\n    max_occurrence_num = min((k for k, v in counter.items() if v == max(counter.values())))\n    sum_of_elements = sum(flux_values)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_12:m003:ARITHMETIC_FLIP:42f67ddc02",
+    "problem_id": "EvoEval_creative/12",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 30,
+    "mutated_source": "from typing import List\n\ndef teleporter_energy_signature(flux_values: List[int]) -> int:\n    \"\"\"\n    In the year 7082, teleporters are the primary mode of transportation across cities. Teleporter do\n    not function without a unique energy signature. This unique energy signature is formed by\n    performing certain operations over list of flux values recorded daily.\n\n    Given a list of flux values (integers always >= 0), your task is to determine the unique energy signature \n    by using the following steps:\n    - Find the element with maximum occurrence. If there are multiple, select the smallest one.\n    - Find the sum of all elements in the array.\n    - Multiply the sum of all elements with the most occurred number.\n\n    Return the result.\n\n    >>> teleporter_energy_signature([1, 2, 3, 2, 1, 2, 5, 1, 6])\n    23\n\n    Explanation: The number 2 and 1 appear thrice in the list, but 1 is smaller. \n    The sum of all elements in the array is 23. So, 23 * 1 = 23\n    \"\"\"\n    from collections import Counter\n    counter = Counter(flux_values)\n    max_occurrence_num = min((k for k, v in counter.items() if v == max(counter.values())))\n    sum_of_elements = sum(flux_values)\n    return sum_of_elements / max_occurrence_num",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

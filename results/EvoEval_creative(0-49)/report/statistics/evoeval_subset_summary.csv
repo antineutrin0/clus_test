@@ -1,0 +1,4 @@
+dataset_subset,method,n_tasks,total_mutants,killed_mutants,macro_mutation_score,micro_mutation_score,total_tokens,total_paid_tokens,total_cost_usd,total_runtime_sec,tokens_per_killed_mutant
+creative,proposed,50,850,811,0.957156,0.954118,762445,360972,1.21249925,5010.6282,940.1295
+creative,baseline,50,850,793,0.94209,0.932941,741856,741856,3.89472125,5047.733,935.5057
+creative,official_reference,50,850,778,0.928972,0.915294,0,0,0.0,0.0,0.0

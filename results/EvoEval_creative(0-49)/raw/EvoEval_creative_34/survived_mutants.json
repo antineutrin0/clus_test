@@ -1,0 +1,52 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_34:m010:ARGUMENT_SWAP:2659147d2c",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(transformation[i - 1] * 2, 100)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.28944694995880127,
+    "information_score": 0.0,
+    "equivalence_status": "STATIC_EQUIVALENT",
+    "equivalence_reason": "first two arguments swapped in commutative call min"
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m016:ARGUMENT_SWAP:55860c3b69",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 39,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(transformation[i - 1] + increase, 100)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2875675559043884,
+    "information_score": 0.0,
+    "equivalence_status": "STATIC_EQUIVALENT",
+    "equivalence_reason": "first two arguments swapped in commutative call min"
+  }
+]

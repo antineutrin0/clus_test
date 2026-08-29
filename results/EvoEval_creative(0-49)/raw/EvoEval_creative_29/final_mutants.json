@@ -1,0 +1,375 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_29:m000:ARGUMENT_SWAP:f33cbba58d",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(len(s) + 1, i + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Call",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.04188644886016846,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m001:ARITHMETIC_FLIP:b333b000ed",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i - 1, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m002:CONSTANT_CHANGE:7f0dadb971",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 2, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.14854317903518677,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m003:CONSTANT_CHANGE:b442166872",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 0, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.29708629846572876,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m004:ARITHMETIC_FLIP:4d99d96103",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) - 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m005:CONSTANT_CHANGE:3eacff1de0",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 2):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 1.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m006:CONSTANT_CHANGE:e08acc6a48",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 27,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 0):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.29708629846572876,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m007:NEGATE_CONDITION:59eec7d955",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 29,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if not substring == substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.08040511608123779,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m008:COMPARISON_FLIP:460e9da9b2",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 29,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if substring != substring[::-1]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m009:CONSTANT_CHANGE:d95112171e",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 29,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-2]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m010:CONSTANT_CHANGE:6f9bf129e7",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 29,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-0]:\n                palindromes.add(substring)\n    return sorted(list(palindromes))",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.03980207443237305,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m011:RETURN_VALUE_CHANGE:e426f5f8b4",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 31,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_29:m012:RETURN_VALUE_CHANGE:5ee66b149b",
+    "problem_id": "EvoEval_creative/29",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 31,
+    "mutated_source": "def find_palindrome_substrings(s: str):\n    \"\"\"\n    Given a string, find all unique substrings that are palindromes.\n    \n    A palindrome is a word, number, phrase, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.\n    \n    Return a list of all unique palindrome substrings, sorted in ascending order.\n\n    >>> find_palindrome_substrings('racecar')\n    ['a', 'aceca', 'c', 'cec', 'e', 'r', 'racecar']\n\n    >>> find_palindrome_substrings('madam')\n    ['a', 'ada', 'd', 'm', 'madam']\n\n    >>> find_palindrome_substrings('civic')\n    ['c', 'civic', 'i', 'ivi', 'v']\n\n    >>> find_palindrome_substrings('hello')\n    ['e', 'h', 'l', 'll', 'o']\n\n    >>> find_palindrome_substrings('hannah')\n    ['a', 'anna', 'h', 'hannah', 'n', 'nn']\n    \"\"\"\n    palindromes = set()\n    for i in range(len(s)):\n        for j in range(i + 1, len(s) + 1):\n            substring = s[i:j]\n            if substring == substring[::-1]:\n                palindromes.add(substring)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

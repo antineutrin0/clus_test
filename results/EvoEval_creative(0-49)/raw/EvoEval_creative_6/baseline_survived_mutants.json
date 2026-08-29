@@ -1,0 +1,52 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_6:m015:ARGUMENT_SWAP:15db4b9815",
+    "problem_id": "EvoEval_creative/6",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 47,
+    "mutated_source": "from typing import List, Tuple\n\ndef minesweeper_clicked(grid: List[List[int]], position: Tuple[int, int]) -> List[List[int]]:\n    \"\"\"\n    The grid is a representation of a Minesweeper game.\n    The position represents the coordinates (x, y) that the player clicked.\n\n    Here, 0 means an empty cell, 1 means a mine, and -1 represents an unknown cell (which has not been clicked yet).\n    If the player clicks on a cell, and it is a mine, return the initial grid.\n    If the cell is empty, convert all the adjacent cells (horizontal, vertical, and diagonal cells) to a 0 too (don't change cell if its a mine).\n\n    If the cell clicked is already revealed (i.e., is a 0), return the initial grid.\n    If the cell clicked is out of the grid, return the initial grid.\n\n    Parameters:\n    grid (List[List[int]]): The game grid represented as a 2D list.\n    position (Tuple[int, int]): A tuple representing the coordinates the player clicked.\n\n    Returns:\n    List[List[int]]: The updated game grid.\n\n    Examples:\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (1, 2))\n    [[0, 1, -1], [1, -1, 0], [0, 1, 1]]\n\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (2, 2))\n    [[0, 1, -1], [1, -1, 0], [0, 1, 1]]\n\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (1, 1))\n    [[0, 1, 0], [1, 0, 0], [0, 1, 1]]\n    \"\"\"\n    x, y = position\n    rows, cols = (len(grid), len(grid[0]))\n    grid_ = grid.copy()\n    if x < 0 or x >= rows or y < 0 or (y >= cols) or (grid[x][y] == 0):\n        return grid_\n    if grid[x][y] == 1:\n        return grid_\n    for i in range(max(0, x - 1), min(x + 2, rows)):\n        for j in range(max(0, y - 1), min(cols, y + 2)):\n            if grid[i][j] != 1:\n                grid_[i][j] = 0\n    return grid_",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_6:m020:ARGUMENT_SWAP:4a1cc45a1a",
+    "problem_id": "EvoEval_creative/6",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 48,
+    "mutated_source": "from typing import List, Tuple\n\ndef minesweeper_clicked(grid: List[List[int]], position: Tuple[int, int]) -> List[List[int]]:\n    \"\"\"\n    The grid is a representation of a Minesweeper game.\n    The position represents the coordinates (x, y) that the player clicked.\n\n    Here, 0 means an empty cell, 1 means a mine, and -1 represents an unknown cell (which has not been clicked yet).\n    If the player clicks on a cell, and it is a mine, return the initial grid.\n    If the cell is empty, convert all the adjacent cells (horizontal, vertical, and diagonal cells) to a 0 too (don't change cell if its a mine).\n\n    If the cell clicked is already revealed (i.e., is a 0), return the initial grid.\n    If the cell clicked is out of the grid, return the initial grid.\n\n    Parameters:\n    grid (List[List[int]]): The game grid represented as a 2D list.\n    position (Tuple[int, int]): A tuple representing the coordinates the player clicked.\n\n    Returns:\n    List[List[int]]: The updated game grid.\n\n    Examples:\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (1, 2))\n    [[0, 1, -1], [1, -1, 0], [0, 1, 1]]\n\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (2, 2))\n    [[0, 1, -1], [1, -1, 0], [0, 1, 1]]\n\n    >>> minesweeper_clicked([[0, 1, -1], [1, -1, 0], [0, 1, 1]], (1, 1))\n    [[0, 1, 0], [1, 0, 0], [0, 1, 1]]\n    \"\"\"\n    x, y = position\n    rows, cols = (len(grid), len(grid[0]))\n    grid_ = grid.copy()\n    if x < 0 or x >= rows or y < 0 or (y >= cols) or (grid[x][y] == 0):\n        return grid_\n    if grid[x][y] == 1:\n        return grid_\n    for i in range(max(0, x - 1), min(rows, x + 2)):\n        for j in range(max(0, y - 1), min(y + 2, cols)):\n            if grid[i][j] != 1:\n                grid_[i][j] = 0\n    return grid_",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

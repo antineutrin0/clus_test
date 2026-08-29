@@ -1,0 +1,27 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_4:m013:CONSTANT_CHANGE:e8d8c83958",
+    "problem_id": "EvoEval_creative/4",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef candles_relight(candles: List[int]) -> int:\n    \"\"\"\n    You've got a list representing a row of birthday candles of various heights.\n    A candle at position \"i\" can be lit (gets the flame) if it is taller than all the candles \n    before it. The first candle is always lit. \n    Your task is to return the number of candles that can be lit.\n    An empty list means there were no candles, so return 0.\n\n    >>> candles_relight([3, 2, 1, 3, 2, 4])\n    2\n    >>> candles_relight([1, 2, 3, 4, 5])\n    5\n    >>> candles_relight([])\n    0\n    \"\"\"\n    if not candles:\n        return 0\n    max_height = candles[0]\n    relit_candles = 1\n    for candle in candles[0:]:\n        if candle > max_height:\n            max_height = candle\n            relit_candles += 1\n    return relit_candles",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Slice",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

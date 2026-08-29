@@ -1,0 +1,83 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_38:m000:ARGUMENT_SWAP:d5a49918d5",
+    "problem_id": "EvoEval_creative/38",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 25,
+    "mutated_source": "def translate_emoticons(sentence):\n    \"\"\"Convert text-based emoticons in a string to their corresponding Unicode emojis and return the result as a string.\n\n    If the sentence doesn't contain any text-based emoticons, return the original sentence.\n    Some examples of text-based emoticons and their corresponding emojis are \":)\" corresponds to \"\ud83d\ude0a\", \n    \":(\" corresponds to \"\u2639\ufe0f\", \":D\" corresponds to \"\ud83d\ude00\", \";)\" corresponds to \"\ud83d\ude09\". \n    \n    Examples:\n    >>> translate_emoticons(\"Hello :) Have a nice day! :D\")\n    \"Hello \ud83d\ude0a Have a nice day! \ud83d\ude00\"\n    >>> translate_emoticons(\"Oh no, it's raining! :(\")\n    \"Oh no, it's raining! \u2639\ufe0f\"\n    >>> translate_emoticons(\"No emoticons here\")\n    \"No emoticons here\"\n    \"\"\"\n    emoticons = {':)': '\ud83d\ude0a', ':(': '\u2639\ufe0f', ':D': '\ud83d\ude00', ';)': '\ud83d\ude09'}\n    for emoticon, emoji in emoticons.items():\n        sentence = sentence.replace(emoji, emoticon)\n    return sentence",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_38:m001:RETURN_VALUE_CHANGE:a382e40192",
+    "problem_id": "EvoEval_creative/38",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 27,
+    "mutated_source": "def translate_emoticons(sentence):\n    \"\"\"Convert text-based emoticons in a string to their corresponding Unicode emojis and return the result as a string.\n\n    If the sentence doesn't contain any text-based emoticons, return the original sentence.\n    Some examples of text-based emoticons and their corresponding emojis are \":)\" corresponds to \"\ud83d\ude0a\", \n    \":(\" corresponds to \"\u2639\ufe0f\", \":D\" corresponds to \"\ud83d\ude00\", \";)\" corresponds to \"\ud83d\ude09\". \n    \n    Examples:\n    >>> translate_emoticons(\"Hello :) Have a nice day! :D\")\n    \"Hello \ud83d\ude0a Have a nice day! \ud83d\ude00\"\n    >>> translate_emoticons(\"Oh no, it's raining! :(\")\n    \"Oh no, it's raining! \u2639\ufe0f\"\n    >>> translate_emoticons(\"No emoticons here\")\n    \"No emoticons here\"\n    \"\"\"\n    emoticons = {':)': '\ud83d\ude0a', ':(': '\u2639\ufe0f', ':D': '\ud83d\ude00', ';)': '\ud83d\ude09'}\n    for emoticon, emoji in emoticons.items():\n        sentence = sentence.replace(emoticon, emoji)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_38:m002:RETURN_VALUE_CHANGE:bcea6eb2aa",
+    "problem_id": "EvoEval_creative/38",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 27,
+    "mutated_source": "def translate_emoticons(sentence):\n    \"\"\"Convert text-based emoticons in a string to their corresponding Unicode emojis and return the result as a string.\n\n    If the sentence doesn't contain any text-based emoticons, return the original sentence.\n    Some examples of text-based emoticons and their corresponding emojis are \":)\" corresponds to \"\ud83d\ude0a\", \n    \":(\" corresponds to \"\u2639\ufe0f\", \":D\" corresponds to \"\ud83d\ude00\", \";)\" corresponds to \"\ud83d\ude09\". \n    \n    Examples:\n    >>> translate_emoticons(\"Hello :) Have a nice day! :D\")\n    \"Hello \ud83d\ude0a Have a nice day! \ud83d\ude00\"\n    >>> translate_emoticons(\"Oh no, it's raining! :(\")\n    \"Oh no, it's raining! \u2639\ufe0f\"\n    >>> translate_emoticons(\"No emoticons here\")\n    \"No emoticons here\"\n    \"\"\"\n    emoticons = {':)': '\ud83d\ude0a', ':(': '\u2639\ufe0f', ':D': '\ud83d\ude00', ';)': '\ud83d\ude09'}\n    for emoticon, emoji in emoticons.items():\n        sentence = sentence.replace(emoticon, emoji)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

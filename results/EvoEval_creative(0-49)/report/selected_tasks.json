@@ -1,0 +1,452 @@
+[
+  {
+    "selection_index": 1,
+    "task_id": "EvoEval_creative/0",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/0",
+    "parent_task_id": "HumanEval/0",
+    "entry_point": "calculate_shipping_cost"
+  },
+  {
+    "selection_index": 2,
+    "task_id": "EvoEval_creative/1",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/1",
+    "parent_task_id": "HumanEval/1",
+    "entry_point": "calculate_shipping_cost"
+  },
+  {
+    "selection_index": 3,
+    "task_id": "EvoEval_creative/2",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/2",
+    "parent_task_id": "HumanEval/2",
+    "entry_point": "encrypt_message"
+  },
+  {
+    "selection_index": 4,
+    "task_id": "EvoEval_creative/3",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/3",
+    "parent_task_id": "HumanEval/3",
+    "entry_point": "magical_alphabet"
+  },
+  {
+    "selection_index": 5,
+    "task_id": "EvoEval_creative/4",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/4",
+    "parent_task_id": "HumanEval/4",
+    "entry_point": "candles_relight"
+  },
+  {
+    "selection_index": 6,
+    "task_id": "EvoEval_creative/5",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/5",
+    "parent_task_id": "HumanEval/5",
+    "entry_point": "zigzag_traversal"
+  },
+  {
+    "selection_index": 7,
+    "task_id": "EvoEval_creative/6",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/6",
+    "parent_task_id": "HumanEval/6",
+    "entry_point": "minesweeper_clicked"
+  },
+  {
+    "selection_index": 8,
+    "task_id": "EvoEval_creative/7",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/7",
+    "parent_task_id": "HumanEval/7",
+    "entry_point": "find_shangri_la"
+  },
+  {
+    "selection_index": 9,
+    "task_id": "EvoEval_creative/8",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/8",
+    "parent_task_id": "HumanEval/8",
+    "entry_point": "transform_canvas"
+  },
+  {
+    "selection_index": 10,
+    "task_id": "EvoEval_creative/9",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/9",
+    "parent_task_id": "HumanEval/9",
+    "entry_point": "calculate_word_frequency"
+  },
+  {
+    "selection_index": 11,
+    "task_id": "EvoEval_creative/10",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/10",
+    "parent_task_id": "HumanEval/10",
+    "entry_point": "count_animals"
+  },
+  {
+    "selection_index": 12,
+    "task_id": "EvoEval_creative/11",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/11",
+    "parent_task_id": "HumanEval/11",
+    "entry_point": "fruity_messages"
+  },
+  {
+    "selection_index": 13,
+    "task_id": "EvoEval_creative/12",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/12",
+    "parent_task_id": "HumanEval/12",
+    "entry_point": "teleporter_energy_signature"
+  },
+  {
+    "selection_index": 14,
+    "task_id": "EvoEval_creative/13",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/13",
+    "parent_task_id": "HumanEval/13",
+    "entry_point": "find_rarest_element"
+  },
+  {
+    "selection_index": 15,
+    "task_id": "EvoEval_creative/14",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/14",
+    "parent_task_id": "HumanEval/14",
+    "entry_point": "create_alias"
+  },
+  {
+    "selection_index": 16,
+    "task_id": "EvoEval_creative/15",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/15",
+    "parent_task_id": "HumanEval/15",
+    "entry_point": "evaluate_poker_hand"
+  },
+  {
+    "selection_index": 17,
+    "task_id": "EvoEval_creative/16",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/16",
+    "parent_task_id": "HumanEval/16",
+    "entry_point": "fibonacci_sum"
+  },
+  {
+    "selection_index": 18,
+    "task_id": "EvoEval_creative/17",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/17",
+    "parent_task_id": "HumanEval/17",
+    "entry_point": "wizard_battle"
+  },
+  {
+    "selection_index": 19,
+    "task_id": "EvoEval_creative/18",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/18",
+    "parent_task_id": "HumanEval/18",
+    "entry_point": "magical_seven"
+  },
+  {
+    "selection_index": 20,
+    "task_id": "EvoEval_creative/19",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/19",
+    "parent_task_id": "HumanEval/19",
+    "entry_point": "vampires_in_matrix"
+  },
+  {
+    "selection_index": 21,
+    "task_id": "EvoEval_creative/20",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/20",
+    "parent_task_id": "HumanEval/20",
+    "entry_point": "generate_pattern"
+  },
+  {
+    "selection_index": 22,
+    "task_id": "EvoEval_creative/21",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/21",
+    "parent_task_id": "HumanEval/21",
+    "entry_point": "crossword_validator"
+  },
+  {
+    "selection_index": 23,
+    "task_id": "EvoEval_creative/22",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/22",
+    "parent_task_id": "HumanEval/22",
+    "entry_point": "galactic_travel"
+  },
+  {
+    "selection_index": 24,
+    "task_id": "EvoEval_creative/23",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/23",
+    "parent_task_id": "HumanEval/23",
+    "entry_point": "prime_cipher"
+  },
+  {
+    "selection_index": 25,
+    "task_id": "EvoEval_creative/24",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/24",
+    "parent_task_id": "HumanEval/24",
+    "entry_point": "alien_language_translator"
+  },
+  {
+    "selection_index": 26,
+    "task_id": "EvoEval_creative/25",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/25",
+    "parent_task_id": "HumanEval/25",
+    "entry_point": "word_frequency_analysis"
+  },
+  {
+    "selection_index": 27,
+    "task_id": "EvoEval_creative/26",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/26",
+    "parent_task_id": "HumanEval/26",
+    "entry_point": "pathfinder"
+  },
+  {
+    "selection_index": 28,
+    "task_id": "EvoEval_creative/27",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/27",
+    "parent_task_id": "HumanEval/27",
+    "entry_point": "split_strings"
+  },
+  {
+    "selection_index": 29,
+    "task_id": "EvoEval_creative/28",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/28",
+    "parent_task_id": "HumanEval/28",
+    "entry_point": "calculate_progressive_tax"
+  },
+  {
+    "selection_index": 30,
+    "task_id": "EvoEval_creative/29",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/29",
+    "parent_task_id": "HumanEval/29",
+    "entry_point": "find_palindrome_substrings"
+  },
+  {
+    "selection_index": 31,
+    "task_id": "EvoEval_creative/30",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/30",
+    "parent_task_id": "HumanEval/30",
+    "entry_point": "find_path"
+  },
+  {
+    "selection_index": 32,
+    "task_id": "EvoEval_creative/31",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/31",
+    "parent_task_id": "HumanEval/31",
+    "entry_point": "unique_paths"
+  },
+  {
+    "selection_index": 33,
+    "task_id": "EvoEval_creative/32",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/32",
+    "parent_task_id": "HumanEval/32",
+    "entry_point": "playlist_shuffle"
+  },
+  {
+    "selection_index": 34,
+    "task_id": "EvoEval_creative/33",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/33",
+    "parent_task_id": "HumanEval/33",
+    "entry_point": "magical_staircase"
+  },
+  {
+    "selection_index": 35,
+    "task_id": "EvoEval_creative/34",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/34",
+    "parent_task_id": "HumanEval/34",
+    "entry_point": "werewolf_transformation"
+  },
+  {
+    "selection_index": 36,
+    "task_id": "EvoEval_creative/35",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/35",
+    "parent_task_id": "HumanEval/35",
+    "entry_point": "validate_email_structure"
+  },
+  {
+    "selection_index": 37,
+    "task_id": "EvoEval_creative/36",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/36",
+    "parent_task_id": "HumanEval/36",
+    "entry_point": "calculate_integral_coefficients"
+  },
+  {
+    "selection_index": 38,
+    "task_id": "EvoEval_creative/37",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/37",
+    "parent_task_id": "HumanEval/37",
+    "entry_point": "string_transform"
+  },
+  {
+    "selection_index": 39,
+    "task_id": "EvoEval_creative/38",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/38",
+    "parent_task_id": "HumanEval/38",
+    "entry_point": "translate_emoticons"
+  },
+  {
+    "selection_index": 40,
+    "task_id": "EvoEval_creative/39",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/39",
+    "parent_task_id": "HumanEval/39",
+    "entry_point": "asciiArt"
+  },
+  {
+    "selection_index": 41,
+    "task_id": "EvoEval_creative/40",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/40",
+    "parent_task_id": "HumanEval/40",
+    "entry_point": "potion_mixing"
+  },
+  {
+    "selection_index": 42,
+    "task_id": "EvoEval_creative/41",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/41",
+    "parent_task_id": "HumanEval/41",
+    "entry_point": "spider_web_jump"
+  },
+  {
+    "selection_index": 43,
+    "task_id": "EvoEval_creative/42",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/42",
+    "parent_task_id": "HumanEval/42",
+    "entry_point": "find_legendary_item"
+  },
+  {
+    "selection_index": 44,
+    "task_id": "EvoEval_creative/43",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/43",
+    "parent_task_id": "HumanEval/43",
+    "entry_point": "space_travel"
+  },
+  {
+    "selection_index": 45,
+    "task_id": "EvoEval_creative/44",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/44",
+    "parent_task_id": "HumanEval/44",
+    "entry_point": "fairy_tale_transport"
+  },
+  {
+    "selection_index": 46,
+    "task_id": "EvoEval_creative/45",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/45",
+    "parent_task_id": "HumanEval/45",
+    "entry_point": "find_castle"
+  },
+  {
+    "selection_index": 47,
+    "task_id": "EvoEval_creative/46",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/46",
+    "parent_task_id": "HumanEval/46",
+    "entry_point": "hidden_message"
+  },
+  {
+    "selection_index": 48,
+    "task_id": "EvoEval_creative/47",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/47",
+    "parent_task_id": "HumanEval/47",
+    "entry_point": "recipe_ingredients"
+  },
+  {
+    "selection_index": 49,
+    "task_id": "EvoEval_creative/48",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/48",
+    "parent_task_id": "HumanEval/48",
+    "entry_point": "wizard_inventory"
+  },
+  {
+    "selection_index": 50,
+    "task_id": "EvoEval_creative/49",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/49",
+    "parent_task_id": "HumanEval/49",
+    "entry_point": "morse_decoder"
+  }
+]

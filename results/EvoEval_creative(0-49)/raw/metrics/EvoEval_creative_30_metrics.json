@@ -1,0 +1,1053 @@
+{
+  "problem_id": "EvoEval_creative/30",
+  "metadata": {
+    "entry_point": "find_path",
+    "mutant_count": 24,
+    "probe_count": 5,
+    "probe_exprs": [
+      "candidate(maze, start, end)",
+      "candidate([], (), ())",
+      "candidate([0], (0,), (0,))",
+      "candidate([0, 1, -1], (0, 1), (0, 1))",
+      "candidate([1, 2, 3], (0, 1), (0, 1))"
+    ],
+    "canonical_probe_outcomes": [
+      [
+        "ERROR",
+        "NameError:name 'maze' is not defined"
+      ],
+      [
+        "ERROR",
+        "IndexError:list index out of range"
+      ],
+      [
+        "ERROR",
+        "TypeError:object of type 'int' has no len()"
+      ],
+      [
+        "ERROR",
+        "TypeError:object of type 'int' has no len()"
+      ],
+      [
+        "ERROR",
+        "TypeError:object of type 'int' has no len()"
+      ]
+    ],
+    "official_killed_count": 20,
+    "max_layers": 3,
+    "max_mutants": 25,
+    "max_probes": 6,
+    "run_name": "default",
+    "dataset_name": "evoeval",
+    "dataset_metadata": {
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/30",
+      "parent_task_id": "HumanEval/30",
+      "has_instruction_prompt": false,
+      "has_code_prompt": false,
+      "has_doc_struct": false,
+      "libraries": []
+    },
+    "llm_configuration": {
+      "layer1": {
+        "provider": "hf",
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct"
+      },
+      "layer2": {
+        "provider": "openai",
+        "model": "gpt-5-mini"
+      },
+      "layer3": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      },
+      "baseline": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      }
+    },
+    "layer0_removed": true,
+    "gem_removed": true,
+    "dmsg_removed": true,
+    "representative_strategy": "UBIG-RS",
+    "generation_mode": "batched_representatives",
+    "cluster_lifecycle": "single_initial_partition_reused_across_layers",
+    "reclustering_disabled": true,
+    "layer1_max_calls_per_problem": 3,
+    "layer2_max_calls_per_problem": 10,
+    "strict_productive_validation": true,
+    "static_equivalent_count": 0,
+    "layer1_clusters": [
+      {
+        "cluster_id": 0,
+        "representative_ids": [
+          "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 22,
+        "cluster_size": 23,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 1,
+        "representative_ids": [
+          "EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 0,
+        "cluster_size": 1,
+        "strategy": "UBIG-RS"
+      }
+    ],
+    "layer1_iterations": 3,
+    "layer1_handoff": {
+      "source_layer": "Layer1",
+      "attempt_count": 3,
+      "productive_attempts": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 0,
+          "status": "REJECTED",
+          "failure_category": "NO_CANDIDATE_CALL",
+          "error": "vacuous test: check never calls candidate",
+          "candidate_calls": [],
+          "assertions": [],
+          "tokens": 3481,
+          "seed_used": false,
+          "llm_lines_kept": 1
+        },
+        {
+          "attempt": 2,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 0,
+          "status": "REJECTED",
+          "failure_category": "NO_CANDIDATE_CALL",
+          "error": "vacuous test: check never calls candidate",
+          "candidate_calls": [],
+          "assertions": [],
+          "tokens": 3547,
+          "seed_used": false,
+          "llm_lines_kept": 1
+        },
+        {
+          "attempt": 3,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 0,
+          "status": "REJECTED",
+          "failure_category": "NO_CANDIDATE_CALL",
+          "error": "vacuous test: check never calls candidate",
+          "candidate_calls": [],
+          "assertions": [],
+          "tokens": 3547,
+          "seed_used": false,
+          "llm_lines_kept": 1
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 24,
+      "surviving_original_cluster_ids": [
+        0,
+        1
+      ],
+      "surviving_operator_counts": {
+        "ARITHMETIC_FLIP": 3,
+        "BOOLEAN_FLIP": 1,
+        "BOUNDARY_SHIFT": 4,
+        "COMPARISON_FLIP": 1,
+        "CONSTANT_CHANGE": 11,
+        "INDEX_BOUNDARY": 1,
+        "NEGATE_CONDITION": 1,
+        "RETURN_VALUE_CHANGE": 2
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [],
+      "cluster_assignment_reused": true,
+      "stop_reason": "budget_exhausted"
+    },
+    "layer2_clusters": [
+      {
+        "cluster_id": 0,
+        "original_cluster_size": 23,
+        "surviving_cluster_size": 23,
+        "original_representative_ids": [
+          "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5"
+        ],
+        "live_original_representative_ids": [
+          "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5"
+        ],
+        "live_member_ids": [
+          "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5",
+          "EvoEval_creative_30:m002:ARITHMETIC_FLIP:889bddb972",
+          "EvoEval_creative_30:m003:NEGATE_CONDITION:74f776b8a7",
+          "EvoEval_creative_30:m004:COMPARISON_FLIP:51f0c377c8",
+          "EvoEval_creative_30:m005:RETURN_VALUE_CHANGE:d2aece9252",
+          "EvoEval_creative_30:m006:CONSTANT_CHANGE:6ce661af72",
+          "EvoEval_creative_30:m007:CONSTANT_CHANGE:0578a99294",
+          "EvoEval_creative_30:m008:CONSTANT_CHANGE:544c6e6a1a",
+          "EvoEval_creative_30:m010:CONSTANT_CHANGE:14feb31296",
+          "EvoEval_creative_30:m011:CONSTANT_CHANGE:ba07ff086a",
+          "EvoEval_creative_30:m012:CONSTANT_CHANGE:3e8b57974d",
+          "EvoEval_creative_30:m013:CONSTANT_CHANGE:75b5c52797",
+          "EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864",
+          "EvoEval_creative_30:m015:BOOLEAN_FLIP:7ecc823478",
+          "EvoEval_creative_30:m016:BOUNDARY_SHIFT:6691d87d28",
+          "EvoEval_creative_30:m017:BOUNDARY_SHIFT:acb826a65c",
+          "EvoEval_creative_30:m018:CONSTANT_CHANGE:d98a26e06b",
+          "EvoEval_creative_30:m019:BOUNDARY_SHIFT:cf360b1645",
+          "EvoEval_creative_30:m020:BOUNDARY_SHIFT:7cd6c2dc2d",
+          "EvoEval_creative_30:m021:CONSTANT_CHANGE:40f65927c7",
+          "EvoEval_creative_30:m022:CONSTANT_CHANGE:2ff5b38d5e",
+          "EvoEval_creative_30:m023:ARITHMETIC_FLIP:693d0941cb",
+          "EvoEval_creative_30:m024:RETURN_VALUE_CHANGE:83c495def0"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      },
+      {
+        "cluster_id": 1,
+        "original_cluster_size": 1,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a"
+        ],
+        "live_original_representative_ids": [
+          "EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a"
+        ],
+        "live_member_ids": [
+          "EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      }
+    ],
+    "layer2_iterations": 5,
+    "layer2_handoff": {
+      "source_layer": "Layer2",
+      "attempt_count": 5,
+      "productive_attempts": 4,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 2,
+          "target_kills": 2,
+          "new_kills": 18,
+          "cumulative_kills": 18,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate(maze1, start1, end1)",
+            "candidate(maze2, start2, end2)"
+          ],
+          "assertions": [
+            "isinstance(path1, list)",
+            "path1 and path1[0] == start1 and (path1[-1] == end1)",
+            "len(path1) - 1 == manhattan(start1, end1)",
+            "isinstance(path2, list)",
+            "path2 and path2[0] == start2 and (path2[-1] == end2)",
+            "len(path2) - 1 == manhattan(start2, end2)",
+            "0 <= x < len(maze1) and 0 <= y < len(maze1[0])",
+            "maze1[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1",
+            "0 <= x < len(maze2) and 0 <= y < len(maze2[0])",
+            "maze2[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1"
+          ],
+          "tokens": 4699
+        },
+        {
+          "attempt": 2,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 3,
+          "cumulative_kills": 21,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "isinstance(path, list)",
+            "path == []"
+          ],
+          "tokens": 3602
+        },
+        {
+          "attempt": 3,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 1,
+          "cumulative_kills": 22,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path == expected"
+          ],
+          "tokens": 5616
+        },
+        {
+          "attempt": 4,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 1,
+          "cumulative_kills": 23,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path != []"
+          ],
+          "tokens": 5899
+        },
+        {
+          "attempt": 5,
+          "target_count": 1,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 23,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "type(path) is list",
+            "path[0] == start",
+            "path[-1] == end",
+            "len(path) == len(expected)",
+            "len(path) == 0",
+            "0 <= ax < rows and 0 <= ay < cols",
+            "0 <= bx < rows and 0 <= by < cols",
+            "maze[ax][ay] == 1 and maze[bx][by] == 1",
+            "dx == 0 and abs(dy) == 1 or (dy == 0 and abs(dx) == 1)"
+          ],
+          "tokens": 6866
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 1,
+      "surviving_original_cluster_ids": [
+        0
+      ],
+      "surviving_operator_counts": {
+        "ARITHMETIC_FLIP": 1
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "88278f4b22",
+          "candidate_calls": [
+            "candidate(maze1, start1, end1)",
+            "candidate(maze2, start2, end2)"
+          ],
+          "assertions": [
+            "isinstance(path1, list)",
+            "path1 and path1[0] == start1 and (path1[-1] == end1)",
+            "len(path1) - 1 == manhattan(start1, end1)",
+            "isinstance(path2, list)",
+            "path2 and path2[0] == start2 and (path2[-1] == end2)",
+            "len(path2) - 1 == manhattan(start2, end2)",
+            "0 <= x < len(maze1) and 0 <= y < len(maze1[0])",
+            "maze1[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1",
+            "0 <= x < len(maze2) and 0 <= y < len(maze2[0])",
+            "maze2[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1"
+          ]
+        },
+        {
+          "sha1": "cf7ec05017",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "isinstance(path, list)",
+            "path == []"
+          ]
+        },
+        {
+          "sha1": "f83bd82518",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path == expected"
+          ]
+        },
+        {
+          "sha1": "8967004807",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path != []"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "plateau: 1 consecutive attempt(s) with zero new kills",
+      "previous_layer_summary": {
+        "source_layer": "Layer1",
+        "attempt_count": 3,
+        "surviving_count_before_layer2": 24
+      }
+    },
+    "layer3_clusters": [
+      {
+        "cluster_id": 0,
+        "original_cluster_size": 23,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5"
+        ],
+        "live_original_representative_ids": [],
+        "live_member_ids": [
+          "EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      }
+    ],
+    "layer3_iterations": 1,
+    "layer3_handoff": {
+      "source_layer": "Layer3",
+      "attempt_count": 1,
+      "productive_attempts": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 1,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 23,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate(maze, start, end)",
+            "candidate(maze2, start2, end2)"
+          ],
+          "assertions": [
+            "isinstance(path, list)",
+            "dist is not None",
+            "path and path[0] == start and (path[-1] == end)",
+            "len(path) - 1 == dist",
+            "path2 == [(0, 0)]",
+            "0 <= x < rows and 0 <= y < cols",
+            "maze[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1"
+          ],
+          "tokens": 4778
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 1,
+      "surviving_original_cluster_ids": [
+        0
+      ],
+      "surviving_operator_counts": {
+        "ARITHMETIC_FLIP": 1
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "88278f4b22",
+          "candidate_calls": [
+            "candidate(maze1, start1, end1)",
+            "candidate(maze2, start2, end2)"
+          ],
+          "assertions": [
+            "isinstance(path1, list)",
+            "path1 and path1[0] == start1 and (path1[-1] == end1)",
+            "len(path1) - 1 == manhattan(start1, end1)",
+            "isinstance(path2, list)",
+            "path2 and path2[0] == start2 and (path2[-1] == end2)",
+            "len(path2) - 1 == manhattan(start2, end2)",
+            "0 <= x < len(maze1) and 0 <= y < len(maze1[0])",
+            "maze1[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1",
+            "0 <= x < len(maze2) and 0 <= y < len(maze2[0])",
+            "maze2[x][y] == 1",
+            "abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1"
+          ]
+        },
+        {
+          "sha1": "cf7ec05017",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "isinstance(path, list)",
+            "path == []"
+          ]
+        },
+        {
+          "sha1": "f83bd82518",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path == expected"
+          ]
+        },
+        {
+          "sha1": "8967004807",
+          "candidate_calls": [
+            "candidate(maze, start, end)"
+          ],
+          "assertions": [
+            "path != []"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "plateau: 1 consecutive attempt(s) with zero new kills"
+    },
+    "baseline_comparison": {
+      "problem_id": "EvoEval_creative/30",
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/30",
+      "parent_task_id": "HumanEval/30",
+      "total_mutants": 24,
+      "proposed_killed": 23,
+      "baseline_killed": 0,
+      "official_killed": 20,
+      "proposed_score": 0.958333,
+      "baseline_score": 0.0,
+      "official_score": 0.8333,
+      "equivalent_mutants": 0,
+      "proposed_equivalent_adjusted_score": 0.9583,
+      "baseline_equivalent_adjusted_score": 0.0,
+      "official_equivalent_adjusted_score": 0.8333,
+      "score_delta_proposed_minus_baseline": 0.958333,
+      "proposed_total_tokens": 42035,
+      "baseline_total_tokens": 0,
+      "proposed_llm_calls": 9,
+      "baseline_llm_calls": 2,
+      "proposed_paid_tokens": 31460,
+      "baseline_paid_tokens": 0,
+      "token_delta_proposed_minus_baseline": 42035,
+      "proposed_estimated_cost_usd": 0.07639925,
+      "baseline_estimated_cost_usd": 0.0,
+      "proposed_paid_cost_usd": 0.07639925,
+      "baseline_paid_cost_usd": 0.0,
+      "proposed_runtime_sec": 321.3806,
+      "baseline_runtime_sec": 966.93,
+      "proposed_generated_tests": 4,
+      "baseline_generated_tests": 0,
+      "proposed_kill_agreement_accuracy": 0.875,
+      "baseline_kill_agreement_accuracy": 0.1667,
+      "layer1_num_clusters": 2,
+      "layer1_representatives": 2,
+      "cluster_compression_ratio": 12.0,
+      "final_layer_used": 3,
+      "layer1_killed_mutants": 0,
+      "layer1_new_kills": 0,
+      "layer2_new_kills": 23,
+      "layer3_new_kills": 0,
+      "layer2_used": true,
+      "layer3_used": true,
+      "layer1_iterations": 3,
+      "baseline_iterations": 2,
+      "baseline_first_final_score_iteration": 1,
+      "baseline_tokens_at_first_final_score": 0,
+      "baseline_first_plateau_iteration": 0,
+      "baseline_tokens_at_plateau": 0,
+      "baseline_score_at_matched_proposed_tokens": 0.0,
+      "baseline_score_at_matched_proposed_paid_tokens": 0.0,
+      "proposed_providers": "hf,openai",
+      "proposed_models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini,gpt-5.2",
+      "baseline_providers": "openai",
+      "baseline_models": "gpt-5.2"
+    }
+  },
+  "timing": {
+    "mutant_generation_sec": 0.6783,
+    "probe_generation_sec": 0.0005,
+    "behavior_signature_sec": 10.8655,
+    "clustering_sec": 0.0095,
+    "representative_selection_sec": 0.0095,
+    "total_problem_sec": 1304.009
+  },
+  "layers": [
+    {
+      "layer": "Layer1",
+      "problem_id": "EvoEval_creative/30",
+      "total_mutants": 24,
+      "killed_mutants": 0,
+      "surviving_mutants": 24,
+      "mutation_score": 0.0,
+      "new_kills": 0,
+      "test_count": 0,
+      "cumulative_tests": 0,
+      "prompt_tokens": 9577,
+      "completion_tokens": 998,
+      "thoughts_tokens": 0,
+      "total_tokens": 10575,
+      "estimated_cost_usd": 0.0,
+      "generation_time_sec": 102.8647,
+      "evaluation_time_sec": 0.0008,
+      "total_time_sec": 103.5953,
+      "cost_per_killed_mutant": 0.0,
+      "cost_per_new_kill": 0.0,
+      "time_per_killed_mutant": 0.0,
+      "time_per_new_kill": 0.0,
+      "tokens_per_new_kill": 0.0,
+      "cluster_kill_consistency": 1.0,
+      "llm_calls": 3,
+      "accepted_calls": 0,
+      "productive_calls": 0,
+      "invalid_calls": 3,
+      "zero_kill_calls": 0,
+      "target_count": 2,
+      "prompt_chars": 36557,
+      "response_chars": 3085,
+      "notes": "batched_representatives=2 max_attempts=3 actual_calls=3 accepted_tests=0 stop_reason=budget_exhausted"
+    },
+    {
+      "layer": "Layer2",
+      "problem_id": "EvoEval_creative/30",
+      "total_mutants": 24,
+      "killed_mutants": 23,
+      "surviving_mutants": 1,
+      "mutation_score": 0.958333,
+      "new_kills": 23,
+      "test_count": 4,
+      "cumulative_tests": 4,
+      "prompt_tokens": 10739,
+      "completion_tokens": 1543,
+      "thoughts_tokens": 14400,
+      "total_tokens": 26682,
+      "estimated_cost_usd": 0.03457075,
+      "generation_time_sec": 176.2705,
+      "evaluation_time_sec": 3.533,
+      "total_time_sec": 179.8477,
+      "cost_per_killed_mutant": 0.00150308,
+      "cost_per_new_kill": 0.00150308,
+      "time_per_killed_mutant": 7.8195,
+      "time_per_new_kill": 7.8195,
+      "tokens_per_new_kill": 1160.087,
+      "cluster_kill_consistency": 0.9783,
+      "llm_calls": 5,
+      "accepted_calls": 4,
+      "productive_calls": 4,
+      "invalid_calls": 0,
+      "zero_kill_calls": 1,
+      "target_count": 2,
+      "prompt_chars": 35737,
+      "response_chars": 3776,
+      "notes": "batched_survivor_representatives=2 max_attempts=10 actual_calls=5 accepted_tests=4 stop_reason=plateau: 1 consecutive attempt(s) with zero new kills"
+    },
+    {
+      "layer": "Layer3",
+      "problem_id": "EvoEval_creative/30",
+      "total_mutants": 24,
+      "killed_mutants": 23,
+      "surviving_mutants": 1,
+      "mutation_score": 0.958333,
+      "new_kills": 0,
+      "test_count": 0,
+      "cumulative_tests": 4,
+      "prompt_tokens": 2046,
+      "completion_tokens": 493,
+      "thoughts_tokens": 2239,
+      "total_tokens": 4778,
+      "estimated_cost_usd": 0.0418285,
+      "generation_time_sec": 37.7495,
+      "evaluation_time_sec": 0.1771,
+      "total_time_sec": 37.9376,
+      "cost_per_killed_mutant": 0.00181863,
+      "cost_per_new_kill": 0.0,
+      "time_per_killed_mutant": 1.6495,
+      "time_per_new_kill": 0.0,
+      "tokens_per_new_kill": 0.0,
+      "cluster_kill_consistency": 0.9783,
+      "llm_calls": 1,
+      "accepted_calls": 0,
+      "productive_calls": 0,
+      "invalid_calls": 0,
+      "zero_kill_calls": 1,
+      "target_count": 2,
+      "prompt_chars": 6917,
+      "response_chars": 1379,
+      "notes": "batched_hard_representatives=2 actual_calls=1 stop_reason=plateau: 1 consecutive attempt(s) with zero new kills"
+    }
+  ],
+  "llm_calls": [
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5,EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a",
+      "provider": "hf",
+      "prompt_tokens": 3097,
+      "completion_tokens": 384,
+      "thoughts_tokens": 0,
+      "total_tokens": 3481,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 38.5853,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(maze, start, end)\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"NameError:name 'maze' is not defined\"\n  },\n  {\n    \"probe\": \"candidate([], (), ())\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"IndexError:list index out of range\"\n  },\n  {\n    \"probe\": \"candidate([0], (0,), (0,))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\n(none available -- no canonical probe produced a usable VALUE for this problem.) Write the complete function yourself, following every rule below exactly as if it were rule 1 and 2.\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 1\nPrevious-attempt feedback:\n{\n  \"note\": \"Generate one joint test for all representative clusters.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 0 -> -1\",\n    \"original_code\": \"for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\",\n    \"mutated_code\": \"for dx, dy in [(-1, 0), (1, -1), (0, -1), (0, 1)]:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a\",\n    \"operator\": \"INDEX_BOUNDARY\",\n    \"change_description\": \"index 0 -> 1\",\n    \"original_code\": \"rows, cols = (len(maze), len(maze[0]))\",\n    \"mutated_code\": \"rows, cols = (len(maze), len(maze[1]))\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(maze, start, end)\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"NameError:name 'maze' is not defined\"\n      },\n      {\n        \"probe\": \"candidate([], (), ())\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"IndexError:list index out of range\"\n      },\n      {\n        \"probe\": \"candidate([0], (0,), (0,))\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n\n    def find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = (len(maze), len(mAZE[0]))\n        visited = [[False] * cols for _ in xrange(rows)]\n        queue = deque([(start, [start])])\n        while queue:\n            (x, y), path = queue.popleft()\n            if (x, y) == end:\n                return path\n            for dx, dy in ((-1, 0), (+1, 0), (0, -1), (0, +1)):\n                nx, ny = (x + dx, y + dy)\n                if 0 <= nx and nx < rows and (0 <= ny) and (ny < cols) and (maze[nx][ny] != 0) and (not visited[nx][ny]):\n                    queue.append(((nx, ny), path + [(nx, ny)]))\n                    visited[nx][ny] = True\n        return []\n    assert find_path([], ()) == [], 'No path exists in an empty maze'\n    assert find_path([[1]], (0, 0), (0, 0)) == [(0, 0)], 'Single cell maze starts and ends there'\n    assert find_path([[-1, -1], [-1, -1]], (0, 1), (1, 0)) == [], \"Maze with negative values doesn't allow movement\"\n    assert find_path([[1, 0, 1], [0, 0, 1], [1, 1, 1]], (0, 0), (2, 2)) == [], 'Path between corners blocked by wall'\n",
+      "extracted_test": "def check(candidate):\n    pass\n\n    def find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = (len(maze), len(mAZE[0]))\n        visited = [[False] * cols for _ in xrange(rows)]\n        queue = deque([(start, [start])])\n        while queue:\n            (x, y), path = queue.popleft()\n            if (x, y) == end:\n                return path\n            for dx, dy in ((-1, 0), (+1, 0), (0, -1), (0, +1)):\n                nx, ny = (x + dx, y + dy)\n                if 0 <= nx and nx < rows and (0 <= ny) and (ny < cols) and (maze[nx][ny] != 0) and (not visited[nx][ny]):\n                    queue.append(((nx, ny), path + [(nx, ny)]))\n                    visited[nx][ny] = True\n        return []",
+      "passed_on_original": false,
+      "killed_mutants": 0,
+      "surviving_mutants": 24,
+      "status": "REJECTED",
+      "error": "vacuous test: check never calls candidate",
+      "attempt": 1,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 0,
+      "cumulative_score": 0.0,
+      "prompt_chars": 11879,
+      "response_chars": 1183,
+      "validation_reason": "vacuous test: check never calls candidate",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5,EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a",
+      "provider": "hf",
+      "prompt_tokens": 3240,
+      "completion_tokens": 307,
+      "thoughts_tokens": 0,
+      "total_tokens": 3547,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 32.2006,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(maze, start, end)\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"NameError:name 'maze' is not defined\"\n  },\n  {\n    \"probe\": \"candidate([], (), ())\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"IndexError:list index out of range\"\n  },\n  {\n    \"probe\": \"candidate([0], (0,), (0,))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\n(none available -- no canonical probe produced a usable VALUE for this problem.) Write the complete function yourself, following every rule below exactly as if it were rule 1 and 2.\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 2\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 2,\n    \"target_kills\": 0,\n    \"new_kills\": 0,\n    \"cumulative_kills\": 0,\n    \"status\": \"REJECTED\",\n    \"failure_category\": \"NO_CANDIDATE_CALL\",\n    \"error\": \"vacuous test: check never calls candidate\",\n    \"candidate_calls\": [],\n    \"assertions\": [],\n    \"tokens\": 3481,\n    \"seed_used\": false,\n    \"llm_lines_kept\": 1\n  },\n  \"remaining_mutants\": 24,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 0 -> -1\",\n    \"original_code\": \"for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\",\n    \"mutated_code\": \"for dx, dy in [(-1, 0), (1, -1), (0, -1), (0, 1)]:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a\",\n    \"operator\": \"INDEX_BOUNDARY\",\n    \"change_description\": \"index 0 -> 1\",\n    \"original_code\": \"rows, cols = (len(maze), len(maze[0]))\",\n    \"mutated_code\": \"rows, cols = (len(maze), len(maze[1]))\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(maze, start, end)\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"NameError:name 'maze' is not defined\"\n      },\n      {\n        \"probe\": \"candidate([], (), ())\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"IndexError:list index out of range\"\n      },\n      {\n        \"probe\": \"candidate([0], (0,), (0,))\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    def find_path(maze:List[List[int]], start:Tuple[int], end:Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = ( len(maze), len(mAZE[0]) )\n        visited = [[False] for _ in range(rows)] for _ in range(cols)]\n        queue = deque([(start,[start])])\n        while queue:\n            (x,y),path = queue.popleft()\n            if (x,y)==end:\n                return path\n            for dx,dy in [(-1,0),(1,0),(0,-1),(0,1)]:\n                nx,ny = (x+dx,y+dy)\n                if 0<=nx<rows and 0<=ny<cols and (maze[nx]][ny]==1) and (not visiTed[nx][ny]):\n                    queue.append(((nx,ny),path+[nx,ny]))\n                    visited[nx][ny]=True\n        return []\n\n    assert find_path([[1,0,1],[1,0,1],[-1,1,1]], (0,0), (2,2)) == [], \"No path exists due to negative wall\"\n    assert find_path([[0,0,0],[0,0,0]], (0,0),(0,0)) == [(0,0)], \"Path starts and ends at the same position\"",
+      "extracted_test": "def check(candidate):\n    pass\n\n    def find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = (len(maze), len(mAZE[0]))",
+      "passed_on_original": false,
+      "killed_mutants": 0,
+      "surviving_mutants": 24,
+      "status": "REJECTED",
+      "error": "vacuous test: check never calls candidate",
+      "attempt": 2,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 0,
+      "cumulative_score": 0.0,
+      "prompt_chars": 12339,
+      "response_chars": 951,
+      "validation_reason": "vacuous test: check never calls candidate",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5,EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a",
+      "provider": "hf",
+      "prompt_tokens": 3240,
+      "completion_tokens": 307,
+      "thoughts_tokens": 0,
+      "total_tokens": 3547,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 32.0787,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(maze, start, end)\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"NameError:name 'maze' is not defined\"\n  },\n  {\n    \"probe\": \"candidate([], (), ())\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"IndexError:list index out of range\"\n  },\n  {\n    \"probe\": \"candidate([0], (0,), (0,))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  },\n  {\n    \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n    \"canonical_status\": \"ERROR\",\n    \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\n(none available -- no canonical probe produced a usable VALUE for this problem.) Write the complete function yourself, following every rule below exactly as if it were rule 1 and 2.\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 3\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 2,\n    \"target_count\": 2,\n    \"target_kills\": 0,\n    \"new_kills\": 0,\n    \"cumulative_kills\": 0,\n    \"status\": \"REJECTED\",\n    \"failure_category\": \"NO_CANDIDATE_CALL\",\n    \"error\": \"vacuous test: check never calls candidate\",\n    \"candidate_calls\": [],\n    \"assertions\": [],\n    \"tokens\": 3547,\n    \"seed_used\": false,\n    \"llm_lines_kept\": 1\n  },\n  \"remaining_mutants\": 24,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 0 -> -1\",\n    \"original_code\": \"for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\",\n    \"mutated_code\": \"for dx, dy in [(-1, 0), (1, -1), (0, -1), (0, 1)]:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a\",\n    \"operator\": \"INDEX_BOUNDARY\",\n    \"change_description\": \"index 0 -> 1\",\n    \"original_code\": \"rows, cols = (len(maze), len(maze[0]))\",\n    \"mutated_code\": \"rows, cols = (len(maze), len(maze[1]))\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(maze, start, end)\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"NameError:name 'maze' is not defined\"\n      },\n      {\n        \"probe\": \"candidate([], (), ())\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"IndexError:list index out of range\"\n      },\n      {\n        \"probe\": \"candidate([0], (0,), (0,))\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    def find_path(maze:List[List[int]], start:Tuple[int], end:Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = ( len(maze), len(mAZE[0]) )\n        visited = [[False] for _ in range(rows)] for _ in range(cols)]\n        queue = deque([(start,[start])])\n        while queue:\n            (x,y),path = queue.popleft()\n            if (x,y)==end:\n                return path\n            for dx,dy in [(-1,0),(1,0),(0,-1),(0,1)]:\n                nx,ny = (x+dx,y+dy)\n                if 0<=nx<rows and 0<=ny<cols and (maze[nx]][ny]==1) and (not visiTed[nx][ny]):\n                    queue.append(((nx,ny),path+[nx,ny]))\n                    visited[nx][ny]=True\n        return []\n\n    assert find_path([[1,0,1],[1,0,1],[-1,1,1]], (0,0), (2,2)) == [], \"No path exists due to negative wall\"\n    assert find_path([[0,0,0],[0,0,0]], (0,0),(0,0)) == [(0,0)], \"Path starts and ends at the same position\"",
+      "extracted_test": "def check(candidate):\n    pass\n\n    def find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]) -> List[Tuple[int]]:\n        from collections import deque\n        rows, cols = (len(maze), len(mAZE[0]))",
+      "passed_on_original": false,
+      "killed_mutants": 0,
+      "surviving_mutants": 24,
+      "status": "REJECTED",
+      "error": "vacuous test: check never calls candidate",
+      "attempt": 3,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 0,
+      "cumulative_score": 0.0,
+      "prompt_chars": 12339,
+      "response_chars": 951,
+      "validation_reason": "vacuous test: check never calls candidate",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5,EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a",
+      "provider": "openai",
+      "prompt_tokens": 2109,
+      "completion_tokens": 478,
+      "thoughts_tokens": 2112,
+      "total_tokens": 4699,
+      "estimated_cost_usd": 0.00570725,
+      "latency_sec": 30.3463,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 0 productive, stopped: budget_exhausted.\n- attempt 1 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 2 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 3 [REJECTED, +0 new kills]: (no candidate calls recorded)\n24 mutant(s) still surviving overall (ARITHMETIC_FLIP:3, BOOLEAN_FLIP:1, BOUNDARY_SHIFT:4, COMPARISON_FLIP:1, CONSTANT_CHANGE:11, INDEX_BOUNDARY:1, NEGATE_CONDITION:1, RETURN_VALUE_CHANGE:2).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 1. Feedback: {\n  \"note\": \"Use the compressed Layer 1 handoff and target all survivor clusters jointly.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 0 -> -1\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m009:CONSTANT_CHANGE:8d68908af5\\n@@ -27,7 +27,7 @@\\n         (x, y), path = queue.popleft()\\n         if (x, y) == end:\\n             return path\\n-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n+        for dx, dy in [(-1, 0), (1, -1), (0, -1), (0, 1)]:\\n             nx, ny = (x + dx, y + dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a\",\n    \"operator\": \"INDEX_BOUNDARY\",\n    \"change_description\": \"index 0 -> 1\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m000:INDEX_BOUNDARY:298926a49a\\n@@ -20,7 +20,7 @@\\n     []\\n     \\\"\\\"\\\"\\n     from collections import deque\\n-    rows, cols = (len(maze), len(maze[0]))\\n+    rows, cols = (len(maze), len(maze[1]))\\n     visited = [[False] * cols for _ in range(rows)]\\n     queue = deque([(start, [start])])\\n     while queue:\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(maze, start, end)\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"NameError:name 'maze' is not defined\"\n      },\n      {\n        \"probe\": \"candidate([], (), ())\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"IndexError:list index out of range\"\n      },\n      {\n        \"probe\": \"candidate([0], (0,), (0,))\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([0, 1, -1], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      },\n      {\n        \"probe\": \"candidate([1, 2, 3], (0, 1), (0, 1))\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"ERROR\",\n        \"canonical_value\": \"TypeError:object of type 'int' has no len()\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    def manhattan(a, b):\n        return abs(a[0]-b[0]) + abs(a[1]-b[1])\n    # Target INDEX_BOUNDARY: single-row maze (mutant would access maze[1] -> IndexError)\n    maze1 = [[1,1,1,1]]\n    start1 = (0,0)\n    end1 = (0,3)\n    path1 = candidate(maze1, start1, end1)\n    assert isinstance(path1, list)\n    assert path1 and path1[0] == start1 and path1[-1] == end1\n    for (x,y) in path1:\n        assert 0 <= x < len(maze1) and 0 <= y < len(maze1[0])\n        assert maze1[x][y] == 1\n    for a,b in zip(path1, path1[1:]):\n        assert abs(a[0]-b[0]) + abs(a[1]-b[1]) == 1\n    assert len(path1)-1 == manhattan(start1, end1)\n\n    # Target CONSTANT_CHANGE: require a straight-down shortest path\n    maze2 = [[1,1],\n             [1,1],\n             [1,1]]\n    start2 = (0,0)\n    end2 = (2,0)\n    path2 = candidate(maze2, start2, end2)\n    assert isinstance(path2, list)\n    assert path2 and path2[0] == start2 and path2[-1] == end2\n    for (x,y) in path2:\n        assert 0 <= x < len(maze2) and 0 <= y < len(maze2[0])\n        assert maze2[x][y] == 1\n    for a,b in zip(path2, path2[1:]):\n        assert abs(a[0]-b[0]) + abs(a[1]-b[1]) == 1\n    assert len(path2)-1 == manhattan(start2, end2)",
+      "extracted_test": "def check(candidate):\n    def manhattan(a, b):\n        return abs(a[0]-b[0]) + abs(a[1]-b[1])\n    # Target INDEX_BOUNDARY: single-row maze (mutant would access maze[1] -> IndexError)\n    maze1 = [[1,1,1,1]]\n    start1 = (0,0)\n    end1 = (0,3)\n    path1 = candidate(maze1, start1, end1)\n    assert isinstance(path1, list)\n    assert path1 and path1[0] == start1 and path1[-1] == end1\n    for (x,y) in path1:\n        assert 0 <= x < len(maze1) and 0 <= y < len(maze1[0])\n        assert maze1[x][y] == 1\n    for a,b in zip(path1, path1[1:]):\n        assert abs(a[0]-b[0]) + abs(a[1]-b[1]) == 1\n    assert len(path1)-1 == manhattan(start1, end1)\n\n    # Target CONSTANT_CHANGE: require a straight-down shortest path\n    maze2 = [[1,1],\n             [1,1],\n             [1,1]]\n    start2 = (0,0)\n    end2 = (2,0)\n    path2 = candidate(maze2, start2, end2)\n    assert isinstance(path2, list)\n    assert path2 and path2[0] == start2 and path2[-1] == end2\n    for (x,y) in path2:\n        assert 0 <= x < len(maze2) and 0 <= y < len(maze2[0])\n        assert maze2[x][y] == 1\n    for a,b in zip(path2, path2[1:]):\n        assert abs(a[0]-b[0]) + abs(a[1]-b[1]) == 1\n    assert len(path2)-1 == manhattan(start2, end2)",
+      "passed_on_original": true,
+      "killed_mutants": 18,
+      "surviving_mutants": 6,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 2,
+      "target_kills": 2,
+      "new_kills": 18,
+      "cumulative_kills": 18,
+      "cumulative_score": 0.75,
+      "prompt_chars": 7266,
+      "response_chars": 1205,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m007:CONSTANT_CHANGE:0578a99294",
+      "provider": "openai",
+      "prompt_tokens": 2262,
+      "completion_tokens": 124,
+      "thoughts_tokens": 1216,
+      "total_tokens": 3602,
+      "estimated_cost_usd": 0.0032455,
+      "latency_sec": 16.1769,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 0 productive, stopped: budget_exhausted.\n- attempt 1 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 2 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 3 [REJECTED, +0 new kills]: (no candidate calls recorded)\n24 mutant(s) still surviving overall (ARITHMETIC_FLIP:3, BOOLEAN_FLIP:1, BOUNDARY_SHIFT:4, COMPARISON_FLIP:1, CONSTANT_CHANGE:11, INDEX_BOUNDARY:1, NEGATE_CONDITION:1, RETURN_VALUE_CHANGE:2).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"88278f4b22\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 2. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 2,\n    \"target_kills\": 2,\n    \"new_kills\": 18,\n    \"cumulative_kills\": 18,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ],\n    \"tokens\": 4699\n  },\n  \"remaining_mutants\": 6,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m007:CONSTANT_CHANGE:0578a99294\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 0 -> -1\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m007:CONSTANT_CHANGE:0578a99294\\n@@ -27,7 +27,7 @@\\n         (x, y), path = queue.popleft()\\n         if (x, y) == end:\\n             return path\\n-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n+        for dx, dy in [(-1, -1), (1, 0), (0, -1), (0, 1)]:\\n             nx, ny = (x + dx, y + dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    maze = [[1, 0], [0, 1]]\n    start = (1, 1)\n    end = (0, 0)\n    path = candidate(maze, start, end)\n    assert isinstance(path, list)\n    assert path == []",
+      "extracted_test": "def check(candidate):\n    maze = [[1, 0], [0, 1]]\n    start = (1, 1)\n    end = (0, 0)\n    path = candidate(maze, start, end)\n    assert isinstance(path, list)\n    assert path == []",
+      "passed_on_original": true,
+      "killed_mutants": 3,
+      "surviving_mutants": 3,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 2,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 3,
+      "cumulative_kills": 21,
+      "cumulative_score": 0.875,
+      "prompt_chars": 7302,
+      "response_chars": 180,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m006:CONSTANT_CHANGE:6ce661af72",
+      "provider": "openai",
+      "prompt_tokens": 2086,
+      "completion_tokens": 266,
+      "thoughts_tokens": 3264,
+      "total_tokens": 5616,
+      "estimated_cost_usd": 0.0075815,
+      "latency_sec": 39.9881,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 0 productive, stopped: budget_exhausted.\n- attempt 1 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 2 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 3 [REJECTED, +0 new kills]: (no candidate calls recorded)\n24 mutant(s) still surviving overall (ARITHMETIC_FLIP:3, BOOLEAN_FLIP:1, BOUNDARY_SHIFT:4, COMPARISON_FLIP:1, CONSTANT_CHANGE:11, INDEX_BOUNDARY:1, NEGATE_CONDITION:1, RETURN_VALUE_CHANGE:2).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"88278f4b22\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ]\n  },\n  {\n    \"sha1\": \"cf7ec05017\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path, list)\",\n      \"path == []\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 3. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 2,\n    \"target_count\": 1,\n    \"target_kills\": 1,\n    \"new_kills\": 3,\n    \"cumulative_kills\": 21,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path, list)\",\n      \"path == []\"\n    ],\n    \"tokens\": 3602\n  },\n  \"remaining_mutants\": 3,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m006:CONSTANT_CHANGE:6ce661af72\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 0\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m006:CONSTANT_CHANGE:6ce661af72\\n@@ -27,7 +27,7 @@\\n         (x, y), path = queue.popleft()\\n         if (x, y) == end:\\n             return path\\n-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n+        for dx, dy in [(-0, 0), (1, 0), (0, -1), (0, 1)]:\\n             nx, ny = (x + dx, y + dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    maze = [[1], [1]]\n    start = (1, 0)\n    end = (0, 0)\n    path = candidate(maze, start, end)\n    from collections import deque\n    rows, cols = len(maze), len(maze[0])\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    expected = []\n    while queue:\n        (x, y), p = queue.popleft()\n        if (x, y) == end:\n            expected = p\n            break\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 1 and (not visited[nx][ny]):\n                queue.append(((nx, ny), p + [(nx, ny)]))\n                visited[nx][ny] = True\n    assert path == expected",
+      "extracted_test": "def check(candidate):\n    maze = [[1], [1]]\n    start = (1, 0)\n    end = (0, 0)\n    path = candidate(maze, start, end)\n    from collections import deque\n    rows, cols = len(maze), len(maze[0])\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    expected = []\n    while queue:\n        (x, y), p = queue.popleft()\n        if (x, y) == end:\n            expected = p\n            break\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 1 and (not visited[nx][ny]):\n                queue.append(((nx, ny), p + [(nx, ny)]))\n                visited[nx][ny] = True\n    assert path == expected",
+      "passed_on_original": true,
+      "killed_mutants": 1,
+      "surviving_mutants": 2,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 3,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 1,
+      "cumulative_kills": 22,
+      "cumulative_score": 0.9166666666666666,
+      "prompt_chars": 6932,
+      "response_chars": 741,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m011:CONSTANT_CHANGE:ba07ff086a",
+      "provider": "openai",
+      "prompt_tokens": 2126,
+      "completion_tokens": 125,
+      "thoughts_tokens": 3648,
+      "total_tokens": 5899,
+      "estimated_cost_usd": 0.0080775,
+      "latency_sec": 42.0536,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 0 productive, stopped: budget_exhausted.\n- attempt 1 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 2 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 3 [REJECTED, +0 new kills]: (no candidate calls recorded)\n24 mutant(s) still surviving overall (ARITHMETIC_FLIP:3, BOOLEAN_FLIP:1, BOUNDARY_SHIFT:4, COMPARISON_FLIP:1, CONSTANT_CHANGE:11, INDEX_BOUNDARY:1, NEGATE_CONDITION:1, RETURN_VALUE_CHANGE:2).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"88278f4b22\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ]\n  },\n  {\n    \"sha1\": \"cf7ec05017\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path, list)\",\n      \"path == []\"\n    ]\n  },\n  {\n    \"sha1\": \"f83bd82518\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path == expected\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 4. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 3,\n    \"target_count\": 1,\n    \"target_kills\": 1,\n    \"new_kills\": 1,\n    \"cumulative_kills\": 22,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path == expected\"\n    ],\n    \"tokens\": 5616\n  },\n  \"remaining_mutants\": 2,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m011:CONSTANT_CHANGE:ba07ff086a\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 1 -> 0\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m011:CONSTANT_CHANGE:ba07ff086a\\n@@ -27,7 +27,7 @@\\n         (x, y), path = queue.popleft()\\n         if (x, y) == end:\\n             return path\\n-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n+        for dx, dy in [(-1, 0), (1, 0), (0, -0), (0, 1)]:\\n             nx, ny = (x + dx, y + dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    maze = [\n        [0,0,0],\n        [0,0,0],\n        [1,1,1]\n    ]\n    start = (2, 2)\n    end = (2, 0)\n    path = candidate(maze, start, end)\n    assert path != []",
+      "extracted_test": "def check(candidate):\n    maze = [\n        [0,0,0],\n        [0,0,0],\n        [1,1,1]\n    ]\n    start = (2, 2)\n    end = (2, 0)\n    path = candidate(maze, start, end)\n    assert path != []",
+      "passed_on_original": true,
+      "killed_mutants": 1,
+      "surviving_mutants": 1,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 4,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 1,
+      "cumulative_kills": 23,
+      "cumulative_score": 0.9583333333333334,
+      "prompt_chars": 7060,
+      "response_chars": 187,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864",
+      "provider": "openai",
+      "prompt_tokens": 2156,
+      "completion_tokens": 550,
+      "thoughts_tokens": 4160,
+      "total_tokens": 6866,
+      "estimated_cost_usd": 0.009959,
+      "latency_sec": 47.5004,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 0 productive, stopped: budget_exhausted.\n- attempt 1 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 2 [REJECTED, +0 new kills]: (no candidate calls recorded)\n- attempt 3 [REJECTED, +0 new kills]: (no candidate calls recorded)\n24 mutant(s) still surviving overall (ARITHMETIC_FLIP:3, BOOLEAN_FLIP:1, BOUNDARY_SHIFT:4, COMPARISON_FLIP:1, CONSTANT_CHANGE:11, INDEX_BOUNDARY:1, NEGATE_CONDITION:1, RETURN_VALUE_CHANGE:2).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"88278f4b22\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ]\n  },\n  {\n    \"sha1\": \"cf7ec05017\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path, list)\",\n      \"path == []\"\n    ]\n  },\n  {\n    \"sha1\": \"f83bd82518\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path == expected\"\n    ]\n  },\n  {\n    \"sha1\": \"8967004807\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path != []\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 5. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 4,\n    \"target_count\": 1,\n    \"target_kills\": 1,\n    \"new_kills\": 1,\n    \"cumulative_kills\": 23,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path != []\"\n    ],\n    \"tokens\": 5899\n  },\n  \"remaining_mutants\": 1,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864\\n@@ -28,7 +28,7 @@\\n         if (x, y) == end:\\n             return path\\n         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n-            nx, ny = (x + dx, y + dy)\\n+            nx, ny = (x + dx, y - dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\\n                 visited[nx][ny] = True\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    from collections import deque\n    maze = [\n        [1,1,1,1,1],\n        [0,0,0,0,1],\n        [1,1,1,0,1],\n        [1,0,1,1,1],\n        [1,1,1,0,1],\n    ]\n    start = (0, 0)\n    end = (4, 4)\n\n    def ref_shortest(mz, s, e):\n        rows, cols = len(mz), len(mz[0])\n        q = deque([(s, [s])])\n        seen = {s}\n        while q:\n            (x, y), path = q.popleft()\n            if (x, y) == e:\n                return path\n            for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:\n                nx, ny = x+dx, y+dy\n                if 0 <= nx < rows and 0 <= ny < cols and mz[nx][ny] == 1 and (nx, ny) not in seen:\n                    seen.add((nx, ny))\n                    q.append(((nx, ny), path + [(nx, ny)]))\n        return []\n\n    expected = ref_shortest(maze, start, end)\n    path = candidate(maze, start, end)\n\n    assert type(path) is list\n    if len(expected) == 0:\n        assert len(path) == 0\n        return\n    # path must start and end correctly and be shortest\n    assert path[0] == start\n    assert path[-1] == end\n    assert len(path) == len(expected)\n    rows, cols = len(maze), len(maze[0])\n    for a, b in zip(path, path[1:]):\n        ax, ay = a; bx, by = b\n        assert 0 <= ax < rows and 0 <= ay < cols\n        assert 0 <= bx < rows and 0 <= by < cols\n        assert maze[ax][ay] == 1 and maze[bx][by] == 1\n        dx, dy = bx - ax, by - ay\n        assert (dx == 0 and abs(dy) == 1) or (dy == 0 and abs(dx) == 1)",
+      "extracted_test": "def check(candidate):\n    from collections import deque\n    maze = [\n        [1,1,1,1,1],\n        [0,0,0,0,1],\n        [1,1,1,0,1],\n        [1,0,1,1,1],\n        [1,1,1,0,1],\n    ]\n    start = (0, 0)\n    end = (4, 4)\n\n    def ref_shortest(mz, s, e):\n        rows, cols = len(mz), len(mz[0])\n        q = deque([(s, [s])])\n        seen = {s}\n        while q:\n            (x, y), path = q.popleft()\n            if (x, y) == e:\n                return path\n            for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:\n                nx, ny = x+dx, y+dy\n                if 0 <= nx < rows and 0 <= ny < cols and mz[nx][ny] == 1 and (nx, ny) not in seen:\n                    seen.add((nx, ny))\n                    q.append(((nx, ny), path + [(nx, ny)]))\n        return []\n\n    expected = ref_shortest(maze, start, end)\n    path = candidate(maze, start, end)\n\n    assert type(path) is list\n    if len(expected) == 0:\n        assert len(path) == 0\n        return\n    # path must start and end correctly and be shortest\n    assert path[0] == start\n    assert path[-1] == end\n    assert len(path) == len(expected)\n    rows, cols = len(maze), len(maze[0])\n    for a, b in zip(path, path[1:]):\n        ax, ay = a; bx, by = b\n        assert 0 <= ax < rows and 0 <= ay < cols\n        assert 0 <= bx < rows and 0 <= by < cols\n        assert maze[ax][ay] == 1 and maze[bx][by] == 1\n        dx, dy = bx - ax, by - ay\n        assert (dx == 0 and abs(dy) == 1) or (dy == 0 and abs(dx) == 1)",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 1,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 5,
+      "target_count": 1,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 23,
+      "cumulative_score": 0.9583333333333334,
+      "prompt_chars": 7177,
+      "response_chars": 1463,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/30",
+      "layer": "Layer3",
+      "model": "gpt-5.2",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864",
+      "provider": "openai",
+      "prompt_tokens": 2046,
+      "completion_tokens": 493,
+      "thoughts_tokens": 2239,
+      "total_tokens": 4778,
+      "estimated_cost_usd": 0.0418285,
+      "latency_sec": 37.7088,
+      "prompt": "<role>\nLayer 3 (final escalation) in Claus-Test -- most capable, most expensive\nstage, reserved for mutants two cheaper layers could not resolve. Return\nexactly one Python test function.\n</role>\n\n<objective>\nFor each target: either find a concrete input where canonical and mutant\nprovably diverge and kill it, or decide it is very likely equivalent and\nomit it. A function killing fewer targets correctly beats one with a single\nguessed assertion -- a wrong guess forfeits the whole function's credit.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/30\nDataset: evoeval\nDataset subset: creative\nEntry point: find_path\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nReturns the shortest path from start to end in a maze represented by a 2D array.\n\nThe maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \nare tuples representing coordinates in the 2D array. The function should return a list of points \nrepresenting the shortest path from start to end. If no path is possible, return an empty list.\n\n>>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n>>> start = (0,0)\n>>> end = (4, 4)\n>>> find_path(maze, start, end)\n[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n>>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n>>> start = (0,0)\n>>> end = (2, 2)\n>>> find_path(maze, start, end)\n[]\n</task_information>\n\n<canonical_implementation>\n```python\nfrom typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []\n```\n</canonical_implementation>\n\n<pipeline_handoff>\n5 attempt(s) so far, 4 productive, stopped: plateau: 1 consecutive attempt(s) with zero new kills.\n- attempt 3 [PRODUCTIVE, +1 new kills]: candidate(maze, start, end)\n- attempt 4 [PRODUCTIVE, +1 new kills]: candidate(maze, start, end)\n- attempt 5 [VALID_ZERO_KILL, +0 new kills]: candidate(maze, start, end)\n1 mutant(s) still surviving overall (ARITHMETIC_FLIP:1).\nBefore this: Layer1 ran 3 attempt(s), 24 survivor(s) handed forward.\n</pipeline_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"88278f4b22\",\n    \"candidate_calls\": [\n      \"candidate(maze1, start1, end1)\",\n      \"candidate(maze2, start2, end2)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path1, list)\",\n      \"path1 and path1[0] == start1 and (path1[-1] == end1)\",\n      \"len(path1) - 1 == manhattan(start1, end1)\",\n      \"isinstance(path2, list)\",\n      \"path2 and path2[0] == start2 and (path2[-1] == end2)\",\n      \"len(path2) - 1 == manhattan(start2, end2)\",\n      \"0 <= x < len(maze1) and 0 <= y < len(maze1[0])\",\n      \"maze1[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\",\n      \"0 <= x < len(maze2) and 0 <= y < len(maze2[0])\",\n      \"maze2[x][y] == 1\",\n      \"abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\"\n    ]\n  },\n  {\n    \"sha1\": \"cf7ec05017\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"isinstance(path, list)\",\n      \"path == []\"\n    ]\n  },\n  {\n    \"sha1\": \"f83bd82518\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path == expected\"\n    ]\n  },\n  {\n    \"sha1\": \"8967004807\",\n    \"candidate_calls\": [\n      \"candidate(maze, start, end)\"\n    ],\n    \"assertions\": [\n      \"path != []\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<targets>\nHardest survivors -- two cheaper layers already failed. `equivalence_status`\nis a strong prior, not a guarantee: confirm or challenge it against the diff\nand probe evidence rather than accepting or dismissing it blindly.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864\\n@@ -28,7 +28,7 @@\\n         if (x, y) == end:\\n             return path\\n         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\\n-            nx, ny = (x + dx, y + dy)\\n+            nx, ny = (x + dx, y - dy)\\n             if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\\n                 queue.append(((nx, ny), path + [(nx, ny)]))\\n                 visited[nx][ny] = True\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 5 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <pipeline_handoff>; your input must differ from every prior attempt shown there.\nR11. Weigh `equivalence_status`/`equivalence_reason` against `exact_diff`; omit a target rather than guess.\nR12. Accept non-value kill signals too: an exception, a timeout, or divergence under a seeded `random.seed` or a mock.\nR13. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    from collections import deque\n\n    def shortest_distance(maze, start, end):\n        rows, cols = len(maze), len(maze[0])\n        q = deque([(start, 0)])\n        seen = {start}\n        while q:\n            (x, y), d = q.popleft()\n            if (x, y) == end:\n                return d\n            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n                nx, ny = x + dx, y + dy\n                if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 1 and (nx, ny) not in seen:\n                    seen.add((nx, ny))\n                    q.append(((nx, ny), d + 1))\n        return None\n\n    maze = [\n        [1, 1, 0, 1, 1],\n        [0, 1, 0, 1, 0],\n        [1, 1, 1, 1, 0],\n        [1, 0, 0, 1, 1],\n    ]\n    start = (0, 0)\n    end = (3, 4)\n\n    path = candidate(maze, start, end)\n    assert isinstance(path, list)\n    dist = shortest_distance(maze, start, end)\n    assert dist is not None\n    assert path and path[0] == start and path[-1] == end\n    assert len(path) - 1 == dist\n    rows, cols = len(maze), len(maze[0])\n    for (x, y) in path:\n        assert 0 <= x < rows and 0 <= y < cols\n        assert maze[x][y] == 1\n    for a, b in zip(path, path[1:]):\n        assert abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\n\n    maze2 = [[1]]\n    start2 = (0, 0)\n    end2 = (0, 0)\n    path2 = candidate(maze2, start2, end2)\n    assert path2 == [(0, 0)]",
+      "extracted_test": "def check(candidate):\n    from collections import deque\n\n    def shortest_distance(maze, start, end):\n        rows, cols = len(maze), len(maze[0])\n        q = deque([(start, 0)])\n        seen = {start}\n        while q:\n            (x, y), d = q.popleft()\n            if (x, y) == end:\n                return d\n            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n                nx, ny = x + dx, y + dy\n                if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 1 and (nx, ny) not in seen:\n                    seen.add((nx, ny))\n                    q.append(((nx, ny), d + 1))\n        return None\n\n    maze = [\n        [1, 1, 0, 1, 1],\n        [0, 1, 0, 1, 0],\n        [1, 1, 1, 1, 0],\n        [1, 0, 0, 1, 1],\n    ]\n    start = (0, 0)\n    end = (3, 4)\n\n    path = candidate(maze, start, end)\n    assert isinstance(path, list)\n    dist = shortest_distance(maze, start, end)\n    assert dist is not None\n    assert path and path[0] == start and path[-1] == end\n    assert len(path) - 1 == dist\n    rows, cols = len(maze), len(maze[0])\n    for (x, y) in path:\n        assert 0 <= x < rows and 0 <= y < cols\n        assert maze[x][y] == 1\n    for a, b in zip(path, path[1:]):\n        assert abs(a[0] - b[0]) + abs(a[1] - b[1]) == 1\n\n    maze2 = [[1]]\n    start2 = (0, 0)\n    end2 = (0, 0)\n    path2 = candidate(maze2, start2, end2)\n    assert path2 == [(0, 0)]",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 1,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 1,
+      "target_count": 1,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 23,
+      "cumulative_score": 0.9583333333333334,
+      "prompt_chars": 6917,
+      "response_chars": 1379,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    }
+  ],
+  "benchmark": {
+    "problem_id": "EvoEval_creative/30",
+    "cluse_mutation_score": 0.9583,
+    "official_mutation_score": 0.8333,
+    "cluse_killed": 23,
+    "official_killed": 20,
+    "total_mutants": 24,
+    "kill_agreement_accuracy": 0.875,
+    "kill_precision": 0.8696,
+    "kill_recall": 1.0,
+    "kill_f1": 0.9302,
+    "cluse_wins": true,
+    "sanity_check_passed": true,
+    "sanity_check_notes": "Generated tests were validated on the canonical solution before acceptance",
+    "equivalent_mutants": 0,
+    "adjusted_total_mutants": 24,
+    "cluse_equivalent_adjusted_score": 0.9583,
+    "official_equivalent_adjusted_score": 0.8333
+  },
+  "paid_api_cost_usd": 0.07639925,
+  "paid_api_tokens": 31460,
+  "summary": {
+    "problem_id": "EvoEval_creative/30",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/30",
+    "parent_task_id": "HumanEval/30",
+    "final_score": 0.958333,
+    "total_mutants": 24,
+    "killed_mutants": 23,
+    "surviving_mutants": 1,
+    "total_tokens": 42035,
+    "paid_api_tokens": 31460,
+    "prompt_tokens": 22362,
+    "completion_tokens": 3034,
+    "thoughts_tokens": 16639,
+    "estimated_cost_usd": 0.07639925,
+    "paid_api_cost_usd": 0.07639925,
+    "layer1_tokens": 10575,
+    "layer1_cost_usd": 0.0,
+    "layer1_calls": 3,
+    "layer2_tokens": 26682,
+    "layer2_cost_usd": 0.03457075,
+    "layer2_calls": 5,
+    "layer3_tokens": 4778,
+    "layer3_cost_usd": 0.0418285,
+    "layer3_calls": 1,
+    "generated_tests": 4,
+    "llm_calls": 9,
+    "productive_calls": 4,
+    "invalid_calls": 3,
+    "zero_kill_calls": 2,
+    "prompt_chars": 79211,
+    "response_chars": 8240,
+    "runtime_sec": 1304.009,
+    "providers": "hf,openai",
+    "models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini,gpt-5.2",
+    "official_score": 0.8333,
+    "official_killed": 20,
+    "equivalent_mutants": 0,
+    "equivalent_adjusted_score": 0.9583,
+    "official_equivalent_adjusted_score": 0.8333,
+    "kill_agreement_accuracy": 0.875,
+    "kill_precision": 0.8696,
+    "kill_recall": 1.0,
+    "kill_f1": 0.9302,
+    "sanity_passed": true
+  }
+}

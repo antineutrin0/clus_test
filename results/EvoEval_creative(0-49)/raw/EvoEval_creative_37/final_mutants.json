@@ -1,0 +1,694 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_37:m000:NEGATE_CONDITION:1ae5a11931",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 24,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if not char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m001:MEMBERSHIP_FLIP:000f03cfe6",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 24,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char not in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.14356887340545654,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m002:ARITHMETIC_FLIP:bf27d40b50",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 25,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) - 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.05210047960281372,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m003:CONSTANT_CHANGE:fcc9601b97",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 25,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 2) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m004:CONSTANT_CHANGE:d0bf6335d6",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5 -> 6",
+    "line_number": 25,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 6]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.4366571307182312,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m005:CONSTANT_CHANGE:64f0d66a01",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5 -> 4",
+    "line_number": 25,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 4]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.3952685594558716,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m006:NEGATE_CONDITION:774c96fff4",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 26,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif not char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.39042216539382935,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m007:MEMBERSHIP_FLIP:5268fda243",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 26,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char not in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.4051337242126465,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) - 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m009:CONSTANT_CHANGE:330591f124",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 27,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 2) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.525905430316925,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m010:CONSTANT_CHANGE:6a4ceabc22",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5 -> 6",
+    "line_number": 27,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 6]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.5425571203231812,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5 -> 4",
+    "line_number": 27,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 4]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.5542969107627869,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m012:NEGATE_CONDITION:4d478642d4",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 28,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif not char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.39423680305480957,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m013:MEMBERSHIP_FLIP:6add36e52b",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 28,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char not in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.39615553617477417,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m014:ARITHMETIC_FLIP:f64e1eb090",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 29,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) - 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.21470874547958374,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m015:CONSTANT_CHANGE:d56113d589",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 29,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 2) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.20388996601104736,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m016:CONSTANT_CHANGE:f5d6f30e9d",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 21 -> 22",
+    "line_number": 29,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 22]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.5061635971069336,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m017:CONSTANT_CHANGE:1acfeb1b72",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 21 -> 20",
+    "line_number": 29,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 20]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.47525811195373535,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m018:NEGATE_CONDITION:83e9fec4d8",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 30,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif not char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.09583985805511475,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m019:MEMBERSHIP_FLIP:64027fc868",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 30,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char not in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m020:ARITHMETIC_FLIP:66177c5bf8",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 31,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) - 1) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.14442157745361328,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m021:CONSTANT_CHANGE:789db0c1d8",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 31,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 2) % 21]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.3807011842727661,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m022:CONSTANT_CHANGE:8944fcef34",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 21 -> 22",
+    "line_number": 31,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 22]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.4567412734031677,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m023:CONSTANT_CHANGE:a589378baa",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 21 -> 20",
+    "line_number": 31,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 20]\n        else:\n            transformed += char\n    return transformed",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.42735207080841064,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_37:m024:RETURN_VALUE_CHANGE:5df8ae3475",
+    "problem_id": "EvoEval_creative/37",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 34,
+    "mutated_source": "def string_transform(s):\n    \"\"\"Write a function string_transform which takes a string representing\n    a sentence as input and returns the sentence in a transformed format.\n    The transformation rules are as follows: \n    - Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n    - Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n    - Every punctuation, space, and digit remains the same. \n\n    All transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\n    Example:\n    >>> string_transform(\"Hello, World!\")\n    'Jimmu, Xusmf!'\n    >>> string_transform(\"Coding is Fun!\")\n    'Dufoph jt Gap!'\n    \"\"\"\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 1.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

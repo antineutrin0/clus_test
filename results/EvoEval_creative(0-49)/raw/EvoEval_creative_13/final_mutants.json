@@ -1,0 +1,250 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_13:m000:NEGATE_CONDITION:2250195b9a",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 15,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[0]\n    return rarest",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 1.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m001:RETURN_VALUE_CHANGE:1cc75b7a43",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 16,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[0]\n    return rarest",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m002:RETURN_VALUE_CHANGE:3864439308",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 16,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return False\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[0]\n    return rarest",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m003:INDEX_BOUNDARY:0228fbb27c",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 19,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[1]\n    return rarest",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m004:INDEX_BOUNDARY:a7e2e08956",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 19,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[-1]\n    return rarest",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m005:INDEX_BOUNDARY:c87c2a92c8",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 1 -> 2",
+    "line_number": 19,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[2])[0]\n    return rarest",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Lambda",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m006:INDEX_BOUNDARY:dc6a816714",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 1 -> 0",
+    "line_number": 19,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[0])[0]\n    return rarest",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Lambda",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m011:RETURN_VALUE_CHANGE:e09c642166",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 20,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[0]\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_13:m012:RETURN_VALUE_CHANGE:86ea275c97",
+    "problem_id": "EvoEval_creative/13",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 20,
+    "mutated_source": "from typing import List\n\ndef find_rarest_element(elems: List[str]) -> str:\n    \"\"\" Find the rarest element in a list of strings. If there are multiple rarest elements, return the one that appears first. \n    If the list is empty, return None.\n\n    >>> find_rarest_element(['apple', 'banana', 'apple', 'orange', 'banana', 'orange', 'apple'])\n    'banana'\n    >>> find_rarest_element(['cat', 'dog', 'bird', 'cat', 'dog', 'cat'])\n    'bird'\n    >>> find_rarest_element([])\n    None\n    \"\"\"\n    if not elems:\n        return None\n    from collections import Counter\n    count = Counter(elems)\n    rarest = min(count.items(), key=lambda x: x[1])[0]\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

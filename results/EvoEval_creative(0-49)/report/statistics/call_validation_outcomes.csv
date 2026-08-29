@@ -1,0 +1,8 @@
+method,outcome,calls
+baseline,ERROR,2
+baseline,PRODUCTIVE,57
+baseline,REJECTED,1
+baseline,VALID_ZERO_KILL,36
+proposed,PRODUCTIVE,95
+proposed,REJECTED,12
+proposed,VALID_ZERO_KILL,91

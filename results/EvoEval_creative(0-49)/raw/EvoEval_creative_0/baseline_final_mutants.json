@@ -1,0 +1,677 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_0:m000:CONSTANT_CHANGE:0b71f2cf0f",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.0 -> 2.0",
+    "line_number": 25,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 2.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Dict",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m001:CONSTANT_CHANGE:290ca6803b",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.0 -> 0.0",
+    "line_number": 25,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 0.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Dict",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m002:CONSTANT_CHANGE:07f84e3129",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.5 -> 2.5",
+    "line_number": 25,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 2.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Dict",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m003:CONSTANT_CHANGE:b52c078275",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.5 -> 0.5",
+    "line_number": 25,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 0.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Dict",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m004:CONSTANT_CHANGE:b79a35cfed",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2.5 -> 3.5",
+    "line_number": 25,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 3.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Dict",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m005:CONSTANT_CHANGE:8657a830c7",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0.0 -> 1.0",
+    "line_number": 26,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 1.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m006:CONSTANT_CHANGE:094f8de0bc",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0.0 -> -1.0",
+    "line_number": 26,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = -1.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m007:BOOLEAN_FLIP:c52653f62b",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "BOOLEAN_FLIP",
+    "description": "False -> True",
+    "line_number": 27,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = True\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m008:NEGATE_CONDITION:ff7829177f",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 30,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if not isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m009:CONSTANT_CHANGE:c3e3e98be1",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5.0 -> 6.0",
+    "line_number": 31,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 6.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m010:CONSTANT_CHANGE:e0c7d5c4d5",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5.0 -> 4.0",
+    "line_number": 31,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 4.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m011:BOOLEAN_FLIP:6f2a56af4e",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "BOOLEAN_FLIP",
+    "description": "True -> False",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = False\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m012:CONSTANT_CHANGE:9fde8d8c4c",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5.0 -> 6.0",
+    "line_number": 34,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 6.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m013:NEGATE_CONDITION:f37540eb61",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 35,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if not item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m014:COMPARISON_FLIP:695c11028b",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 35,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item < 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m015:BOUNDARY_SHIFT:b11713b51c",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 35,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item >= 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m016:CONSTANT_CHANGE:8ac682c7f9",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 5.0 -> 6.0",
+    "line_number": 35,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 6.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m017:CONSTANT_CHANGE:6a17ba4e3f",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10.0 -> 11.0",
+    "line_number": 36,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 11.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m018:CONSTANT_CHANGE:1859ff412b",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10.0 -> 9.0",
+    "line_number": 36,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 9.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m019:ARGUMENT_SWAP:6ad74b9f16",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 38,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(1.0, location)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Call",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m020:CONSTANT_CHANGE:6f34ec5788",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.0 -> 2.0",
+    "line_number": 38,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 2.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m021:NEGATE_CONDITION:77c47146e8",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 39,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if not multiplier_additional_factor:\n        total_cost *= 1.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m022:CONSTANT_CHANGE:2328dfdbff",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.5 -> 2.5",
+    "line_number": 40,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 2.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m023:CONSTANT_CHANGE:b10df14e05",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.5 -> 0.5",
+    "line_number": 40,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 0.5\n    return '{:.2f}'.format(total_cost)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_0:m024:RETURN_VALUE_CHANGE:2dcc02f83c",
+    "problem_id": "EvoEval_creative/0",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 43,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg and all previous factors are multiplied by 1.5. This multiplication only occurs once even if there are multiple string items.\n    \n    Return the total shipping cost rounded to two decimal places as a string.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    \"56.25\"\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    \"20.00\"\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    \"62.50\"\n    \"\"\"\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    multiplier_additional_factor = False\n    for item in items:\n        if isinstance(item, str):\n            total_cost += 5.0\n            multiplier_additional_factor = True\n        else:\n            total_cost += 5.0\n            if item > 5.0:\n                total_cost += 10.0\n    total_cost *= location_factor.get(location, 1.0)\n    if multiplier_additional_factor:\n        total_cost *= 1.5\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

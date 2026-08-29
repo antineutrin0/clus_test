@@ -1,0 +1,52 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_15:m005:RANGE_BOUNDARY:92c8cb6657",
+    "problem_id": "EvoEval_creative/15",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 2 -> 1",
+    "line_number": 27,
+    "mutated_source": "def evaluate_poker_hand(hand: list):\n    \"\"\" \n    Evaluate a poker hand and return its score.\n\n    In this game, we use the following point scoring rules:\n\n    1. Each card has a value (A=1, 2-10 = card number, J=11, Q=12, K=13)\n    2. A 'pair' (two cards of the same value) scores the value of the card.\n    3. A 'triple' (three cards of the same value) scores double the value of the card.\n    4. A 'four of a kind' (four cards of the same value) scores triple the value of the card.\n    5. A 'five of a kind' (five cards of the same value) scores quadruple the value of the card.\n    6. If hand has no pairs, triples or fours, score is 0\n\n    Note, you should consider all cards in hand, i.e., if there are both pair and triple, score should be score or pair + score of triple.\n\n    The \"hand\" list contains 5 strings, each representing a card in the format 'value+suit'\n    (i.e. ['10H', '10D', '10C', '2S', '2D']). The suit is irrelevant for this game.\n\n    >>> evaluate_poker_hand(['5H', '5D', '5S', '9C', '9D'])\n    19\n    >>> evaluate_poker_hand(['AS', '2H', '3S', '4H', '5D'])\n    0\n    >>> evaluate_poker_hand(['KH', 'KD', 'KS', 'KC', 'KA'])\n    52\n    \"\"\"\n    card_values = {'A': 1, 'J': 11, 'Q': 12, 'K': 13}\n    card_values.update({str(i): i for i in range(1, 11)})\n    card_counts = {value: 0 for value in card_values.keys()}\n    for card in hand:\n        card_counts[card[:-1]] += 1\n    score = 0\n    for card, count in card_counts.items():\n        if count == 2:\n            score += card_values[card]\n        elif count == 3:\n            score += 2 * card_values[card]\n        elif count == 4:\n            score += 3 * card_values[card]\n        elif count == 5:\n            score += 4 * card_values[card]\n        else:\n            score += 0\n    return score",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_15:m007:CONSTANT_CHANGE:5ea1e9166d",
+    "problem_id": "EvoEval_creative/15",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 0",
+    "line_number": 27,
+    "mutated_source": "def evaluate_poker_hand(hand: list):\n    \"\"\" \n    Evaluate a poker hand and return its score.\n\n    In this game, we use the following point scoring rules:\n\n    1. Each card has a value (A=1, 2-10 = card number, J=11, Q=12, K=13)\n    2. A 'pair' (two cards of the same value) scores the value of the card.\n    3. A 'triple' (three cards of the same value) scores double the value of the card.\n    4. A 'four of a kind' (four cards of the same value) scores triple the value of the card.\n    5. A 'five of a kind' (five cards of the same value) scores quadruple the value of the card.\n    6. If hand has no pairs, triples or fours, score is 0\n\n    Note, you should consider all cards in hand, i.e., if there are both pair and triple, score should be score or pair + score of triple.\n\n    The \"hand\" list contains 5 strings, each representing a card in the format 'value+suit'\n    (i.e. ['10H', '10D', '10C', '2S', '2D']). The suit is irrelevant for this game.\n\n    >>> evaluate_poker_hand(['5H', '5D', '5S', '9C', '9D'])\n    19\n    >>> evaluate_poker_hand(['AS', '2H', '3S', '4H', '5D'])\n    0\n    >>> evaluate_poker_hand(['KH', 'KD', 'KS', 'KC', 'KA'])\n    52\n    \"\"\"\n    card_values = {'A': 1, 'J': 11, 'Q': 12, 'K': 13}\n    card_values.update({str(i): i for i in range(0, 11)})\n    card_counts = {value: 0 for value in card_values.keys()}\n    for card in hand:\n        card_counts[card[:-1]] += 1\n    score = 0\n    for card, count in card_counts.items():\n        if count == 2:\n            score += card_values[card]\n        elif count == 3:\n            score += 2 * card_values[card]\n        elif count == 4:\n            score += 3 * card_values[card]\n        elif count == 5:\n            score += 4 * card_values[card]\n        else:\n            score += 0\n    return score",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

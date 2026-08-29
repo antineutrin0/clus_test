@@ -1,0 +1,26 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_30:m014:ARITHMETIC_FLIP:898ee89864",
+    "problem_id": "EvoEval_creative/30",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Tuple\n\ndef find_path(maze: List[List[int]], start: Tuple[int], end: Tuple[int]):\n    \"\"\"Returns the shortest path from start to end in a maze represented by a 2D array.\n\n    The maze is a 2D array where 0s represent walls and 1s represent open paths. The start and end points \n    are tuples representing coordinates in the 2D array. The function should return a list of points \n    representing the shortest path from start to end. If no path is possible, return an empty list.\n\n    >>> maze = [[1,0,1,1,1], [1,0,1,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1]]\n    >>> start = (0,0)\n    >>> end = (4, 4)\n    >>> find_path(maze, start, end)\n    [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]\n\n    >>> maze = [[1,0,1], [0,0,1], [1,1,1]]\n    >>> start = (0,0)\n    >>> end = (2, 2)\n    >>> find_path(maze, start, end)\n    []\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(maze), len(maze[0]))\n    visited = [[False] * cols for _ in range(rows)]\n    queue = deque([(start, [start])])\n    while queue:\n        (x, y), path = queue.popleft()\n        if (x, y) == end:\n            return path\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = (x + dx, y - dy)\n            if 0 <= nx < rows and 0 <= ny < cols and (maze[nx][ny] == 1) and (not visited[nx][ny]):\n                queue.append(((nx, ny), path + [(nx, ny)]))\n                visited[nx][ny] = True\n    return []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Tuple",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3193659782409668,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

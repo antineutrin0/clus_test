@@ -1,0 +1,295 @@
+method,problem_id,layer,attempt,provider,model,status,target_count,new_kills,cumulative_score,prompt_tokens,completion_tokens,total_tokens,prompt_chars,response_chars,latency_sec,estimated_cost_usd,validation_reason
+proposed,EvoEval_creative/0,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,24,0.96,4096,224,4320,17957,453,26.8687,0.0,
+proposed,EvoEval_creative/0,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.96,3135,76,3211,12033,256,9.8774,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/0,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.96,3149,131,3280,12098,413,15.1611,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/0,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1826,42,2700,6487,68,12.0736,0.0022045,
+proposed,EvoEval_creative/10,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,17,0.7727272727272727,3110,60,3170,12578,159,8.6371,0.0,
+proposed,EvoEval_creative/10,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.7727272727272727,2817,88,2905,11365,307,10.6662,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/10,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.7727272727272727,2831,88,2919,11430,307,11.1065,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/10,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,2,0.8636363636363636,1576,67,2731,5902,67,12.7556,0.002704,
+proposed,EvoEval_creative/10,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,1,2,0.9545454545454546,1772,193,3757,6468,530,22.8851,0.004413,
+proposed,EvoEval_creative/10,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1797,32,3109,6575,67,14.934,0.00307325,
+proposed,EvoEval_creative/11,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,15,0.9375,4096,371,4467,18955,1328,38.829,0.0,
+proposed,EvoEval_creative/11,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9375,2946,107,3053,12012,447,13.0056,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/11,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9375,2960,107,3067,12077,447,12.822,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/11,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1583,126,3117,6055,306,20.66,0.00346375,
+proposed,EvoEval_creative/12,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,3,4,1.0,3465,87,3552,13734,266,11.3612,0.0,
+proposed,EvoEval_creative/13,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,8,0.8888888888888888,3792,102,3894,15201,289,13.4544,0.0,
+proposed,EvoEval_creative/13,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,2643,102,2745,10874,289,11.7223,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/13,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,2658,102,2760,10940,289,12.0861,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/13,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.8888888888888888,1348,56,2108,5234,101,9.9286,0.001857,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/13,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1258,23,5311,5002,64,61.6813,0.0589435,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/14,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,14,1.0,3928,113,4041,15880,426,14.7077,0.0,
+proposed,EvoEval_creative/15,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,4,15,0.6,4096,26,4122,15614,84,7.045,0.0,
+proposed,EvoEval_creative/15,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.6,3305,33,3338,12503,151,6.4512,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/15,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.6,3319,48,3367,12568,156,7.8323,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/15,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,1,0.64,2174,266,4040,7308,718,22.5885,0.0042755,
+proposed,EvoEval_creative/15,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,2,2,0.72,2330,92,3574,7826,116,15.6477,0.0030705,
+proposed,EvoEval_creative/15,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,2,3,0.84,2312,62,3590,7890,96,16.6687,0.003134,
+proposed,EvoEval_creative/15,Layer2,4,openai,gpt-5-mini,PRODUCTIVE,2,1,0.88,2420,227,4311,8114,689,25.1297,0.004387,
+proposed,EvoEval_creative/15,Layer2,5,openai,gpt-5-mini,VALID_ZERO_KILL,2,0,0.88,2448,36,4916,8233,80,28.9355,0.005548,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/15,Layer3,1,openai,gpt-5.2,PRODUCTIVE,2,1,0.92,2237,85,4245,7790,199,30.7778,0.03202675,
+proposed,EvoEval_creative/15,Layer3,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.92,2413,60,3285,8209,136,14.0742,0.01643075,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/16,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,19,0.7916666666666666,4076,133,4209,15821,505,17.1304,0.0,
+proposed,EvoEval_creative/16,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7916666666666666,2991,97,3088,11836,414,11.735,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/16,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7916666666666666,3005,97,3102,11901,414,12.2288,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/16,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,2,0,0.7916666666666666,1709,86,5059,6369,79,38.6904,0.00712725,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/16,Layer3,1,openai,gpt-5.2,PRODUCTIVE,2,1,0.8333333333333334,1701,36,2829,6432,102,17.3353,0.01876875,
+proposed,EvoEval_creative/16,Layer3,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.8333333333333334,1545,75,2681,5783,202,16.2544,0.01860775,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/17,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,10,0.7692307692307693,4096,255,4351,17138,893,28.251,0.0,
+proposed,EvoEval_creative/17,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7692307692307693,3167,128,3295,12187,532,15.4274,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/17,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7692307692307693,3181,103,3284,12252,30,12.7146,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/17,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,3,1.0,1920,67,2947,6793,121,12.8981,0.002534,
+proposed,EvoEval_creative/18,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,21,1.0,3979,35,4014,15759,128,7.6557,0.0,
+proposed,EvoEval_creative/19,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,19,1.0,4096,130,4226,17283,312,16.506,0.0,
+proposed,EvoEval_creative/1,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,19,0.76,4096,146,4242,16669,523,18.1651,0.0,
+proposed,EvoEval_creative/1,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.76,3216,117,3333,12243,363,13.9235,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/1,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.76,3230,117,3347,12308,363,14.2914,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/1,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,2,0.84,1987,71,3402,6926,65,15.7393,0.00332675,
+proposed,EvoEval_creative/1,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.84,1980,76,4616,6774,77,30.5169,0.005767,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/1,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.84,1713,51,2773,6235,123,18.5172,0.01783775,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/20,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,22,1.0,3025,32,3057,11895,145,5.7898,0.0,
+proposed,EvoEval_creative/21,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,19,0.9047619047619048,4096,144,4240,18782,516,18.17,0.0,
+proposed,EvoEval_creative/21,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.9047619047619048,3208,122,3330,12523,302,14.4002,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/21,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.9047619047619048,3222,122,3344,12588,302,14.7599,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/21,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,1,0.9523809523809523,1961,106,3347,7078,173,14.2447,0.00326225,
+proposed,EvoEval_creative/21,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.9523809523809523,1925,44,2673,6862,118,8.484,0.00197725,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/21,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9523809523809523,1584,55,3543,6068,162,30.1134,0.030198,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/22,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,25,1.0,4096,822,4918,15601,3817,81.7144,0.0,
+proposed,EvoEval_creative/23,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,21,0.84,4096,1536,5632,16371,492,150.2577,0.0,
+proposed,EvoEval_creative/23,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.84,3027,27,3054,11881,140,5.5309,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/23,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.84,3041,27,3068,11946,140,5.3057,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/23,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,1,0.88,1686,163,5561,6459,437,48.7885,0.0081715,
+proposed,EvoEval_creative/23,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,2,0,0.88,1845,78,4547,6981,56,31.4213,0.00586525,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/23,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.88,1734,169,4049,6650,607,34.9646,0.0354445,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/24,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,1,2,1.0,2780,199,2979,11259,382,20.998,0.0,
+proposed,EvoEval_creative/25,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,4,8,0.7272727272727273,4096,56,4152,17104,241,9.631,0.0,
+proposed,EvoEval_creative/25,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7272727272727273,3114,62,3176,12853,267,8.9558,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/25,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.7272727272727273,3129,61,3190,12919,262,8.6899,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/25,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,2,0,0.7272727272727273,1838,66,3504,7419,99,20.2851,0.0037915,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/25,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.7272727272727273,1732,50,4112,7074,156,33.8125,0.036351,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/26,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,16,0.6666666666666666,3935,374,4309,14116,1204,40.7004,0.0,
+proposed,EvoEval_creative/26,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.6666666666666666,3624,214,3838,12584,719,24.4274,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/26,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.6666666666666666,3493,233,3726,12383,626,25.9027,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/26,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,2,0.75,2370,63,3265,6927,80,10.9537,0.0023825,
+proposed,EvoEval_creative/26,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,1,1,0.7916666666666666,2605,69,3762,7541,82,14.5146,0.00296525,
+proposed,EvoEval_creative/26,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,1,2,0.875,2687,121,6008,7846,146,37.3915,0.00731375,
+proposed,EvoEval_creative/26,Layer2,4,openai,gpt-5-mini,PRODUCTIVE,1,1,0.9166666666666666,2762,292,4334,7909,937,18.34,0.0038345,
+proposed,EvoEval_creative/26,Layer2,5,openai,gpt-5-mini,PRODUCTIVE,1,1,0.9583333333333334,2727,362,7313,7995,1038,54.873,0.00985375,
+proposed,EvoEval_creative/26,Layer2,6,openai,gpt-5-mini,REJECTED,1,0,0.9583333333333334,2866,338,6468,8443,1020,42.0648,0.0079205,test_0: ERROR - IndexError:list index out of range
+proposed,EvoEval_creative/26,Layer3,1,openai,gpt-5.2,PRODUCTIVE,1,1,1.0,2487,190,6019,7798,506,56.3011,0.05380025,
+proposed,EvoEval_creative/27,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,3,6,1.0,3541,191,3732,13861,593,21.0155,0.0,
+proposed,EvoEval_creative/28,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,22,0.88,3585,47,3632,13139,215,8.5579,0.0,
+proposed,EvoEval_creative/28,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.88,3395,47,3442,12372,215,8.0787,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/28,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.88,3409,34,3443,12437,148,6.9888,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/28,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.88,1898,79,4089,6778,65,28.5508,0.0048565,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/28,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.88,1849,43,2626,6747,104,15.0036,0.01411375,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/29,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,12,0.9230769230769231,4096,177,4273,16736,369,21.0551,0.0,
+proposed,EvoEval_creative/29,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9230769230769231,2954,105,3059,11573,376,12.9107,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/29,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9230769230769231,2968,188,3156,11638,838,20.0696,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/29,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.9230769230769231,1520,117,3237,5689,354,20.9482,0.003814,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/29,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9230769230769231,1498,118,2695,5678,418,19.2744,0.0193795,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/2,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,16,1.0,4096,183,4279,17640,832,21.8476,0.0,
+proposed,EvoEval_creative/30,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,2,0,0.0,3097,384,3481,11879,1183,38.5853,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/30,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,2,0,0.0,3240,307,3547,12339,951,32.2006,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/30,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,2,0,0.0,3240,307,3547,12339,951,32.0787,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/30,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,18,0.75,2109,478,4699,7266,1205,30.3463,0.00570725,
+proposed,EvoEval_creative/30,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,1,3,0.875,2262,124,3602,7302,180,16.1769,0.0032455,
+proposed,EvoEval_creative/30,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,1,1,0.9166666666666666,2086,266,5616,6932,741,39.9881,0.0075815,
+proposed,EvoEval_creative/30,Layer2,4,openai,gpt-5-mini,PRODUCTIVE,1,1,0.9583333333333334,2126,125,5899,7060,187,42.0536,0.0080775,
+proposed,EvoEval_creative/30,Layer2,5,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.9583333333333334,2156,550,6866,7177,1463,47.5004,0.009959,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/30,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9583333333333334,2046,493,4778,6917,1379,37.7088,0.0418285,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/31,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,21,1.0,4096,302,4398,16468,53,32.7978,0.0,
+proposed,EvoEval_creative/32,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,21,0.9130434782608695,4096,221,4317,20370,159,24.6405,0.0,
+proposed,EvoEval_creative/32,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9130434782608695,3197,111,3308,12758,418,13.6204,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/32,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9130434782608695,3211,107,3318,12823,394,13.1237,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/32,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,2,1.0,1834,189,3687,7084,678,22.1634,0.0041645,
+proposed,EvoEval_creative/33,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,23,0.92,4096,259,4355,17194,493,28.6654,0.0,
+proposed,EvoEval_creative/33,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.92,3185,19,3204,12340,79,5.0721,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/33,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.92,3199,19,3218,12405,79,5.0237,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/33,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.92,1861,24,3741,6709,56,21.9232,0.00422525,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/33,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.92,1804,68,3513,6692,165,26.6202,0.027083,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/34,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,20,0.8333333333333334,3583,490,4073,13382,341,49.2268,0.0,
+proposed,EvoEval_creative/34,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8333333333333334,3203,361,3564,11940,1379,36.0723,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/34,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8333333333333334,3208,185,3393,11969,96,19.8613,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/34,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,0.875,1728,74,2890,6250,104,13.6896,0.002756,
+proposed,EvoEval_creative/34,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.875,1937,52,3461,6871,80,17.7058,0.00353225,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/34,Layer3,1,openai,gpt-5.2,PRODUCTIVE,1,1,0.9166666666666666,1782,65,2878,6553,115,13.5822,0.0184625,
+proposed,EvoEval_creative/34,Layer3,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9166666666666666,1899,54,4110,6803,110,30.1384,0.03427725,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/35,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,13,0.6190476190476191,3752,89,3841,15171,233,12.0299,0.0,
+proposed,EvoEval_creative/35,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,3,0,0.6190476190476191,2958,200,3158,12160,893,21.4029,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/35,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,3,0,0.6190476190476191,2972,200,3172,12225,893,21.292,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/35,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,3,4,0.8095238095238095,1776,42,4570,6805,96,33.5576,0.006032,
+proposed,EvoEval_creative/35,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,2,0,0.8095238095238095,1754,60,3414,6708,59,17.9565,0.0037585,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/35,Layer3,1,openai,gpt-5.2,PRODUCTIVE,2,1,0.8571428571428571,1595,79,4126,6248,251,34.9931,0.03822525,
+proposed,EvoEval_creative/35,Layer3,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.8571428571428571,1756,44,4989,6724,162,45.5032,0.048335,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/36,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,4,8,1.0,4096,95,4191,15700,210,13.6689,0.0,
+proposed,EvoEval_creative/37,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,17,0.68,4096,542,4638,16649,1409,55.1225,0.0,
+proposed,EvoEval_creative/37,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.68,3053,218,3271,12363,878,22.7067,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/37,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,2,0,0.68,3067,218,3285,12428,878,22.7061,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/37,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,2,3,0.8,1880,220,4468,7280,878,33.8078,0.005646,
+proposed,EvoEval_creative/37,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,1,1,0.84,1787,65,2684,6873,54,10.8901,0.00224075,
+proposed,EvoEval_creative/37,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,1,2,0.92,1839,66,2929,7010,68,13.1955,0.00263975,
+proposed,EvoEval_creative/37,Layer2,4,openai,gpt-5-mini,PRODUCTIVE,1,2,1.0,1857,40,2729,7078,68,12.4859,0.00220825,
+proposed,EvoEval_creative/38,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,3,1.0,3108,133,3241,12836,30,15.4094,0.0,
+proposed,EvoEval_creative/39,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,3,8,0.8888888888888888,3820,117,3937,14598,250,15.0108,0.0,
+proposed,EvoEval_creative/39,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,2905,169,3074,11334,325,18.3699,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/39,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,2910,170,3080,11364,325,18.6059,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/39,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.8888888888888888,1474,84,3222,5512,233,21.5325,0.0038645,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/39,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1436,79,2141,5505,227,10.5891,0.012383,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/3,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,22,0.9565217391304348,4096,178,4274,17613,861,21.1498,0.0,
+proposed,EvoEval_creative/3,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9565217391304348,2743,69,2812,11114,53,8.9895,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/3,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9565217391304348,2757,69,2826,11179,53,9.2001,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/3,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1414,42,2608,5505,58,14.7207,0.0027415,
+proposed,EvoEval_creative/40,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,20,0.9523809523809523,4096,352,4448,20421,836,36.9793,0.0,
+proposed,EvoEval_creative/40,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9523809523809523,3340,171,3511,13226,538,19.2931,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/40,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9523809523809523,3354,335,3689,13291,776,34.5644,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/40,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.9523809523809523,1949,57,3926,7466,70,27.945,0.00444125,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/40,Layer3,1,openai,gpt-5.2,REJECTED,1,0,0.9523809523809523,1760,112,6346,6895,266,65.8685,0.067284,test_0: FAIL - assertion failed (no message); locals at failure: {}
+proposed,EvoEval_creative/41,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,5,0,0.0,3674,319,3993,14056,1015,34.113,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/41,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,5,0,0.0,3817,319,4136,14516,1006,33.7958,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/41,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,5,0,0.0,3817,319,4136,14516,1006,33.6361,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/41,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,5,16,0.7272727272727273,3094,174,6596,10546,537,40.5983,0.0077775,
+proposed,EvoEval_creative/41,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,3,2,0.8181818181818182,2622,119,6133,9037,278,38.8843,0.0076775,
+proposed,EvoEval_creative/41,Layer2,3,openai,gpt-5-mini,REJECTED,2,0,0.8181818181818182,2299,88,5587,7811,72,47.6693,0.00715075,test_0: FAIL - assertion failed (no message); locals at failure: {}
+proposed,EvoEval_creative/41,Layer3,1,openai,gpt-5.2,PRODUCTIVE,2,3,0.9545454545454546,2198,72,9038,7584,163,235.0561,0.0996065,
+proposed,EvoEval_creative/41,Layer3,2,openai,gpt-5.2,PRODUCTIVE,1,1,1.0,2060,54,6251,7101,132,71.1117,0.062279,
+proposed,EvoEval_creative/42,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,20,1.0,4096,80,4176,17201,311,12.1699,0.0,
+proposed,EvoEval_creative/43,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,17,0.9444444444444444,4096,105,4201,18070,21,14.1428,0.0,
+proposed,EvoEval_creative/43,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9444444444444444,3144,47,3191,11809,215,7.4586,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/43,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.9444444444444444,3158,47,3205,11874,215,7.9475,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/43,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1821,126,3099,6247,275,13.8377,0.00301125,
+proposed,EvoEval_creative/44,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,8,0.8,4096,122,4218,16917,243,15.9593,0.0,
+proposed,EvoEval_creative/44,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8,2947,66,3013,11322,287,8.9747,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/44,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8,2962,77,3039,11388,318,10.0103,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/44,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.8,1542,52,2874,5476,59,15.8968,0.0030495,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/44,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8,1434,81,3065,5393,195,28.1519,0.0253435,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/45,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,3,5,1.0,3802,215,4017,14069,541,24.0862,0.0,
+proposed,EvoEval_creative/46,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,3,5,1.0,3909,286,4195,15534,1323,30.7115,0.0,
+proposed,EvoEval_creative/47,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,4,0,0.0,2843,144,2987,11664,425,15.7827,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/47,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,4,0,0.0,3025,94,3119,12210,319,11.6636,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/47,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,REJECTED,4,0,0.0,3022,93,3115,12209,353,11.4374,0.0,vacuous test: check never calls candidate
+proposed,EvoEval_creative/47,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,4,9,0.9,1970,99,4437,7564,138,28.2401,0.0054265,
+proposed,EvoEval_creative/47,Layer2,2,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.9,1499,49,2188,5626,83,7.6424,0.00175275,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/47,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9,1348,82,4216,5255,243,41.8304,0.042511,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/48,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,4,9,1.0,4096,231,4327,18183,522,26.0367,0.0,
+proposed,EvoEval_creative/49,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,2,4,1.0,3548,375,3923,13120,1272,38.0462,0.0,
+proposed,EvoEval_creative/4,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,16,0.8888888888888888,4096,81,4177,16207,289,12.0942,0.0,
+proposed,EvoEval_creative/4,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,3015,234,3249,11689,808,24.6162,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/4,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.8888888888888888,3069,103,3172,11866,306,12.4322,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/4,Layer2,1,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.8888888888888888,1745,35,4020,6111,51,33.8774,0.00498625,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/4,Layer3,1,openai,gpt-5.2,PRODUCTIVE,1,1,0.9444444444444444,1656,34,2702,6065,116,17.849,0.017542,
+proposed,EvoEval_creative/4,Layer3,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9444444444444444,1471,188,2562,5436,504,17.146,0.01784825,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/5,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,12,1.0,4096,226,4322,16104,683,26.5549,0.0,
+proposed,EvoEval_creative/6,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,13,0.5416666666666666,4096,476,4572,18485,1488,50.9024,0.0,
+proposed,EvoEval_creative/6,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,3,0,0.5416666666666666,3945,102,4047,13577,30,14.0841,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/6,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,3,0,0.5416666666666666,3937,160,4097,13580,237,19.9981,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/6,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,3,3,0.6666666666666666,2780,261,5537,8370,636,35.6671,0.006209,
+proposed,EvoEval_creative/6,Layer2,2,openai,gpt-5-mini,PRODUCTIVE,3,2,0.75,3069,261,6210,9124,744,44.3048,0.00704925,
+proposed,EvoEval_creative/6,Layer2,3,openai,gpt-5-mini,PRODUCTIVE,2,1,0.7916666666666666,2805,272,5189,8414,809,31.4458,0.00546925,
+proposed,EvoEval_creative/6,Layer2,4,openai,gpt-5-mini,PRODUCTIVE,2,1,0.8333333333333334,2850,272,4402,8570,653,19.5754,0.0038165,
+proposed,EvoEval_creative/6,Layer2,5,openai,gpt-5-mini,PRODUCTIVE,2,1,0.875,2897,113,4610,8703,177,22.0364,0.00415025,
+proposed,EvoEval_creative/6,Layer2,6,openai,gpt-5-mini,VALID_ZERO_KILL,1,0,0.875,2703,266,4761,8100,688,25.415,0.00479175,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/6,Layer3,1,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.875,2336,72,3881,7513,157,23.2657,0.025718,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/7,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,4,25,1.0,4096,107,4203,16096,428,14.4647,0.0,
+proposed,EvoEval_creative/8,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,24,0.96,4096,164,4260,18510,670,19.7768,0.0,
+proposed,EvoEval_creative/8,Layer1,2,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.96,3048,69,3117,12414,298,9.3657,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/8,Layer1,3,hf,Qwen/Qwen2.5-Coder-3B-Instruct,VALID_ZERO_KILL,1,0,0.96,3062,66,3128,12479,287,9.1586,0.0,valid but unproductive: killed zero active mutants
+proposed,EvoEval_creative/8,Layer2,1,openai,gpt-5-mini,PRODUCTIVE,1,1,1.0,1772,33,3469,6750,68,21.1532,0.003837,
+proposed,EvoEval_creative/9,Layer1,1,hf,Qwen/Qwen2.5-Coder-3B-Instruct,PRODUCTIVE,5,9,1.0,4096,140,4236,17359,663,17.769,0.0,
+baseline,EvoEval_creative/0,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,25,1.0,13747,81,16593,45189,226,44.998,0.06390125,
+baseline,EvoEval_creative/10,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,22,22,1.0,9640,83,15870,33129,203,89.4177,0.10409,
+baseline,EvoEval_creative/11,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,16,15,0.9375,9591,62,10545,33936,218,13.059,0.03014025,
+baseline,EvoEval_creative/11,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9375,1721,45,2106,6816,155,5.2499,0.00840175,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/11,BaselineIter3,3,openai,gpt-5.2,PRODUCTIVE,1,1,1.0,1711,91,2734,6794,366,16.0741,0.01731625,
+baseline,EvoEval_creative/12,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,4,4,1.0,2862,28,3103,10724,62,4.7004,0.0083825,
+baseline,EvoEval_creative/13,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,9,8,0.8888888888888888,4365,33,5850,16059,99,22.4792,0.02842875,
+baseline,EvoEval_creative/13,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1403,48,2677,5721,121,17.8895,0.02029125,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/13,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1446,20,3145,5832,62,26.0307,0.0263165,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/14,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,14,14,1.0,7203,25,7374,26141,68,3.5568,0.01499925,
+baseline,EvoEval_creative/15,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,23,0.92,11516,190,14411,37740,435,43.8784,0.060683,
+baseline,EvoEval_creative/15,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.92,2760,60,4731,9170,139,31.8896,0.032424,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/15,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.92,2530,36,4170,8691,85,27.7259,0.0273875,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/16,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,24,20,0.8333333333333334,10052,64,12502,34173,177,34.1675,0.051891,
+baseline,EvoEval_creative/16,BaselineIter2,2,openai,gpt-5.2,PRODUCTIVE,4,2,0.9166666666666666,2142,34,3648,7858,89,21.0043,0.0248325,
+baseline,EvoEval_creative/16,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,1768,34,2537,6668,94,11.9617,0.01386,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/16,BaselineIter4,4,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,1783,36,2591,6738,99,12.121,0.01443225,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/17,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,13,13,1.0,6854,58,7660,23645,142,13.8012,0.0232785,
+baseline,EvoEval_creative/18,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,21,21,1.0,9497,19,13181,33426,51,55.0393,0.06819575,
+baseline,EvoEval_creative/19,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,19,19,1.0,11479,66,17184,35636,153,81.2299,0.09995825,
+baseline,EvoEval_creative/1,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,21,0.84,12092,85,15515,39321,219,51.1872,0.069083,
+baseline,EvoEval_creative/1,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,4,0,0.84,2455,54,4437,9059,133,29.891,0.03204425,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/1,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,4,0,0.84,2418,40,5277,8973,91,41.0334,0.0442575,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/20,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,22,22,1.0,11376,54,12687,35933,141,20.5656,0.038262,
+baseline,EvoEval_creative/21,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,21,20,0.9523809523809523,12358,94,16774,41193,257,62.6261,0.0834505,
+baseline,EvoEval_creative/21,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9523809523809523,1624,71,2112,6611,187,7.6493,0.009674,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/21,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9523809523809523,1639,59,3496,6638,169,25.4362,0.02886625,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/22,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,25,1.0,12810,67,13784,40117,186,13.6986,0.0360535,
+baseline,EvoEval_creative/23,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,22,0.88,11455,132,14529,40270,501,48.8685,0.06308225,
+baseline,EvoEval_creative/23,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,3,0,0.88,2006,32,3948,7727,82,32.8842,0.0306985,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/23,BaselineIter3,3,openai,gpt-5.2,REJECTED,3,0,0.88,2040,139,5043,7820,534,45.2974,0.045612,"test_0: FAIL - assertion failed (no message); locals at failure: {'sys': <module 'sys' (built-in)>, 'profiler': <function __cluse_check_0.<locals>.profiler at 0x7ca96871d300>, 'old': None, 'out': '2', 'counter': {'append_calls': 0}}"
+baseline,EvoEval_creative/24,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,2,2,1.0,2041,27,2205,7813,93,3.467,0.00586775,
+baseline,EvoEval_creative/25,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,11,8,0.7272727272727273,5721,35,8532,22017,113,36.4311,0.04936575,
+baseline,EvoEval_creative/25,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,3,0,0.7272727272727273,1987,48,4234,8158,153,30.3491,0.03493525,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/25,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,3,0,0.7272727272727273,1998,39,4885,8214,118,40.5833,0.0439145,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/26,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,24,20,0.8333333333333334,13928,468,20644,41585,1369,345.6539,0.118398,
+baseline,EvoEval_creative/26,BaselineIter2,2,openai,gpt-5.2,PRODUCTIVE,4,2,0.9166666666666666,3115,70,9239,10487,160,209.8326,0.09118725,
+baseline,EvoEval_creative/26,BaselineIter3,3,openai,gpt-5.2,PRODUCTIVE,2,2,1.0,2391,112,7649,8353,267,80.2826,0.07779625,
+baseline,EvoEval_creative/27,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,6,6,1.0,3879,26,4492,13500,69,9.2172,0.01537025,
+baseline,EvoEval_creative/28,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,23,0.92,13423,89,16291,42855,224,41.167,0.06364225,
+baseline,EvoEval_creative/28,BaselineIter2,2,openai,gpt-5.2,PRODUCTIVE,2,1,0.96,2431,25,3464,8712,58,14.9487,0.01871625,
+baseline,EvoEval_creative/28,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.96,2150,27,3491,7875,65,18.9193,0.0225365,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/28,BaselineIter4,4,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.96,2166,24,4252,7950,60,33.0775,0.0329945,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/29,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,13,12,0.9230769230769231,7585,23,9361,25578,63,25.2145,0.03813775,
+baseline,EvoEval_creative/29,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9230769230769231,1588,32,2260,6288,81,11.6537,0.012187,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/29,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9230769230769231,1612,102,3013,6376,388,24.2916,0.022435,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/2,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,16,16,1.0,8790,49,13338,30875,145,72.493,0.0790545,
+baseline,EvoEval_creative/30,BaselineIter1,1,openai,gpt-5.2,ERROR,24,0,0.0,0,0,0,26235,0,0.0,0.0,RuntimeError: RuntimeError('All OpenAI models failed: gpt-5.2: APITimeoutError: Request timed out.')
+baseline,EvoEval_creative/30,BaselineIter2,2,openai,gpt-5.2,ERROR,24,0,0.0,0,0,0,26776,0,0.0,0.0,RuntimeError: RuntimeError('All OpenAI models failed: gpt-5.2: APITimeoutError: Request timed out.')
+baseline,EvoEval_creative/31,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,21,21,1.0,10981,35,13275,36133,86,30.3702,0.05133275,
+baseline,EvoEval_creative/32,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,23,23,1.0,14242,168,20667,49763,584,81.5496,0.1148735,
+baseline,EvoEval_creative/33,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,23,0.92,12517,25,14464,41797,58,28.5994,0.04916275,
+baseline,EvoEval_creative/33,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.92,2136,28,3060,8050,64,14.926,0.016674,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/33,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.92,2157,51,3054,8124,126,14.384,0.01633275,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/34,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,24,20,0.8333333333333334,12477,89,15837,40452,145,45.0804,0.06887475,
+baseline,EvoEval_creative/34,BaselineIter2,2,openai,gpt-5.2,PRODUCTIVE,4,2,0.9166666666666666,3176,50,4117,11158,93,14.411,0.018732,
+baseline,EvoEval_creative/34,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,2193,51,3478,8111,109,16.2834,0.02182775,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/34,BaselineIter4,4,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,2218,32,3097,8215,67,10.6417,0.0161875,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/35,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,21,18,0.8571428571428571,8763,65,13511,30944,238,60.1575,0.08180725,
+baseline,EvoEval_creative/35,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,3,0,0.8571428571428571,2013,46,5433,7868,138,42.7531,0.05140275,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/35,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,3,0,0.8571428571428571,1994,43,4971,7757,133,40.3854,0.0451675,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/36,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,8,8,1.0,5326,45,5986,17237,95,8.3408,0.0185605,
+baseline,EvoEval_creative/37,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,25,1.0,11380,28,12732,41215,66,20.2654,0.038843,
+baseline,EvoEval_creative/38,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,3,3,1.0,2450,39,2793,9492,116,6.3374,0.0090895,
+baseline,EvoEval_creative/39,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,9,8,0.8888888888888888,5453,28,6143,18847,67,10.202,0.01920275,
+baseline,EvoEval_creative/39,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1588,38,1872,6274,95,5.8685,0.006755,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/39,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.8888888888888888,1615,34,2384,6370,86,12.8185,0.01359225,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/3,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,23,23,1.0,12505,78,16431,43659,257,54.4554,0.07684775,
+baseline,EvoEval_creative/40,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,21,20,0.9523809523809523,12959,86,14700,45847,294,26.8792,0.04705225,
+baseline,EvoEval_creative/40,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9523809523809523,1959,67,3282,7833,219,18.7163,0.02195025,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/40,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9523809523809523,1883,60,5402,7570,132,173.6958,0.05256125,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/41,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,22,17,0.7727272727272727,8595,44,15296,27236,106,82.6926,0.10885525,
+baseline,EvoEval_creative/41,BaselineIter2,2,openai,gpt-5.2,PRODUCTIVE,5,4,0.9545454545454546,3206,100,9311,10687,290,208.0803,0.0910805,
+baseline,EvoEval_creative/41,BaselineIter3,3,openai,gpt-5.2,PRODUCTIVE,1,1,1.0,2246,122,7076,7819,409,84.0139,0.0715505,
+baseline,EvoEval_creative/42,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,20,20,1.0,10170,51,11603,35247,146,27.5453,0.0378595,
+baseline,EvoEval_creative/43,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,18,18,1.0,11107,146,15097,35372,250,49.2708,0.07529725,
+baseline,EvoEval_creative/44,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,10,8,0.8,5084,39,7841,17839,102,39.8679,0.047495,
+baseline,EvoEval_creative/44,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.8,1751,58,5005,6800,147,50.6137,0.04862025,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/44,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.8,1801,30,2890,6946,71,17.3038,0.01839775,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/45,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,5,5,1.0,3725,18,4025,12161,52,4.9812,0.01071875,
+baseline,EvoEval_creative/46,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,5,5,1.0,3776,44,4492,14097,126,12.2007,0.016632,
+baseline,EvoEval_creative/47,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,10,9,0.9,3125,69,4885,11971,191,27.0407,0.03010875,
+baseline,EvoEval_creative/47,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9,1673,17,4989,6493,58,51.1248,0.04935175,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/47,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9,1588,99,3759,6318,270,37.3327,0.033173,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/48,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,9,9,1.0,6079,127,7254,22560,401,17.9722,0.02708825,
+baseline,EvoEval_creative/49,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,4,4,1.0,3102,25,3749,11335,64,10.8334,0.0144865,
+baseline,EvoEval_creative/4,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,18,17,0.9444444444444444,8920,65,11000,29620,187,29.6789,0.04473,
+baseline,EvoEval_creative/4,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9444444444444444,1637,100,2396,6334,196,11.9281,0.01349075,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/4,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,1,0,0.9444444444444444,1739,62,2287,6478,118,8.6588,0.01071525,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/5,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,12,12,1.0,6467,79,7132,21592,138,10.792,0.02062725,
+baseline,EvoEval_creative/6,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,24,22,0.9166666666666666,13234,416,19302,38221,1117,331.6564,0.1081115,
+baseline,EvoEval_creative/6,BaselineIter2,2,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,3040,109,4376,9328,235,23.2009,0.024024,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/6,BaselineIter3,3,openai,gpt-5.2,VALID_ZERO_KILL,2,0,0.9166666666666666,2661,71,3867,8667,166,18.8389,0.02154075,valid but unproductive: killed zero active mutants
+baseline,EvoEval_creative/7,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,25,1.0,13137,62,15755,43918,181,39.6257,0.05964175,
+baseline,EvoEval_creative/8,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,25,25,1.0,13590,68,18386,47717,216,70.744,0.0909265,
+baseline,EvoEval_creative/9,BaselineIter1,1,openai,gpt-5.2,PRODUCTIVE,9,9,1.0,5313,35,5830,18926,85,8.5207,0.01653575,

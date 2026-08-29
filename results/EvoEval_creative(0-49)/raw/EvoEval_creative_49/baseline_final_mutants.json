@@ -1,0 +1,102 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_49:m000:NEGATE_CONDITION:dd51bd6dde",
+    "problem_id": "EvoEval_creative/49",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 47,
+    "mutated_source": "def morse_decoder(msg):\n    \"\"\"You have been tasked to write a function that deciphers Morse code into \n    plain text. Morse code is a method used in telecommunication to encode \n    text characters as sequences of two different signal durations, called \n    dots and dashes, or dits and dahs.\n    The international Morse code encodes the basic Latin alphabet, some extra \n    Latin letters, the Arabic numerals and a small set of punctuation and \n    procedural signals. Morse code is usually transmitted by on-off keying of \n    an information-carrying medium such as electric current, sound, visible \n    light, etc. \n\n    In your function, the Morse code transmission is represented as a string \n    where \"0\" represents a dot, \"1\" represents a dash, and \" \" (space) \n    represents a pause between individual characters. Words are separated by \n    a \"/\" symbol. \n\n    For simplicity, you only need to decode the basic Latin alphabet and \n    Arabic numerals. The Morse code mapping for these characters is as \n    follows:\n\n    A: '01', B: '1000', C: '1010', D: '100', E: '0', F: '0010', G: '110', \n    H: '0000', I: '00', J: '0111', K: '101', L: '0100', M: '11', N: '10', \n    O: '111', P: '0110', Q: '1101', R: '010', S: '000', T: '1', U: '001', \n    V: '0001', W: '011', X: '1001', Y: '1011', Z: '1100', 1: '01111', \n    2: '00111', 3: '00011', 4: '00001', 5: '00000', 6: '10000', 7: '11000', \n    8: '11100', 9: '11110', 0: '11111' \n\n    Examples:\n    For msg = \"010101/01 1010 0 110 0\" the output should be \"ACEGE\".\n    For msg = \"01111 00111/00011 00001/10000 11000 11100 11110 11111\" the output should be \"12 34 67890\"\n    \"\"\"\n    morse_code = {'01': 'A', '1000': 'B', '1010': 'C', '100': 'D', '0': 'E', '0010': 'F', '110': 'G', '0000': 'H', '00': 'I', '0111': 'J', '101': 'K', '0100': 'L', '11': 'M', '10': 'N', '111': 'O', '0110': 'P', '1101': 'Q', '010': 'R', '000': 'S', '1': 'T', '001': 'U', '0001': 'V', '011': 'W', '1001': 'X', '1011': 'Y', '1100': 'Z', '01111': '1', '00111': '2', '00011': '3', '00001': '4', '00000': '5', '10000': '6', '11000': '7', '11100': '8', '11110': '9', '11111': '0'}\n    words = msg.split('/')\n    decoded_msg = ''\n    for word in words:\n        letters = word.split(' ')\n        for letter in letters:\n            if not letter in morse_code:\n                decoded_msg += morse_code[letter]\n        decoded_msg += ' '\n    return decoded_msg.strip()",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_49:m001:MEMBERSHIP_FLIP:f6f99636a6",
+    "problem_id": "EvoEval_creative/49",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 47,
+    "mutated_source": "def morse_decoder(msg):\n    \"\"\"You have been tasked to write a function that deciphers Morse code into \n    plain text. Morse code is a method used in telecommunication to encode \n    text characters as sequences of two different signal durations, called \n    dots and dashes, or dits and dahs.\n    The international Morse code encodes the basic Latin alphabet, some extra \n    Latin letters, the Arabic numerals and a small set of punctuation and \n    procedural signals. Morse code is usually transmitted by on-off keying of \n    an information-carrying medium such as electric current, sound, visible \n    light, etc. \n\n    In your function, the Morse code transmission is represented as a string \n    where \"0\" represents a dot, \"1\" represents a dash, and \" \" (space) \n    represents a pause between individual characters. Words are separated by \n    a \"/\" symbol. \n\n    For simplicity, you only need to decode the basic Latin alphabet and \n    Arabic numerals. The Morse code mapping for these characters is as \n    follows:\n\n    A: '01', B: '1000', C: '1010', D: '100', E: '0', F: '0010', G: '110', \n    H: '0000', I: '00', J: '0111', K: '101', L: '0100', M: '11', N: '10', \n    O: '111', P: '0110', Q: '1101', R: '010', S: '000', T: '1', U: '001', \n    V: '0001', W: '011', X: '1001', Y: '1011', Z: '1100', 1: '01111', \n    2: '00111', 3: '00011', 4: '00001', 5: '00000', 6: '10000', 7: '11000', \n    8: '11100', 9: '11110', 0: '11111' \n\n    Examples:\n    For msg = \"010101/01 1010 0 110 0\" the output should be \"ACEGE\".\n    For msg = \"01111 00111/00011 00001/10000 11000 11100 11110 11111\" the output should be \"12 34 67890\"\n    \"\"\"\n    morse_code = {'01': 'A', '1000': 'B', '1010': 'C', '100': 'D', '0': 'E', '0010': 'F', '110': 'G', '0000': 'H', '00': 'I', '0111': 'J', '101': 'K', '0100': 'L', '11': 'M', '10': 'N', '111': 'O', '0110': 'P', '1101': 'Q', '010': 'R', '000': 'S', '1': 'T', '001': 'U', '0001': 'V', '011': 'W', '1001': 'X', '1011': 'Y', '1100': 'Z', '01111': '1', '00111': '2', '00011': '3', '00001': '4', '00000': '5', '10000': '6', '11000': '7', '11100': '8', '11110': '9', '11111': '0'}\n    words = msg.split('/')\n    decoded_msg = ''\n    for word in words:\n        letters = word.split(' ')\n        for letter in letters:\n            if letter not in morse_code:\n                decoded_msg += morse_code[letter]\n        decoded_msg += ' '\n    return decoded_msg.strip()",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_49:m002:RETURN_VALUE_CHANGE:9da671bd31",
+    "problem_id": "EvoEval_creative/49",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 51,
+    "mutated_source": "def morse_decoder(msg):\n    \"\"\"You have been tasked to write a function that deciphers Morse code into \n    plain text. Morse code is a method used in telecommunication to encode \n    text characters as sequences of two different signal durations, called \n    dots and dashes, or dits and dahs.\n    The international Morse code encodes the basic Latin alphabet, some extra \n    Latin letters, the Arabic numerals and a small set of punctuation and \n    procedural signals. Morse code is usually transmitted by on-off keying of \n    an information-carrying medium such as electric current, sound, visible \n    light, etc. \n\n    In your function, the Morse code transmission is represented as a string \n    where \"0\" represents a dot, \"1\" represents a dash, and \" \" (space) \n    represents a pause between individual characters. Words are separated by \n    a \"/\" symbol. \n\n    For simplicity, you only need to decode the basic Latin alphabet and \n    Arabic numerals. The Morse code mapping for these characters is as \n    follows:\n\n    A: '01', B: '1000', C: '1010', D: '100', E: '0', F: '0010', G: '110', \n    H: '0000', I: '00', J: '0111', K: '101', L: '0100', M: '11', N: '10', \n    O: '111', P: '0110', Q: '1101', R: '010', S: '000', T: '1', U: '001', \n    V: '0001', W: '011', X: '1001', Y: '1011', Z: '1100', 1: '01111', \n    2: '00111', 3: '00011', 4: '00001', 5: '00000', 6: '10000', 7: '11000', \n    8: '11100', 9: '11110', 0: '11111' \n\n    Examples:\n    For msg = \"010101/01 1010 0 110 0\" the output should be \"ACEGE\".\n    For msg = \"01111 00111/00011 00001/10000 11000 11100 11110 11111\" the output should be \"12 34 67890\"\n    \"\"\"\n    morse_code = {'01': 'A', '1000': 'B', '1010': 'C', '100': 'D', '0': 'E', '0010': 'F', '110': 'G', '0000': 'H', '00': 'I', '0111': 'J', '101': 'K', '0100': 'L', '11': 'M', '10': 'N', '111': 'O', '0110': 'P', '1101': 'Q', '010': 'R', '000': 'S', '1': 'T', '001': 'U', '0001': 'V', '011': 'W', '1001': 'X', '1011': 'Y', '1100': 'Z', '01111': '1', '00111': '2', '00011': '3', '00001': '4', '00000': '5', '10000': '6', '11000': '7', '11100': '8', '11110': '9', '11111': '0'}\n    words = msg.split('/')\n    decoded_msg = ''\n    for word in words:\n        letters = word.split(' ')\n        for letter in letters:\n            if letter in morse_code:\n                decoded_msg += morse_code[letter]\n        decoded_msg += ' '\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_49:m003:RETURN_VALUE_CHANGE:9c88baaf9a",
+    "problem_id": "EvoEval_creative/49",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 51,
+    "mutated_source": "def morse_decoder(msg):\n    \"\"\"You have been tasked to write a function that deciphers Morse code into \n    plain text. Morse code is a method used in telecommunication to encode \n    text characters as sequences of two different signal durations, called \n    dots and dashes, or dits and dahs.\n    The international Morse code encodes the basic Latin alphabet, some extra \n    Latin letters, the Arabic numerals and a small set of punctuation and \n    procedural signals. Morse code is usually transmitted by on-off keying of \n    an information-carrying medium such as electric current, sound, visible \n    light, etc. \n\n    In your function, the Morse code transmission is represented as a string \n    where \"0\" represents a dot, \"1\" represents a dash, and \" \" (space) \n    represents a pause between individual characters. Words are separated by \n    a \"/\" symbol. \n\n    For simplicity, you only need to decode the basic Latin alphabet and \n    Arabic numerals. The Morse code mapping for these characters is as \n    follows:\n\n    A: '01', B: '1000', C: '1010', D: '100', E: '0', F: '0010', G: '110', \n    H: '0000', I: '00', J: '0111', K: '101', L: '0100', M: '11', N: '10', \n    O: '111', P: '0110', Q: '1101', R: '010', S: '000', T: '1', U: '001', \n    V: '0001', W: '011', X: '1001', Y: '1011', Z: '1100', 1: '01111', \n    2: '00111', 3: '00011', 4: '00001', 5: '00000', 6: '10000', 7: '11000', \n    8: '11100', 9: '11110', 0: '11111' \n\n    Examples:\n    For msg = \"010101/01 1010 0 110 0\" the output should be \"ACEGE\".\n    For msg = \"01111 00111/00011 00001/10000 11000 11100 11110 11111\" the output should be \"12 34 67890\"\n    \"\"\"\n    morse_code = {'01': 'A', '1000': 'B', '1010': 'C', '100': 'D', '0': 'E', '0010': 'F', '110': 'G', '0000': 'H', '00': 'I', '0111': 'J', '101': 'K', '0100': 'L', '11': 'M', '10': 'N', '111': 'O', '0110': 'P', '1101': 'Q', '010': 'R', '000': 'S', '1': 'T', '001': 'U', '0001': 'V', '011': 'W', '1001': 'X', '1011': 'Y', '1100': 'Z', '01111': '1', '00111': '2', '00011': '3', '00001': '4', '00000': '5', '10000': '6', '11000': '7', '11100': '8', '11110': '9', '11111': '0'}\n    words = msg.split('/')\n    decoded_msg = ''\n    for word in words:\n        letters = word.split(' ')\n        for letter in letters:\n            if letter in morse_code:\n                decoded_msg += morse_code[letter]\n        decoded_msg += ' '\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

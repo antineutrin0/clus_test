@@ -1,0 +1,552 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_41:m000:INDEX_BOUNDARY:e6be1b358f",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 36,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[1]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m002:INDEX_BOUNDARY:d4f0cfec47",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 38,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][1] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m003:INDEX_BOUNDARY:8e13d55436",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 38,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[-1][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Subscript",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m005:INDEX_BOUNDARY:637649d0b4",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 38,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][1]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m006:INDEX_BOUNDARY:712714c862",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 38,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[-1][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Subscript",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m008:CONSTANT_CHANGE:4e26842188",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 39,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(-1, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m009:CONSTANT_CHANGE:6aa899ae35",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 39,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, -1)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m010:CONSTANT_CHANGE:77637c67bf",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(-1, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m011:CONSTANT_CHANGE:539c3ec30c",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (2, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m012:CONSTANT_CHANGE:5679a765d3",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, -1), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m013:CONSTANT_CHANGE:4a50407fa8",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (-1, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m014:CONSTANT_CHANGE:7c6ad7ec48",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-2, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m015:CONSTANT_CHANGE:7b4e073aa6",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 43,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, -1)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m016:NEGATE_CONDITION:b61c14427e",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if not (0 <= nx < rows and 0 <= ny < cols):\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m017:COMPARISON_FLIP:7201286fcb",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 >= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m018:BOUNDARY_SHIFT:0f9fabe041",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx <= rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m019:COMPARISON_FLIP:061e14cc8d",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 >= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m020:BOUNDARY_SHIFT:4216ab335b",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny <= cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m021:CONSTANT_CHANGE:185b1646c0",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 45,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and -1 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m022:BOUNDARY_SHIFT:ad41f27c40",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 46,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] >= dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m023:NEGATE_CONDITION:4fe3db9a1d",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 52,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if not arr[i][j] == 0:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_41:m024:CONSTANT_CHANGE:5e77e1d4e2",
+    "problem_id": "EvoEval_creative/41",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 52,
+    "mutated_source": "def spider_web_jump(arr):\n    \"\"\"\n    In a two-dimensional array representing a spider's web, each cell represents a connection to neighboring cells.\n    Each cell has a value, which indicates the energy required for a spider to jump to that cell from an adjacent cell.\n    Your task is to find the optimal path for the spider to reach the 'safe cell', using the minimum energy possible.\n    Return the minimum energy required.\n\n    The array is guaranteed to have exactly 1 safe cell, which is represented by 0.\n    The spider always starts from the top-left cell (0,0).\n    \n    Here's an example web:\n    [[1, 2, 1, 99],\n     [1, 3, 2, 0],\n     [99, 1, 1, 99],\n     [99, 99, 99, 99]]\n    The optimal path would be (0,0) -> (0,1) -> (0,2) -> (1,2) -> (1,3), with an energy requirement of 1 + 2 + 1 + 2 = 6.\n\n    Example 1:\n        Input: [[2, 3], [1, 0]]\n        Output: 3\n        Explanation: The spider jumps from (0,0) to (1,0) to (1,1) using 2 + 1 = 3 energy.\n\n    Example 2:\n        Input: [[0]]\n        Output: 0\n        Explanation: The spider starts at the safe cell, so no energy is required.\n\n    Constraints:\n        * 1 <= arr.length <= 100\n        * 1 <= arr[i].length <= 100\n        * 0 <= cell.value <= 100\n        * The array is guaranteed to contain exactly 1 safe cell.\n    \"\"\"\n    from collections import deque\n    rows, cols = (len(arr), len(arr[0]))\n    dp = [[float('inf')] * cols for _ in range(rows)]\n    dp[0][0] = arr[0][0]\n    queue = deque([(0, 0)])\n    while queue:\n        x, y = queue.popleft()\n        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:\n            nx, ny = (x + dx, y + dy)\n            if 0 <= nx < rows and 0 <= ny < cols:\n                if dp[nx][ny] > dp[x][y] + arr[nx][ny]:\n                    dp[nx][ny] = dp[x][y] + arr[nx][ny]\n                    queue.append((nx, ny))\n    for i in range(rows):\n        for j in range(cols):\n            if arr[i][j] == -1:\n                return dp[i][j]\n    raise ValueError('Invalid input: No safy cell')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

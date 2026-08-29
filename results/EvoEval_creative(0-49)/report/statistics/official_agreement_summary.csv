@@ -1,0 +1,5 @@
+metric,mean,ci95_low,ci95_high
+kill_agreement_accuracy,0.966882,0.937971,0.988272
+kill_precision,0.968016,0.939362,0.990158
+kill_recall,0.997272,0.992726,1.0
+kill_f1,0.97947,0.960399,0.993225

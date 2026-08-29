@@ -1,0 +1,27 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_40:m004:CONSTANT_CHANGE:8ad0090445",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < -1:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

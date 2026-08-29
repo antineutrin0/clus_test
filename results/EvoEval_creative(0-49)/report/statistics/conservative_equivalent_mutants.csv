@@ -1,0 +1,3 @@
+problem_id,mutant_id,operator,killed,status,equivalence_status,equivalence_reason
+EvoEval_creative/34,EvoEval_creative_34:m010:ARGUMENT_SWAP:2659147d2c,ARGUMENT_SWAP,0,SURVIVED,STATIC_EQUIVALENT,first two arguments swapped in commutative call min
+EvoEval_creative/34,EvoEval_creative_34:m016:ARGUMENT_SWAP:55860c3b69,ARGUMENT_SWAP,0,SURVIVED,STATIC_EQUIVALENT,first two arguments swapped in commutative call min

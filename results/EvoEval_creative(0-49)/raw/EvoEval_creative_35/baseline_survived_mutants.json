@@ -1,0 +1,77 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-0] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m015:CONSTANT_CHANGE:654221f76f",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 20,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 0:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

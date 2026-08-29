@@ -1,0 +1,646 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_34:m000:ARITHMETIC_FLIP:b862528ea0",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 30,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] / n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m001:CONSTANT_CHANGE:887c71cd25",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 30,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [1] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "List",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m002:CONSTANT_CHANGE:1c0fa9358d",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10 -> 11",
+    "line_number": 31,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 11\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m003:CONSTANT_CHANGE:5ac88f8d5e",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10 -> 0",
+    "line_number": 31,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 0\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m004:CONSTANT_CHANGE:7a17b73e87",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10 -> 9",
+    "line_number": 32,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -9\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m005:ARGUMENT_SWAP:e44a0f0ea0",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 35,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(m, 1):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m006:RANGE_BOUNDARY:58a9381870",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 1 -> 0",
+    "line_number": 35,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(0, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m008:COMPARISON_FLIP:88e45be8bf",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 36,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i != m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m009:CONSTANT_CHANGE:518a319939",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 36,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 2:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m010:ARGUMENT_SWAP:2659147d2c",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(transformation[i - 1] * 2, 100)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "STATIC_EQUIVALENT",
+    "equivalence_reason": "first two arguments swapped in commutative call min"
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m011:CONSTANT_CHANGE:9b0051c60d",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 100 -> 99",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(99, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m012:ARITHMETIC_FLIP:c7c9367c2a",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] / 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m013:ARITHMETIC_FLIP:f04392954a",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Sub -> Add",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i + 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Subscript",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m014:CONSTANT_CHANGE:069fca6d1c",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 0] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m015:CONSTANT_CHANGE:18a71090bd",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 1",
+    "line_number": 37,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 1)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m016:ARGUMENT_SWAP:55860c3b69",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 39,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(transformation[i - 1] + increase, 100)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "STATIC_EQUIVALENT",
+    "equivalence_reason": "first two arguments swapped in commutative call min"
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m017:CONSTANT_CHANGE:f001299c86",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 100 -> 99",
+    "line_number": 39,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(99, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m018:ARITHMETIC_FLIP:dcbf0eb834",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 39,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] - increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m019:CONSTANT_CHANGE:b8d1b00a4c",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 39,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 2] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m020:ARGUMENT_SWAP:5f138d8fa8",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 42,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(n, m):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Call",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m021:CONSTANT_CHANGE:e441414a42",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 43,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(1, transformation[i - 1] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m022:ARITHMETIC_FLIP:76046592c8",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 43,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] - decrease)\n    return transformation",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m023:CONSTANT_CHANGE:bdbda81142",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 43,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 2] + decrease)\n    return transformation",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_34:m024:RETURN_VALUE_CHANGE:cd5e1430bf",
+    "problem_id": "EvoEval_creative/34",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 45,
+    "mutated_source": "def werewolf_transformation(n: int, m: int):\n    \"\"\"A werewolf's transformation is impacted by the lunar cycle.\n    This cycle has n days (n > 0), and the transformation process is most\n    intense on the m-th day of the cycle (m > 0, m <= n).\n\n    On days other than the m-th day, the transformation percentage follows a\n    linear pattern, increasing (+10%) or decreasing (-10%) from the previous day. On the\n    m-th day, the transformation percentage doubles from the previous day,\n    up to a maximum of 100%.\n    After the m-th day, the transformation starts decreasing by -10% each day.\n\n    The function werewolf_transformation calculates the werewolf\n    transformation percentages over the course of one cycle given the length\n    of the cycle (n) and the most intense day (m).\n\n    The function should return a list of transformation percentages, as integers.\n\n    >>> werewolf_transformation(5, 3)\n    [0, 10, 20, 10, 0]\n\n    >>> werewolf_transformation(7, 4)\n    [0, 10, 20, 40, 30, 20, 10]\n\n    >>> werewolf_transformation(10, 5)\n    [0, 10, 20, 30, 60, 50, 40, 30, 20, 10]\n\n    NOTE: the transformation process starts from the first day\n    of the cycle with 0% transformation. Any transformation percentage should be truncated within the range of 0% and 100%.\n    \"\"\"\n    transformation = [0] * n\n    increase = 10\n    decrease = -10\n    for i in range(1, m):\n        if i == m - 1:\n            transformation[i] = min(100, transformation[i - 1] * 2)\n        else:\n            transformation[i] = min(100, transformation[i - 1] + increase)\n    for i in range(m, n):\n        transformation[i] = max(0, transformation[i - 1] + decrease)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

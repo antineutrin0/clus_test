@@ -1,0 +1,5 @@
+method,provider,model,calls,productive_calls,total_tokens,total_prompt_tokens,total_completion_tokens,total_cost_usd,total_latency_sec,total_new_kills,total_prompt_chars,productive_call_rate,tokens_per_new_kill
+baseline,openai,gpt-5.2,96,57,741856,529899,6378,3.89472125,3964.6331,793,1873793,0.59375,935.5056746532157
+proposed,hf,Qwen/Qwen2.5-Coder-3B-Instruct,110,47,401473,381983,19490,0.0,2220.0794,697,1526319,0.42727272727272725,576.0014347202296
+proposed,openai,gpt-5-mini,61,40,252208,127169,8175,0.28187025,1514.7948,104,436218,0.6557377049180327,2425.076923076923
+proposed,openai,gpt-5.2,27,8,108764,48332,2532,0.930629,1047.5240999999999,10,176150,0.2962962962962963,10876.4

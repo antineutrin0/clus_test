@@ -1,0 +1,27 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_21:m017:RETURN_VALUE_CHANGE:75ee588269",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 37,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

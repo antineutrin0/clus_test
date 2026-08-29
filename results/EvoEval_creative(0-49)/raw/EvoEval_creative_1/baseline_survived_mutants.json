@@ -1,0 +1,102 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_1:m012:CONSTANT_CHANGE:8d4c504be3",
+    "problem_id": "EvoEval_creative/1",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.0 -> 2.0",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg.\n    \n    Return the total shipping cost rounded to two decimal places.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    37.5\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    20.0\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    62.5\n    \"\"\"\n    base_cost = 5.0\n    additional_charge = 10.0\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    for item in items:\n        if isinstance(item, str):\n            weight = 2.0\n        else:\n            weight = item\n        cost = base_cost\n        if weight > 5.0:\n            cost += additional_charge\n        total_cost += cost\n    total_cost *= location_factor.get(location, 1.0)\n    return round(total_cost, 2)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_1:m013:CONSTANT_CHANGE:e3c9294a51",
+    "problem_id": "EvoEval_creative/1",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1.0 -> 0.0",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg.\n    \n    Return the total shipping cost rounded to two decimal places.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    37.5\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    20.0\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    62.5\n    \"\"\"\n    base_cost = 5.0\n    additional_charge = 10.0\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    for item in items:\n        if isinstance(item, str):\n            weight = 0.0\n        else:\n            weight = item\n        cost = base_cost\n        if weight > 5.0:\n            cost += additional_charge\n        total_cost += cost\n    total_cost *= location_factor.get(location, 1.0)\n    return round(total_cost, 2)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_1:m023:CONSTANT_CHANGE:5fa2d34211",
+    "problem_id": "EvoEval_creative/1",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 3",
+    "line_number": 44,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg.\n    \n    Return the total shipping cost rounded to two decimal places.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    37.5\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    20.0\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    62.5\n    \"\"\"\n    base_cost = 5.0\n    additional_charge = 10.0\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    for item in items:\n        if isinstance(item, str):\n            weight = 1.0\n        else:\n            weight = item\n        cost = base_cost\n        if weight > 5.0:\n            cost += additional_charge\n        total_cost += cost\n    total_cost *= location_factor.get(location, 1.0)\n    return round(total_cost, 3)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_1:m024:CONSTANT_CHANGE:bebb723e11",
+    "problem_id": "EvoEval_creative/1",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 1",
+    "line_number": 44,
+    "mutated_source": "from typing import List, Union\n\ndef calculate_shipping_cost(items: List[Union[str, float]], location: str) -> float:\n    \"\"\"\n    Given a list of items (represented by their weights in kg) and a location,\n    calculate the cost of shipping. Each item has a base shipping cost of $5.0.\n    The location multiplies the total cost by a certain factor:\n    - \"Local\": no additional factor\n    - \"National\": factor of 1.5\n    - \"International\": factor of 2.5\n    - other location: no additional factor\n    If the item's weight is more than 5kg, an additional charge of $10.0 is added.\n    \n    If an item is passed as a string instead of a float, consider its weight as 1kg.\n    \n    Return the total shipping cost rounded to two decimal places.\n    \n    >>> calculate_shipping_cost([3.0, 'Book', 7.0], 'National')\n    37.5\n    >>> calculate_shipping_cost([1.0, 2.0, 3.0, 4.0], 'Local')\n    20.0\n    >>> calculate_shipping_cost([5.5, 2.0, 3.0], 'International')\n    62.5\n    \"\"\"\n    base_cost = 5.0\n    additional_charge = 10.0\n    location_factor = {'Local': 1.0, 'National': 1.5, 'International': 2.5}\n    total_cost = 0.0\n    for item in items:\n        if isinstance(item, str):\n            weight = 1.0\n        else:\n            weight = item\n        cost = base_cost\n        if weight > 5.0:\n            cost += additional_charge\n        total_cost += cost\n    total_cost *= location_factor.get(location, 1.0)\n    return round(total_cost, 1)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

@@ -1,0 +1,363 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_17:m000:INDEX_BOUNDARY:3766d98eb0",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 1 -> 2",
+    "line_number": 21,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[2]\n        if dragon_hp <= 0:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.20731276273727417,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m001:INDEX_BOUNDARY:ea281e131d",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 1 -> 0",
+    "line_number": 21,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[0]\n        if dragon_hp <= 0:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.19341117143630981,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m004:NEGATE_CONDITION:da02506896",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 22,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if not dragon_hp <= 0:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m005:COMPARISON_FLIP:9aebd0ccac",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 22,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp >= 0:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m006:BOUNDARY_SHIFT:9a48a41d51",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "LtE -> Lt",
+    "line_number": 22,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp < 0:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.054147422313690186,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m007:CONSTANT_CHANGE:39568e7e8b",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 22,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 1:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m008:CONSTANT_CHANGE:9633c84bdd",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 22,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= -1:\n            return wizard[0]\n    return 'The dragon won!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m009:RETURN_VALUE_CHANGE:87b19c167c",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 23,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return None\n    return 'The dragon won!'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.18491196632385254,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m010:RETURN_VALUE_CHANGE:9298d429a7",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return False\n    return 'The dragon won!'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.17701715230941772,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m011:INDEX_BOUNDARY:30989f96fc",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 23,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return wizard[1]\n    return 'The dragon won!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.08139169216156006,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m012:INDEX_BOUNDARY:5a8fef5a86",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 23,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return wizard[-1]\n    return 'The dragon won!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m015:RETURN_VALUE_CHANGE:450fba1d17",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 24,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return wizard[0]\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_17:m016:RETURN_VALUE_CHANGE:f41e6ad6bd",
+    "problem_id": "EvoEval_creative/17",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 24,
+    "mutated_source": "def wizard_battle(dragon_hp: int, wizards: list) -> str:\n    \"\"\" Return the name of the wizard who defeated the dragon, given the dragon's hit points (HP) and\n    an ordered list with the name of the wizard and their magic power:\n        - The wizard's magic reduces the dragon's HP by their magic power. \n        - Wizards take turns in the order they are listed, and they only get to attack once.\n        - The dragon is defeated when its HP is reduced to 0 or less.\n\n    If none of the wizards can defeat the dragon return 'The dragon won!'\n\n    Note that the wizards are a list of tuples, where each tuple has the wizard's name as a string and\n    their magic power as an integer. The dragon's HP is a positive integer.\n\n    >>> wizard_battle(20, [('Gandalf', 15), ('Merlin', 10), ('Dumbledore', 30)])\n    'Merlin'\n    >>> wizard_battle(100, [('Harry', 25), ('Ron', 20), ('Hermione', 30), ('Luna', 10)])\n    'The dragon won!'\n    >>> wizard_battle(65, [('Newt', 15), ('Tina', 20)])\n    'The dragon won!'\n    \"\"\"\n    for wizard in wizards:\n        dragon_hp -= wizard[1]\n        if dragon_hp <= 0:\n            return wizard[0]\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

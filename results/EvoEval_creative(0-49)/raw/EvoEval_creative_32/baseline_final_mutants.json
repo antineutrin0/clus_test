@@ -1,0 +1,623 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_32:m000:ARITHMETIC_FLIP:8f85851b31",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 22,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed * playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m001:NEGATE_CONDITION:1c850928b4",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 23,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if not ('Rock' in playlist[i] or 'Rock' in playlist[swap_index]):\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m002:BOOLEAN_FLIP:0ac05d8f97",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "BOOLEAN_FLIP",
+    "description": "Or -> And",
+    "line_number": 23,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] and 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m003:MEMBERSHIP_FLIP:68e448d6cb",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 23,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' not in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m004:MEMBERSHIP_FLIP:a30479e172",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 23,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' not in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m005:ARITHMETIC_FLIP:df8b1d97a4",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 * 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m006:ARITHMETIC_FLIP:091dc7881c",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed / 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m007:CONSTANT_CHANGE:d3f7f6f624",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 16808",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16808 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m008:CONSTANT_CHANGE:65bef8adba",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 16806",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16806 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m009:CONSTANT_CHANGE:d6675ad167",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 0",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 0 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m010:CONSTANT_CHANGE:b9b3c6bcca",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 2147483648",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483648\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m011:CONSTANT_CHANGE:54cb2337e5",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 2147483646",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483646\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m012:CONSTANT_CHANGE:65af95f249",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 0",
+    "line_number": 24,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 0\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m013:ARITHMETIC_FLIP:c113dc308e",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 * 2147483647\n    return playlist",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m014:ARITHMETIC_FLIP:975f5c8b3c",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed / 16807 % 2147483647\n    return playlist",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m015:CONSTANT_CHANGE:88a15b1b85",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 16808",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16808 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m016:CONSTANT_CHANGE:c036ddf799",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 16806",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16806 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m017:CONSTANT_CHANGE:acf47dac46",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 16807 -> 0",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 0 % 2147483647\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m018:CONSTANT_CHANGE:eeb54c9df5",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 2147483648",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483648\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m019:CONSTANT_CHANGE:e860e0af06",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 2147483646",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483646\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m020:CONSTANT_CHANGE:db0aa6b2f4",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2147483647 -> 0",
+    "line_number": 27,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 0\n    return playlist",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m021:RETURN_VALUE_CHANGE:c304975e42",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 28,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_32:m022:RETURN_VALUE_CHANGE:7fbb142390",
+    "problem_id": "EvoEval_creative/32",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 28,
+    "mutated_source": "def playlist_shuffle(playlist: list, seed: int):\n    \"\"\"Return a new playlist order based on a numerical seed.\n\n    Given a list of song titles (strings) as 'playlist' and an odd integer 'seed',\n    implement an algorithm to shuffle the playlist to create a new order.\n    The same seed should always produce the same shuffled playlist.\n\n    The shuffling algorithm should use the seed to produce a series of swaps in the sorted list.\n    To produce the series, start at index 0 and swap with the element\n    at the index `seed % playlist_length`. It's important to note that if a song title contains the word \"Rock\", it should remain unmoved during the swapping process (the swap operation will be skipped). For the next index, update the\n    seed using the formula: seed = (seed * 16807) % 2147483647. Continue this process\n    from the next index until the end of the list. Note that the seed will be updated for every index (swapped or not).\n\n\n    >>> playlist_shuffle([\"One More Time\", \"Around the World\", \"Harder Better Faster Stronger\", \"Technologic\", \"Robot Rock\"], 7)\n    ['Harder Better Faster Stronger', 'One More Time', 'Technologic', 'Around the World', 'Robot Rock']\n    >>> playlist_shuffle([\"Song 2\", \"Parklife\", \"Country House\", \"Song 2\", \"Girls & Boys\"], 3)\n    ['Song 2', 'Parklife', 'Girls & Boys', 'Song 2', 'Country House']\n    \"\"\"\n    playlist_length = len(playlist)\n    for i in range(playlist_length):\n        swap_index = seed % playlist_length\n        if 'Rock' in playlist[i] or 'Rock' in playlist[swap_index]:\n            seed = seed * 16807 % 2147483647\n            continue\n        playlist[i], playlist[swap_index] = (playlist[swap_index], playlist[i])\n        seed = seed * 16807 % 2147483647\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

@@ -1,0 +1,434 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_2:m000:NEGATE_CONDITION:5f0df45c48",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 23,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if not isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m001:ARGUMENT_SWAP:d97b67c4e2",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 23,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(str, key):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Call",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m002:ARITHMETIC_FLIP:ab48b440e1",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 24,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) * 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m003:CONSTANT_CHANGE:b7f909a4ab",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 27",
+    "line_number": 24,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 27\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m004:CONSTANT_CHANGE:fb306f1598",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 25",
+    "line_number": 24,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 25\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m005:CONSTANT_CHANGE:6b8997d324",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 0",
+    "line_number": 24,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 0\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m006:NEGATE_CONDITION:2628d8554b",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 30,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if not char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m007:ARITHMETIC_FLIP:9a8fd662bf",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 31,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) - key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m008:NEGATE_CONDITION:deb8959e09",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "NEGATE_CONDITION",
+    "description": "while <cond> -> while not (<cond>)",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while not shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "While",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      2,
+      2,
+      0,
+      2,
+      2
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m009:COMPARISON_FLIP:2d375d6f8f",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift < ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Compare",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      2,
+      2,
+      0,
+      2,
+      2
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m010:BOUNDARY_SHIFT:7237660301",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 32,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift >= ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Compare",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m011:CONSTANT_CHANGE:313264e5f2",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 27",
+    "line_number": 33,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 27\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m012:CONSTANT_CHANGE:0656cce3d4",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 25",
+    "line_number": 33,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 25\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m013:CONSTANT_CHANGE:1864f1578f",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 26 -> 0",
+    "line_number": 33,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 0\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return encrypted_words",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m014:RETURN_VALUE_CHANGE:432c081b60",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 39,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_2:m015:RETURN_VALUE_CHANGE:c7a3d0a58e",
+    "problem_id": "EvoEval_creative/2",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 39,
+    "mutated_source": "from typing import List, Union\n\ndef encrypt_message(words: List[str], key: Union[str, int]) -> List[Union[str, int]]:\n    \"\"\"\n    Given a list of words, first turn words into lowercase and then encrypt each word using a simple Caesar cipher. \n    The key for the cipher is either a string or an integer.\n    If the key is a string, convert it to an integer by summing the ASCII values \n    of its characters. If the key is an integer, use it as-is.\n\n    The Caesar cipher works by shifting each letter in the word by the \n    value of the key. If the letter after shifting exceeds 'z', it wraps \n    around to the start of the alphabet.\n\n    If the word contains any non-alphabetical characters, leave them as-is.\n\n    >>> encrypt_message([], \"abc\")\n    []\n    >>> encrypt_message([\"hello\", \"world\"], 3)\n    [\"khoor\", \"zruog\"]\n    >>> encrypt_message([\"hello\", \"world\"], \"abc\")\n    [\"pmttw\", \"ewztl\"]\n    \"\"\"\n    if isinstance(key, str):\n        key = sum((ord(c) for c in key)) % 26\n    encrypted_words = []\n    for word in words:\n        encrypted_word = ''\n        for char in word:\n            if char.isalpha():\n                shift = ord(char.lower()) + key\n                while shift > ord('z'):\n                    shift -= 26\n                encrypted_word += chr(shift)\n            else:\n                encrypted_word += char\n        encrypted_words.append(encrypted_word)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

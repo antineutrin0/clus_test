@@ -1,0 +1,2 @@
+dataset_subset,n_tasks,mean_score_delta,ci95_low,ci95_high,wins,ties,losses,n_non_ties,p_value,cohen_dz,cohen_dz_undefined_zero_variance,rank_biserial
+creative,50,0.015067,-0.008133,0.0559,1,46,3,4,0.625,0.109829,False,-0.2

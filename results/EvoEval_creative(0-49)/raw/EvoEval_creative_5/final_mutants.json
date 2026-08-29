@@ -1,0 +1,314 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_5:m000:CONSTANT_CHANGE:f352b2e2c0",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 11,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 2\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m001:CONSTANT_CHANGE:90430748ed",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 11,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 0\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m002:NEGATE_CONDITION:857d12ddb6",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 14,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if not direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m003:COMPARISON_FLIP:e64c01a583",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 14,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction != 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 1.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m004:CONSTANT_CHANGE:ce4598dbd6",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 14,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 2:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m005:CONSTANT_CHANGE:12b276c3ee",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 14,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 0:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m006:CONSTANT_CHANGE:2a106941e1",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 17,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-2])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m007:CONSTANT_CHANGE:8cae574593",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 17,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-0])\n        direction *= -1\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m008:CONSTANT_CHANGE:ec18271cf9",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 18,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -2\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m009:CONSTANT_CHANGE:904dd66b64",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 18,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -0\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m010:RETURN_VALUE_CHANGE:f1d04cd622",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 20,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.548821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_5:m011:RETURN_VALUE_CHANGE:1c8f8656c3",
+    "problem_id": "EvoEval_creative/5",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 20,
+    "mutated_source": "from typing import List, Tuple\n\ndef zigzag_traversal(matrix: List[List[int]]) -> List[int]:\n    \"\"\"Given a 2D list of integers, return a list that represents its elements traversed in a zigzag order starting from the top-left corner and moving rightwards.\n    When the right end is reached, the direction should be downwards to the next row, then to the left end, and so on until all elements are covered. \n    >>> zigzag_traversal([[1, 2], [3, 4], [5, 6, 7], [8, 9, 10]])\n    [1, 2, 4, 3, 5, 6, 7, 10, 9, 8]\n    \"\"\"\n    result = []\n    direction = 1\n    for row in matrix:\n        if direction == 1:\n            result.extend(row)\n        else:\n            result.extend(row[::-1])\n        direction *= -1\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.548821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

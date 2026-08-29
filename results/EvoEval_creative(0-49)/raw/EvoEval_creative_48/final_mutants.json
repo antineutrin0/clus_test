@@ -1,0 +1,245 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_48:m000:NEGATE_CONDITION:ee885c21cd",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 31,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if not item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= 0:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m001:MEMBERSHIP_FLIP:b81f1c13aa",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 31,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item not in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= 0:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.07169389724731445,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m002:NEGATE_CONDITION:04450d9b6f",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 35,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if not inventory[item] <= 0:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m003:COMPARISON_FLIP:c11ba908fc",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 35,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] >= 0:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.09757339954376221,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m004:BOUNDARY_SHIFT:07dee0b342",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "LtE -> Lt",
+    "line_number": 35,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] < 0:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m005:CONSTANT_CHANGE:462a6dd3fd",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 35,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= 1:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m006:CONSTANT_CHANGE:4d199932c8",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 35,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= -1:\n            del inventory[item]\n    return inventory",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m007:RETURN_VALUE_CHANGE:01477fb0cd",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 37,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= 0:\n            del inventory[item]\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_48:m008:RETURN_VALUE_CHANGE:5f9e53b4ae",
+    "problem_id": "EvoEval_creative/48",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 37,
+    "mutated_source": "def wizard_inventory(inventory_logs):\n    \"\"\"\n    You are a wizard with a variety of magical items. Your items are stored in a cart that has limited capacity. \n    Sometimes you acquire new items or use up the items you have. Unfortunately, it is not easy to keep track \n    of your inventory manually.\n\n    Write a function that simulates the inventory of the cart. Your function should take a list of inventory_logs. \n    Each log is a dictionary that has two keys: 'item' and 'quantity'. 'item' refers to the name of the item (a string), \n    and 'quantity' is the number of items gained or used. If 'quantity' is negative, it means you've used that many items. \n\n    Your function should return a dictionary representing the final status of the inventory. If an item's quantity \n    is zero or less, do not include it in the final inventory.\n\n    Examples:\n    wizard_inventory([{ \"item\" : \"Dragon Scale\", \"quantity\" : 2}, \n                     { \"item\" : \"Phoenix Feather\", \"quantity\" : 1}, \n                     { \"item\" : \"Dragon Scale\", \"quantity\" : -1}])\n    ==> {\"Dragon Scale\": 1, \"Phoenix Feather\": 1 }\n\n    wizard_inventory([{ \"item\" : \"Mermaid Hair\", \"quantity\" : 5}, \n                     { \"item\" : \"Mermaid Hair\", \"quantity\" : -5}])\n    ==> {}\n\n    wizard_inventory([])\n    ==> {}\n    \"\"\"\n    inventory = {}\n    for log in inventory_logs:\n        item = log['item']\n        quantity = log['quantity']\n        if item in inventory:\n            inventory[item] += quantity\n        else:\n            inventory[item] = quantity\n        if inventory[item] <= 0:\n            del inventory[item]\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

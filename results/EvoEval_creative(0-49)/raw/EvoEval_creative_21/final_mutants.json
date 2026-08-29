@@ -1,0 +1,606 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_21:m000:BOOLEAN_FLIP:1e0c33db08",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "False -> True",
+    "line_number": 27,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = True\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.12138980627059937,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m001:NEGATE_CONDITION:862b1ab58e",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if not (word in ''.join(grid[i]) or word in ''.join(grid[i][::-1])):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.2833578586578369,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m002:BOOLEAN_FLIP:7203e5549e",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "Or -> And",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) and word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.14836639165878296,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m003:MEMBERSHIP_FLIP:da7620c61b",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word not in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m004:MEMBERSHIP_FLIP:1b8e9d5ea6",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word not in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m005:CONSTANT_CHANGE:d9f4cc33bc",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-2]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.14004653692245483,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m006:CONSTANT_CHANGE:8befc6f687",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 30,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-0]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.1727810502052307,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m007:BOOLEAN_FLIP:f2503c3ee4",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "True -> False",
+    "line_number": 31,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = False\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.29627394676208496,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m008:NEGATE_CONDITION:1a39031c30",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if not (word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1])):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.37229108810424805,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m009:BOOLEAN_FLIP:9113366aaa",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "Or -> And",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) and word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.15447145700454712,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m010:MEMBERSHIP_FLIP:06b7f42f04",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word not in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m011:MEMBERSHIP_FLIP:2968a54a1b",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word not in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m012:CONSTANT_CHANGE:2b85ec0678",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-2]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m013:CONSTANT_CHANGE:a3d94b57ba",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 33,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-0]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.16138941049575806,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m014:BOOLEAN_FLIP:6863ecb192",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "True -> False",
+    "line_number": 34,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = False\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.28439468145370483,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m015:NEGATE_CONDITION:0836b1d49c",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 36,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not not found:\n            return False\n    return True",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m016:RETURN_VALUE_CHANGE:b996e40e2c",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 37,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return None\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m017:RETURN_VALUE_CHANGE:75ee588269",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 37,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.07983624935150146,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m018:BOOLEAN_FLIP:a4362c8283",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "BOOLEAN_FLIP",
+    "description": "False -> True",
+    "line_number": 37,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return True\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m019:RETURN_VALUE_CHANGE:e5b25a4e9e",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 38,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.11641448736190796,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_21:m020:RETURN_VALUE_CHANGE:36c7c527e6",
+    "problem_id": "EvoEval_creative/21",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 38,
+    "mutated_source": "def crossword_validator(grid: list, words: list):\n    \"\"\"\n    Consider a 2D grid representing a square crossword puzzle. Each cell of the grid contains a single character.\n\n    Determine if all the words from a provided list of words can be found in the grid.\n    Words can be found left-to-right (in a row), right-to-left (in a row),\n    top-to-bottom down (in a column), and bottom-to-top (in a column).\n\n    We assume that words are only found in contiguous cells and words do not 'wrap' around the grid.\n\n    Note: the grid is a square (N x N) and all words are lowercase.\n\n    Parameters:\n    grid: list of list of char - where each char is a lowercase letter.\n    words: list of str - where each str is a lowercase word.\n\n    Returns:\n    boolean - return True all words are found in the grid, False otherwise.\n\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cat', 'dog', 'pop'])\n    False\n    >>> crossword_validator([['c', 'a', 't'], ['d', 'o', 'g'], ['d', 'o', 'p']], ['cdd', 'dog', 'pod'])\n    True\n    \"\"\"\n    n = len(grid)\n    for word in words:\n        found = False\n        for i in range(n):\n            if word in ''.join(grid[i]) or word in ''.join(grid[i][::-1]):\n                found = True\n                break\n            if word in ''.join([grid[j][i] for j in range(n)]) or word in ''.join([grid[j][i] for j in range(n)][::-1]):\n                found = True\n                break\n        if not found:\n            return False\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.11967575550079346,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

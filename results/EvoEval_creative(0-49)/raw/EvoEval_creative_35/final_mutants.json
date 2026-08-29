@@ -1,0 +1,593 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_35:m000:NEGATE_CONDITION:cdbff1cc2a",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if not (email.count('@') == 1 and email[0] != '@' and (email[-1] != '@')):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m001:BOOLEAN_FLIP:bc133af749",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "BOOLEAN_FLIP",
+    "description": "And -> Or",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 or email[0] != '@' or email[-1] != '@':\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0039307475090026855,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m002:COMPARISON_FLIP:929ababde9",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') != 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m003:CONSTANT_CHANGE:0c18135974",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 2 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.1130034327507019,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m004:CONSTANT_CHANGE:757e817e41",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 0 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m005:COMPARISON_FLIP:85a26ccfc7",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "COMPARISON_FLIP",
+    "description": "NotEq -> Eq",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] == '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.5,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m006:INDEX_BOUNDARY:0e37958684",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[1] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.11001777648925781,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m007:INDEX_BOUNDARY:b7f70f5641",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[-1] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.013521075248718262,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m010:COMPARISON_FLIP:3dc734279b",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "COMPARISON_FLIP",
+    "description": "NotEq -> Eq",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] == '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.5,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m011:CONSTANT_CHANGE:078638c776",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-2] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2871837019920349,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m012:CONSTANT_CHANGE:b78954ac8e",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 18,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-0] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.28116053342819214,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m013:ARITHMETIC_FLIP:7ce06da6b1",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 20,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index - 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 1.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m014:CONSTANT_CHANGE:5bee359204",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 20,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 2:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2446061372756958,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m015:CONSTANT_CHANGE:654221f76f",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 20,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 0:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.23897457122802734,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m016:NEGATE_CONDITION:1ec83532ba",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 21,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if not '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.2559022307395935,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m017:MEMBERSHIP_FLIP:1007fcdea4",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 21,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' not in after_at:\n            return True\n    return False",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.17034703493118286,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m018:RETURN_VALUE_CHANGE:1b54faed01",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 22,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return None\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.28453201055526733,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m019:RETURN_VALUE_CHANGE:5d453e7e2a",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 22,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return False\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.33064937591552734,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m021:RETURN_VALUE_CHANGE:d52d6b722e",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 23,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m022:RETURN_VALUE_CHANGE:012340f2c7",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.1889253854751587,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_35:m023:BOOLEAN_FLIP:ba1e0665e4",
+    "problem_id": "EvoEval_creative/35",
+    "operator": "BOOLEAN_FLIP",
+    "description": "False -> True",
+    "line_number": 23,
+    "mutated_source": "def validate_email_structure(email: str):\n    \"\"\" email is a string.\n    return True if the email has a valid format (i.e., there is exactly one \"@\" character that is not the first or last character \n    and there is at least one \".\" character after the \"@\" character).\n\n    >>> validate_email_structure(\"myemail@\")\n    False\n    >>> validate_email_structure(\"myemail@domain\")\n    False\n    >>> validate_email_structure(\"myemail@domain.com\")\n    True\n    >>> validate_email_structure(\"myemail.domain.com\")\n    False\n    >>> validate_email_structure(\"myemail@domain@domain.com\")\n    False\n    \"\"\"\n    if email.count('@') == 1 and email[0] != '@' and (email[-1] != '@'):\n        at_index = email.index('@')\n        after_at = email[at_index + 1:]\n        if '.' in after_at:\n            return True\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0697486400604248,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

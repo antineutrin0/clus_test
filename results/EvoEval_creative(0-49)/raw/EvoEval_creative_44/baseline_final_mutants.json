@@ -1,0 +1,268 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_44:m000:BOOLEAN_FLIP:645793b0a7",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "BOOLEAN_FLIP",
+    "description": "True -> False",
+    "line_number": 20,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=False)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "keyword",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m001:ARITHMETIC_FLIP:6cfa336427",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 23,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w - e\n    for weight in q:\n        if weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m002:NEGATE_CONDITION:ba2062f2e1",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 28,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if not weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m003:COMPARISON_FLIP:4048a83f92",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 28,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight < total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m004:BOUNDARY_SHIFT:c2a9a4d756",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 28,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight >= total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m005:RETURN_VALUE_CHANGE:bb499a96ec",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 29,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return None\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m006:RETURN_VALUE_CHANGE:436fdc2a14",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 29,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m007:BOOLEAN_FLIP:5348be0438",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "BOOLEAN_FLIP",
+    "description": "False -> True",
+    "line_number": 29,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return True\n        else:\n            total_weight -= weight\n    return True",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m008:RETURN_VALUE_CHANGE:e1c82ccada",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 35,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_44:m009:RETURN_VALUE_CHANGE:c125e1b2f6",
+    "problem_id": "EvoEval_creative/44",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 35,
+    "mutated_source": "def fairy_tale_transport(q, w, e):\n    \"\"\"\n    In a fairy tale world, three types of magical creatures are there: unicorns, dragons, and griffins. The unicorns can carry 'w' kg, dragons can carry 'e' kg, and griffins can carry 'e' kg of weight. You have a list of weights of different items you want to carry.\n    \n    Write a function that returns True if the combined strength of these magical creatures can carry all the items, and False otherwise. \n\n    The function will take three parameters - a list q of weights of items, an integer w representing the carrying capacity of unicorns, an integer e representing the carrying capacity of dragons and griffins together.\n    \n    Example:\n    fairy_tale_transport([5, 10, 15], 5, 20) \u279e False\n    \n    fairy_tale_transport([10, 20, 30], 5, 10) \u279e False\n\n    fairy_tale_transport([1, 2, 3], 1, 5) \u279e True\n    \n    fairy_tale_transport([5, 10, 15], 15, 15) \u279e True\n    \"\"\"\n    q.sort(reverse=True)\n    total_weight = w + e\n    for weight in q:\n        if weight > total_weight:\n            return False\n        else:\n            total_weight -= weight\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

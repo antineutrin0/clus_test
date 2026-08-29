@@ -1,0 +1,677 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_7:m000:CONSTANT_CHANGE:3c28915225",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 21,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (1, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3516722321510315,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m001:CONSTANT_CHANGE:4e8b5ba543",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 21,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (-1, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3354775905609131,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m002:CONSTANT_CHANGE:8584a1307f",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 21,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, -1)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Tuple",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.29263126850128174,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m003:COMPARISON_FLIP:6ef58896f3",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 22,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) != 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.1430225968360901,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m004:CONSTANT_CHANGE:333c61afd1",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 22,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == -1:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m005:RETURN_VALUE_CHANGE:95e33ddc1c",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return False\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.05835235118865967,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m006:COMPARISON_FLIP:07c5e9b404",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 25,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction != 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.2119739055633545,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m007:CONSTANT_CHANGE:aff5d7a90b",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 25,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == -1:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2792218327522278,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m008:CONSTANT_CHANGE:bd4d79081e",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 26,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 0\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.2601485848426819,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m009:COMPARISON_FLIP:9f4c0cffac",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 27,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction != 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.49001801013946533,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m010:CONSTANT_CHANGE:a3bd070388",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 27,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 0:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4867425560951233,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m011:CONSTANT_CHANGE:c0573f3dca",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 28,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 0\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.42665451765060425,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m012:COMPARISON_FLIP:2195347d91",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 29,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction != 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.5027662515640259,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m013:CONSTANT_CHANGE:8fde516167",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 3",
+    "line_number": 29,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 3:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.5092368125915527,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m014:CONSTANT_CHANGE:f075d48da6",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 0",
+    "line_number": 29,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 0:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3546455502510071,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m015:CONSTANT_CHANGE:de1d5a62b5",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 30,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 0\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3019716739654541,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m016:COMPARISON_FLIP:5ecbe4c7a2",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 31,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction != 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.45762306451797485,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m017:CONSTANT_CHANGE:02b47b605b",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 3 -> 2",
+    "line_number": 31,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 2:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4978736639022827,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m018:CONSTANT_CHANGE:daeed7801f",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 32,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 2\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4156949520111084,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m019:NEGATE_CONDITION:e943eb92c9",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 33,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if not (x == 0 and y == 0):\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 1.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m020:COMPARISON_FLIP:419accb98f",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 33,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x != 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m021:CONSTANT_CHANGE:3640f477f9",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 33,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == -1 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4218549132347107,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m022:CONSTANT_CHANGE:3d092e3003",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 33,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 1:\n        return 'Shangri-La found'\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.39074021577835083,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m023:RETURN_VALUE_CHANGE:cad7e57883",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 34,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return None\n    else:\n        return 'Shangri-La not found'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.1461753249168396,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_7:m024:RETURN_VALUE_CHANGE:a0aa51ddd8",
+    "problem_id": "EvoEval_creative/7",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 36,
+    "mutated_source": "def find_shangri_la(code_sequence: list[int]) -> str:\n    \"\"\"\n    You are an explorer trying to find the mythical city of Shangri-La. According to an ancient text,\n    Shangri-La can be found by following a code sequence of numbers, each referring to the direction to move.\n    The directions correspond to 0: North, 1: East, 2: South, 3: West.\n    \n    Implement a function that takes a sequence of numbers as input and returns whether the sequence leads to Shangri-La.\n    Assume starting point is always (0,0). If the sequence leads back to the starting point, it has found Shangri-La and \n    function should return 'Shangri-La found'. Otherwise, return 'Shangri-La not found'.\n    Not moving is considered as not found.\n    \n    Note: Every move is considered as unit = 1.\n\n    Example:\n    >>> find_shangri_la([0, 1, 2, 3])\n    'Shangri-La found'\n    \n    >>> find_shangri_la([0, 1, 0, 3])\n    'Shangri-La not found'\n    \"\"\"\n    x, y = (0, 0)\n    if len(code_sequence) == 0:\n        return 'Shangri-La not found'\n    for direction in code_sequence:\n        if direction == 0:\n            y += 1\n        elif direction == 1:\n            x += 1\n        elif direction == 2:\n            y -= 1\n        elif direction == 3:\n            x -= 1\n    if x == 0 and y == 0:\n        return 'Shangri-La found'\n    else:\n        return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

@@ -1,0 +1,95 @@
+<role>
+Layer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to
+kill the targets below -- same fixed initial clusters, live members only.
+Return exactly one additional Python test function.
+</role>
+
+<objective>
+Kill as many surviving targets below as you can, without repeating a
+strategy <layer1_handoff> shows already failed. Use the handoff, the
+accepted-test digest, and each target's `exact_diff`/`probe_evidence`
+together -- ground truth values live per target, not in a separate block.
+</objective>
+
+<task_information>
+Problem ID:{id}
+Dataset: evoeval
+Dataset subset: {subset_name}
+Entry point: {entry_point}
+Available/required libraries: standard environment
+
+Natural-language specification:
+Check if in given list of numbers, are any two adjacent numbers closer to each other than
+given threshold.
+
+</task_information>
+
+<canonical_implementation>
+
+{canonical_implementation}
+
+</canonical_implementation>
+
+<layer1_handoff>
+{previous_layer_feedback}
+</layer1_handoff>
+
+<accepted_test_digest>
+Already accepted -- do not reproduce these exact calls/assertions.
+
+{accepted_test_digest}
+
+</accepted_test_digest>
+
+<attempt_context>
+Refinement attempt 1. Feedback: 
+[]
+</attempt_context>
+
+<targets>
+Fixed initial partition, reused unmodified. A killed representative's
+dossier below is its cluster's next-most-informative live member instead.
+
+{representatives}
+
+</targets>
+
+<rules>
+R1. Define exactly one `def check(candidate):`.
+R2. Call `candidate(...)` only with concrete, in-domain inputs.
+R3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.
+R4. Never guess an expected output; use the spec or a probe's `canonical_value`.
+R5. If a target's `probe_evidence` is empty or all "same", derive a new input from its `exact_diff`.
+R6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).
+R7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.
+R8. Pass on the canonical implementation; include only targets you're confident about.
+R9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.
+R10. Check <layer1_handoff> first; your input must differ from what already failed there.
+R11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.
+</rules>
+
+<reasoning_steps>
+Silently, before writing code:
+1. Read the handoff; note what already failed per target.
+2. Per target, find one untested input where canonical and mutant diverge,
+   sourced from the spec or a probe value -- never guessed.
+3. Drop any target you can't back with a concrete input.
+Output only the final function.
+</reasoning_steps>
+
+<output_contract>
+Return one complete Python function with this exact signature:
+
+def check(candidate):
+    ...
+
+Follow every rule in <rules>. Output only the function -- no fences, no
+explanation, no partial code.
+</output_contract>
+
+
+
+
+
+
+

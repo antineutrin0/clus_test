@@ -1,0 +1,243 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_39:m000:ARITHMETIC_FLIP:f6a72122b3",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 26,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char / n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' * len(art[0]))\n    return '\\n'.join(art)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "ListComp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m001:ARITHMETIC_FLIP:2c993b11de",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 27,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] / n\n    art.append('*' * len(art[0]))\n    return '\\n'.join(art)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m002:ARITHMETIC_FLIP:80644f6400",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s - '*'] * n\n    art.append('*' * len(art[0]))\n    return '\\n'.join(art)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "List",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m003:ARITHMETIC_FLIP:bd7b93ab87",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' - repeated_s + '*'] * n\n    art.append('*' * len(art[0]))\n    return '\\n'.join(art)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m004:ARITHMETIC_FLIP:06e5b1fca7",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 28,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' / len(art[0]))\n    return '\\n'.join(art)",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m005:INDEX_BOUNDARY:2266dde1ae",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 28,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' * len(art[1]))\n    return '\\n'.join(art)",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m006:INDEX_BOUNDARY:1a6fbc37a7",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 28,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' * len(art[-1]))\n    return '\\n'.join(art)",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Call",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m009:RETURN_VALUE_CHANGE:638d99c8d2",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 29,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' * len(art[0]))\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_39:m010:RETURN_VALUE_CHANGE:528ca3a896",
+    "problem_id": "EvoEval_creative/39",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 29,
+    "mutated_source": "def asciiArt(n, s):\n    \"\"\"Task\n    Write a function that takes an integer (n) and a string (s) as input. The function will return a 2D ASCII\n    art that has n copies of each character in the string (s) in each row and column. The ASCII art should be\n    framed by the '*' character in a \"U\" shape as shown in the following examples.\n\n    Examples:\n        asciiArt(1, \"abc\") => \"*abc*\"\n                              \"*abc*\"\n                              \"*****\"\n\n        asciiArt(2, \"xy\") => \"*xxyy*\"\n                             \"*xxyy*\"\n                             \"******\"\n\n        asciiArt(3, \"123\") => \"*111222333*\"\n                              \"*111222333*\"\n                              \"*111222333*\"\n                              \"***********\"\n\n    Note:\n    - n will always be a positive integer.\n    - The string (s) will only contain alphanumeric characters and will have at least one character.\n    - You don't have to worry about handling empty strings or null values.\n    \"\"\"\n    repeated_s = ''.join([char * n for char in s])\n    art = ['*' + repeated_s + '*'] * n\n    art.append('*' * len(art[0]))\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

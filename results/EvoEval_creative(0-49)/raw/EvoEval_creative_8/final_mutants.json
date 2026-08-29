@@ -1,0 +1,701 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_8:m000:NEGATE_CONDITION:30ad9002f1",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 26,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if not canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.11616456508636475,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m001:COMPARISON_FLIP:771dbb02e9",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "NotEq -> Eq",
+    "line_number": 26,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') == 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.11622673273086548,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m002:CONSTANT_CHANGE:b1c860e4c8",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 26,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 0:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m003:RETURN_VALUE_CHANGE:90bcc35963",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 27,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return False\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0012845396995544434,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m004:CONSTANT_CHANGE:b92b7043bb",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 31,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 2:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.41020333766937256,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m005:ARGUMENT_SWAP:b19e9e1062",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 34,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(-1, len(left_canvas) - 1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Call",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 1.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m006:CONSTANT_CHANGE:71f0f789bd",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 34,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 2, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.42172133922576904,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m007:CONSTANT_CHANGE:351efab7f5",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 34,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 0, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.42559266090393066,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m008:CONSTANT_CHANGE:6d1636aa2c",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 34,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -0, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.24916183948516846,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m009:CONSTANT_CHANGE:cbad320495",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 34,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -0):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.317421019077301,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m010:COMPARISON_FLIP:d103143a55",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 35,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] != '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.35770946741104126,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m011:ARITHMETIC_FLIP:c53751bbd0",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 36,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] - '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m012:CONSTANT_CHANGE:b402b0e9a6",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 36,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 2:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.4240188002586365,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m013:CONSTANT_CHANGE:393bd2df67",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 36,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 0:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.42501503229141235,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m014:COMPARISON_FLIP:7994f380cf",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 37,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] != '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.43765294551849365,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m015:COMPARISON_FLIP:9080d7acec",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 42,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] != '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.5132812261581421,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m016:ARITHMETIC_FLIP:a8719044b7",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 43,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] - '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.13980799913406372,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m017:CONSTANT_CHANGE:418f2f5f2b",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 43,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 2:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.383902370929718,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m018:NEGATE_CONDITION:e8b05040e0",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 44,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif not right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m019:COMPARISON_FLIP:a8bb7146d1",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 44,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] != '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.5177627205848694,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m020:ARITHMETIC_FLIP:5b02c088ef",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 47,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas - 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.16320616006851196,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m021:COMPARISON_FLIP:718d263cee",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 49,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') != 0:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4795895218849182,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m022:CONSTANT_CHANGE:6fafe00f65",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 49,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 1:\n        return 'Invalid canvas'\n    return painted_canvas",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.16719776391983032,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m023:RETURN_VALUE_CHANGE:e982c0dfa6",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 50,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return None\n    return painted_canvas",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.10323059558868408,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_8:m024:RETURN_VALUE_CHANGE:7cca24c693",
+    "problem_id": "EvoEval_creative/8",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 52,
+    "mutated_source": "def transform_canvas(canvas: str) -> str:\n    \"\"\"\n    You have an canvas containing either '#' (representing a wall), '-' (representing \n    an empty space), or 'P' (representing the point at which a painter starts). The painter \n    can move horizontally on the canvas and paints all empty spaces he encounters\n    with '*' without crossing or hitting the walls.\n    \n    The task is to return an updated canvas with all the accessible spaces painted, \n    keeping wall configuration and unaccessible spaces same. If the canvas contains no painter 'P', \n    return the canvas as it is. If there are more than one 'P' or the number of painted space divides the empty spaces evenly, return 'Invalid canvas'.\n\n    Examples:\n\n    >>> transform_canvas('P----#-----#-----#-----')\n    'P****#-----#-----#-----'\n    \n    >>> transform_canvas('--#-P#-----#-----#--#--')\n    'Invalid canvas'\n    \n    >>> transform_canvas('-----#--P--#-----#-----')\n    '-----#**P**#-----#-----'\n    \n    >>> transform_canvas('-----#-----#--P---#P----')\n    'Invalid canvas'\n    \"\"\"\n    if canvas.count('P') != 1:\n        return 'Invalid canvas'\n    painter_index = canvas.index('P')\n    left_canvas = canvas[:painter_index]\n    right_canvas = canvas[painter_index + 1:]\n    for i in range(len(left_canvas) - 1, -1, -1):\n        if left_canvas[i] == '-':\n            left_canvas = left_canvas[:i] + '*' + left_canvas[i + 1:]\n        elif left_canvas[i] == '#':\n            break\n    for i in range(len(right_canvas)):\n        if right_canvas[i] == '-':\n            right_canvas = right_canvas[:i] + '*' + right_canvas[i + 1:]\n        elif right_canvas[i] == '#':\n            break\n    painted_canvas = left_canvas + 'P' + right_canvas\n    if painted_canvas.count('-') % painted_canvas.count('*') == 0:\n        return 'Invalid canvas'\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

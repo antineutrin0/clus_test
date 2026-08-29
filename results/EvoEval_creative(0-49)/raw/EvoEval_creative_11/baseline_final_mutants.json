@@ -1,0 +1,434 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_11:m000:NEGATE_CONDITION:b138e66ee5",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if not len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m001:COMPARISON_FLIP:f1fc3b882c",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) != 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m002:CONSTANT_CHANGE:0bcb54e94f",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 2:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m003:CONSTANT_CHANGE:fb3d3239c9",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 0:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m004:RETURN_VALUE_CHANGE:16db854c2c",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return None\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m005:RETURN_VALUE_CHANGE:39d4a9fcd6",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return False\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m006:INDEX_BOUNDARY:ef4e3a5d9f",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> 1",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[1]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "FormattedValue",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m007:INDEX_BOUNDARY:5b10b8f9ea",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[-1]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "FormattedValue",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m010:ARITHMETIC_FLIP:e7ba54af76",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' - fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m011:ARITHMETIC_FLIP:d98aa8890d",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) - ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m012:CONSTANT_CHANGE:f6bd2bb6d0",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-2]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m013:CONSTANT_CHANGE:a4cd853413",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-0]) + ' and ' + fruits[-1]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m014:CONSTANT_CHANGE:a134d83ea4",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-2]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m015:CONSTANT_CHANGE:935565ea4c",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 28,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-0]\n        return f'Oh, are those {fruit_str} from {location}? Marvelous!'",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m016:RETURN_VALUE_CHANGE:9332874cb5",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 29,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_11:m017:RETURN_VALUE_CHANGE:0e0dda6d60",
+    "problem_id": "EvoEval_creative/11",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 29,
+    "mutated_source": "from typing import List\n\ndef fruity_messages(fruits: List[str], location: str) -> str:\n    \"\"\"\n    Given a list of fruits and a location, return a string message in the following format:\n\n    \"Oh, are those <fruit> from <location>? Marvelous!\"\n\n    If you have two fruits, the message should say:\n\n    \"Oh, are those <fruit1> and <fruit2> from <location>? Marvelous!\"\n\n    If you have more than two fruit, the message should say:\n\n    \"Oh, are those <fruit1>, <fruit2> and <fruit3> from <location>? Marvelous!\"\n\n    The list of fruits will always contain at least one fruit.\n\n    >>> fruity_messages(['apples','bananas'],'Florida')\n    'Oh, are those apples and bananas from Florida? Marvelous!'\n\n    >>> fruity_messages(['cherries'],'Michigan')\n    'Oh, are those cherries from Michigan? Marvelous!'\n    \"\"\"\n    if len(fruits) == 1:\n        return f'Oh, are those {fruits[0]} from {location}? Marvelous!'\n    else:\n        fruit_str = ', '.join(fruits[:-1]) + ' and ' + fruits[-1]\n        return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

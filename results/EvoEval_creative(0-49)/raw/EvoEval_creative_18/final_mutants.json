@@ -1,0 +1,569 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_18:m000:RETURN_VALUE_CHANGE:dd07123a33",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 17,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return None\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m001:RETURN_VALUE_CHANGE:ddf47d22e3",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 17,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return False\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m002:CONSTANT_CHANGE:ccba985854",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 19,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 1\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.2633444666862488,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m003:CONSTANT_CHANGE:65d0e6434c",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 19,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = -1\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.3252416253089905,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m004:CONSTANT_CHANGE:230dc85709",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 20,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 1\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.286604642868042,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m005:CONSTANT_CHANGE:28901d3abd",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 20,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = -1\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.35179781913757324,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m006:NEGATE_CONDITION:ffc5c139ed",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "NEGATE_CONDITION",
+    "description": "while <cond> -> while not (<cond>)",
+    "line_number": 21,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while not count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "While",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.587083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m007:COMPARISON_FLIP:447959c74e",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "COMPARISON_FLIP",
+    "description": "Lt -> Gt",
+    "line_number": 21,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count > n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Compare",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.18662267923355103,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m008:BOUNDARY_SHIFT:fd57d61ea6",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 21,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count <= n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Compare",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m009:CONSTANT_CHANGE:2af87c5631",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 8",
+    "line_number": 22,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 8\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.22538447380065918,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m010:CONSTANT_CHANGE:02c5a5aa6c",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 6",
+    "line_number": 22,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 6\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.19167423248291016,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m011:CONSTANT_CHANGE:2502666cd5",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 0",
+    "line_number": 22,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 0\n        if sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.3005608320236206,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m012:NEGATE_CONDITION:5f7f36e969",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 23,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if not sum_of_digits(num) == 7:\n            count += 1\n    return num",
+    "ast_node_type": "If",
+    "parent_node_type": "While",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m013:COMPARISON_FLIP:b8eb87fcaf",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 23,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) != 7:\n            count += 1\n    return num",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 4,
+    "centrality": 0.06422799825668335,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m014:CONSTANT_CHANGE:7e073d630d",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 8",
+    "line_number": 23,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 8:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.255224347114563,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m015:CONSTANT_CHANGE:9e7dc70ff7",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 6",
+    "line_number": 23,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 6:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.2699708342552185,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m016:CONSTANT_CHANGE:b800c1df06",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 7 -> 0",
+    "line_number": 23,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 0:\n            count += 1\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m017:CONSTANT_CHANGE:601338a1a1",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 24,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 2\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m018:CONSTANT_CHANGE:4b9cc830ec",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 24,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 0\n    return num",
+    "ast_node_type": "Constant",
+    "parent_node_type": "AugAssign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.06601595878601074,
+    "information_score": 0.537083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m019:RETURN_VALUE_CHANGE:f9a6e52553",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 25,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_18:m020:RETURN_VALUE_CHANGE:e0a18adbaf",
+    "problem_id": "EvoEval_creative/18",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 25,
+    "mutated_source": "def magical_seven(n: int):\n    \"\"\"\n    magical_seven returns the n-th number that is a multiple of 7 and its digits sum up to 7.\n    \n    >>> magical_seven(1)\n    7\n    >>> magical_seven(2)\n    70\n    >>> magical_seven(3)\n    133\n    >>> magical_seven(4)\n    322\n    >>> magical_seven(5)\n    511\n    \"\"\"\n\n    def sum_of_digits(num: int) -> int:\n        return sum((int(digit) for digit in str(num)))\n    count = 0\n    num = 0\n    while count < n:\n        num += 7\n        if sum_of_digits(num) == 7:\n            count += 1\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

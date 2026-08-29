@@ -1,0 +1,574 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_20:m000:NEGATE_CONDITION:1b5c4bfba5",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 13,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if not n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.004752457141876221,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m001:COMPARISON_FLIP:727bb54aaa",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 13,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n >= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.05664622783660889,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m002:CONSTANT_CHANGE:57bede4ea1",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 13,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 1:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.37884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m003:RETURN_VALUE_CHANGE:faf4aa3546",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 14,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return None\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.548821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m004:RETURN_VALUE_CHANGE:18026a31b6",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 14,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return False\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.548821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m005:ARGUMENT_SWAP:d8b925045f",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(i + 1, 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3941161036491394,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m006:RANGE_BOUNDARY:501d55e7e2",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 1 -> 0",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(0, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.410846471786499,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m007:CONSTANT_CHANGE:aee6060b6f",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(2, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4415660500526428,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m008:ARITHMETIC_FLIP:734b5f09b3",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i - 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3118900656700134,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m009:CONSTANT_CHANGE:47c2ce7829",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 0))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3734225034713745,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m010:ARGUMENT_SWAP:68def67075",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(n + 1, 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.34533214569091797,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m011:RANGE_BOUNDARY:ae70c29632",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 1 -> 0",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(0, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3704780340194702,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m013:ARITHMETIC_FLIP:1b324f0501",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n - 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3118900656700134,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m014:CONSTANT_CHANGE:5c5045f27a",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 16,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 0)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3734225034713745,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m015:ARGUMENT_SWAP:5481b8acd7",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(0, i, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3907867670059204,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m016:RANGE_BOUNDARY:3b7c23b951",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 1: 0 -> 1",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 1, -1))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.4128407835960388,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m018:CONSTANT_CHANGE:1b935a987e",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -2))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.23913931846618652,
+    "information_score": 0.548821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m019:CONSTANT_CHANGE:0319378eb6",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -0))) for i in range(n, 0, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.40002357959747314,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m020:RANGE_BOUNDARY:9dde605262",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 1: 0 -> 1",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 1, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3720579147338867,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m022:CONSTANT_CHANGE:a94a5e1c05",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, -1, -1)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.3715173602104187,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m023:CONSTANT_CHANGE:6dd5d39107",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 17,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -0)]\n        return first_half + second_half",
+    "ast_node_type": "Constant",
+    "parent_node_type": "UnaryOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.40002357959747314,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_20:m024:RETURN_VALUE_CHANGE:829b21451a",
+    "problem_id": "EvoEval_creative/20",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 18,
+    "mutated_source": "def generate_pattern(n: int):\n    \"\"\"\n    Given an integer 'n', return a list of strings where each string represents a pattern. \n    The pattern is composed of the numbers from 1 to n in ascending order, then descending back to 1, \n    with each number separated by a comma. If n is 0 or negative, return an empty list.\n\n    >>> generate_pattern(3)\n    ['1', '1,2', '1,2,3', '3,2,1', '2,1', '1']\n\n    >>> generate_pattern(0)\n    []\n    \"\"\"\n    if n <= 0:\n        return []\n    else:\n        first_half = [','.join(map(str, range(1, i + 1))) for i in range(1, n + 1)]\n        second_half = [','.join(map(str, range(i, 0, -1))) for i in range(n, 0, -1)]\n        return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.08518946170806885,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

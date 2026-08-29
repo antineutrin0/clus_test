@@ -1,0 +1,3 @@
+method,n_tasks,macro_raw,macro_raw_ci95_low,macro_raw_ci95_high,micro_raw,micro_raw_ci95_low,micro_raw_ci95_high,macro_equivalent_adjusted,macro_adjusted_ci95_low,macro_adjusted_ci95_high,micro_equivalent_adjusted,micro_adjusted_ci95_low,micro_adjusted_ci95_high
+proposed,50,0.957156,0.93805,0.973857,0.954118,0.935261,0.972068,0.958822,0.940389,0.975418,0.956366,0.936691,0.973797
+official_reference,50,0.928972,0.896754,0.956205,0.915294,0.873125,0.949521,0.930638,0.898003,0.958044,0.91745,0.876466,0.952903

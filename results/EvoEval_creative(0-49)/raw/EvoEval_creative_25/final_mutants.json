@@ -1,0 +1,309 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_25:m000:CONSTANT_CHANGE:16c2ea4ad9",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 24,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 1\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 0 else '')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m001:CONSTANT_CHANGE:2256322e31",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 24,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = -1\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 0 else '')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Assign",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m002:NEGATE_CONDITION:c39ca6eb94",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 28,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if not sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 0 else '')",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 1.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m003:COMPARISON_FLIP:7ba05dc7df",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 28,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency < max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 0 else '')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.14036649465560913,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m004:BOUNDARY_SHIFT:c060588f74",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 28,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency >= max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 0 else '')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.11530917882919312,
+    "information_score": 0.505566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m005:RETURN_VALUE_CHANGE:b083f26203",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m006:RETURN_VALUE_CHANGE:df85e058a1",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m007:COMPARISON_FLIP:d2ccd4dd29",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency < 0 else '')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "IfExp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.12904822826385498,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m008:BOUNDARY_SHIFT:388b586a4e",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency >= 0 else '')",
+    "ast_node_type": "Compare",
+    "parent_node_type": "IfExp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m009:CONSTANT_CHANGE:60cb515a3e",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > 1 else '')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated",
+      "Layer2:generated",
+      "Layer3:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_25:m010:CONSTANT_CHANGE:513f7ae55e",
+    "problem_id": "EvoEval_creative/25",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 32,
+    "mutated_source": "def word_frequency_analysis(text: str, word: str):\n    \"\"\"Return the frequency of the given word in a text. Also, return the sentence in which the word appears the most times.\n\n    The function will return a tuple where the first element is the frequency of the word, and the second element is the sentence with the max frequency of the word. If the word is not found in the text, return (0, \"\"). \n\n    Assume that sentences end with a period.\n\n    >>> word_frequency_analysis(\"Hello world. I love this world.\", \"world\")\n    (2, \"Hello world\")\n\n    >>> word_frequency_analysis(\"This is the best day. I love this day because it's sunny.\", \"day\")\n    (2, \"This is the best day\")\n\n    >>> word_frequency_analysis(\"This is a test. Testing is fun.\", \"test\")\n    (1, \"This is a test\")\n\n    >>> word_frequency_analysis(\"Welcome to the world of coding.\", \"python\")\n    (0, \"\")\n    \"\"\"\n    word = word\n    sentences = text.split('.')\n    word_frequency = text.count(word)\n    max_frequency_sentence = ''\n    max_frequency = 0\n    for sentence in sentences:\n        sentence_frequency = sentence.count(word)\n        if sentence_frequency > max_frequency:\n            max_frequency = sentence_frequency\n            max_frequency_sentence = sentence\n    return (word_frequency, max_frequency_sentence.strip() if max_frequency > -1 else '')",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

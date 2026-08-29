@@ -1,0 +1,77 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_28:m000:CONSTANT_CHANGE:0cd81c0171",
+    "problem_id": "EvoEval_creative/28",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 1,
+    "mutated_source": "def calculate_progressive_tax(income: float, deductions=1) -> float:\n    \"\"\"\n    Calculate the tax for a given income and deductions according to a set of progressive tax rates:\n\n    - Up to $10,000 of income is tax-free\n    - The next $25,000 is taxed at 15%\n    - The next $45,000 is taxed at 25%\n    - Any income over $130,000 is taxed at 30%\n\n    The function also considers tax reductions due to deductions:\n        - The first $1000 of deductions are subtracted at a 1:1 ratio from the taxable income\n        - The next $2000 of deductions are subtracted at a 2:1 ratio from the taxable income\n        - Any deduction over $3000 is subtracted at a 3:1 ratio from the taxable income\n\n    It should return a float representing the amount of tax.\n\n    Examples:\n    >>> calculate_progressive_tax(12000, 500)\n    225.0\n    >>> calculate_progressive_tax(55000, 2500)\n    7750.0\n    >>> calculate_progressive_tax(120000, 5000)\n    23700.0\n    \"\"\"\n    if deductions <= 1000:\n        income -= deductions\n    elif deductions <= 3000:\n        income -= 1000 + (deductions - 1000) * 2\n    else:\n        income -= 1000 + 2000 * 2 + (deductions - 3000) * 3\n    if income <= 10000:\n        tax = 0\n    elif income <= 35000:\n        tax = (income - 10000) * 0.15\n    elif income <= 80000:\n        tax = 25000 * 0.15 + (income - 35000) * 0.25\n    else:\n        tax = 25000 * 0.15 + 45000 * 0.25 + (income - 80000) * 0.3\n    return round(tax, 2)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "arguments",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.12356287240982056,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_28:m001:BOUNDARY_SHIFT:3089844942",
+    "problem_id": "EvoEval_creative/28",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "LtE -> Lt",
+    "line_number": 26,
+    "mutated_source": "def calculate_progressive_tax(income: float, deductions=0) -> float:\n    \"\"\"\n    Calculate the tax for a given income and deductions according to a set of progressive tax rates:\n\n    - Up to $10,000 of income is tax-free\n    - The next $25,000 is taxed at 15%\n    - The next $45,000 is taxed at 25%\n    - Any income over $130,000 is taxed at 30%\n\n    The function also considers tax reductions due to deductions:\n        - The first $1000 of deductions are subtracted at a 1:1 ratio from the taxable income\n        - The next $2000 of deductions are subtracted at a 2:1 ratio from the taxable income\n        - Any deduction over $3000 is subtracted at a 3:1 ratio from the taxable income\n\n    It should return a float representing the amount of tax.\n\n    Examples:\n    >>> calculate_progressive_tax(12000, 500)\n    225.0\n    >>> calculate_progressive_tax(55000, 2500)\n    7750.0\n    >>> calculate_progressive_tax(120000, 5000)\n    23700.0\n    \"\"\"\n    if deductions < 1000:\n        income -= deductions\n    elif deductions <= 3000:\n        income -= 1000 + (deductions - 1000) * 2\n    else:\n        income -= 1000 + 2000 * 2 + (deductions - 3000) * 3\n    if income <= 10000:\n        tax = 0\n    elif income <= 35000:\n        tax = (income - 10000) * 0.15\n    elif income <= 80000:\n        tax = 25000 * 0.15 + (income - 35000) * 0.25\n    else:\n        tax = 25000 * 0.15 + 45000 * 0.25 + (income - 80000) * 0.3\n    return round(tax, 2)",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0016527175903320312,
+    "information_score": 0.337083,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_28:m011:CONSTANT_CHANGE:432d1a7420",
+    "problem_id": "EvoEval_creative/28",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10000 -> 9999",
+    "line_number": 34,
+    "mutated_source": "def calculate_progressive_tax(income: float, deductions=0) -> float:\n    \"\"\"\n    Calculate the tax for a given income and deductions according to a set of progressive tax rates:\n\n    - Up to $10,000 of income is tax-free\n    - The next $25,000 is taxed at 15%\n    - The next $45,000 is taxed at 25%\n    - Any income over $130,000 is taxed at 30%\n\n    The function also considers tax reductions due to deductions:\n        - The first $1000 of deductions are subtracted at a 1:1 ratio from the taxable income\n        - The next $2000 of deductions are subtracted at a 2:1 ratio from the taxable income\n        - Any deduction over $3000 is subtracted at a 3:1 ratio from the taxable income\n\n    It should return a float representing the amount of tax.\n\n    Examples:\n    >>> calculate_progressive_tax(12000, 500)\n    225.0\n    >>> calculate_progressive_tax(55000, 2500)\n    7750.0\n    >>> calculate_progressive_tax(120000, 5000)\n    23700.0\n    \"\"\"\n    if deductions <= 1000:\n        income -= deductions\n    elif deductions <= 3000:\n        income -= 1000 + (deductions - 1000) * 2\n    else:\n        income -= 1000 + 2000 * 2 + (deductions - 3000) * 3\n    if income <= 9999:\n        tax = 0\n    elif income <= 35000:\n        tax = (income - 10000) * 0.15\n    elif income <= 80000:\n        tax = 25000 * 0.15 + (income - 35000) * 0.25\n    else:\n        tax = 25000 * 0.15 + 45000 * 0.25 + (income - 80000) * 0.3\n    return round(tax, 2)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.43212032318115234,
+    "information_score": 0.0,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

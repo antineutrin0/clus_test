@@ -1,0 +1,42 @@
+{
+  "run_name": "default",
+  "results_dir": "/kaggle/working/results_shard1",
+  "report_dir": "/kaggle/working/results_shard1/report",
+  "raw_dir": "/kaggle/working/results_shard1/raw",
+  "selected_problems": 50,
+  "executed_problems": 50,
+  "skipped_problems": 0,
+  "available_problems": 500,
+  "dataset_names": [
+    "evoeval"
+  ],
+  "dataset_subsets": [
+    "creative"
+  ],
+  "subset_counts": {
+    "creative": 50
+  },
+  "sample_mode": "first",
+  "stratify_by": "dataset_subset",
+  "llm_configuration": {
+    "layer1": {
+      "provider": "hf",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct"
+    },
+    "layer2": {
+      "provider": "openai",
+      "model": "gpt-5-mini"
+    },
+    "layer3": {
+      "provider": "openai",
+      "model": "gpt-5.2"
+    },
+    "baseline": {
+      "provider": "openai",
+      "model": "gpt-5.2"
+    }
+  },
+  "run_baseline": true,
+  "baseline_only": false,
+  "verbose_artifacts": false
+}

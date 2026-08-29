@@ -1,0 +1,137 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_45:m000:RETURN_VALUE_CHANGE:b32d390658",
+    "problem_id": "EvoEval_creative/45",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 15,
+    "mutated_source": "def find_castle(arr):\n    \"\"\"\n    A prince wants to build his castle on the highest hill in his kingdom. The kingdom is a linear array of hills of different heights, represented as integers in the array arr. The prince wants his castle to have a view of as many hills as possible. However, the view from the castle is blocked by any hill that is taller than it. \n\n    The prince can build his castle on any hill, but he can only see the hills to the left and right that are shorter than the hill he is on. Once a taller hill is encountered, the view in that direction is blocked. The prince can see a hill if it is the same height.\n\n    Write a function that determines the maximum number of hills the prince can see from any hill.\n\n    Example:\n    find_castle([1,2,3,2,5,3,6,4,8,2,7]) returns 10 (The prince can see 10 hills if he builds his castle on the hill of height 8)\n    find_castle([1, 2, 3, 4, 5, 6, 7, 8, 9]) returns 8 \n    find_castle([9, 8, 7, 6, 5, 4, 3, 2, 1]) returns 8\n    find_castle([5, 5, 5, 5, 5]) returns 4\n    \"\"\"\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_45:m001:RETURN_VALUE_CHANGE:b0f5864e0a",
+    "problem_id": "EvoEval_creative/45",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 15,
+    "mutated_source": "def find_castle(arr):\n    \"\"\"\n    A prince wants to build his castle on the highest hill in his kingdom. The kingdom is a linear array of hills of different heights, represented as integers in the array arr. The prince wants his castle to have a view of as many hills as possible. However, the view from the castle is blocked by any hill that is taller than it. \n\n    The prince can build his castle on any hill, but he can only see the hills to the left and right that are shorter than the hill he is on. Once a taller hill is encountered, the view in that direction is blocked. The prince can see a hill if it is the same height.\n\n    Write a function that determines the maximum number of hills the prince can see from any hill.\n\n    Example:\n    find_castle([1,2,3,2,5,3,6,4,8,2,7]) returns 10 (The prince can see 10 hills if he builds his castle on the hill of height 8)\n    find_castle([1, 2, 3, 4, 5, 6, 7, 8, 9]) returns 8 \n    find_castle([9, 8, 7, 6, 5, 4, 3, 2, 1]) returns 8\n    find_castle([5, 5, 5, 5, 5]) returns 4\n    \"\"\"\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_45:m002:ARITHMETIC_FLIP:21f93472f8",
+    "problem_id": "EvoEval_creative/45",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Sub -> Add",
+    "line_number": 15,
+    "mutated_source": "def find_castle(arr):\n    \"\"\"\n    A prince wants to build his castle on the highest hill in his kingdom. The kingdom is a linear array of hills of different heights, represented as integers in the array arr. The prince wants his castle to have a view of as many hills as possible. However, the view from the castle is blocked by any hill that is taller than it. \n\n    The prince can build his castle on any hill, but he can only see the hills to the left and right that are shorter than the hill he is on. Once a taller hill is encountered, the view in that direction is blocked. The prince can see a hill if it is the same height.\n\n    Write a function that determines the maximum number of hills the prince can see from any hill.\n\n    Example:\n    find_castle([1,2,3,2,5,3,6,4,8,2,7]) returns 10 (The prince can see 10 hills if he builds his castle on the hill of height 8)\n    find_castle([1, 2, 3, 4, 5, 6, 7, 8, 9]) returns 8 \n    find_castle([9, 8, 7, 6, 5, 4, 3, 2, 1]) returns 8\n    find_castle([5, 5, 5, 5, 5]) returns 4\n    \"\"\"\n    return len(arr) + 1",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Return",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_45:m003:CONSTANT_CHANGE:4d20601876",
+    "problem_id": "EvoEval_creative/45",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 15,
+    "mutated_source": "def find_castle(arr):\n    \"\"\"\n    A prince wants to build his castle on the highest hill in his kingdom. The kingdom is a linear array of hills of different heights, represented as integers in the array arr. The prince wants his castle to have a view of as many hills as possible. However, the view from the castle is blocked by any hill that is taller than it. \n\n    The prince can build his castle on any hill, but he can only see the hills to the left and right that are shorter than the hill he is on. Once a taller hill is encountered, the view in that direction is blocked. The prince can see a hill if it is the same height.\n\n    Write a function that determines the maximum number of hills the prince can see from any hill.\n\n    Example:\n    find_castle([1,2,3,2,5,3,6,4,8,2,7]) returns 10 (The prince can see 10 hills if he builds his castle on the hill of height 8)\n    find_castle([1, 2, 3, 4, 5, 6, 7, 8, 9]) returns 8 \n    find_castle([9, 8, 7, 6, 5, 4, 3, 2, 1]) returns 8\n    find_castle([5, 5, 5, 5, 5]) returns 4\n    \"\"\"\n    return len(arr) - 2",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_45:m004:CONSTANT_CHANGE:474254e4e9",
+    "problem_id": "EvoEval_creative/45",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 15,
+    "mutated_source": "def find_castle(arr):\n    \"\"\"\n    A prince wants to build his castle on the highest hill in his kingdom. The kingdom is a linear array of hills of different heights, represented as integers in the array arr. The prince wants his castle to have a view of as many hills as possible. However, the view from the castle is blocked by any hill that is taller than it. \n\n    The prince can build his castle on any hill, but he can only see the hills to the left and right that are shorter than the hill he is on. Once a taller hill is encountered, the view in that direction is blocked. The prince can see a hill if it is the same height.\n\n    Write a function that determines the maximum number of hills the prince can see from any hill.\n\n    Example:\n    find_castle([1,2,3,2,5,3,6,4,8,2,7]) returns 10 (The prince can see 10 hills if he builds his castle on the hill of height 8)\n    find_castle([1, 2, 3, 4, 5, 6, 7, 8, 9]) returns 8 \n    find_castle([9, 8, 7, 6, 5, 4, 3, 2, 1]) returns 8\n    find_castle([5, 5, 5, 5, 5]) returns 4\n    \"\"\"\n    return len(arr) - 0",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

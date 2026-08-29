@@ -1,0 +1,882 @@
+{
+  "problem_id": "EvoEval_creative/37",
+  "metadata": {
+    "entry_point": "string_transform",
+    "mutant_count": 25,
+    "probe_count": 6,
+    "probe_exprs": [
+      "candidate(\"Hello, World!\")",
+      "candidate(\"Coding is Fun!\")",
+      "candidate(\"\")",
+      "candidate(\"a\")",
+      "candidate(\"abc\")",
+      "candidate(\"aba\")"
+    ],
+    "canonical_probe_outcomes": [
+      [
+        "VALUE",
+        "'Jimmu, Xusmf!'"
+      ],
+      [
+        "VALUE",
+        "'Dufoph ot Gap!'"
+      ],
+      [
+        "VALUE",
+        "''"
+      ],
+      [
+        "VALUE",
+        "'e'"
+      ],
+      [
+        "VALUE",
+        "'ecd'"
+      ],
+      [
+        "VALUE",
+        "'ece'"
+      ]
+    ],
+    "official_killed_count": 25,
+    "max_layers": 3,
+    "max_mutants": 25,
+    "max_probes": 6,
+    "run_name": "default",
+    "dataset_name": "evoeval",
+    "dataset_metadata": {
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/37",
+      "parent_task_id": "HumanEval/37",
+      "has_instruction_prompt": false,
+      "has_code_prompt": false,
+      "has_doc_struct": false,
+      "libraries": []
+    },
+    "llm_configuration": {
+      "layer1": {
+        "provider": "hf",
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct"
+      },
+      "layer2": {
+        "provider": "openai",
+        "model": "gpt-5-mini"
+      },
+      "layer3": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      },
+      "baseline": {
+        "provider": "openai",
+        "model": "gpt-5.2"
+      }
+    },
+    "layer0_removed": true,
+    "gem_removed": true,
+    "dmsg_removed": true,
+    "representative_strategy": "UBIG-RS",
+    "generation_mode": "batched_representatives",
+    "cluster_lifecycle": "single_initial_partition_reused_across_layers",
+    "reclustering_disabled": true,
+    "layer1_max_calls_per_problem": 3,
+    "layer2_max_calls_per_problem": 10,
+    "strict_productive_validation": true,
+    "static_equivalent_count": 0,
+    "layer1_clusters": [
+      {
+        "cluster_id": 0,
+        "representative_ids": [
+          "EvoEval_creative_37:m012:NEGATE_CONDITION:4d478642d4"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 3,
+        "cluster_size": 4,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 1,
+        "representative_ids": [
+          "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 11,
+        "cluster_size": 12,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 2,
+        "representative_ids": [
+          "EvoEval_creative_37:m024:RETURN_VALUE_CHANGE:5df8ae3475"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 0,
+        "cluster_size": 1,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 3,
+        "representative_ids": [
+          "EvoEval_creative_37:m014:ARITHMETIC_FLIP:f64e1eb090"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 3,
+        "cluster_size": 4,
+        "strategy": "UBIG-RS"
+      },
+      {
+        "cluster_id": 4,
+        "representative_ids": [
+          "EvoEval_creative_37:m007:MEMBERSHIP_FLIP:5268fda243"
+        ],
+        "representative_count": 1,
+        "non_representative_count": 3,
+        "cluster_size": 4,
+        "strategy": "UBIG-RS"
+      }
+    ],
+    "layer1_iterations": 3,
+    "layer1_handoff": {
+      "source_layer": "Layer1",
+      "attempt_count": 3,
+      "productive_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 5,
+          "target_kills": 4,
+          "new_kills": 17,
+          "cumulative_kills": 17,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('Hello, World!')",
+            "candidate('Coding is Fun!')",
+            "candidate('')",
+            "candidate('a')",
+            "candidate('abc')",
+            "candidate('aba')"
+          ],
+          "assertions": [
+            "candidate('Hello, World!') == 'Jimmu, Xusmf!'",
+            "candidate('Coding is Fun!') == 'Dufoph ot Gap!'",
+            "candidate('') == ''",
+            "candidate('a') == 'e'",
+            "candidate('abc') == 'ecd'",
+            "candidate('aba') == 'ece'"
+          ],
+          "tokens": 4638,
+          "seed_used": true,
+          "llm_lines_kept": 1
+        },
+        {
+          "attempt": 2,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 17,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('Hello, World!')",
+            "candidate('Coding is Fun!')",
+            "candidate('')",
+            "candidate('a')",
+            "candidate('abc')",
+            "candidate('aba')"
+          ],
+          "assertions": [
+            "candidate('Hello, World!') == 'Jimmu, Xusmf!'",
+            "candidate('Coding is Fun!') == 'Dufoph ot Gap!'",
+            "candidate('') == ''",
+            "candidate('a') == 'e'",
+            "candidate('abc') == 'ecd'",
+            "candidate('aba') == 'ece'"
+          ],
+          "tokens": 3271,
+          "seed_used": true,
+          "llm_lines_kept": 0
+        },
+        {
+          "attempt": 3,
+          "target_count": 2,
+          "target_kills": 0,
+          "new_kills": 0,
+          "cumulative_kills": 17,
+          "status": "VALID_ZERO_KILL",
+          "failure_category": "VALID_ZERO_KILL",
+          "error": "valid but unproductive: killed zero active mutants",
+          "candidate_calls": [
+            "candidate('Hello, World!')",
+            "candidate('Coding is Fun!')",
+            "candidate('')",
+            "candidate('a')",
+            "candidate('abc')",
+            "candidate('aba')"
+          ],
+          "assertions": [
+            "candidate('Hello, World!') == 'Jimmu, Xusmf!'",
+            "candidate('Coding is Fun!') == 'Dufoph ot Gap!'",
+            "candidate('') == ''",
+            "candidate('a') == 'e'",
+            "candidate('abc') == 'ecd'",
+            "candidate('aba') == 'ece'"
+          ],
+          "tokens": 3285,
+          "seed_used": true,
+          "llm_lines_kept": 0
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 8,
+      "surviving_original_cluster_ids": [
+        1,
+        3
+      ],
+      "surviving_operator_counts": {
+        "ARITHMETIC_FLIP": 1,
+        "CONSTANT_CHANGE": 7
+      },
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "58f50291db",
+          "candidate_calls": [
+            "candidate('Hello, World!')",
+            "candidate('Coding is Fun!')",
+            "candidate('')",
+            "candidate('a')",
+            "candidate('abc')",
+            "candidate('aba')"
+          ],
+          "assertions": [
+            "candidate('Hello, World!') == 'Jimmu, Xusmf!'",
+            "candidate('Coding is Fun!') == 'Dufoph ot Gap!'",
+            "candidate('') == ''",
+            "candidate('a') == 'e'",
+            "candidate('abc') == 'ecd'",
+            "candidate('aba') == 'ece'"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "budget_exhausted"
+    },
+    "layer2_clusters": [
+      {
+        "cluster_id": 1,
+        "original_cluster_size": 12,
+        "surviving_cluster_size": 7,
+        "original_representative_ids": [
+          "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f"
+        ],
+        "live_original_representative_ids": [
+          "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f"
+        ],
+        "live_member_ids": [
+          "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f",
+          "EvoEval_creative_37:m009:CONSTANT_CHANGE:330591f124",
+          "EvoEval_creative_37:m010:CONSTANT_CHANGE:6a4ceabc22",
+          "EvoEval_creative_37:m016:CONSTANT_CHANGE:f5d6f30e9d",
+          "EvoEval_creative_37:m017:CONSTANT_CHANGE:1acfeb1b72",
+          "EvoEval_creative_37:m022:CONSTANT_CHANGE:8944fcef34",
+          "EvoEval_creative_37:m023:CONSTANT_CHANGE:a589378baa"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      },
+      {
+        "cluster_id": 3,
+        "original_cluster_size": 4,
+        "surviving_cluster_size": 1,
+        "original_representative_ids": [
+          "EvoEval_creative_37:m014:ARITHMETIC_FLIP:f64e1eb090"
+        ],
+        "live_original_representative_ids": [],
+        "live_member_ids": [
+          "EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5"
+        ],
+        "strategy": "UBIG-RS",
+        "cluster_assignment_reused": true
+      }
+    ],
+    "layer2_iterations": 4,
+    "layer2_handoff": {
+      "source_layer": "Layer2",
+      "attempt_count": 4,
+      "productive_attempts": 4,
+      "attempts": [
+        {
+          "attempt": 1,
+          "target_count": 2,
+          "target_kills": 2,
+          "new_kills": 3,
+          "cumulative_kills": 20,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('O')"
+          ],
+          "assertions": [
+            "candidate('O') == expected('O')"
+          ],
+          "tokens": 4468
+        },
+        {
+          "attempt": 2,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 1,
+          "cumulative_kills": 21,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('U')"
+          ],
+          "assertions": [
+            "candidate('U') == 'A'"
+          ],
+          "tokens": 2684
+        },
+        {
+          "attempt": 3,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 2,
+          "cumulative_kills": 23,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('z')"
+          ],
+          "assertions": [
+            "res == 'b'"
+          ],
+          "tokens": 2929
+        },
+        {
+          "attempt": 4,
+          "target_count": 1,
+          "target_kills": 1,
+          "new_kills": 2,
+          "cumulative_kills": 25,
+          "status": "PRODUCTIVE",
+          "failure_category": "NONE",
+          "error": "",
+          "candidate_calls": [
+            "candidate('Z')"
+          ],
+          "assertions": [
+            "res == 'B'"
+          ],
+          "tokens": 2729
+        }
+      ],
+      "infrastructure_errors": null,
+      "surviving_count": 0,
+      "surviving_original_cluster_ids": [],
+      "surviving_operator_counts": {},
+      "survivor_sample": [],
+      "accepted_test_digest": [
+        {
+          "sha1": "58f50291db",
+          "candidate_calls": [
+            "candidate('Hello, World!')",
+            "candidate('Coding is Fun!')",
+            "candidate('')",
+            "candidate('a')",
+            "candidate('abc')",
+            "candidate('aba')"
+          ],
+          "assertions": [
+            "candidate('Hello, World!') == 'Jimmu, Xusmf!'",
+            "candidate('Coding is Fun!') == 'Dufoph ot Gap!'",
+            "candidate('') == ''",
+            "candidate('a') == 'e'",
+            "candidate('abc') == 'ecd'",
+            "candidate('aba') == 'ece'"
+          ]
+        },
+        {
+          "sha1": "7702ed8647",
+          "candidate_calls": [
+            "candidate('O')"
+          ],
+          "assertions": [
+            "candidate('O') == expected('O')"
+          ]
+        },
+        {
+          "sha1": "bb272cbe0a",
+          "candidate_calls": [
+            "candidate('U')"
+          ],
+          "assertions": [
+            "candidate('U') == 'A'"
+          ]
+        },
+        {
+          "sha1": "dcd296bef1",
+          "candidate_calls": [
+            "candidate('z')"
+          ],
+          "assertions": [
+            "res == 'b'"
+          ]
+        },
+        {
+          "sha1": "b7f2f4354d",
+          "candidate_calls": [
+            "candidate('Z')"
+          ],
+          "assertions": [
+            "res == 'B'"
+          ]
+        }
+      ],
+      "cluster_assignment_reused": true,
+      "stop_reason": "zero_survivors",
+      "previous_layer_summary": {
+        "source_layer": "Layer1",
+        "attempt_count": 3,
+        "surviving_count_before_layer2": 8
+      }
+    },
+    "layer3_skipped_reason": "all_mutants_killed_before_layer3",
+    "baseline_comparison": {
+      "problem_id": "EvoEval_creative/37",
+      "dataset_name": "evoeval",
+      "dataset_subset": "creative",
+      "source_task_id": "EvoEval/37",
+      "parent_task_id": "HumanEval/37",
+      "total_mutants": 25,
+      "proposed_killed": 25,
+      "baseline_killed": 25,
+      "official_killed": 25,
+      "proposed_score": 1.0,
+      "baseline_score": 1.0,
+      "official_score": 1.0,
+      "equivalent_mutants": 0,
+      "proposed_equivalent_adjusted_score": 1.0,
+      "baseline_equivalent_adjusted_score": 1.0,
+      "official_equivalent_adjusted_score": 1.0,
+      "score_delta_proposed_minus_baseline": 0.0,
+      "proposed_total_tokens": 24004,
+      "baseline_total_tokens": 12732,
+      "proposed_llm_calls": 7,
+      "baseline_llm_calls": 1,
+      "proposed_paid_tokens": 12810,
+      "baseline_paid_tokens": 12732,
+      "token_delta_proposed_minus_baseline": 11272,
+      "proposed_estimated_cost_usd": 0.01273475,
+      "baseline_estimated_cost_usd": 0.038843,
+      "proposed_paid_cost_usd": 0.01273475,
+      "baseline_paid_cost_usd": 0.038843,
+      "proposed_runtime_sec": 176.8682,
+      "baseline_runtime_sec": 22.553,
+      "proposed_generated_tests": 5,
+      "baseline_generated_tests": 1,
+      "proposed_kill_agreement_accuracy": 1.0,
+      "baseline_kill_agreement_accuracy": 1.0,
+      "layer1_num_clusters": 5,
+      "layer1_representatives": 5,
+      "cluster_compression_ratio": 5.0,
+      "final_layer_used": 2,
+      "layer1_killed_mutants": 17,
+      "layer1_new_kills": 17,
+      "layer2_new_kills": 8,
+      "layer3_new_kills": 0,
+      "layer2_used": true,
+      "layer3_used": false,
+      "layer1_iterations": 3,
+      "baseline_iterations": 1,
+      "baseline_first_final_score_iteration": 1,
+      "baseline_tokens_at_first_final_score": 12732,
+      "baseline_first_plateau_iteration": 0,
+      "baseline_tokens_at_plateau": 0,
+      "baseline_score_at_matched_proposed_tokens": 1.0,
+      "baseline_score_at_matched_proposed_paid_tokens": 1.0,
+      "proposed_providers": "hf,openai",
+      "proposed_models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini",
+      "baseline_providers": "openai",
+      "baseline_models": "gpt-5.2"
+    }
+  },
+  "timing": {
+    "mutant_generation_sec": 0.3526,
+    "probe_generation_sec": 0.0004,
+    "behavior_signature_sec": 13.3191,
+    "clustering_sec": 0.0132,
+    "representative_selection_sec": 0.0132,
+    "total_problem_sec": 217.228
+  },
+  "layers": [
+    {
+      "layer": "Layer1",
+      "problem_id": "EvoEval_creative/37",
+      "total_mutants": 25,
+      "killed_mutants": 17,
+      "surviving_mutants": 8,
+      "mutation_score": 0.68,
+      "new_kills": 17,
+      "test_count": 1,
+      "cumulative_tests": 1,
+      "prompt_tokens": 10216,
+      "completion_tokens": 978,
+      "thoughts_tokens": 0,
+      "total_tokens": 11194,
+      "estimated_cost_usd": 0.0,
+      "generation_time_sec": 100.5354,
+      "evaluation_time_sec": 3.7261,
+      "total_time_sec": 104.3704,
+      "cost_per_killed_mutant": 0.0,
+      "cost_per_new_kill": 0.0,
+      "time_per_killed_mutant": 6.1394,
+      "time_per_new_kill": 6.1394,
+      "tokens_per_new_kill": 658.4706,
+      "cluster_kill_consistency": 0.8667,
+      "llm_calls": 3,
+      "accepted_calls": 1,
+      "productive_calls": 1,
+      "invalid_calls": 0,
+      "zero_kill_calls": 2,
+      "target_count": 5,
+      "prompt_chars": 41440,
+      "response_chars": 3165,
+      "notes": "batched_representatives=5 max_attempts=3 actual_calls=3 accepted_tests=1 stop_reason=budget_exhausted"
+    },
+    {
+      "layer": "Layer2",
+      "problem_id": "EvoEval_creative/37",
+      "total_mutants": 25,
+      "killed_mutants": 25,
+      "surviving_mutants": 0,
+      "mutation_score": 1.0,
+      "new_kills": 8,
+      "test_count": 4,
+      "cumulative_tests": 5,
+      "prompt_tokens": 7363,
+      "completion_tokens": 391,
+      "thoughts_tokens": 5056,
+      "total_tokens": 12810,
+      "estimated_cost_usd": 0.01273475,
+      "generation_time_sec": 70.5403,
+      "evaluation_time_sec": 1.9354,
+      "total_time_sec": 72.4978,
+      "cost_per_killed_mutant": 0.00050939,
+      "cost_per_new_kill": 0.00159184,
+      "time_per_killed_mutant": 2.8999,
+      "time_per_new_kill": 9.0622,
+      "tokens_per_new_kill": 1601.25,
+      "cluster_kill_consistency": 1.0,
+      "llm_calls": 4,
+      "accepted_calls": 4,
+      "productive_calls": 4,
+      "invalid_calls": 0,
+      "zero_kill_calls": 0,
+      "target_count": 5,
+      "prompt_chars": 28241,
+      "response_chars": 1068,
+      "notes": "batched_survivor_representatives=5 max_attempts=10 actual_calls=4 accepted_tests=4 stop_reason=zero_survivors"
+    }
+  ],
+  "llm_calls": [
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m012:NEGATE_CONDITION:4d478642d4,EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f,EvoEval_creative_37:m024:RETURN_VALUE_CHANGE:5df8ae3475,EvoEval_creative_37:m014:ARITHMETIC_FLIP:f64e1eb090,EvoEval_creative_37:m007:MEMBERSHIP_FLIP:5268fda243",
+      "provider": "hf",
+      "prompt_tokens": 4096,
+      "completion_tokens": 542,
+      "thoughts_tokens": 0,
+      "total_tokens": 4638,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 55.1225,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Jimmu, Xusmf!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Dufoph ot Gap!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"''\"\n  },\n  {\n    \"probe\": \"candidate(\\\"a\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'e'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"abc\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ecd'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"aba\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ece'\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"Hello, World!\") == 'Jimmu, Xusmf!'\n    assert candidate(\"Coding is Fun!\") == 'Dufoph ot Gap!'\n    assert candidate(\"\") == ''\n    assert candidate(\"a\") == 'e'\n    assert candidate(\"abc\") == 'ecd'\n    assert candidate(\"aba\") == 'ece'\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 1\nPrevious-attempt feedback:\n{\n  \"note\": \"Generate one joint test for all representative clusters.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m012:NEGATE_CONDITION:4d478642d4\",\n    \"operator\": \"NEGATE_CONDITION\",\n    \"change_description\": \"if <cond> -> if not (<cond>)\",\n    \"original_code\": \"elif char in consonants_lower:\",\n    \"mutated_code\": \"elif not char in consonants_lower:\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Jimmu, Xusmf!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Dufoph ot Gap!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"''\"\n      },\n      {\n        \"probe\": \"candidate(\\\"a\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'e'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"abc\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ecd'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"aba\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ece'\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 5 -> 4\",\n    \"original_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\",\n    \"mutated_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 4]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m024:RETURN_VALUE_CHANGE:5df8ae3475\",\n    \"operator\": \"RETURN_VALUE_CHANGE\",\n    \"change_description\": \"return <expr> -> return None\",\n    \"original_code\": \"return transformed\",\n    \"mutated_code\": \"return None\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Jimmu, Xusmf!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Dufoph ot Gap!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"''\"\n      },\n      {\n        \"probe\": \"candidate(\\\"a\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'e'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"abc\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ecd'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"aba\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ece'\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m014:ARITHMETIC_FLIP:f64e1eb090\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\",\n    \"mutated_code\": \"transformed += consonants_lower[(consonants_lower.index(char) - 1) % 21]\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Jimmu, Xusmf!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Dufoph ot Gap!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"''\"\n      },\n      {\n        \"probe\": \"candidate(\\\"a\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'e'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"abc\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ecd'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"aba\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ece'\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m007:MEMBERSHIP_FLIP:5268fda243\",\n    \"operator\": \"MEMBERSHIP_FLIP\",\n    \"change_description\": \"In -> NotIn\",\n    \"original_code\": \"elif char in vowels_upper:\",\n    \"mutated_code\": \"elif char not in vowels_upper:\",\n    \"probe_evidence\": [\n      {\n        \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Jimmu, Xusmf!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'Dufoph ot Gap!'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"''\"\n      },\n      {\n        \"probe\": \"candidate(\\\"a\\\")\",\n        \"mutant_outcome\": \"same\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'e'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"abc\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ecd'\"\n      },\n      {\n        \"probe\": \"candidate(\\\"aba\\\")\",\n        \"mutant_outcome\": \"different\",\n        \"canonical_status\": \"VALUE\",\n        \"canonical_value\": \"'ece'\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    def transform(sentence):\n        vowels_lower = 'aeiu'\n        vowels_upper = 'AEIU'\n        consonants_lower = 'bcdfghjklmnpqrst vwxyz'\n        consonants_upper = 'CDFGHJKLMNPQRSTVXYZ'\n\n        transformed = []\n        for char in sentence:\n            if char in vowels_lower or char in vowels_upper:\n                index = vowels_lower.index(char.lower()) if char.islower() else vowels_upper.index(char.upper())\n                transformed.append(vowels_lower[(index + 1) % len(vowels_lower)])\n            elif char in consonants_lowercase or char in consonants_uppercase:\n                index = consonants_lower.index(char.lower()) + 1 if char.islower() or char.isupper()\n                transformed.append(consonants_lower[index % len(consonants_lower)] if char.islower()\n                                 else consonants_upper[index % len(consonats_upper)])\n            else:\n                transformed.append(char)\n\n        return ''.join(transformed)\n\n    assert transform(\"Hello, World!\") != 'Jimmu, Xuusmf!', \"Mutant 1 failed\"\n    assert transform(\"Coding is Fun!\") != 'Dufoph ot GAP!', \"Mutant 2 failed\"\n    assert transform(\"\") == '', \"Mutant 3 failed\"\n    assert transform('a') != 'e', \"Mutant 4 failed\"\n    assert transform ('abc') != 'ecd', \"Mutant 5 failed\"\n    assert transform (\"aba\") != 'ece', \"Mutant 6 failed\"\n\n    # Additional tests based on provided examples",
+      "extracted_test": "def check(candidate):\n    assert candidate('Hello, World!') == 'Jimmu, Xusmf!'\n    assert candidate('Coding is Fun!') == 'Dufoph ot Gap!'\n    assert candidate('') == ''\n    assert candidate('a') == 'e'\n    assert candidate('abc') == 'ecd'\n    assert candidate('aba') == 'ece'\n\n    def transform(sentence):\n        vowels_lower = 'aeiu'\n        vowels_upper = 'AEIU'\n        consonants_lower = 'bcdfghjklmnpqrst vwxyz'\n        consonants_upper = 'CDFGHJKLMNPQRSTVXYZ'\n        transformed = []\n        for char in sentence:\n            if char in vowels_lower or char in vowels_upper:\n                index = vowels_lower.index(char.lower()) if char.islower() else vowels_upper.index(char.upper())\n                transformed.append(vowels_lower[(index + 1) % len(vowels_lower)])",
+      "passed_on_original": true,
+      "killed_mutants": 17,
+      "surviving_mutants": 8,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 5,
+      "target_kills": 4,
+      "new_kills": 17,
+      "cumulative_kills": 17,
+      "cumulative_score": 0.68,
+      "prompt_chars": 16649,
+      "response_chars": 1409,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f,EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5",
+      "provider": "hf",
+      "prompt_tokens": 3053,
+      "completion_tokens": 218,
+      "thoughts_tokens": 0,
+      "total_tokens": 3271,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 22.7067,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Jimmu, Xusmf!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Dufoph ot Gap!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"''\"\n  },\n  {\n    \"probe\": \"candidate(\\\"a\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'e'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"abc\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ecd'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"aba\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ece'\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"Hello, World!\") == 'Jimmu, Xusmf!'\n    assert candidate(\"Coding is Fun!\") == 'Dufoph ot Gap!'\n    assert candidate(\"\") == ''\n    assert candidate(\"a\") == 'e'\n    assert candidate(\"abc\") == 'ecd'\n    assert candidate(\"aba\") == 'ece'\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 2\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 5,\n    \"target_kills\": 4,\n    \"new_kills\": 17,\n    \"cumulative_kills\": 17,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ],\n    \"tokens\": 4638,\n    \"seed_used\": true,\n    \"llm_lines_kept\": 1\n  },\n  \"remaining_mutants\": 8,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 5 -> 4\",\n    \"original_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\",\n    \"mutated_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 4]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\",\n    \"mutated_code\": \"transformed += vowels_upper[(vowels_upper.index(char) - 1) % 5]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "```python\ndef check_candidate(candidate):\n    assert candidate(\"\") == '', \"Empty string should remain empty\"\n    assert candidate(\"a\").lower() == \"e\", \"Single lowercase letter 'a' should transform to 'e'\"\n    assert candidate(\"ab\").lower() == \"cd\", \"Two consecutive letters 'ab' should transform to 'cd'\"\n    assert candidate(\"abc\").lower() == \"bcd\", \"Three consecutive letters 'abc' should transform to 'bcd'\"\n    assert candidate(\"abcd\").lower() == \"cde\", \"Four consecutive letters 'abcd' should transform to 'cde'\"\n    assert candidate(\"abcdefg\").lower() == \"bcdefh\", \"Six consecutive letters 'abcdefg' should transform to 'bcdefh'\"\n    assert candidate(\"hello world\").lower() == \"ifmmp xpsme\", \"Sentence 'hello world' should transform correctly\"\n    assert candidate(\"this is a test\").lower() == \"ujtjt jt b ufttb\", \"Sentence 'this is a test' should transform correctly\"\n```",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"Hello, World!\") == 'Jimmu, Xusmf!'\n    assert candidate(\"Coding is Fun!\") == 'Dufoph ot Gap!'\n    assert candidate(\"\") == ''\n    assert candidate(\"a\") == 'e'\n    assert candidate(\"abc\") == 'ecd'\n    assert candidate(\"aba\") == 'ece'",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 8,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 2,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 17,
+      "cumulative_score": 0.68,
+      "prompt_chars": 12363,
+      "response_chars": 878,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer1",
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f,EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5",
+      "provider": "hf",
+      "prompt_tokens": 3067,
+      "completion_tokens": 218,
+      "thoughts_tokens": 0,
+      "total_tokens": 3285,
+      "estimated_cost_usd": 0.0,
+      "latency_sec": 22.7061,
+      "prompt": "<role>\nYou are Layer 1, the first-stage mutation-guided unit-test generator in\nClaus-Test. You analyze all supplied mutant representatives together and\nreturn exactly one Python test function.\n</role>\n\n<objective>\nExtend the guaranteed-correct <seed_test> below with new assertions that:\n1. Still pass on the canonical implementation (the seed lines already do; any\n   new line you add must too).\n2. Kill as many of the currently surviving mutant representatives below as\n   you can, using real evidence rather than assumption.\nA response that reproduces the seed but adds nothing useful is accepted but\nwastes this attempt; a response that alters the seed or invents an ungrounded\nvalue is rejected outright regardless of anything else it gets right. Rules\nbelow are tagged with a priority score -- rules scored 100 are mechanically\nchecked and override every other consideration.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<canonical_probe_oracles>\nThese are trusted, verified outputs of the canonical implementation. Treat\nevery value here as ground truth. Do not contradict them.\n\n[\n  {\n    \"probe\": \"candidate(\\\"Hello, World!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Jimmu, Xusmf!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"Coding is Fun!\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'Dufoph ot Gap!'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"''\"\n  },\n  {\n    \"probe\": \"candidate(\\\"a\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'e'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"abc\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ecd'\"\n  },\n  {\n    \"probe\": \"candidate(\\\"aba\\\")\",\n    \"canonical_status\": \"VALUE\",\n    \"canonical_value\": \"'ece'\"\n  }\n]\n</canonical_probe_oracles>\n\n<seed_test>\nThis is a guaranteed-correct partial test, built mechanically from already-\nverified <canonical_probe_oracles> entries -- no model produced these lines,\nso they are not in question. You MUST reproduce every line below verbatim as\nthe start of your output, then append your own new assertions after it. Do\nnot modify anything inside this block.\n\n```python\ndef check(candidate):\n    assert candidate(\"Hello, World!\") == 'Jimmu, Xusmf!'\n    assert candidate(\"Coding is Fun!\") == 'Dufoph ot Gap!'\n    assert candidate(\"\") == ''\n    assert candidate(\"a\") == 'e'\n    assert candidate(\"abc\") == 'ecd'\n    assert candidate(\"aba\") == 'ece'\n```\n</seed_test>\n\n\n<attempt_context>\nAttempt number: 3\nPrevious-attempt feedback:\n{\n  \"previous_attempt\": {\n    \"attempt\": 2,\n    \"target_count\": 2,\n    \"target_kills\": 0,\n    \"new_kills\": 0,\n    \"cumulative_kills\": 17,\n    \"status\": \"VALID_ZERO_KILL\",\n    \"failure_category\": \"VALID_ZERO_KILL\",\n    \"error\": \"valid but unproductive: killed zero active mutants\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ],\n    \"tokens\": 3271,\n    \"seed_used\": true,\n    \"llm_lines_kept\": 0\n  },\n  \"remaining_mutants\": 8,\n  \"instruction\": \"Generate novel assertions for the remaining exact deltas; do not repeat earlier candidate calls.\"\n}\n</attempt_context>\n\n<targets>\nThe initial cluster partition is fixed and reused across every layer. Each\nrecord below is either the original cluster representative or the most\ninformative surviving member of that same cluster.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 5 -> 4\",\n    \"original_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\",\n    \"mutated_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 4]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"original_code\": \"transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\",\n    \"mutated_code\": \"transformed += vowels_upper[(vowels_upper.index(char) - 1) % 5]\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\",\n    \"equivalence_reason\": \"\"\n  }\n]\n</targets>\n\n<rules>\nR1. [SCORE 100 -- NEVER VIOLATE, checked mechanically before anything else] If <seed_test> is non-empty, your output MUST begin with every line of <seed_test> reproduced verbatim, character-for-character, in the same order. Do not delete, reorder, reword, renumber, or 're-derive' a seed line -- not even if you believe a different value is more correct. The seed lines are already proven correct against the canonical implementation; you are not able to verify that independently, so any seed line you change is a wrong change by definition.\nR2. [SCORE 100 -- NEVER VIOLATE] Only ADD new `assert candidate(...) == ...` statements after the reproduced seed lines. Never edit, wrap, or remove a seed line to make room for a new one -- appending is the only permitted operation on the seed.\nR3. [SCORE 90] Every new `assert` you add must depend on the actual return value of a `candidate(...)` call you make inside this same function. An assertion that would hold no matter what `candidate` returns (e.g. `assert isinstance(result, bool)`, `assert 1 == 1`) is a hard failure even if it never raises.\nR4. [SCORE 90] Never guess or reconstruct an expected value from memory. Every expected value in a new assertion must be either copied character-for-character from a `<canonical_probe_oracles>` entry, or be a value you can derive with certainty from the specification's stated semantics. If you cannot ground a value either way, do not write that assertion -- pick a different input you can ground instead.\nR5. [SCORE 80] For each target whose `probe_evidence` shows no divergence yet, derive one new input by comparing `original_code` and `mutated_code` in its dossier: pick the smallest concrete input where the two expressions evaluate differently. Only include the target if you can also ground the canonical expected output for that input per the rule above.\nR6. [SCORE 70] Prefer several compatible targets in one function, but only when you are equally confident about every one you include. Do not add a low-confidence target just to raise coverage -- one wrong assumption invalidates every assertion after the seed.\nR7. [SCORE 60] Do not repeat an input/assertion combination already marked as attempted and failed in <attempt_context>. Correct the specific failure instead of reproducing it.\nR8. [SCORE 100 -- NEVER VIOLATE] Output only the raw Python function body: the reproduced <seed_test> lines followed by your new lines, nothing else. No Markdown fences, no prose, no comments explaining your reasoning, no `print`, no trailing `return`, no truncation.\n</rules>\n\n<reasoning_steps>\nWork through these silently before writing any code. Do not show this\nreasoning in your output -- only the final function.\n1. Copy <seed_test> verbatim as your starting point (or start fresh only if\n   it says \"none available\").\n2. For each target, read `original_code` vs `mutated_code` and state to\n   yourself, precisely, what single input property would make the two diverge.\n3. Check whether a `<canonical_probe_oracles>` entry already covers an input\n   with that property. If yes, reuse its value as ground truth, copied\n   verbatim.\n4. If no oracle covers it, derive the expected canonical output only from the\n   specification's stated behavior -- never invent one.\n5. Decide, per target, whether you are confident enough to include it. Drop\n   targets you are not confident about rather than guessing.\n6. Draft each new assertion and check it individually: does its truth value\n   depend on candidate's actual return? If not, discard or rewrite it.\n7. Re-read the full function once against every rule in <rules>, seed lines\n   first and unmodified, before finalizing.\n</reasoning_steps>\n\n<good_example>\n# <seed_test> contained:\n#   assert candidate([]) == 'Shangri-La not found'\n# Target: mutated a boundary check from `n < 0` to `n <= 0`.\n# Spec says the function should treat 0 as valid, non-negative input.\ndef check(candidate):\n    assert candidate([]) == 'Shangri-La not found'  # seed line, reproduced verbatim and unmodified\n    assert candidate(0) == expected_result_for_zero  # new line: value taken from a probe oracle entry or the spec, never invented\n    assert candidate(-1) == expected_result_for_negative_input  # new line, same standard\n</good_example>\n<why_good>\nThe seed line is untouched. Every new assertion depends on candidate's\nactual return value, 0 is exactly the boundary the mutation altered, and\nevery literal was either copied from the seed or grounded the same way the\nseed's was -- never reconstructed from memory. Retyping a value from memory\ninstead of copying it is how a technically-reasonable test still gets\nrejected: even one wrong character fails the whole function against the\ncanonical implementation.\n</why_good>\n\n<bad_example>\ndef check(candidate):\n    assert candidate([]) == 'nothing found'  # seed line REWRITTEN -- forbidden even if this looks more natural\n    result = candidate(5)\n    assert isinstance(result, int)  # true regardless of candidate's logic -- vacuous\n    assert 1 == 1  # does not depend on candidate at all -- vacuous\n</bad_example>\n<why_bad>\nThe first line silently altered a seed assertion -- a SCORE 100 violation on\nits own, rejected regardless of anything else in the function. The last two\nassertions are vacuous: neither can ever fail against a mutant that returns\nany integer at all. This test would be accepted by a harness that only\nchecks for uncaught exceptions, but it exercises nothing and breaks the one\nguarantee the seed was providing.\n</why_bad>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "```python\ndef check_candidate(candidate):\n    assert candidate(\"\") == '', \"Empty string should remain empty\"\n    assert candidate(\"a\").lower() == \"e\", \"Single lowercase letter 'a' should transform to 'e'\"\n    assert candidate(\"ab\").lower() == \"cd\", \"Two consecutive letters 'ab' should transform to 'cd'\"\n    assert candidate(\"abc\").lower() == \"bcd\", \"Three consecutive letters 'abc' should transform to 'bcd'\"\n    assert candidate(\"abcd\").lower() == \"cde\", \"Four consecutive letters 'abcd' should transform to 'cde'\"\n    assert candidate(\"abcdefg\").lower() == \"bcdefh\", \"Six consecutive letters 'abcdefg' should transform to 'bcdefh'\"\n    assert candidate(\"hello world\").lower() == \"ifmmp xpsme\", \"Sentence 'hello world' should transform correctly\"\n    assert candidate(\"this is a test\").lower() == \"ujtjt jt b ufttb\", \"Sentence 'this is a test' should transform correctly\"\n```",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"Hello, World!\") == 'Jimmu, Xusmf!'\n    assert candidate(\"Coding is Fun!\") == 'Dufoph ot Gap!'\n    assert candidate(\"\") == ''\n    assert candidate(\"a\") == 'e'\n    assert candidate(\"abc\") == 'ecd'\n    assert candidate(\"aba\") == 'ece'",
+      "passed_on_original": true,
+      "killed_mutants": 0,
+      "surviving_mutants": 8,
+      "status": "VALID_ZERO_KILL",
+      "error": "valid but unproductive: killed zero active mutants",
+      "attempt": 3,
+      "target_count": 2,
+      "target_kills": 0,
+      "new_kills": 0,
+      "cumulative_kills": 17,
+      "cumulative_score": 0.68,
+      "prompt_chars": 12428,
+      "response_chars": 878,
+      "validation_reason": "valid but unproductive: killed zero active mutants",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f,EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5",
+      "provider": "openai",
+      "prompt_tokens": 1880,
+      "completion_tokens": 220,
+      "thoughts_tokens": 2368,
+      "total_tokens": 4468,
+      "estimated_cost_usd": 0.005646,
+      "latency_sec": 33.8078,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +17 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:7).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"58f50291db\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 1. Feedback: {\n  \"note\": \"Use the compressed Layer 1 handoff and target all survivor clusters jointly.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 5 -> 4\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_37:m011:CONSTANT_CHANGE:766171b21f\\n@@ -23,7 +23,7 @@\\n         if char in vowels_lower:\\n             transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\\n         elif char in vowels_upper:\\n-            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\\n+            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 4]\\n         elif char in consonants_lower:\\n             transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\\n         elif char in consonants_upper:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  },\n  {\n    \"representative_id\": \"EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5\",\n    \"operator\": \"ARITHMETIC_FLIP\",\n    \"change_description\": \"Add -> Sub\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_37:m008:ARITHMETIC_FLIP:d23fae96e5\\n@@ -23,7 +23,7 @@\\n         if char in vowels_lower:\\n             transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\\n         elif char in vowels_upper:\\n-            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\\n+            transformed += vowels_upper[(vowels_upper.index(char) - 1) % 5]\\n         elif char in consonants_lower:\\n             transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\\n         elif char in consonants_upper:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    def expected(s):\n        vowels_lower = 'aeiou'\n        vowels_upper = 'AEIOU'\n        consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n        consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n        transformed = ''\n        for char in s:\n            if char in vowels_lower:\n                transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n            elif char in vowels_upper:\n                transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n            elif char in consonants_lower:\n                transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n            elif char in consonants_upper:\n                transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n            else:\n                transformed += char\n        return transformed\n    assert candidate('O') == expected('O')",
+      "extracted_test": "def check(candidate):\n    def expected(s):\n        vowels_lower = 'aeiou'\n        vowels_upper = 'AEIOU'\n        consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n        consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n        transformed = ''\n        for char in s:\n            if char in vowels_lower:\n                transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n            elif char in vowels_upper:\n                transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n            elif char in consonants_lower:\n                transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n            elif char in consonants_upper:\n                transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n            else:\n                transformed += char\n        return transformed\n    assert candidate('O') == expected('O')",
+      "passed_on_original": true,
+      "killed_mutants": 3,
+      "surviving_mutants": 5,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 1,
+      "target_count": 2,
+      "target_kills": 2,
+      "new_kills": 3,
+      "cumulative_kills": 20,
+      "cumulative_score": 0.8,
+      "prompt_chars": 7280,
+      "response_chars": 878,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m010:CONSTANT_CHANGE:6a4ceabc22",
+      "provider": "openai",
+      "prompt_tokens": 1787,
+      "completion_tokens": 65,
+      "thoughts_tokens": 832,
+      "total_tokens": 2684,
+      "estimated_cost_usd": 0.00224075,
+      "latency_sec": 10.8901,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +17 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:7).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"58f50291db\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ]\n  },\n  {\n    \"sha1\": \"7702ed8647\",\n    \"candidate_calls\": [\n      \"candidate('O')\"\n    ],\n    \"assertions\": [\n      \"candidate('O') == expected('O')\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 2. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 1,\n    \"target_count\": 2,\n    \"target_kills\": 2,\n    \"new_kills\": 3,\n    \"cumulative_kills\": 20,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('O')\"\n    ],\n    \"assertions\": [\n      \"candidate('O') == expected('O')\"\n    ],\n    \"tokens\": 4468\n  },\n  \"remaining_mutants\": 5,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m010:CONSTANT_CHANGE:6a4ceabc22\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 5 -> 6\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_37:m010:CONSTANT_CHANGE:6a4ceabc22\\n@@ -23,7 +23,7 @@\\n         if char in vowels_lower:\\n             transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\\n         elif char in vowels_upper:\\n-            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\\n+            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 6]\\n         elif char in consonants_lower:\\n             transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\\n         elif char in consonants_upper:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    assert candidate(\"U\") == \"A\"",
+      "extracted_test": "def check(candidate):\n    assert candidate(\"U\") == \"A\"",
+      "passed_on_original": true,
+      "killed_mutants": 1,
+      "surviving_mutants": 4,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 2,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 1,
+      "cumulative_kills": 21,
+      "cumulative_score": 0.84,
+      "prompt_chars": 6873,
+      "response_chars": 54,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m016:CONSTANT_CHANGE:f5d6f30e9d",
+      "provider": "openai",
+      "prompt_tokens": 1839,
+      "completion_tokens": 66,
+      "thoughts_tokens": 1024,
+      "total_tokens": 2929,
+      "estimated_cost_usd": 0.00263975,
+      "latency_sec": 13.1955,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +17 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:7).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"58f50291db\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ]\n  },\n  {\n    \"sha1\": \"7702ed8647\",\n    \"candidate_calls\": [\n      \"candidate('O')\"\n    ],\n    \"assertions\": [\n      \"candidate('O') == expected('O')\"\n    ]\n  },\n  {\n    \"sha1\": \"bb272cbe0a\",\n    \"candidate_calls\": [\n      \"candidate('U')\"\n    ],\n    \"assertions\": [\n      \"candidate('U') == 'A'\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 3. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 2,\n    \"target_count\": 1,\n    \"target_kills\": 1,\n    \"new_kills\": 1,\n    \"cumulative_kills\": 21,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('U')\"\n    ],\n    \"assertions\": [\n      \"candidate('U') == 'A'\"\n    ],\n    \"tokens\": 2684\n  },\n  \"remaining_mutants\": 4,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m016:CONSTANT_CHANGE:f5d6f30e9d\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 21 -> 22\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_37:m016:CONSTANT_CHANGE:f5d6f30e9d\\n@@ -25,7 +25,7 @@\\n         elif char in vowels_upper:\\n             transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\\n         elif char in consonants_lower:\\n-            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\\n+            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 22]\\n         elif char in consonants_upper:\\n             transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\\n         else:\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    res = candidate('z')\n    assert res == 'b'",
+      "extracted_test": "def check(candidate):\n    res = candidate('z')\n    assert res == 'b'",
+      "passed_on_original": true,
+      "killed_mutants": 2,
+      "surviving_mutants": 2,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 3,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 2,
+      "cumulative_kills": 23,
+      "cumulative_score": 0.92,
+      "prompt_chars": 7010,
+      "response_chars": 68,
+      "validation_reason": "",
+      "batch_mode": true
+    },
+    {
+      "problem_id": "EvoEval_creative/37",
+      "layer": "Layer2",
+      "model": "gpt-5-mini",
+      "cluster_id": null,
+      "mutant_id": "EvoEval_creative_37:m022:CONSTANT_CHANGE:8944fcef34",
+      "provider": "openai",
+      "prompt_tokens": 1857,
+      "completion_tokens": 40,
+      "thoughts_tokens": 832,
+      "total_tokens": 2729,
+      "estimated_cost_usd": 0.00220825,
+      "latency_sec": 12.4859,
+      "prompt": "<role>\nLayer 2 (API refinement) in Claus-Test. Layer 1 already ran and failed to\nkill the targets below -- same fixed initial clusters, live members only.\nReturn exactly one additional Python test function.\n</role>\n\n<objective>\nKill as many surviving targets below as you can, without repeating a\nstrategy <layer1_handoff> shows already failed. Use the handoff, the\naccepted-test digest, and each target's `exact_diff`/`probe_evidence`\ntogether -- ground truth values live per target, not in a separate block.\n</objective>\n\n<task_information>\nProblem ID: EvoEval/37\nDataset: evoeval\nDataset subset: creative\nEntry point: string_transform\nAvailable/required libraries: standard environment\n\nNatural-language specification:\nWrite a function string_transform which takes a string representing\na sentence as input and returns the sentence in a transformed format.\nThe transformation rules are as follows: \n- Every vowel in the sentence should be replaced with the next vowel in the sequence: 'a' -> 'e', 'e' -> 'i', 'i' -> 'o', 'o' -> 'u', 'u' -> 'a'.\n- Every consonant should be replaced with the next consonant in the alphabet. For instance, 'b' becomes 'c', 'm' becomes 'n', etc. 'z' wraps around to 'b'.\n- Every punctuation, space, and digit remains the same. \n\nAll transformations should preserve the original case. For example, 'A' transforms to 'E', 'M' to 'N', etc. \n\nExample:\n>>> string_transform(\"Hello, World!\")\n'Jimmu, Xusmf!'\n>>> string_transform(\"Coding is Fun!\")\n'Dufoph jt Gap!'\n</task_information>\n\n<canonical_implementation>\n```python\ndef string_transform(s):\n    vowels_lower = 'aeiou'\n    vowels_upper = 'AEIOU'\n    consonants_lower = 'bcdfghjklmnpqrstvwxyz'\n    consonants_upper = 'BCDFGHJKLMNPQRSTVWXYZ'\n    transformed = ''\n    for char in s:\n        if char in vowels_lower:\n            transformed += vowels_lower[(vowels_lower.index(char) + 1) % 5]\n        elif char in vowels_upper:\n            transformed += vowels_upper[(vowels_upper.index(char) + 1) % 5]\n        elif char in consonants_lower:\n            transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\n        elif char in consonants_upper:\n            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\n        else:\n            transformed += char\n    return transformed\n```\n</canonical_implementation>\n\n<layer1_handoff>\n3 attempt(s) so far, 1 productive, stopped: budget_exhausted.\n- attempt 1 [PRODUCTIVE, +17 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 2 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n- attempt 3 [VALID_ZERO_KILL, +0 new kills]: candidate('Hello, World!'); candidate('Coding is Fun!'); candidate('')\n8 mutant(s) still surviving overall (ARITHMETIC_FLIP:1, CONSTANT_CHANGE:7).\n</layer1_handoff>\n\n<accepted_test_digest>\nAlready accepted -- do not reproduce these exact calls/assertions.\n[\n  {\n    \"sha1\": \"58f50291db\",\n    \"candidate_calls\": [\n      \"candidate('Hello, World!')\",\n      \"candidate('Coding is Fun!')\",\n      \"candidate('')\",\n      \"candidate('a')\",\n      \"candidate('abc')\",\n      \"candidate('aba')\"\n    ],\n    \"assertions\": [\n      \"candidate('Hello, World!') == 'Jimmu, Xusmf!'\",\n      \"candidate('Coding is Fun!') == 'Dufoph ot Gap!'\",\n      \"candidate('') == ''\",\n      \"candidate('a') == 'e'\",\n      \"candidate('abc') == 'ecd'\",\n      \"candidate('aba') == 'ece'\"\n    ]\n  },\n  {\n    \"sha1\": \"7702ed8647\",\n    \"candidate_calls\": [\n      \"candidate('O')\"\n    ],\n    \"assertions\": [\n      \"candidate('O') == expected('O')\"\n    ]\n  },\n  {\n    \"sha1\": \"bb272cbe0a\",\n    \"candidate_calls\": [\n      \"candidate('U')\"\n    ],\n    \"assertions\": [\n      \"candidate('U') == 'A'\"\n    ]\n  },\n  {\n    \"sha1\": \"dcd296bef1\",\n    \"candidate_calls\": [\n      \"candidate('z')\"\n    ],\n    \"assertions\": [\n      \"res == 'b'\"\n    ]\n  }\n]\n</accepted_test_digest>\n\n<attempt_context>\nRefinement attempt 4. Feedback: {\n  \"previous_attempt\": {\n    \"attempt\": 3,\n    \"target_count\": 1,\n    \"target_kills\": 1,\n    \"new_kills\": 2,\n    \"cumulative_kills\": 23,\n    \"status\": \"PRODUCTIVE\",\n    \"failure_category\": \"NONE\",\n    \"error\": \"\",\n    \"candidate_calls\": [\n      \"candidate('z')\"\n    ],\n    \"assertions\": [\n      \"res == 'b'\"\n    ],\n    \"tokens\": 2929\n  },\n  \"remaining_mutants\": 2,\n  \"instruction\": \"Use a different semantic boundary and avoid prior-test digest cases.\"\n}\n</attempt_context>\n\n<targets>\nFixed initial partition, reused unmodified. A killed representative's\ndossier below is its cluster's next-most-informative live member instead.\n\n[\n  {\n    \"representative_id\": \"EvoEval_creative_37:m022:CONSTANT_CHANGE:8944fcef34\",\n    \"operator\": \"CONSTANT_CHANGE\",\n    \"change_description\": \"constant 21 -> 22\",\n    \"exact_diff\": \"--- canonical\\n+++ EvoEval_creative_37:m022:CONSTANT_CHANGE:8944fcef34\\n@@ -27,7 +27,7 @@\\n         elif char in consonants_lower:\\n             transformed += consonants_lower[(consonants_lower.index(char) + 1) % 21]\\n         elif char in consonants_upper:\\n-            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 21]\\n+            transformed += consonants_upper[(consonants_upper.index(char) + 1) % 22]\\n         else:\\n             transformed += char\\n     return transformed\",\n    \"probe_evidence\": [\n      {\n        \"note\": \"no divergence across 6 existing probes; derive a new distinguishing input from the diff instead\"\n      }\n    ],\n    \"equivalence_status\": \"UNKNOWN\"\n  }\n]\n</targets>\n\n<rules>\nR1. Define exactly one `def check(candidate):`.\nR2. Call `candidate(...)` only with concrete, in-domain inputs.\nR3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.\nR4. Never guess an expected output; use the spec or a probe's `canonical_value`.\nR5. If a target's `probe_evidence` is empty or all \"same\", derive a new input from its `exact_diff`.\nR6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).\nR7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.\nR8. Pass on the canonical implementation; include only targets you're confident about.\nR9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.\nR10. Check <layer1_handoff> first; your input must differ from what already failed there.\nR11. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.\n</rules>\n\n<reasoning_steps>\nSilently, before writing code:\n1. Read the handoff; note what already failed per target.\n2. Per target, find one untested input where canonical and mutant diverge,\n   sourced from the spec or a probe value -- never guessed.\n3. Drop any target you can't back with a concrete input.\nOutput only the final function.\n</reasoning_steps>\n\n<output_contract>\nReturn one complete Python function with this exact signature:\n\ndef check(candidate):\n    ...\n\nFollow every rule in <rules>. Output only the function -- no fences, no\nexplanation, no partial code.\n</output_contract>\n",
+      "response": "def check(candidate):\n    res = candidate('Z')\n    assert res == 'B'",
+      "extracted_test": "def check(candidate):\n    res = candidate('Z')\n    assert res == 'B'",
+      "passed_on_original": true,
+      "killed_mutants": 2,
+      "surviving_mutants": 0,
+      "status": "PRODUCTIVE",
+      "error": "",
+      "attempt": 4,
+      "target_count": 1,
+      "target_kills": 1,
+      "new_kills": 2,
+      "cumulative_kills": 25,
+      "cumulative_score": 1.0,
+      "prompt_chars": 7078,
+      "response_chars": 68,
+      "validation_reason": "",
+      "batch_mode": true
+    }
+  ],
+  "benchmark": {
+    "problem_id": "EvoEval_creative/37",
+    "cluse_mutation_score": 1.0,
+    "official_mutation_score": 1.0,
+    "cluse_killed": 25,
+    "official_killed": 25,
+    "total_mutants": 25,
+    "kill_agreement_accuracy": 1.0,
+    "kill_precision": 1.0,
+    "kill_recall": 1.0,
+    "kill_f1": 1.0,
+    "cluse_wins": true,
+    "sanity_check_passed": true,
+    "sanity_check_notes": "Generated tests were validated on the canonical solution before acceptance",
+    "equivalent_mutants": 0,
+    "adjusted_total_mutants": 25,
+    "cluse_equivalent_adjusted_score": 1.0,
+    "official_equivalent_adjusted_score": 1.0
+  },
+  "paid_api_cost_usd": 0.01273475,
+  "paid_api_tokens": 12810,
+  "summary": {
+    "problem_id": "EvoEval_creative/37",
+    "dataset_name": "evoeval",
+    "dataset_subset": "creative",
+    "source_task_id": "EvoEval/37",
+    "parent_task_id": "HumanEval/37",
+    "final_score": 1.0,
+    "total_mutants": 25,
+    "killed_mutants": 25,
+    "surviving_mutants": 0,
+    "total_tokens": 24004,
+    "paid_api_tokens": 12810,
+    "prompt_tokens": 17579,
+    "completion_tokens": 1369,
+    "thoughts_tokens": 5056,
+    "estimated_cost_usd": 0.01273475,
+    "paid_api_cost_usd": 0.01273475,
+    "layer1_tokens": 11194,
+    "layer1_cost_usd": 0.0,
+    "layer1_calls": 3,
+    "layer2_tokens": 12810,
+    "layer2_cost_usd": 0.01273475,
+    "layer2_calls": 4,
+    "layer3_tokens": 0,
+    "layer3_cost_usd": 0,
+    "layer3_calls": 0,
+    "generated_tests": 5,
+    "llm_calls": 7,
+    "productive_calls": 5,
+    "invalid_calls": 0,
+    "zero_kill_calls": 2,
+    "prompt_chars": 69681,
+    "response_chars": 4233,
+    "runtime_sec": 217.228,
+    "providers": "hf,openai",
+    "models": "Qwen/Qwen2.5-Coder-3B-Instruct,gpt-5-mini",
+    "official_score": 1.0,
+    "official_killed": 25,
+    "equivalent_mutants": 0,
+    "equivalent_adjusted_score": 1.0,
+    "official_equivalent_adjusted_score": 1.0,
+    "kill_agreement_accuracy": 1.0,
+    "kill_precision": 1.0,
+    "kill_recall": 1.0,
+    "kill_f1": 1.0,
+    "sanity_passed": true
+  }
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_46:m000:NEGATE_CONDITION:7d73933e48",
+    "problem_id": "EvoEval_creative/46",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 28,
+    "mutated_source": "def hidden_message(test_cases):\n    \"\"\"\n    Covert Agent X has a unique way of encrypting secret messages for others \n    to decipher. He encrypts his messages by providing strings of words, where \n    the first letter of each word (when pieced together) forms a secret message.\n\n    Your task is to write a function that takes in a group of test cases, \n    and returns the secret message from each test case.\n\n    Each test case is a list of strings. The function should return a list of strings,\n    where each string is a secret message decoded from a test case.\n    If the secret message can be found within the original strings, the secret message is now \"Take the cannoli.\"\n\n    Note: \n    - Words may have symbols next to them, but these should be ignored.\n    - Return the message in lowercase\n\n    Examples:\n    hidden_message([['Hello, world!', 'okay?'], ['Every', 'good', 'boy', 'does', 'fine']]) -> ['ho', 'egbdf']\n    hidden_message([['apple'], ['Banana', 'grape', 'kiwi', 'melon']]) -> ['Take the cannoli.', 'bgkm']\n    hidden_message([['This', 'is', '?a', 'test', 'case??'], ['hi']]) -> ['tiatc', 'Take the cannoli.']\n    \"\"\"\n    result = []\n    for test_case in test_cases:\n        message = ''\n        for word in test_case:\n            for c in word:\n                if not c.isalpha():\n                    message += c.lower()\n                    break\n        if message in ' '.join(test_case).lower():\n            result.append('Take the cannoli.')\n        else:\n            result.append(message)\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_46:m001:NEGATE_CONDITION:e0469397a5",
+    "problem_id": "EvoEval_creative/46",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 31,
+    "mutated_source": "def hidden_message(test_cases):\n    \"\"\"\n    Covert Agent X has a unique way of encrypting secret messages for others \n    to decipher. He encrypts his messages by providing strings of words, where \n    the first letter of each word (when pieced together) forms a secret message.\n\n    Your task is to write a function that takes in a group of test cases, \n    and returns the secret message from each test case.\n\n    Each test case is a list of strings. The function should return a list of strings,\n    where each string is a secret message decoded from a test case.\n    If the secret message can be found within the original strings, the secret message is now \"Take the cannoli.\"\n\n    Note: \n    - Words may have symbols next to them, but these should be ignored.\n    - Return the message in lowercase\n\n    Examples:\n    hidden_message([['Hello, world!', 'okay?'], ['Every', 'good', 'boy', 'does', 'fine']]) -> ['ho', 'egbdf']\n    hidden_message([['apple'], ['Banana', 'grape', 'kiwi', 'melon']]) -> ['Take the cannoli.', 'bgkm']\n    hidden_message([['This', 'is', '?a', 'test', 'case??'], ['hi']]) -> ['tiatc', 'Take the cannoli.']\n    \"\"\"\n    result = []\n    for test_case in test_cases:\n        message = ''\n        for word in test_case:\n            for c in word:\n                if c.isalpha():\n                    message += c.lower()\n                    break\n        if not message in ' '.join(test_case).lower():\n            result.append('Take the cannoli.')\n        else:\n            result.append(message)\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_46:m002:MEMBERSHIP_FLIP:4f23db1213",
+    "problem_id": "EvoEval_creative/46",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 31,
+    "mutated_source": "def hidden_message(test_cases):\n    \"\"\"\n    Covert Agent X has a unique way of encrypting secret messages for others \n    to decipher. He encrypts his messages by providing strings of words, where \n    the first letter of each word (when pieced together) forms a secret message.\n\n    Your task is to write a function that takes in a group of test cases, \n    and returns the secret message from each test case.\n\n    Each test case is a list of strings. The function should return a list of strings,\n    where each string is a secret message decoded from a test case.\n    If the secret message can be found within the original strings, the secret message is now \"Take the cannoli.\"\n\n    Note: \n    - Words may have symbols next to them, but these should be ignored.\n    - Return the message in lowercase\n\n    Examples:\n    hidden_message([['Hello, world!', 'okay?'], ['Every', 'good', 'boy', 'does', 'fine']]) -> ['ho', 'egbdf']\n    hidden_message([['apple'], ['Banana', 'grape', 'kiwi', 'melon']]) -> ['Take the cannoli.', 'bgkm']\n    hidden_message([['This', 'is', '?a', 'test', 'case??'], ['hi']]) -> ['tiatc', 'Take the cannoli.']\n    \"\"\"\n    result = []\n    for test_case in test_cases:\n        message = ''\n        for word in test_case:\n            for c in word:\n                if c.isalpha():\n                    message += c.lower()\n                    break\n        if message not in ' '.join(test_case).lower():\n            result.append('Take the cannoli.')\n        else:\n            result.append(message)\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": 2,
+    "centrality": 1.0,
+    "information_score": 0.591651,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_46:m003:RETURN_VALUE_CHANGE:b5666afc9f",
+    "problem_id": "EvoEval_creative/46",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 35,
+    "mutated_source": "def hidden_message(test_cases):\n    \"\"\"\n    Covert Agent X has a unique way of encrypting secret messages for others \n    to decipher. He encrypts his messages by providing strings of words, where \n    the first letter of each word (when pieced together) forms a secret message.\n\n    Your task is to write a function that takes in a group of test cases, \n    and returns the secret message from each test case.\n\n    Each test case is a list of strings. The function should return a list of strings,\n    where each string is a secret message decoded from a test case.\n    If the secret message can be found within the original strings, the secret message is now \"Take the cannoli.\"\n\n    Note: \n    - Words may have symbols next to them, but these should be ignored.\n    - Return the message in lowercase\n\n    Examples:\n    hidden_message([['Hello, world!', 'okay?'], ['Every', 'good', 'boy', 'does', 'fine']]) -> ['ho', 'egbdf']\n    hidden_message([['apple'], ['Banana', 'grape', 'kiwi', 'melon']]) -> ['Take the cannoli.', 'bgkm']\n    hidden_message([['This', 'is', '?a', 'test', 'case??'], ['hi']]) -> ['tiatc', 'Take the cannoli.']\n    \"\"\"\n    result = []\n    for test_case in test_cases:\n        message = ''\n        for word in test_case:\n            for c in word:\n                if c.isalpha():\n                    message += c.lower()\n                    break\n        if message in ' '.join(test_case).lower():\n            result.append('Take the cannoli.')\n        else:\n            result.append(message)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_46:m004:RETURN_VALUE_CHANGE:1ace2e1c2e",
+    "problem_id": "EvoEval_creative/46",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 35,
+    "mutated_source": "def hidden_message(test_cases):\n    \"\"\"\n    Covert Agent X has a unique way of encrypting secret messages for others \n    to decipher. He encrypts his messages by providing strings of words, where \n    the first letter of each word (when pieced together) forms a secret message.\n\n    Your task is to write a function that takes in a group of test cases, \n    and returns the secret message from each test case.\n\n    Each test case is a list of strings. The function should return a list of strings,\n    where each string is a secret message decoded from a test case.\n    If the secret message can be found within the original strings, the secret message is now \"Take the cannoli.\"\n\n    Note: \n    - Words may have symbols next to them, but these should be ignored.\n    - Return the message in lowercase\n\n    Examples:\n    hidden_message([['Hello, world!', 'okay?'], ['Every', 'good', 'boy', 'does', 'fine']]) -> ['ho', 'egbdf']\n    hidden_message([['apple'], ['Banana', 'grape', 'kiwi', 'melon']]) -> ['Take the cannoli.', 'bgkm']\n    hidden_message([['This', 'is', '?a', 'test', 'case??'], ['hi']]) -> ['tiatc', 'Take the cannoli.']\n    \"\"\"\n    result = []\n    for test_case in test_cases:\n        message = ''\n        for word in test_case:\n            for c in word:\n                if c.isalpha():\n                    message += c.lower()\n                    break\n        if message in ' '.join(test_case).lower():\n            result.append('Take the cannoli.')\n        else:\n            result.append(message)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.605566,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

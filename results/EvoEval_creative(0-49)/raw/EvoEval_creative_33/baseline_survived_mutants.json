@@ -1,0 +1,52 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_33:m005:RETURN_VALUE_CHANGE:d29b7a6e14",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 28,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return False\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 1)]\n    return dp(n)",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_33:m022:CONSTANT_CHANGE:17517337d2",
+    "problem_id": "EvoEval_creative/33",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 36,
+    "mutated_source": "def magical_staircase(n: int, magic_stones: list):\n    \"\"\"\n    Imagine a magical staircase with 'n' steps, and a collection of magic stones. Each magic stone has a unique power\n    that allows the user to jump a certain number of steps in a single bound.\n    For example, if there's a magic stone that has a power of 2, you can jump 2 steps at once instead of 1 step.\n\n    Provided with the number of steps 'n' and a list of the powers of magic stones available, \n    return the number of distinct ways you can reach the top of the staircase. Assume you start from the bottom of the staircase.\n\n    The magic_stones list contains positive integers, and n is a positive integer.\n\n    Example:\n    >>> magical_staircase(4, [1, 2])\n    5\n    Explanation: There are 5 distinct ways to reach the top of the staircase:\n    - Jump 1 step, jump 1 step, jump 1 step, jump 1 step\n    - Jump 1 step, jump 1 step, jump 2 steps\n    - Jump 1 step, jump 2 steps, jump 1 step\n    - Jump 2 steps, jump 1 step, jump 1 step\n    - Jump 2 steps, jump 2 steps\n\n    >>> magical_staircase(10, [1, 2, 5])\n    128\n    Explanation: There are 128 distinct ways to reach the top of the staircase.\n    \"\"\"\n\n    def dp(n):\n        if n < 0:\n            return 0\n        if n == 0:\n            return 1\n        if memo[n] != -1:\n            return memo[n]\n        memo[n] = sum([dp(n - stone) for stone in magic_stones])\n        return memo[n]\n    memo = [-1 for _ in range(n + 2)]\n    return dp(n)",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

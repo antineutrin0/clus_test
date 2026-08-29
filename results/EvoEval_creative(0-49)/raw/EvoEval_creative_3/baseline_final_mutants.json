@@ -1,0 +1,623 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_3:m000:NEGATE_CONDITION:78fcadffd3",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 18,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if not len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m001:COMPARISON_FLIP:8fad52dd5d",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 18,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) != 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m002:CONSTANT_CHANGE:56e2eba86f",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 18,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == -1:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m003:INDEX_BOUNDARY:9c3df5b3e0",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 0 -> -1",
+    "line_number": 21,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[-1]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m005:COMPARISON_FLIP:e75c74de65",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "COMPARISON_FLIP",
+    "description": "NotEq -> Eq",
+    "line_number": 22,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first == '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m006:ARITHMETIC_FLIP:ed1f337bc1",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 23,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data - chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m007:CONSTANT_CHANGE:8fe4bf9475",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 96 -> 97",
+    "line_number": 23,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 97), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m008:CONSTANT_CHANGE:a7e163a33b",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 96 -> 0",
+    "line_number": 23,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 0), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m009:CONSTANT_CHANGE:9364418a55",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 23,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[2:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m010:NEGATE_CONDITION:e84a6c3e5a",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 24,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if not len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m011:BOUNDARY_SHIFT:9ddfec021e",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 24,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) >= 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m012:CONSTANT_CHANGE:eff79e696e",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 24,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 0:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m013:INDEX_BOUNDARY:ff77ea25b4",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "INDEX_BOUNDARY",
+    "description": "index 1 -> 0",
+    "line_number": 25,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[0]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Subscript",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m015:BOOLEAN_FLIP:afffb2f6c9",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "BOOLEAN_FLIP",
+    "description": "Or -> And",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' and (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m016:BOOLEAN_FLIP:cefcea3721",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "BOOLEAN_FLIP",
+    "description": "And -> Or",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' or second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "BoolOp",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m017:COMPARISON_FLIP:8f00710cd7",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "COMPARISON_FLIP",
+    "description": "LtE -> GtE",
+    "line_number": 26,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second >= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Compare",
+    "parent_node_type": "BoolOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m018:ARGUMENT_SWAP:67a3643564",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(k[2:], data + chr(int(first + second) + 96), result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Call",
+    "parent_node_type": "Expr",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m019:ARITHMETIC_FLIP:28b4ee055b",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) - 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m020:CONSTANT_CHANGE:cf3890f592",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 96 -> 97",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 97), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m021:CONSTANT_CHANGE:ecec6d9024",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 96 -> 0",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 0), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m022:CONSTANT_CHANGE:7cf30e5a85",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 3",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[3:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m023:CONSTANT_CHANGE:7a7c449898",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 0",
+    "line_number": 27,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[0:], result)\n    result = []\n    helper('', input_string, result)\n    return result",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_3:m024:RETURN_VALUE_CHANGE:4aba9ed147",
+    "problem_id": "EvoEval_creative/3",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 31,
+    "mutated_source": "from typing import List\n\ndef magical_alphabet(input_string: str) -> List[int]:\n    \"\"\" \n    Given a string where 'a' represents '1', 'b' represents '2', 'c' represents '3' ... 'z' represents '26'. \n    This function should return a list of all possible combinations based on the interpretation of the input string. \n    For example, if input is '123', it should return ['abc', 'lc', 'aw'] which represents ['1,2,3', '12,3', '1,23'].\n\n    >>> magical_alphabet('123')\n    ['abc', 'lc', 'aw']\n    \n    >>> magical_alphabet('111')\n    ['aaa', 'ak', 'ka']\n    \n    Note: Assume all input strings will only contain digits\n    \"\"\"\n\n    def helper(data, k, result):\n        if len(k) == 0:\n            result.append(data)\n        else:\n            first = k[0]\n            if first != '0':\n                helper(data + chr(int(first) + 96), k[1:], result)\n            if len(k) > 1:\n                second = k[1]\n                if first == '1' or (first == '2' and second <= '6'):\n                    helper(data + chr(int(first + second) + 96), k[2:], result)\n    result = []\n    helper('', input_string, result)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

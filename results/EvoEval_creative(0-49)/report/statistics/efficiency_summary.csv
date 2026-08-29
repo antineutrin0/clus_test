@@ -1,0 +1,3 @@
+method,total_tokens,total_paid_tokens,total_llm_calls,total_runtime_sec,total_estimated_cost_usd,total_killed_mutants,tokens_per_killed_mutant,paid_tokens_per_killed_mutant,runtime_sec_per_killed_mutant,cost_usd_per_killed_mutant,calls_per_task
+proposed,762445,360972,198,5010.6282,1.21249925,811,940.1295,445.0949,6.178333,0.00149507,3.96
+baseline,741856,741856,96,5047.733,3.89472125,793,935.5057,935.5057,6.365363,0.00491138,1.92

@@ -1,0 +1,164 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_27:m000:RETURN_VALUE_CHANGE:261438024e",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_27:m001:RETURN_VALUE_CHANGE:4c369da508",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_27:m002:ARITHMETIC_FLIP:b3c19a2f4c",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return [s[i:i - n] for i in range(0, len(s), n)]",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_27:m003:ARGUMENT_SWAP:8512577192",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return [s[i:i + n] for i in range(len(s), 0, n)]",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_27:m004:RANGE_BOUNDARY:4c4c0f2cc5",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 0 -> 1",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return [s[i:i + n] for i in range(1, len(s), n)]",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_27:m005:RANGE_BOUNDARY:d9c594df57",
+    "problem_id": "EvoEval_creative/27",
+    "operator": "RANGE_BOUNDARY",
+    "description": "range arg 0: 0 -> -1",
+    "line_number": 12,
+    "mutated_source": "def split_strings(s: str, n: int):\n    \"\"\"Return a list of n-character long strings created from the input string s.\n    If the length of s isn't a multiple of n, the remaining characters are added as the \n    last element of the returned list.\n\n    >>> split_strings('HelloWorld', 3)\n    ['Hel', 'loW', 'orl', 'd']\n    >>> split_strings('CodingIsFun', 5)\n    ['Codin', 'gIsFu', 'n']\n    \"\"\"\n    return [s[i:i + n] for i in range(-1, len(s), n)]",
+    "ast_node_type": "Call",
+    "parent_node_type": "comprehension",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

@@ -1,0 +1,652 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_22:m000:ARITHMETIC_FLIP:36fc0a1b63",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Div -> Mult",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 * (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m001:CONSTANT_CHANGE:b489a3e181",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 2 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m002:CONSTANT_CHANGE:906774b058",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 0 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m003:ARITHMETIC_FLIP:5caab95e40",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 / 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m004:CONSTANT_CHANGE:ee22d08d9a",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 9.461 -> 8.461",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (8.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m005:ARITHMETIC_FLIP:b0e142b2d6",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Pow -> Mult",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * (10 * 12))\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m006:CONSTANT_CHANGE:8922af24b9",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10 -> 11",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 11 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m007:CONSTANT_CHANGE:b9dccb67da",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 10 -> 0",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 0 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m008:CONSTANT_CHANGE:7fb83779e3",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 12 -> 13",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 13)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m009:CONSTANT_CHANGE:6dba3d9ffe",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 12 -> 11",
+    "line_number": 9,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 11)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m010:ARITHMETIC_FLIP:281565ffb8",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 / 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m011:ARITHMETIC_FLIP:1d225cae4b",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 / 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m012:ARITHMETIC_FLIP:32dc98f903",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 / 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m013:ARITHMETIC_FLIP:1f3c3e5f69",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t / v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m014:CONSTANT_CHANGE:ac5129bf90",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 60 -> 61",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 61 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m015:CONSTANT_CHANGE:19ec7e08fc",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 60 -> 59",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 59 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m016:CONSTANT_CHANGE:8c0ef6d058",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 60 -> 61",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 61 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m017:CONSTANT_CHANGE:8a053ed75c",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 60 -> 59",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 59 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m018:CONSTANT_CHANGE:65c189d348",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 60 -> 0",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 0 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m019:CONSTANT_CHANGE:441fa75f23",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 24 -> 23",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 23 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m020:CONSTANT_CHANGE:720e61ca2c",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 24 -> 0",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 0 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m021:CONSTANT_CHANGE:ce5aaa97a6",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 365 -> 366",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 366\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m022:CONSTANT_CHANGE:c34db56832",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 365 -> 0",
+    "line_number": 12,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 0\n    distance_light_years = distance_km * km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m023:ARITHMETIC_FLIP:ddc6510254",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 15,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km / km_to_light_years\n    return distance_light_years",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_22:m024:RETURN_VALUE_CHANGE:377f716829",
+    "problem_id": "EvoEval_creative/22",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 17,
+    "mutated_source": "def galactic_travel(t, v):\n    \"\"\"Given the time (t) in years and average velocity (v) in km/s, calculate the distance traveled in light years in a galaxy far, far away.\n    Assume that 1 light year is approximately 9.461 x 10^12 km.\n\n    >>> galactic_travel(1, 300000)\n    0.9999788605855617\n    \"\"\"\n    km_to_light_years = 1 / (9.461 * 10 ** 12)\n    distance_km = t * v * 60 * 60 * 24 * 365\n    distance_light_years = distance_km * km_to_light_years\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

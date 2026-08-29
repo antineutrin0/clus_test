@@ -1,0 +1,88 @@
+<role>
+Layer 3 (final escalation) in Claus-Test -- most capable, most expensive
+stage, reserved for mutants two cheaper layers could not resolve. Return
+exactly one Python test function.
+</role>
+
+<objective>
+For each target: either find a concrete input where canonical and mutant
+provably diverge and kill it, or decide it is very likely equivalent and
+omit it. A function killing fewer targets correctly beats one with a single
+guessed assertion -- a wrong guess forfeits the whole function's credit.
+</objective>
+
+<task_information>
+Problem ID:{id}
+Dataset: evoeval
+Dataset subset: {subset_name}
+Entry point: {entry_point}
+Available/required libraries: standard environment
+
+Natural-language specification:
+Check if in given list of numbers, are any two adjacent numbers closer to each other than
+given threshold.
+</task_information>
+
+<canonical_implementation>
+
+{canonical_implementation}
+
+</canonical_implementation>
+
+<pipeline_handoff>
+
+{previous_layer_feedback}
+
+</pipeline_handoff>
+
+<accepted_test_digest>
+Already accepted -- do not reproduce these exact calls/assertions.
+
+{accepted_test_digest}
+
+</accepted_test_digest>
+
+<targets>
+Hardest survivors -- two cheaper layers already failed. `equivalence_status`
+is a strong prior, not a guarantee: confirm or challenge it against the diff
+and probe evidence rather than accepting or dismissing it blindly.
+
+{representatives}
+
+</targets>
+
+<rules>
+R1. Define exactly one `def check(candidate):`.
+R2. Call `candidate(...)` only with concrete, in-domain inputs.
+R3. Base every `assert` on a real `candidate(...)` return value -- no vacuous asserts.
+R4. Never guess an expected output; use the spec or a probe's `canonical_value`.
+R5. If a target's `probe_evidence` is empty or all "same", derive a new input from its `exact_diff`.
+R6. Skip `TestCase`/`pytest` fixtures and inspecting `candidate` internals (AST, `__globals__`).
+R7. Avoid network/filesystem side effects; `random.seed`, `mock.patch`, `tempfile`, `math` are fine.
+R8. Pass on the canonical implementation; include only targets you're confident about.
+R9. Don't reproduce a call/assertion already in `<accepted_test_digest>`.
+R10. Check <pipeline_handoff>; your input must differ from every prior attempt shown there.
+R11. Weigh `equivalence_status`/`equivalence_reason` against `exact_diff`; omit a target rather than guess.
+R12. Accept non-value kill signals too: an exception, a timeout, or divergence under a seeded `random.seed` or a mock.
+R13. Output only the raw Python function. No Markdown fences, no prose, no `print`, no trailing `return True`, no truncation or abbreviation.
+</rules>
+
+<reasoning_steps>
+Silently, before writing code:
+1. Read the handoff; note what already failed per target.
+2. Per target, find one untested input where canonical and mutant diverge,
+   sourced from the spec or a probe value -- never guessed.
+3. Drop any target you can't back with a concrete input.
+Output only the final function.
+</reasoning_steps>
+
+<output_contract>
+Return one complete Python function with this exact signature:
+
+def check(candidate):
+    ...
+
+Follow every rule in <rules>. Output only the function -- no fences, no
+explanation, no partial code.
+</output_contract>
+

@@ -1,0 +1,488 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_43:m000:ARITHMETIC_FLIP:1a3fa3e9de",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 15,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity / 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m001:ARITHMETIC_FLIP:6b637b3c90",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 15,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight / planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m002:CONSTANT_CHANGE:b39e730b88",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0.1 -> 1.1",
+    "line_number": 15,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 1.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m003:CONSTANT_CHANGE:fb3046631c",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0.1 -> -0.9",
+    "line_number": 15,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * -0.9\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m004:ARITHMETIC_FLIP:34324a38b0",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Div -> Mult",
+    "line_number": 16,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance * speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m005:ARITHMETIC_FLIP:9b86181e5d",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mult -> Div",
+    "line_number": 17,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration / fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m006:NEGATE_CONDITION:686f74f38e",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 19,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if not total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m007:COMPARISON_FLIP:94347e177e",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "COMPARISON_FLIP",
+    "description": "Gt -> Lt",
+    "line_number": 19,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption < fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m008:BOUNDARY_SHIFT:656c49e0fa",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Gt -> GtE",
+    "line_number": 19,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption >= fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m009:RETURN_VALUE_CHANGE:58240152a2",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 20,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return None\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m010:RETURN_VALUE_CHANGE:346f72696d",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 20,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return False\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "Return",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m011:ARGUMENT_SWAP:d6e30e99ba",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 22,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(2, fuel - total_fuel_consumption)\n    return remaining_fuel",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m012:ARITHMETIC_FLIP:7929937d6b",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Sub -> Add",
+    "line_number": 22,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel + total_fuel_consumption, 2)\n    return remaining_fuel",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m013:CONSTANT_CHANGE:f8ff140a9b",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 3",
+    "line_number": 22,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 3)\n    return remaining_fuel",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m014:CONSTANT_CHANGE:8cc6e5dee2",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 1",
+    "line_number": 22,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 1)\n    return remaining_fuel",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m015:CONSTANT_CHANGE:ad23e8f30e",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 2 -> 0",
+    "line_number": 22,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 0)\n    return remaining_fuel",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m016:RETURN_VALUE_CHANGE:4b6db419dd",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 23,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_43:m017:RETURN_VALUE_CHANGE:15db831d19",
+    "problem_id": "EvoEval_creative/43",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def space_travel(distance, speed, fuel, planet_gravity, spaceship_weight):\n    \"\"\"\n    Given the distance of a planet from Earth in light years, the speed of the spaceship in light years per year, the amount of fuel in the spaceship in years, the gravity of the planet and the weight of the spaceship.\n    Fuel consumption is computed as spaceship_weight * planet_gravity * 0.1 per year.\n    Return the remaining fuel rounded to 2 decimal points once the spaceship reaches the planet, if it is possible for the spaceship to reach the planet.\n    Otherwise, return 'Insufficient fuel'.\n    The spaceship can reach the planet if the amount of fuel is greater than or equal to the duration of the trip (distance divided by speed).\n    The remaining fuel is calculated by subtracting the fuel consumption of the trip from the initial amount of fuel.\n    Note: The spaceship travels at a constant speed and the fuel consumption is constant unless otherwise mentioned.\n\n    Example:\n    space_travel(4.22, 0.5, 10, 9.8, 100) returns 'Insufficient fuel'\n    space_travel(2.5, 1, 2, 3.7, 1.5) returns 0.61\n    \"\"\"\n    fuel_consumption_per_year = spaceship_weight * planet_gravity * 0.1\n    trip_duration = distance / speed\n    total_fuel_consumption = trip_duration * fuel_consumption_per_year\n    if total_fuel_consumption > fuel:\n        return 'Insufficient fuel'\n    remaining_fuel = round(fuel - total_fuel_consumption, 2)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

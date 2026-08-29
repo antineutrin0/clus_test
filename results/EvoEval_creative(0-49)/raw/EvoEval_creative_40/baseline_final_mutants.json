@@ -1,0 +1,567 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_40:m000:NEGATE_CONDITION:42bdcab2ce",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if not target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m001:COMPARISON_FLIP:ffc282c7ae",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "COMPARISON_FLIP",
+    "description": "Lt -> Gt",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target > 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m002:BOUNDARY_SHIFT:16d761aa23",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "BOUNDARY_SHIFT",
+    "description": "Lt -> LtE",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target <= 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m003:CONSTANT_CHANGE:486fe80a1b",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 1:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m004:CONSTANT_CHANGE:8ad0090445",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 22,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < -1:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "SURVIVED",
+    "kill_tests": [],
+    "behavior_signature": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m005:NEGATE_CONDITION:dd720533c4",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 24,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if not target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "If",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m006:COMPARISON_FLIP:3efb4fe641",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "COMPARISON_FLIP",
+    "description": "Eq -> NotEq",
+    "line_number": 24,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target != 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m007:CONSTANT_CHANGE:e8bfa91494",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> 1",
+    "line_number": 24,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 1:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m008:CONSTANT_CHANGE:ccb7d28020",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 0 -> -1",
+    "line_number": 24,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == -1:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Compare",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m009:ARGUMENT_SWAP:fe4c487616",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 28,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(1, ' ')\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Call",
+    "parent_node_type": "Assign",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m010:CONSTANT_CHANGE:fe28e91f5e",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 28,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 2)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m011:CONSTANT_CHANGE:e21edb1243",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 28,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 0)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m012:ARGUMENT_SWAP:79b9e1cba4",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(target - int(power), potions[i + 1:], path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Call",
+    "parent_node_type": "Expr",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m013:ARITHMETIC_FLIP:2241b0258e",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i - 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Slice",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m014:CONSTANT_CHANGE:28bb65f82e",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 2:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m015:CONSTANT_CHANGE:098c198dfc",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 0:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m016:ARITHMETIC_FLIP:e5abdaff64",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Sub -> Add",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target + int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m017:ARITHMETIC_FLIP:fdaa110651",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 29,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path - [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Call",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m018:ARGUMENT_SWAP:f69a356293",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "ARGUMENT_SWAP",
+    "description": "swap first two call arguments",
+    "line_number": 32,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(target, potions, [], result)\n    return min(result, key=lambda path: (len(path), ''.join(path))) if result else []",
+    "ast_node_type": "Call",
+    "parent_node_type": "Expr",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m019:RETURN_VALUE_CHANGE:9a638554b8",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 33,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_40:m020:RETURN_VALUE_CHANGE:c133489cd0",
+    "problem_id": "EvoEval_creative/40",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 33,
+    "mutated_source": "def potion_mixing(potions, target):\n    \"\"\"\n    In this task, you are a wizard who is trying to create a magic potion. You have a list of\n    potions, each represented by a string. Each string represents the potion's name, followed by\n    the potion's power level (an integer). You are given a target power level that you need to reach\n    by mixing potions. Your task is to return a list of potions that you need to mix to reach the\n    target power level. If it is not possible to reach the target power level with the given potions,\n    return an empty list. You can use each potion only once.\n    If there are multiple ways to reach the target power level, return the one with the smallest number\n    of potions. If there's still a tie, return the one with smallest alphebetical order sorted by the\n    concatenation of the string representations of the potions.\n    The potion's power levels will always be positive integers.\n    Return the potions in ascending order.\n\n    Example:\n    potion_mixing([\"Healing Potion 10\", \"Strength Potion 5\", \"Invisibility Potion 7\"], 15) -> [\"Healing Potion 10\", \"Strength Potion 5\"]\n    potion_mixing([\"Luck Potion 3\", \"Wisdom Potion 8\", \"Fire Resistance Potion 12\"], 20) -> ['Fire Resistance Potion 12', 'Wisdom Potion 8']\n    potion_mixing([\"Poison Potion 2\", \"Water Breathing Potion 6\", \"Night Vision Potion 5\"], 10) -> []\n    potion_mixing([\"Potion of Swiftness 3\", \"Potion of Leaping 2\", \"Potion of Harming 10\"], 1) -> []\n    \"\"\"\n\n    def helper(potions, target, path, result):\n        if target < 0:\n            return\n        if target == 0:\n            result.append(sorted(path))\n            return\n        for i in range(len(potions)):\n            potion, power = potions[i].rsplit(' ', 1)\n            helper(potions[i + 1:], target - int(power), path + [potions[i]], result)\n    result = []\n    helper(potions, target, [], result)\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Baseline:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "cluster_id": null,
+    "centrality": null,
+    "information_score": null,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]

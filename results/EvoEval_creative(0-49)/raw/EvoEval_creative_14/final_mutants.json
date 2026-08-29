@@ -1,0 +1,366 @@
+[
+  {
+    "mutant_id": "EvoEval_creative_14:m000:NEGATE_CONDITION:746866eb2b",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 15,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if not char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "If",
+    "parent_node_type": "For",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m001:MEMBERSHIP_FLIP:d2f5ffb3ac",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 15,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() not in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m002:ARITHMETIC_FLIP:d63a76a439",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 16,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) * len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Subscript",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m003:ARITHMETIC_FLIP:f58a596fda",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 16,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) - 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m004:CONSTANT_CHANGE:5524cd264e",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 16,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 2) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m005:CONSTANT_CHANGE:4fccd57ff2",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 16,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 0) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 0.0,
+    "information_score": 0.55884,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m006:NEGATE_CONDITION:6ecacfd434",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "NEGATE_CONDITION",
+    "description": "if <cond> -> if not (<cond>)",
+    "line_number": 18,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif not char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "If",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 2,
+    "centrality": 0.0,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m007:MEMBERSHIP_FLIP:bafc5d69a9",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "MEMBERSHIP_FLIP",
+    "description": "In -> NotIn",
+    "line_number": 18,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() not in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Compare",
+    "parent_node_type": "If",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 4,
+    "centrality": 0.0,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m008:ARITHMETIC_FLIP:a5a9b1a37b",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Mod -> Mult",
+    "line_number": 19,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) * len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "Subscript",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m009:ARITHMETIC_FLIP:a29c3e8204",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "ARITHMETIC_FLIP",
+    "description": "Add -> Sub",
+    "line_number": 19,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) - 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "BinOp",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 0,
+    "centrality": 0.0,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m010:CONSTANT_CHANGE:37cfe3a6af",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 2",
+    "line_number": 19,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 2) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 1.1920928955078125e-07,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m011:CONSTANT_CHANGE:73aa1ddfc7",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "CONSTANT_CHANGE",
+    "description": "constant 1 -> 0",
+    "line_number": 19,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 0) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return alias",
+    "ast_node_type": "Constant",
+    "parent_node_type": "BinOp",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cluster_id": 1,
+    "centrality": 1.1920928955078125e-07,
+    "information_score": 0.608821,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m012:RETURN_VALUE_CHANGE:26dca7dc15",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return None",
+    "line_number": 23,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return None",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  },
+  {
+    "mutant_id": "EvoEval_creative_14:m013:RETURN_VALUE_CHANGE:3a039498f6",
+    "problem_id": "EvoEval_creative/14",
+    "operator": "RETURN_VALUE_CHANGE",
+    "description": "return <expr> -> return False",
+    "line_number": 23,
+    "mutated_source": "def create_alias(name: str) -> str:\n    \"\"\" For a given name, create an alias following these rules:\n        If the name includes a vowel, replace it with the next vowel in the cycle a->e->i->o->u->a. \n        If the name includes a consonant, replace it with the next consonant in alphabetical order, once 'z' is reached, loop back to 'b'.\n        The alias should maintain the original names case (upper or lower)\n        Ignore any non-alphabetical characters.\n\n    >>> create_alias('John Doe')\n    'Kujp Fui'\n    \"\"\"\n    vowels = 'aeiou'\n    consonants = 'bcdfghjklmnpqrstvwxyz'\n    alias = ''\n    for char in name:\n        if char.lower() in vowels:\n            next_vowel = vowels[(vowels.index(char.lower()) + 1) % len(vowels)]\n            alias += next_vowel.upper() if char.isupper() else next_vowel\n        elif char.lower() in consonants:\n            next_consonant = consonants[(consonants.index(char.lower()) + 1) % len(consonants)]\n            alias += next_consonant.upper() if char.isupper() else next_consonant\n        else:\n            alias += char\n    return False",
+    "ast_node_type": "Return",
+    "parent_node_type": "FunctionDef",
+    "status": "KILLED",
+    "kill_tests": [
+      "Layer1:generated"
+    ],
+    "behavior_signature": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cluster_id": 3,
+    "centrality": 0.0,
+    "information_score": 0.3,
+    "equivalence_status": "UNKNOWN",
+    "equivalence_reason": ""
+  }
+]
